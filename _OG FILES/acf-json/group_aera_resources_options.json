@@ -1,0 +1,502 @@
+{
+    "key": "group_aera_resources_options",
+    "title": "Resources Options",
+    "fields": [
+        {
+            "key": "field_resources_general",
+            "label": "General Settings",
+            "name": "resources_general",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_resources_posts_per_page",
+            "label": "Posts Per Page",
+            "name": "resources_posts_per_page",
+            "type": "number",
+            "instructions": "Number of posts to display per page on the Resources archive page.",
+            "required": false,
+            "default_value": 12,
+            "min": 1,
+            "max": 100,
+            "step": 1,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_resources_hero",
+            "label": "Resources Archive Hero",
+            "name": "resources_hero",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_resources_hero_title",
+            "label": "Hero Title",
+            "name": "resources_hero_title",
+            "type": "text",
+            "instructions": "Main title for the Resources archive page hero section.",
+            "required": false,
+            "default_value": "Resources",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_resources_hero_title_line_two",
+            "label": "Hero Title Line Two",
+            "name": "resources_hero_title_line_two",
+            "type": "text",
+            "instructions": "Optional second line for the hero title.",
+            "required": false,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_resources_hero_subtitle",
+            "label": "Hero Subtitle",
+            "name": "resources_hero_subtitle",
+            "type": "text",
+            "instructions": "Subtitle text for the hero section.",
+            "required": false,
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_resources_hero_text",
+            "label": "Hero Text",
+            "name": "resources_hero_text",
+            "type": "textarea",
+            "instructions": "Main description text for the hero section. Each line will create a new paragraph.",
+            "required": false,
+            "rows": 4,
+            "new_lines": "wpautop",
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_resources_hero_button_text",
+            "label": "Hero Button Text",
+            "name": "resources_hero_button_text",
+            "type": "text",
+            "instructions": "Text for the hero CTA button (optional).",
+            "required": false,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_resources_hero_button_link",
+            "label": "Hero Button Link",
+            "name": "resources_hero_button_link",
+            "type": "url",
+            "instructions": "URL for the hero CTA button.",
+            "required": false,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_resources_hero_button_text",
+                        "operator": "!empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_resources_news_tab",
+            "label": "News",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_resources_news_posts_per_page",
+            "label": "Posts Per Page",
+            "name": "resources_news_posts_per_page",
+            "type": "number",
+            "instructions": "Number of News posts to display per page.",
+            "required": false,
+            "default_value": 12,
+            "min": 1,
+            "max": 100,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_resources_news_hero_title",
+            "label": "Hero Title",
+            "name": "resources_news_hero_title",
+            "type": "text",
+            "instructions": "Hero title for News archive page.",
+            "required": false,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_resources_news_hero_text",
+            "label": "Hero Text",
+            "name": "resources_news_hero_text",
+            "type": "textarea",
+            "instructions": "Hero description text for News archive page.",
+            "required": false,
+            "rows": 3,
+            "new_lines": "wpautop",
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_resources_press_release_tab",
+            "label": "Press Releases",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_resources_press_release_posts_per_page",
+            "label": "Posts Per Page",
+            "name": "resources_press_release_posts_per_page",
+            "type": "number",
+            "instructions": "Number of Press Release posts to display per page.",
+            "required": false,
+            "default_value": 12,
+            "min": 1,
+            "max": 100,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_resources_press_release_hero_title",
+            "label": "Hero Title",
+            "name": "resources_press_release_hero_title",
+            "type": "text",
+            "instructions": "Hero title for Press Releases archive page.",
+            "required": false,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_resources_press_release_hero_text",
+            "label": "Hero Text",
+            "name": "resources_press_release_hero_text",
+            "type": "textarea",
+            "instructions": "Hero description text for Press Releases archive page.",
+            "required": false,
+            "rows": 3,
+            "new_lines": "wpautop",
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_resources_video_tab",
+            "label": "Videos",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_resources_video_posts_per_page",
+            "label": "Posts Per Page",
+            "name": "resources_video_posts_per_page",
+            "type": "number",
+            "instructions": "Number of Video posts to display per page.",
+            "required": false,
+            "default_value": 12,
+            "min": 1,
+            "max": 100,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_resources_video_hero_title",
+            "label": "Hero Title",
+            "name": "resources_video_hero_title",
+            "type": "text",
+            "instructions": "Hero title for Videos archive page.",
+            "required": false,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_resources_video_hero_text",
+            "label": "Hero Text",
+            "name": "resources_video_hero_text",
+            "type": "textarea",
+            "instructions": "Hero description text for Videos archive page.",
+            "required": false,
+            "rows": 3,
+            "new_lines": "wpautop",
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_resources_whitepaper_tab",
+            "label": "Whitepapers",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_resources_whitepaper_posts_per_page",
+            "label": "Posts Per Page",
+            "name": "resources_whitepaper_posts_per_page",
+            "type": "number",
+            "instructions": "Number of Whitepaper posts to display per page.",
+            "required": false,
+            "default_value": 12,
+            "min": 1,
+            "max": 100,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_resources_whitepaper_hero_title",
+            "label": "Hero Title",
+            "name": "resources_whitepaper_hero_title",
+            "type": "text",
+            "instructions": "Hero title for Whitepapers archive page.",
+            "required": false,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_resources_whitepaper_hero_text",
+            "label": "Hero Text",
+            "name": "resources_whitepaper_hero_text",
+            "type": "textarea",
+            "instructions": "Hero description text for Whitepapers archive page.",
+            "required": false,
+            "rows": 3,
+            "new_lines": "wpautop",
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_resources_blog_tab",
+            "label": "Blogs",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_resources_blog_posts_per_page",
+            "label": "Posts Per Page",
+            "name": "resources_blog_posts_per_page",
+            "type": "number",
+            "instructions": "Number of Blog posts to display per page.",
+            "required": false,
+            "default_value": 12,
+            "min": 1,
+            "max": 100,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_resources_blog_hero_title",
+            "label": "Hero Title",
+            "name": "resources_blog_hero_title",
+            "type": "text",
+            "instructions": "Hero title for Blogs archive page.",
+            "required": false,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_resources_blog_hero_text",
+            "label": "Hero Text",
+            "name": "resources_blog_hero_text",
+            "type": "textarea",
+            "instructions": "Hero description text for Blogs archive page.",
+            "required": false,
+            "rows": 3,
+            "new_lines": "wpautop",
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_resources_case_study_tab",
+            "label": "Case Studies",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_resources_case_study_posts_per_page",
+            "label": "Posts Per Page",
+            "name": "resources_case_study_posts_per_page",
+            "type": "number",
+            "instructions": "Number of Case Study posts to display per page.",
+            "required": false,
+            "default_value": 12,
+            "min": 1,
+            "max": 100,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_resources_case_study_hero_title",
+            "label": "Hero Title",
+            "name": "resources_case_study_hero_title",
+            "type": "text",
+            "instructions": "Hero title for Case Studies archive page.",
+            "required": false,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_resources_case_study_hero_text",
+            "label": "Hero Text",
+            "name": "resources_case_study_hero_text",
+            "type": "textarea",
+            "instructions": "Hero description text for Case Studies archive page.",
+            "required": false,
+            "rows": 3,
+            "new_lines": "wpautop",
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_resources_podcast_tab",
+            "label": "Podcasts",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_resources_podcast_posts_per_page",
+            "label": "Posts Per Page",
+            "name": "resources_podcast_posts_per_page",
+            "type": "number",
+            "instructions": "Number of Podcast posts to display per page.",
+            "required": false,
+            "default_value": 12,
+            "min": 1,
+            "max": 100,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_resources_podcast_hero_title",
+            "label": "Hero Title",
+            "name": "resources_podcast_hero_title",
+            "type": "text",
+            "instructions": "Hero title for Podcasts archive page.",
+            "required": false,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_resources_podcast_hero_text",
+            "label": "Hero Text",
+            "name": "resources_podcast_hero_text",
+            "type": "textarea",
+            "instructions": "Hero description text for Podcasts archive page.",
+            "required": false,
+            "rows": 3,
+            "new_lines": "wpautop",
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_resources_customer_tab",
+            "label": "Customers",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_resources_customer_posts_per_page",
+            "label": "Posts Per Page",
+            "name": "resources_customer_posts_per_page",
+            "type": "number",
+            "instructions": "Number of Customer posts to display per page.",
+            "required": false,
+            "default_value": 12,
+            "min": 1,
+            "max": 100,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_resources_customer_hero_title",
+            "label": "Hero Title",
+            "name": "resources_customer_hero_title",
+            "type": "text",
+            "instructions": "Hero title for Customers archive/page.",
+            "required": false,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_resources_customer_hero_text",
+            "label": "Hero Text",
+            "name": "resources_customer_hero_text",
+            "type": "textarea",
+            "instructions": "Hero description text for Customers archive/page.",
+            "required": false,
+            "rows": 3,
+            "new_lines": "wpautop",
+            "wrapper": {
+                "width": "100"
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-resources-options"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Options for Resources post types including hero settings and posts per page.",
+    "show_in_rest": 0,
+    "modified": 1735000000
+}
+

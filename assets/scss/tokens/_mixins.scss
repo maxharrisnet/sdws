@@ -1,0 +1,21 @@
+$breakpoint-sm: 48rem;
+$breakpoint-md: 64rem;
+$breakpoint-lg: 80rem;
+
+@mixin mq-sm {
+	@media (min-width: #{$breakpoint-sm}) {
+		@content;
+	}
+}
+
+@mixin mq-md {
+	@media (min-width: #{$breakpoint-md}) {
+		@content;
+	}
+}
+
+@mixin mq-lg {
+	@media (min-width: #{$breakpoint-lg}) {
+		@content;
+	}
+}

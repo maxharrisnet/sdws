@@ -1,0 +1,328 @@
+{
+  "key": "group_aera_decision_cloud",
+  "title": "Decision Cloud Page",
+  "fields": [
+    {
+      "key": "field_decision_cloud_benefits_section",
+      "label": "Benefits Section",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_dc_benefits_section_title",
+      "label": "Benefits Section Title",
+      "name": "benefits_section_title",
+      "type": "text",
+      "instructions": "Main heading for the benefits section",
+      "required": 0,
+      "default_value": "Built for How Business Works Today",
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_dc_benefits_section_subtitle",
+      "label": "Benefits Section Subtitle",
+      "name": "benefits_section_subtitle",
+      "type": "textarea",
+      "instructions": "Subtitle text for the benefits section",
+      "required": 0,
+      "default_value": "",
+      "rows": 3,
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_dc_benefit_1_title",
+      "label": "Benefit 1 - Title",
+      "name": "benefit_1_title",
+      "type": "text",
+      "instructions": "Title for the first benefit",
+      "required": 0,
+      "default_value": "Comprehensive",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_dc_benefit_1_description",
+      "label": "Benefit 1 - Description",
+      "name": "benefit_1_description",
+      "type": "textarea",
+      "instructions": "Description for the first benefit",
+      "required": 0,
+      "default_value": "Aera provides everything you need to support any type of decision — from advised, to assisted, to fully automated.",
+      "rows": 3,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_dc_benefit_2_title",
+      "label": "Benefit 2 - Title",
+      "name": "benefit_2_title",
+      "type": "text",
+      "instructions": "Title for the second benefit",
+      "required": 0,
+      "default_value": "Composable",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_dc_benefit_2_description",
+      "label": "Benefit 2 - Description",
+      "name": "benefit_2_description",
+      "type": "textarea",
+      "instructions": "Description for the second benefit",
+      "required": 0,
+      "default_value": "Easy to build, adjust, and expand, Aera evolves as your business does.",
+      "rows": 3,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_dc_benefit_3_title",
+      "label": "Benefit 3 - Title",
+      "name": "benefit_3_title",
+      "type": "text",
+      "instructions": "Title for the third benefit",
+      "required": 0,
+      "default_value": "Trusted",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_dc_benefit_3_description",
+      "label": "Benefit 3 - Description",
+      "name": "benefit_3_description",
+      "type": "textarea",
+      "instructions": "Description for the third benefit",
+      "required": 0,
+      "default_value": "Aera is transparent and explainable. You always know where the data comes from, why recommendations are given, and how decisions are made.",
+      "rows": 3,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_dc_benefit_4_title",
+      "label": "Benefit 4 - Title",
+      "name": "benefit_4_title",
+      "type": "text",
+      "instructions": "Title for the fourth benefit",
+      "required": 0,
+      "default_value": "Scalable",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_dc_benefit_4_description",
+      "label": "Benefit 4 - Description",
+      "name": "benefit_4_description",
+      "type": "textarea",
+      "instructions": "Description for the fourth benefit",
+      "required": 0,
+      "default_value": "From routine tasks to complex strategies, Aera keeps learning and growing with your business.",
+      "rows": 3,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_decision_cloud_resources_section",
+      "label": "Resources Section",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_dc_resources_section_title",
+      "label": "Resources Section Title",
+      "name": "resources_section_title",
+      "type": "text",
+      "instructions": "Title for the resources section",
+      "required": 0,
+      "default_value": "Resources",
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_dc_resource_1_title",
+      "label": "Resource 1 - Title",
+      "name": "resource_1_title",
+      "type": "text",
+      "instructions": "Resource title",
+      "required": 0,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_dc_resource_1_url",
+      "label": "Resource 1 - URL",
+      "name": "resource_1_url",
+      "type": "url",
+      "instructions": "Resource URL (internal or external)",
+      "required": 0,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_dc_resource_1_description",
+      "label": "Resource 1 - Description",
+      "name": "resource_1_description",
+      "type": "textarea",
+      "instructions": "Resource description",
+      "required": 0,
+      "rows": 3,
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_dc_resource_1_image",
+      "label": "Resource 1 - Image",
+      "name": "resource_1_image",
+      "type": "image",
+      "instructions": "Resource image",
+      "required": 0,
+      "return_format": "array",
+      "preview_size": "medium",
+      "library": "all",
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_dc_resource_2_title",
+      "label": "Resource 2 - Title",
+      "name": "resource_2_title",
+      "type": "text",
+      "instructions": "Resource title",
+      "required": 0,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_dc_resource_2_url",
+      "label": "Resource 2 - URL",
+      "name": "resource_2_url",
+      "type": "url",
+      "instructions": "Resource URL (internal or external)",
+      "required": 0,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_dc_resource_2_description",
+      "label": "Resource 2 - Description",
+      "name": "resource_2_description",
+      "type": "textarea",
+      "instructions": "Resource description",
+      "required": 0,
+      "rows": 3,
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_dc_resource_2_image",
+      "label": "Resource 2 - Image",
+      "name": "resource_2_image",
+      "type": "image",
+      "instructions": "Resource image",
+      "required": 0,
+      "return_format": "array",
+      "preview_size": "medium",
+      "library": "all",
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_dc_resource_3_title",
+      "label": "Resource 3 - Title",
+      "name": "resource_3_title",
+      "type": "text",
+      "instructions": "Resource title",
+      "required": 0,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_dc_resource_3_url",
+      "label": "Resource 3 - URL",
+      "name": "resource_3_url",
+      "type": "url",
+      "instructions": "Resource URL (internal or external)",
+      "required": 0,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_dc_resource_3_description",
+      "label": "Resource 3 - Description",
+      "name": "resource_3_description",
+      "type": "textarea",
+      "instructions": "Resource description",
+      "required": 0,
+      "rows": 3,
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_dc_resource_3_image",
+      "label": "Resource 3 - Image",
+      "name": "resource_3_image",
+      "type": "image",
+      "instructions": "Resource image",
+      "required": 0,
+      "return_format": "array",
+      "preview_size": "medium",
+      "library": "all",
+      "wrapper": {
+        "width": "100"
+      }
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "page-decision-cloud.php"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Fields for the Decision Cloud page resources section.",
+  "show_in_rest": 1,
+  "modified": 1735000000
+}

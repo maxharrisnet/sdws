@@ -1,0 +1,46 @@
+{
+    "key": "group_aera_whitepaper",
+    "title": "Whitepaper Fields",
+    "fields": [
+        {
+            "key": "field_whitepaper_hubspot_form",
+            "label": "HubSpot Form ID",
+            "name": "whitepaper_hubspot_form",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "HubSpot form ID or embed code for the whitepaper download form.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "whitepaper"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "Additional fields for whitepapers including HubSpot form integration.",
+    "show_in_rest": 1,
+    "display_title": "",
+    "modified": 1770193091
+}

@@ -1,0 +1,66 @@
+{
+    "key": "group_aera_partner",
+    "title": "Partner Fields",
+    "fields": [
+        {
+            "key": "field_partner_image",
+            "label": "Partner Image",
+            "name": "partner_image",
+            "type": "image",
+            "instructions": "Partner logo or image. If not set, the featured image will be used.",
+            "required": false,
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_partner_link",
+            "label": "Partner Website Link",
+            "name": "partner_link",
+            "type": "url",
+            "instructions": "Optional link to the partner's website. If provided, the partner image will be clickable.",
+            "required": false,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_partner_text",
+            "label": "Partner Description",
+            "name": "partner_text",
+            "type": "wysiwyg",
+            "instructions": "Description text about the partner. If not set, the post excerpt will be used.",
+            "required": false,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0,
+            "wrapper": {
+                "width": "100"
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "partner"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Additional fields for partners including image, description text, and website link.",
+    "show_in_rest": 1,
+    "modified": 1735000000
+}
+

@@ -1,0 +1,183 @@
+$gutter: 30px;
+$container-gutter-mobile: 20px;
+$container-gutter-tablet: 50px;
+$container-gutter-desktop: 70px;
+
+// page dimensions
+$page-width: 1280px;
+$limit: $page-width + ($container-gutter-desktop * 2);
+
+// Colors
+
+// base
+$color-codgray: #1a1a1a;
+$color-shuttlegray: #5c6476;
+// Slightly different gray used in designs
+$color-steelgray: #5c6475;
+$color-aluminium: #aaacb2;
+$color-aquahaze: #f7f9fa;
+$color-white: #fff;
+
+// decorative
+$color-hawkesblue: #dee8fb;
+$color-oysterbay: #e0f9ff;
+$color-onahau: #cff;
+$color-feta: #f5fef5;
+$color-ecruwhite: #f7f5e9;
+
+// functional
+$color-govenorbay: #4237b8;
+$color-bahamablue: #00619e; //aera 1
+$color-deepcerulean: #00818e; // brand 2
+$color-persiangreen: #009d95; // brand 3
+
+$color-poloblue: #96b1d8; //brand 4
+$color-cornflower: #8ac4e8;
+$color-seagull: #7dd4e8; //brand 6
+$color-bemuda: #85daca; // brand 7
+
+// Brand color variables
+$color-aera-1: $color-bahamablue;
+$color-brand-2: $color-deepcerulean;
+$color-brand-3: $color-persiangreen;
+$color-brand-4: $color-poloblue;
+$color-brand-6: $color-seagull;
+$color-brand-7: $color-bemuda;
+
+$color-periwinklegray: #b6c8e3;
+$color-lightsteelblue: #b6d2e3;
+$color-jaggedice: #b6dbe3;
+$color-cruise: #b6e4db;
+
+$color-mineshaft: #333;
+$color-blackhaze: #f5f6f6;
+$color-blacksqueeze: #e6f5f5;
+$color-wepeep: #faebed;
+$color-linkwater: #e6ecf7;
+$color-whitelilac: #efebf7;
+
+$color-medium: #6d92c9;
+$color-twitter: #5cade0;
+$color-linkedin: #49c5e0;
+$color-facebook: #54cdb5;
+
+// Color use
+$color-technology: $color-bemuda;
+$color-skills: $color-seagull;
+$color-company: $color-cornflower;
+$color-careers: $color-poloblue;
+$color-resources: $color-persiangreen;
+
+$color-primary: $color-seagull;
+$color-placeholder: $color-shuttlegray;
+$color-background: $color-white;
+$color-background-darker: $color-aquahaze;
+$color-border: $color-codgray;
+$color-link: $color-bahamablue;
+
+$color-america: $color-govenorbay;
+$color-america-light: $color-poloblue;
+$color-asia: $color-bahamablue;
+$color-asia-light: $color-seagull;
+$color-europe: $color-persiangreen;
+$color-europe-light: $color-bemuda;
+
+$color-btn-background: $color-hawkesblue;
+$color-btn-gradient: $color-oysterbay;
+
+$color-table-heading: $color-shuttlegray;
+
+$color-quote: $color-shuttlegray;
+
+$color-articles: $color-persiangreen;
+
+$color-messages-text: $color-mineshaft;
+$color-messages: $color-blackhaze;
+$color-messages0: $color-blacksqueeze;
+$color-messages1: $color-wepeep;
+$color-messages2: $color-linkwater;
+$color-messages3: $color-whitelilac;
+
+// button variants
+$color-btn-default: rgba($color-cornflower, 0.5);
+$color-btn-teal: rgba(#6dc9b7, 0.5);
+$color-btn-sky-blue: rgba(#7cd4e7, 0.5);
+$color-btn-blue: rgba($color-cornflower, 0.5);
+$color-btn-lilac: rgba(#96b0d8, 0.5);
+
+// input imensions
+// math.div(50, 14) ≈ 3.5714285714
+$btn-height: 3.5714285714 * 1em;
+$btn-border-radius: 999px;
+
+// input
+$color-input-border: $color-bemuda;
+
+// Fonts
+$font-family-freight: 'FreightSans Pro', sans-serif;
+$font-family-freight-light: 'FreightSans Pro', sans-serif;
+$font-family-freight-bold: 'FreightSans Pro', sans-serif;
+$font-family-gilroy: 'Gilroy', sans-serif;
+$font-family-gilroy: 'Gilroy', sans-serif;
+$font-family: $font-family-freight;
+$font-family-bold: $font-family-freight-bold;
+$font-family-heading: $font-family-gilroy;
+$font-size: 18px;
+$font-color: $color-shuttlegray;
+$font-color-light: #777;
+$font-color-dark: $color-codgray;
+$font-color-accent: $color-bahamablue;
+$line-height: 1.5;
+
+// Timings
+$transition-enter: 200ms;
+$transition-leave: 500ms;
+
+// Custom break point (Min)
+$min-1920: 1920px;
+$min-1800: 1800px;
+$min-1440: 1440px;
+$min-1280: 1280px;
+$min-1200: 1200px;
+$min-1080: 1080px;
+$min-1023: 1023px;
+$min-1024: 1024px;
+$min-960: 960px;
+$min-840: 840px;
+$min-768: 768px;
+$min-720: 720px;
+$min-640: 640px;
+$min-600: 600px;
+$min-560: 560px;
+$min-540: 540px;
+$min-480: 480px;
+$min-375: 375px;
+$min-360: 360px;
+
+// Custom break points (Max)
+$max-1920: 1920px;
+$max-1366: 1366px;
+$max-1280: 1279px;
+$max-1200: 1199px;
+$max-1080: 1079px;
+$max-1024: 1023px;
+$max-960: 959px;
+$max-840: 839px;
+$max-768: 767px;
+$max-720: 719px;
+$max-640: 639px;
+$max-600: 599px;
+$max-540: 539px;
+$max-480: 479px;
+$max-431: 430px;
+$max-375: 374px;
+$max-360: 359px;
+
+// Predefined breakpoints
+$min-mobile: $min-480;
+$min-tablet: $min-720;
+$min-desktop: $min-1080;
+
+// Segment
+$segment-padding-mobile: $gutter * 3;
+$segment-padding: 200px; //percentage-based segments spacing

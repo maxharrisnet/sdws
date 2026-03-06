@@ -1,0 +1,101 @@
+{
+  "key": "group_aera_platform_detail",
+  "title": "Platform Detail Page Settings",
+  "fields": [
+    {
+      "key": "field_platform_content_tab",
+      "label": "Content Section",
+      "name": "platform_content_tab",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_platform_featured_image",
+      "label": "Featured Image",
+      "name": "platform_featured_image",
+      "type": "image",
+      "instructions": "Featured image displayed alongside the body copy in the image/text section.",
+      "required": 0,
+      "return_format": "array",
+      "preview_size": "medium",
+      "library": "all",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_platform_body_copy",
+      "label": "Body Copy",
+      "name": "platform_body_copy",
+      "type": "wysiwyg",
+      "instructions": "Main body copy displayed in the image/text section (left side, 40% width).",
+      "required": 0,
+      "tabs": "all",
+      "toolbar": "full",
+      "media_upload": 1,
+      "delay": 0,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_platform_benefits_tab",
+      "label": "Benefits & Features",
+      "name": "platform_benefits_tab",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_platform_benefits",
+      "label": "Benefits",
+      "name": "platform_benefits",
+      "type": "wysiwyg",
+      "instructions": "Benefits content displayed in the left column (50% width). Supports HTML and lists.",
+      "required": 0,
+      "tabs": "all",
+      "toolbar": "full",
+      "media_upload": 1,
+      "delay": 0,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_platform_features",
+      "label": "Features",
+      "name": "platform_features",
+      "type": "wysiwyg",
+      "instructions": "Features content displayed in the right column (50% width). Supports HTML and lists.",
+      "required": 0,
+      "tabs": "all",
+      "toolbar": "full",
+      "media_upload": 1,
+      "delay": 0,
+      "wrapper": {
+        "width": "50"
+      }
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "page-platform-detail.php"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Fields for Platform Detail pages (sub-pages of Decision Cloud). Configure intro section, content, benefits, features, and featured image.",
+  "show_in_rest": 1,
+  "modified": 1735000000
+}
+

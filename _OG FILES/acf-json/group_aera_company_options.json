@@ -1,0 +1,310 @@
+{
+  "key": "group_aera_company_options",
+  "title": "Company Options",
+  "fields": [
+    {
+      "key": "field_company_leadership_tab",
+      "label": "Leadership",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_company_leadership_posts_per_page",
+      "label": "Posts Per Page",
+      "name": "company_leadership_posts_per_page",
+      "aria-label": "",
+      "type": "number",
+      "instructions": "Number of Leadership team members to display per page (if archive page is created).",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": -1,
+      "min": -1,
+      "max": 100,
+      "step": 1,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_company_leadership_hero_title",
+      "label": "Hero Title",
+      "name": "company_leadership_hero_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Hero title for Leadership section (used on About Us page or archive if created).",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_company_leadership_hero_text",
+      "label": "Hero Text",
+      "name": "company_leadership_hero_text",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "Hero description text for Leadership section.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "rows": 3,
+      "new_lines": "wpautop",
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": ""
+    },
+    {
+      "key": "field_company_partner_tab",
+      "label": "Partners",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_company_partner_posts_per_page",
+      "label": "Posts Per Page",
+      "name": "company_partner_posts_per_page",
+      "aria-label": "",
+      "type": "number",
+      "instructions": "Number of Partner posts to display per page (if archive page is created).",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": -1,
+      "min": -1,
+      "max": 100,
+      "step": 1,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_company_partner_hero_title",
+      "label": "Hero Title",
+      "name": "company_partner_hero_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Hero title for Partners page\/archive.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_company_partner_hero_text",
+      "label": "Hero Text",
+      "name": "company_partner_hero_text",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "Hero description text for Partners page\/archive.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "rows": 3,
+      "new_lines": "wpautop",
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": ""
+    },
+    {
+      "key": "field_company_customer_tab",
+      "label": "Customers",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_company_customer_posts_per_page",
+      "label": "Posts Per Page",
+      "name": "company_customer_posts_per_page",
+      "aria-label": "",
+      "type": "number",
+      "instructions": "Number of Customer posts to display per page on the Customers page.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 12,
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_company_customer_hero_title",
+      "label": "Hero Title",
+      "name": "company_customer_hero_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Hero title for Customers page.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_company_customer_hero_text",
+      "label": "Hero Text",
+      "name": "company_customer_hero_text",
+      "aria-label": "",
+      "type": "textarea",
+      "instructions": "Hero description text for Customers page.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "rows": 3,
+      "new_lines": "wpautop",
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": ""
+    },
+    {
+      "key": "field_company_customer_hero_button_text",
+      "label": "Hero Button Text",
+      "name": "company_customer_hero_button_text",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Text for the hero CTA button (optional).",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_company_customer_hero_button_link",
+      "label": "Hero Button Link",
+      "name": "company_customer_hero_button_link",
+      "aria-label": "",
+      "type": "url",
+      "instructions": "URL for the hero CTA button.",
+      "required": false,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_company_customer_hero_button_text",
+            "operator": "!empty"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": ""
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "acf-options-company-options"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Options for Company post types (Leadership, Partners, Customers) including hero settings and posts per page.",
+  "show_in_rest": 0,
+  "display_title": "",
+  "modified": 1769050000
+}

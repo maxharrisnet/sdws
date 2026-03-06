@@ -1,0 +1,183 @@
+{
+  "key": "group_aera_events_options",
+  "title": "Events Options",
+  "fields": [
+    {
+      "key": "field_events_general",
+      "label": "General Settings",
+      "name": "events_general",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_events_posts_per_page",
+      "label": "Posts Per Page",
+      "name": "events_posts_per_page",
+      "type": "number",
+      "instructions": "Number of events to display per page on the Events archive page.",
+      "required": false,
+      "default_value": 12,
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_events_featured_posts_per_page",
+      "label": "Featured Posts Per Page",
+      "name": "events_featured_posts_per_page",
+      "type": "number",
+      "instructions": "Number of featured events to display in the featured section.",
+      "required": false,
+      "default_value": 6,
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_events_hero",
+      "label": "Events Archive Hero",
+      "name": "events_hero",
+      "type": "tab",
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_events_hero_title",
+      "label": "Hero Title",
+      "name": "events_hero_title",
+      "type": "text",
+      "instructions": "Main title for the Events archive page hero section.",
+      "required": false,
+      "default_value": "Events",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_events_hero_title_line_two",
+      "label": "Hero Title Line Two",
+      "name": "events_hero_title_line_two",
+      "type": "text",
+      "instructions": "Optional second line for the hero title.",
+      "required": false,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_events_hero_subtitle",
+      "label": "Hero Subtitle",
+      "name": "events_hero_subtitle",
+      "type": "text",
+      "instructions": "Subtitle text for the hero section.",
+      "required": false,
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_events_hero_text",
+      "label": "Hero Text",
+      "name": "events_hero_text",
+      "type": "textarea",
+      "instructions": "Main description text for the hero section. Each line will create a new paragraph.",
+      "required": false,
+      "rows": 4,
+      "new_lines": "wpautop",
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_events_hero_button_text",
+      "label": "Hero Button Text",
+      "name": "events_hero_button_text",
+      "type": "text",
+      "instructions": "Text for the hero CTA button (optional).",
+      "required": false,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_events_hero_button_link",
+      "label": "Hero Button Link",
+      "name": "events_hero_button_link",
+      "type": "url",
+      "instructions": "URL for the hero CTA button.",
+      "required": false,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_events_hero_button_text",
+            "operator": "!empty"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_events_hero_variation",
+      "label": "Hero Variation",
+      "name": "events_hero_variation",
+      "type": "select",
+      "instructions": "Choose a style variation for the hero section.",
+      "required": false,
+      "choices": {
+        "default": "Default",
+        "home": "Home",
+        "careers": "Careers",
+        "team": "Team",
+        "skillset": "Skillset"
+      },
+      "default_value": "default",
+      "allow_null": 0,
+      "multiple": 0,
+      "ui": 1,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_events_hero_full_height",
+      "label": "Full Height",
+      "name": "events_hero_full_height",
+      "type": "true_false",
+      "instructions": "Make the hero section full viewport height with centered content.",
+      "required": false,
+      "default_value": 0,
+      "ui": 1,
+      "wrapper": {
+        "width": "50"
+      }
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "acf-options-events-options"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Options for Events post type including hero settings, posts per page, and featured section settings.",
+  "show_in_rest": 0,
+  "modified": 1735000000
+}

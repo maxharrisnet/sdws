@@ -1,0 +1,50 @@
+{
+    "key": "group_aera_resources",
+    "title": "Resources Page Settings",
+    "fields": [
+        {
+            "key": "field_resources_hero",
+            "label": "Hero",
+            "name": "resources_hero",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_resources_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "default_value": "Resources"
+                },
+                {
+                    "key": "field_resources_description",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "rows": 3,
+                    "default_value": "Browse the latest decision intelligence stories, research, videos, and news from Aera Technology."
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-resources.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1732512000
+}
+

@@ -1,0 +1,64 @@
+.btn,
+button,
+input[type="submit"] {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--space-xs);
+	padding: 0.65rem 1.1rem;
+	border: 1px solid transparent;
+	border-radius: var(--radius-md);
+	font-weight: 600;
+	text-decoration: none;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.btn--sm {
+	font-size: var(--font-size-xs);
+	padding: 0.4rem 0.75rem;
+}
+
+.btn--md {
+	font-size: var(--font-size-sm);
+	padding: 0.65rem 1.1rem;
+}
+
+.btn--lg {
+	font-size: var(--font-size-md);
+	padding: 0.9rem 1.4rem;
+}
+
+.btn--primary {
+	background: var(--color-brand);
+	color: var(--color-text-light);
+}
+
+.btn--secondary {
+	background: var(--color-highlight);
+	color: var(--color-text-light);
+}
+
+.btn--ghost {
+	background: transparent;
+	border-color: var(--color-brand);
+	color: var(--color-brand);
+}
+
+.btn--primary:hover,
+.btn--primary:focus-visible,
+.btn--secondary:hover,
+.btn--secondary:focus-visible {
+	filter: brightness(1.08);
+}
+
+.btn--ghost:hover,
+.btn--ghost:focus-visible {
+	background: color-mix(in srgb, var(--color-brand) 12%, transparent);
+}
+
+.btn.is-active {
+	background: var(--color-brand);
+	color: var(--color-text-light);
+	border-color: var(--color-brand);
+}

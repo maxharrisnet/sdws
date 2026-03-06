@@ -1,0 +1,324 @@
+{
+  "key": "group_aera_skill",
+  "title": "Skill Fields",
+  "fields": [
+    {
+      "key": "field_skill_icon",
+      "label": "Icon",
+      "name": "skill_icon",
+      "type": "select",
+      "instructions": "Select an icon from the library (displayed on archive cards)",
+      "required": false,
+      "choices": [],
+      "default_value": "",
+      "allow_null": 1,
+      "multiple": 0,
+      "ui": 1,
+      "ajax": 0,
+      "return_format": "value",
+      "placeholder": "Select an icon...",
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_skill_description",
+      "label": "Description",
+      "name": "skill_description",
+      "type": "textarea",
+      "instructions": "Main description text for the skill (used in hero and archive cards)",
+      "required": false,
+      "rows": 4,
+      "new_lines": "br",
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_video_tab",
+      "label": "Video",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_video_thumbnail",
+      "label": "Video Thumbnail",
+      "name": "video_thumbnail",
+      "type": "image",
+      "instructions": "Thumbnail image displayed in content. Clicking opens the gated video modal.",
+      "required": false,
+      "return_format": "array",
+      "preview_size": "medium",
+      "library": "all",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_video_url",
+      "label": "Video URL",
+      "name": "video_url",
+      "type": "url",
+      "instructions": "Full embed URL for the video (Vimeo or YouTube). Example: https://player.vimeo.com/video/123456789",
+      "required": false,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_hubspot_form_id",
+      "label": "HubSpot Form ID",
+      "name": "hubspot_form_id",
+      "type": "text",
+      "instructions": "HubSpot form ID to gate the video. Leave empty for ungated video. Example: 097ee201-0440-4b59-a68e-d682966a8e08",
+      "required": false,
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_content_sections_tab",
+      "label": "Content Sections",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_content_sections",
+      "label": "Content Sections",
+      "name": "content_sections",
+      "type": "repeater",
+      "instructions": "Define the main content sections for this skill. These will appear in both the top tabs and sidebar navigation. Requires ACF Pro.",
+      "required": false,
+      "min": 0,
+      "max": 0,
+      "layout": "block",
+      "button_label": "Add Section",
+      "sub_fields": [
+        {
+          "key": "field_section_label",
+          "label": "Navigation Label",
+          "name": "label",
+          "type": "text",
+          "instructions": "Label for tabs and sidebar navigation",
+          "required": true,
+          "wrapper": {
+            "width": "50"
+          }
+        },
+        {
+          "key": "field_section_anchor",
+          "label": "Anchor ID",
+          "name": "anchor",
+          "type": "text",
+          "instructions": "Unique anchor ID (e.g., 'overview', 'use-cases'). Will be auto-generated from label if left empty.",
+          "required": false,
+          "wrapper": {
+            "width": "50"
+          }
+        },
+        {
+          "key": "field_section_content",
+          "label": "Content",
+          "name": "content",
+          "type": "wysiwyg",
+          "instructions": "Content for this section",
+          "required": false,
+          "tabs": "all",
+          "toolbar": "full",
+          "media_upload": 1
+        }
+      ]
+    },
+    {
+      "key": "field_cta_tab",
+      "label": "Call to Action",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_cta_buttons",
+      "label": "CTA Buttons",
+      "name": "cta_buttons",
+      "type": "repeater",
+      "instructions": "Add one or more call-to-action buttons.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "default_value": [
+        {
+          "text": "Schedule Demo",
+          "link_type": "external",
+          "link_external": "/demo"
+        }
+      ],
+      "min": 0,
+      "max": 3,
+      "layout": "table",
+      "button_label": "Add Button",
+      "sub_fields": [
+        {
+          "key": "field_cta_button_text",
+          "label": "Button Text",
+          "name": "text",
+          "type": "text",
+          "instructions": "",
+          "required": 1,
+          "default_value": "",
+          "placeholder": "Schedule Demo",
+          "prepend": "",
+          "append": "",
+          "maxlength": "",
+          "wrapper": {
+            "width": "40",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_cta_buttons"
+        },
+        {
+          "key": "field_cta_button_link_type",
+          "label": "Link Type",
+          "name": "link_type",
+          "type": "button_group",
+          "instructions": "",
+          "required": 0,
+          "choices": {
+            "external": "External URL",
+            "internal": "Internal Page",
+            "resource": "Resources"
+          },
+          "default_value": "external",
+          "wrapper": {
+            "width": "30",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_cta_buttons"
+        },
+        {
+          "key": "field_cta_button_link_external",
+          "label": "External URL",
+          "name": "link_external",
+          "type": "text",
+          "instructions": "External URL or relative path (e.g., /demo)",
+          "required": 0,
+          "conditional_logic": [
+            [
+              {
+                "field": "field_cta_button_link_type",
+                "operator": "==",
+                "value": "external"
+              }
+            ]
+          ],
+          "default_value": "",
+          "placeholder": "https://example.com or /demo",
+          "wrapper": {
+            "width": "70",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_cta_buttons"
+        },
+        {
+          "key": "field_cta_button_link_internal",
+          "label": "Internal Page",
+          "name": "link_internal",
+          "type": "post_object",
+          "instructions": "Select an internal page",
+          "required": 0,
+          "conditional_logic": [
+            [
+              {
+                "field": "field_cta_button_link_type",
+                "operator": "==",
+                "value": "internal"
+              }
+            ]
+          ],
+          "post_type": [
+            "page",
+            "post"
+          ],
+          "taxonomy": "",
+          "allow_null": 0,
+          "multiple": 0,
+          "return_format": "id",
+          "wrapper": {
+            "width": "70",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_cta_buttons"
+        },
+        {
+          "key": "field_cta_button_link_resource",
+          "label": "Resource",
+          "name": "link_resource",
+          "type": "post_object",
+          "instructions": "Select a resource (blog, press release, case study)",
+          "required": 0,
+          "conditional_logic": [
+            [
+              {
+                "field": "field_cta_button_link_type",
+                "operator": "==",
+                "value": "resource"
+              }
+            ]
+          ],
+          "post_type": [
+            "blog",
+            "press-release",
+            "case-study"
+          ],
+          "taxonomy": "",
+          "allow_null": 0,
+          "multiple": 0,
+          "return_format": "id",
+          "wrapper": {
+            "width": "70",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_cta_buttons"
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "skill"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Custom fields for Skills. Note: Repeater fields require ACF Pro.",
+  "show_in_rest": 1,
+  "modified": 1736280000
+}

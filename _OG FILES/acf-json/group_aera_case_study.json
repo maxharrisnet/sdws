@@ -1,0 +1,295 @@
+{
+    "key": "group_aera_case_study",
+    "title": "Case Study Fields",
+    "fields": [
+        {
+            "key": "field_case_study_card_tab",
+            "label": "Card Fields",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_case_study_type",
+            "label": "Type",
+            "name": "case_study_type",
+            "type": "text",
+            "instructions": "Type of case study.",
+            "required": false,
+            "default_value": "Case Study",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_case_study_company_type",
+            "label": "Company Type",
+            "name": "case_study_company_type",
+            "type": "text",
+            "instructions": "Type of company (e.g., FMCG, Manufacturing).",
+            "required": false,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_case_study_icon",
+            "label": "Icon",
+            "name": "case_study_icon",
+            "type": "image",
+            "instructions": "Icon or logo for the case study card.",
+            "required": false,
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "wrapper": {
+                "width": "33.33"
+            }
+        },
+        {
+            "key": "field_case_study_employees",
+            "label": "Employees",
+            "name": "case_study_employees",
+            "type": "text",
+            "instructions": "Number of employees or employee range.",
+            "required": false,
+            "wrapper": {
+                "width": "33.33"
+            }
+        },
+        {
+            "key": "field_case_study_revenue",
+            "label": "Revenue",
+            "name": "case_study_revenue",
+            "type": "text",
+            "instructions": "Revenue or revenue range.",
+            "required": false,
+            "wrapper": {
+                "width": "33.34"
+            }
+        },
+        {
+            "key": "field_case_study_business_problem",
+            "label": "Business Problem",
+            "name": "case_study_business_problem",
+            "type": "textarea",
+            "instructions": "Description of the business problem or challenge (for card display).",
+            "required": false,
+            "rows": 4,
+            "new_lines": "wpautop",
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_case_study_business_statement",
+            "label": "Business Statement",
+            "name": "case_study_business_statement",
+            "type": "text",
+            "instructions": "Short business statement or tagline (for card display).",
+            "required": false,
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_case_study_page_content_tab",
+            "label": "Page Content",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_case_study_company_name",
+            "label": "Company Name",
+            "name": "case_study_company_name",
+            "type": "text",
+            "instructions": "Name of the company featured in the case study.",
+            "required": false,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_case_study_industry",
+            "label": "Industry",
+            "name": "case_study_industry",
+            "type": "text",
+            "instructions": "Industry or sector (e.g., Fast-moving consumer goods (FMCG)).",
+            "required": false,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_case_study_featured_image",
+            "label": "Featured Image",
+            "name": "case_study_featured_image",
+            "type": "image",
+            "instructions": "Featured image displayed at the top of the case study page.",
+            "required": false,
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_case_study_body_copy",
+            "label": "Body Copy",
+            "name": "case_study_body_copy",
+            "type": "wysiwyg",
+            "instructions": "Main body copy/introduction text for the case study.",
+            "required": false,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0,
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_case_study_business_need",
+            "label": "Business Need",
+            "name": "case_study_business_need",
+            "type": "wysiwyg",
+            "instructions": "Description of the business need or objective.",
+            "required": false,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0,
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_case_study_short_solution",
+            "label": "Short Solution",
+            "name": "case_study_short_solution",
+            "type": "wysiwyg",
+            "instructions": "Brief summary of the solution.",
+            "required": false,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_case_study_short_result",
+            "label": "Short Result",
+            "name": "case_study_short_result",
+            "type": "wysiwyg",
+            "instructions": "Brief summary of the results.",
+            "required": false,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_case_study_challenges",
+            "label": "Challenges",
+            "name": "case_study_challenges",
+            "type": "wysiwyg",
+            "instructions": "Description of the challenges faced.",
+            "required": false,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0,
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_case_study_solution",
+            "label": "Solution",
+            "name": "case_study_solution",
+            "type": "wysiwyg",
+            "instructions": "Detailed description of the solution implemented.",
+            "required": false,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0,
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_case_study_results",
+            "label": "Results",
+            "name": "case_study_results",
+            "type": "wysiwyg",
+            "instructions": "Detailed description of the results achieved.",
+            "required": false,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0,
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_case_study_top_quote",
+            "label": "Top Quote",
+            "name": "case_study_top_quote",
+            "type": "wysiwyg",
+            "instructions": "Featured quote displayed prominently on the page.",
+            "required": false,
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0,
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_case_study_quote",
+            "label": "Quote",
+            "name": "case_study_quote",
+            "type": "wysiwyg",
+            "instructions": "Additional quote or testimonial.",
+            "required": false,
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0,
+            "wrapper": {
+                "width": "100"
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "case-study"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Fields for case studies including card display fields and full page content fields.",
+    "show_in_rest": 1,
+    "modified": 1735000000
+}

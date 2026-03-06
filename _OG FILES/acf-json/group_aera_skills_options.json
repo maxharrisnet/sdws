@@ -1,0 +1,494 @@
+{
+  "key": "group_aera_skills_options",
+  "title": "Skills Options",
+  "fields": [
+    {
+      "key": "field_skills_home_hero_tab",
+      "label": "Skills Home",
+      "name": "",
+      "type": "tab",
+      "instructions": "Fields for the Skills Home page (options).",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_skills_home_hero_title",
+      "label": "Home Title",
+      "name": "skills_home_hero_title",
+      "type": "text",
+      "instructions": "Title used on the Skills Home page when page-level field is empty.",
+      "required": 0,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_skills_home_hero_text",
+      "label": "Home Description",
+      "name": "skills_home_hero_text",
+      "type": "textarea",
+      "instructions": "Description for the Skills Home.",
+      "required": 0,
+      "rows": 4,
+      "new_lines": "br",
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_skills_home_button_text",
+      "label": "Home Button Text",
+      "name": "skills_home_button_text",
+      "type": "text",
+      "instructions": "Button label for Skills Home.",
+      "required": 0,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_skills_home_button_link",
+      "label": "Home Button URL",
+      "name": "skills_home_button_link",
+      "type": "text",
+      "instructions": "Button URL for Skills Home.",
+      "required": 0,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_skills_archive_hero_tab",
+      "label": "Skills Archive",
+      "name": "",
+      "type": "tab",
+      "instructions": "Fields for the Skills Archive page (options).",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_skills_archive_title",
+      "label": "Archive Hero Title",
+      "name": "skills_archive_title",
+      "type": "text",
+      "instructions": "Hero title used on the Skills Archive page when page-level field is empty.",
+      "required": 0,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_skills_archive_description",
+      "label": "Archive Hero Description",
+      "name": "skills_archive_description",
+      "type": "textarea",
+      "instructions": "Description for the Skills Archive hero.",
+      "required": 0,
+      "rows": 4,
+      "new_lines": "br",
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_skills_archive_button_text",
+      "label": "Archive Button Text",
+      "name": "skills_archive_button_text",
+      "type": "text",
+      "instructions": "Button label for Skills Archive.",
+      "required": 0,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_skills_archive_button_link",
+      "label": "Archive Button URL",
+      "name": "skills_archive_button_link",
+      "type": "text",
+      "instructions": "Button URL for Skills Archive.",
+      "required": 0,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_skills_options_resources_section",
+      "label": "Resources Section",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_skills_resources_section_title",
+      "label": "Resources Section Title",
+      "name": "skills_resources_section_title",
+      "type": "text",
+      "instructions": "Title for the resources section (used across all Skills pages)",
+      "required": 0,
+      "default_value": "Resources",
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_skills_resource_1_title",
+      "label": "Resource 1 - Title",
+      "name": "skills_resource_1_title",
+      "type": "text",
+      "instructions": "Resource title",
+      "required": 0,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_skills_resource_1_url",
+      "label": "Resource 1 - URL",
+      "name": "skills_resource_1_url",
+      "type": "url",
+      "instructions": "Resource URL (internal or external)",
+      "required": 0,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_skills_resource_1_description",
+      "label": "Resource 1 - Description",
+      "name": "skills_resource_1_description",
+      "type": "textarea",
+      "instructions": "Resource description",
+      "required": 0,
+      "rows": 3,
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_skills_resource_1_image",
+      "label": "Resource 1 - Image",
+      "name": "skills_resource_1_image",
+      "type": "image",
+      "instructions": "Resource image",
+      "required": 0,
+      "return_format": "array",
+      "preview_size": "medium",
+      "library": "all",
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_skills_resource_2_title",
+      "label": "Resource 2 - Title",
+      "name": "skills_resource_2_title",
+      "type": "text",
+      "instructions": "Resource title",
+      "required": 0,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_skills_resource_2_url",
+      "label": "Resource 2 - URL",
+      "name": "skills_resource_2_url",
+      "type": "url",
+      "instructions": "Resource URL (internal or external)",
+      "required": 0,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_skills_resource_2_description",
+      "label": "Resource 2 - Description",
+      "name": "skills_resource_2_description",
+      "type": "textarea",
+      "instructions": "Resource description",
+      "required": 0,
+      "rows": 3,
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_skills_resource_2_image",
+      "label": "Resource 2 - Image",
+      "name": "skills_resource_2_image",
+      "type": "image",
+      "instructions": "Resource image",
+      "required": 0,
+      "return_format": "array",
+      "preview_size": "medium",
+      "library": "all",
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_skills_resource_3_title",
+      "label": "Resource 3 - Title",
+      "name": "skills_resource_3_title",
+      "type": "text",
+      "instructions": "Resource title",
+      "required": 0,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_skills_resource_3_url",
+      "label": "Resource 3 - URL",
+      "name": "skills_resource_3_url",
+      "type": "url",
+      "instructions": "Resource URL (internal or external)",
+      "required": 0,
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_skills_resource_3_description",
+      "label": "Resource 3 - Description",
+      "name": "skills_resource_3_description",
+      "type": "textarea",
+      "instructions": "Resource description",
+      "required": 0,
+      "rows": 3,
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_skills_resource_3_image",
+      "label": "Resource 3 - Image",
+      "name": "skills_resource_3_image",
+      "type": "image",
+      "instructions": "Resource image",
+      "required": 0,
+      "return_format": "array",
+      "preview_size": "medium",
+      "library": "all",
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_skills_options_cta_section",
+      "label": "CTA Section",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_skills_cta_title",
+      "label": "CTA Section Title",
+      "name": "skills_cta_title",
+      "type": "text",
+      "instructions": "Title for the CTA section",
+      "required": 0,
+      "default_value": "See Aera in Action",
+      "placeholder": "",
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_skills_cta_buttons",
+      "label": "CTA Buttons",
+      "name": "skills_cta_buttons",
+      "type": "repeater",
+      "instructions": "Add one or more call-to-action buttons.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "default_value": [
+        {
+          "text": "Schedule Demo",
+          "link_type": "external",
+          "link_external": "/demo"
+        }
+      ],
+      "min": 0,
+      "max": 3,
+      "layout": "table",
+      "button_label": "Add Button",
+      "sub_fields": [
+        {
+          "key": "field_skills_cta_button_text",
+          "label": "Button Text",
+          "name": "text",
+          "type": "text",
+          "instructions": "",
+          "required": 1,
+          "default_value": "",
+          "placeholder": "Schedule Demo",
+          "prepend": "",
+          "append": "",
+          "maxlength": "",
+          "wrapper": {
+            "width": "40",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_skills_cta_buttons"
+        },
+        {
+          "key": "field_skills_cta_button_link_type",
+          "label": "Link Type",
+          "name": "link_type",
+          "type": "button_group",
+          "instructions": "",
+          "required": 0,
+          "choices": {
+            "external": "External URL",
+            "internal": "Internal Page",
+            "resource": "Resources"
+          },
+          "default_value": "external",
+          "wrapper": {
+            "width": "30",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_skills_cta_buttons"
+        },
+        {
+          "key": "field_skills_cta_button_link_external",
+          "label": "External URL",
+          "name": "link_external",
+          "type": "text",
+          "instructions": "External URL or relative path (e.g., /demo)",
+          "required": 0,
+          "conditional_logic": [
+            [
+              {
+                "field": "field_skills_cta_button_link_type",
+                "operator": "==",
+                "value": "external"
+              }
+            ]
+          ],
+          "default_value": "",
+          "placeholder": "https://example.com or /demo",
+          "wrapper": {
+            "width": "70",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_skills_cta_buttons"
+        },
+        {
+          "key": "field_skills_cta_button_link_internal",
+          "label": "Internal Page",
+          "name": "link_internal",
+          "type": "post_object",
+          "instructions": "Select an internal page",
+          "required": 0,
+          "conditional_logic": [
+            [
+              {
+                "field": "field_skills_cta_button_link_type",
+                "operator": "==",
+                "value": "internal"
+              }
+            ]
+          ],
+          "post_type": [
+            "page",
+            "post"
+          ],
+          "taxonomy": "",
+          "allow_null": 0,
+          "multiple": 0,
+          "return_format": "id",
+          "wrapper": {
+            "width": "70",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_skills_cta_buttons"
+        },
+        {
+          "key": "field_skills_cta_button_link_resource",
+          "label": "Resource",
+          "name": "link_resource",
+          "type": "post_object",
+          "instructions": "Select a resource (blog, press release, case study)",
+          "required": 0,
+          "conditional_logic": [
+            [
+              {
+                "field": "field_skills_cta_button_link_type",
+                "operator": "==",
+                "value": "resource"
+              }
+            ]
+          ],
+          "post_type": [
+            "blog",
+            "press-release",
+            "case-study"
+          ],
+          "taxonomy": "",
+          "allow_null": 0,
+          "multiple": 0,
+          "return_format": "id",
+          "wrapper": {
+            "width": "70",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_skills_cta_buttons"
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "acf-options-skills-options"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Global settings for Skills pages - resources section and CTA",
+  "show_in_rest": 1,
+  "modified": 1736402000
+}

@@ -3,6 +3,43 @@
 _s
 ===
 
+Starter Coat Base Theme (ACF-first)
+---
+
+This repository has been scaffolded as a reusable, component and template focused WordPress theme foundation.
+
+### Current architecture
+
+- `inc/` contains focused modules for assets, editor policy, custom post types, taxonomies, ACF field registration, and template helpers.
+- `template-parts/components/` contains reusable UI components (cards, CTA, modal, filter, testimonials, etc.).
+- `template-parts/sections/` contains flexible-content section partials used by page templates.
+- `templates/` contains assignable page templates (generic container/full-width, contact, archive overview, homepage showcase).
+- `assets/scss/` contains tokenized Sass architecture with theme presets (`jill`, `yeezy`) and component-level partials.
+- `assets/js/theme.js` is the Vite-built frontend entry.
+
+### Editor strategy
+
+- Block editor is disabled for pages and registered CPTs (`project`, `event`, `faq`, `profile`).
+- Post type `post` remains unchanged.
+
+### Build commands
+
+```sh
+npm install
+npm run dev
+npm run build
+```
+
+- CSS source: `assets/scss/theme.scss`
+- CSS output: `assets/css/theme.css`
+- JS source: `assets/js/theme.js`
+- JS output: `assets/js/dist/theme.js`
+
+### Notes
+
+- ACF groups are registered via PHP in `inc/acf-fields.php`.
+- Theme preset class is applied to body as `theme--{preset}` and can be switched from ACF Theme Settings.
+
 Hi. I'm a starter theme called `_s`, or `underscores`, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
 
 My ultra-minimal CSS might make me look like theme tartare but that means less stuff to get in your way when you're designing your awesome theme. Here are some of the other more interesting things you'll find here:

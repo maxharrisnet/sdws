@@ -1,0 +1,43 @@
+.c-sticky-banner {
+	position: sticky;
+	top: 0;
+	z-index: 20;
+	background: var(--color-heading);
+	color: var(--color-text-light);
+	padding-block: var(--space-sm);
+}
+
+.modal {
+	position: fixed;
+	inset: 0;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	padding: var(--space-lg);
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 100;
+}
+
+.modal.is-open {
+	display: flex;
+}
+
+.modal__dialog {
+	width: min(100%, 42rem);
+	background: var(--color-bg);
+	border-radius: var(--radius-lg);
+	padding: var(--space-lg);
+	position: relative;
+}
+
+.modal__close {
+	position: absolute;
+	top: var(--space-sm);
+	right: var(--space-sm);
+}
+
+.c-category-filter {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-sm);
+}

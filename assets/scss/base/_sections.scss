@@ -1,0 +1,53 @@
+.section {
+	padding-block: var(--space-2xl);
+}
+
+.section--sm {
+	padding-block: var(--space-lg);
+}
+
+.section--md {
+	padding-block: var(--space-xl);
+}
+
+.section--lg {
+	padding-block: var(--space-2xl);
+}
+
+.section--xl {
+	padding-block: var(--space-3xl);
+}
+
+.bg-brand {
+	background: var(--color-brand);
+}
+
+.bg-surface {
+	background: var(--color-surface-50);
+}
+
+.text-light {
+	color: var(--color-text-light);
+}
+
+.text-light h1,
+.text-light h2,
+.text-light h3,
+.text-light h4,
+.text-light h5,
+.text-light h6 {
+	color: var(--color-text-light);
+}
+
+.stack {
+	display: flex;
+	flex-direction: column;
+}
+
+.stack--md {
+	gap: var(--space-md);
+}
+
+.richtext > *:last-child {
+	margin-bottom: 0;
+}

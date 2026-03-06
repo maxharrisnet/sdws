@@ -1,0 +1,192 @@
+{
+  "key": "group_aera_home",
+  "title": "Home Page Content",
+  "fields": [
+    {
+      "key": "field_home_hero",
+      "label": "Hero",
+      "name": "home_hero",
+      "type": "group",
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_home_hero_title",
+          "label": "Title",
+          "name": "title",
+          "type": "text",
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "Hello, I\u2019m Aera.",
+          "placeholder": ""
+        },
+        {
+          "key": "field_home_hero_tagline",
+          "label": "Tagline",
+          "name": "tagline",
+          "type": "text",
+          "default_value": "Your Decision Intelligence Agent\u2122",
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          }
+        },
+        {
+          "key": "field_home_hero_description",
+          "label": "Description",
+          "name": "description",
+          "type": "textarea",
+          "rows": 4,
+          "new_lines": "br",
+          "default_value": "Aera understands how your business works, makes real-time recommendations, takes action autonomously, and learns from every decision made."
+        },
+        {
+          "key": "field_home_hero_cta_label",
+          "label": "CTA Label",
+          "name": "cta_label",
+          "type": "text",
+          "default_value": "Schedule Demo"
+        },
+        {
+          "key": "field_home_hero_cta_link",
+          "label": "CTA Link",
+          "name": "cta_link",
+          "type": "url",
+          "default_value": "/demo"
+        }
+      ]
+    },
+    {
+      "key": "field_home_technology_sections",
+      "label": "Technology Sections",
+      "name": "home_technology_sections",
+      "type": "repeater",
+      "layout": "block",
+      "button_label": "Add Section",
+      "sub_fields": [
+        {
+          "key": "field_home_technology_title",
+          "label": "Title",
+          "name": "title",
+          "type": "text"
+        },
+        {
+          "key": "field_home_technology_description",
+          "label": "Description",
+          "name": "description",
+          "type": "textarea",
+          "rows": 4,
+          "new_lines": "br"
+        },
+        {
+          "key": "field_home_technology_video",
+          "label": "Video URL",
+          "name": "video",
+          "type": "url"
+        },
+        {
+          "key": "field_home_technology_cta_label",
+          "label": "Inline CTA Label",
+          "name": "cta_label",
+          "type": "text"
+        },
+        {
+          "key": "field_home_technology_cta_link",
+          "label": "Inline CTA Link",
+          "name": "cta_link",
+          "type": "url"
+        },
+        {
+          "key": "field_home_technology_messages",
+          "label": "Messages",
+          "name": "messages",
+          "type": "repeater",
+          "layout": "row",
+          "button_label": "Add Message",
+          "sub_fields": [
+            {
+              "key": "field_home_technology_message_speaker",
+              "label": "Speaker",
+              "name": "speaker",
+              "type": "select",
+              "choices": {
+                "user": "User",
+                "aera": "Aera"
+              },
+              "default_value": "aera",
+              "allow_null": 0,
+              "multiple": 0
+            },
+            {
+              "key": "field_home_technology_message_text",
+              "label": "Message",
+              "name": "text",
+              "type": "textarea",
+              "rows": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "field_home_additional_text",
+      "label": "Supporting Text",
+      "name": "home_additional_text",
+      "type": "textarea",
+      "rows": 3,
+      "default_value": "With Decision Intelligence, your business is agile, scalable, and continuously learning."
+    },
+    {
+      "key": "field_home_cta",
+      "label": "Call To Action",
+      "name": "home_cta",
+      "type": "group",
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_home_cta_title",
+          "label": "Title",
+          "name": "title",
+          "type": "text",
+          "default_value": "See Aera in action."
+        },
+        {
+          "key": "field_home_cta_text",
+          "label": "Button Label",
+          "name": "text",
+          "type": "text",
+          "default_value": "Schedule Demo"
+        },
+        {
+          "key": "field_home_cta_link",
+          "label": "Button Link",
+          "name": "link",
+          "type": "url",
+          "default_value": "/demo"
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "front-page.php"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "modified": 1732593600
+}

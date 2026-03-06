@@ -1,0 +1,169 @@
+{
+    "key": "group_aera_customer",
+    "title": "Customer Fields",
+    "fields": [
+        {
+            "key": "field_customer_card_title",
+            "label": "Card Title",
+            "name": "customer_card_title",
+            "type": "text",
+            "instructions": "Title displayed on the customer card. The post title is used for backend naming only.",
+            "required": false,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_customer_hero_image",
+            "label": "Hero Image",
+            "name": "customer_hero_image",
+            "type": "image",
+            "instructions": "Background image displayed on the customer card.",
+            "required": false,
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_customer_company_name",
+            "label": "Company Name",
+            "name": "customer_company_name",
+            "type": "text",
+            "instructions": "Name of the customer company. Used if no company logo is provided.",
+            "required": false,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_customer_logo",
+            "label": "Company Logo",
+            "name": "customer_logo",
+            "type": "image",
+            "instructions": "Customer company logo. If provided, this will be used instead of company name.",
+            "required": false,
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_customer_type",
+            "label": "Type",
+            "name": "customer_type",
+            "type": "text",
+            "instructions": "Type or tag displayed on the customer card (e.g., 'Case Study', 'Success Story').",
+            "required": false,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_customer_industry_taxonomy",
+            "label": "Industry",
+            "name": "customer_industry_taxonomy",
+            "type": "taxonomy",
+            "instructions": "Select the industry or industries for this customer.",
+            "required": false,
+            "taxonomy": "industry",
+            "field_type": "multi_select",
+            "allow_null": false,
+            "return_format": "id",
+            "multiple": true,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_customer_asset_1_title",
+            "label": "Asset 1 Title",
+            "name": "customer_asset_1_title",
+            "type": "text",
+            "instructions": "Title for the first asset link displayed on the customer card.",
+            "required": false,
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_customer_asset_1_cta",
+            "label": "Asset 1 CTA Text",
+            "name": "customer_asset_1_cta",
+            "type": "text",
+            "instructions": "Call-to-action text for the first asset link (e.g., 'Watch Now', 'Read Now').",
+            "required": false,
+            "wrapper": {
+                "width": "30"
+            }
+        },
+        {
+            "key": "field_customer_asset_1_url",
+            "label": "Asset 1 URL",
+            "name": "customer_asset_1_url",
+            "type": "url",
+            "instructions": "URL for the first asset link.",
+            "required": false,
+            "wrapper": {
+                "width": "70"
+            }
+        },
+        {
+            "key": "field_customer_asset_2_title",
+            "label": "Asset 2 Title",
+            "name": "customer_asset_2_title",
+            "type": "text",
+            "instructions": "Title for the second asset link displayed on the customer card.",
+            "required": false,
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_customer_asset_2_cta",
+            "label": "Asset 2 CTA Text",
+            "name": "customer_asset_2_cta",
+            "type": "text",
+            "instructions": "Call-to-action text for the second asset link (e.g., 'Watch Now', 'Read Now').",
+            "required": false,
+            "wrapper": {
+                "width": "30"
+            }
+        },
+        {
+            "key": "field_customer_asset_2_url",
+            "label": "Asset 2 URL",
+            "name": "customer_asset_2_url",
+            "type": "url",
+            "instructions": "URL for the second asset link.",
+            "required": false,
+            "wrapper": {
+                "width": "70"
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "customer"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Additional fields for customers including company name, industry taxonomy, logo, and asset links.",
+    "show_in_rest": 1,
+    "modified": 1735000000
+}
+

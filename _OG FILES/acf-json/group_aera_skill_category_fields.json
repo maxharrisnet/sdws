@@ -1,0 +1,51 @@
+{
+    "key": "group_aera_skill_category_fields",
+    "title": "Skill Category Fields",
+    "fields": [
+        {
+            "key": "field_category_parent_function",
+            "label": "Parent Function",
+            "name": "parent_function",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "Select the parent Function that this Category belongs to",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "skill_function",
+            "field_type": "select",
+            "allow_null": 1,
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "multiple": 0,
+            "allow_in_bindings": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "skill_category"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Custom fields for Skill Categories to link them to parent Functions",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1735608000
+}
+

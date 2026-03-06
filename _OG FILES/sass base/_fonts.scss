@@ -1,0 +1,72 @@
+/* FreightSans Pro */
+
+@font-face {
+	font-family: 'FreightSans Pro';
+	font-style: normal;
+	font-weight: 200;
+	font-display: swap;
+	src:
+		url('../fonts/FreightSans-Pro-Light.woff2') format('woff2'),
+		url('../fonts/FreightSans-Pro-Light.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'FreightSans Pro';
+	font-style: normal;
+	font-weight: 300;
+	font-display: swap;
+	src:
+		url('../fonts/FreightSans-Pro-Book.woff2') format('woff2'),
+		url('../fonts/FreightSans-Pro-Book.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'FreightSans Pro';
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src:
+		url('../fonts/FreightSans-Pro-Medium.woff2') format('woff2'),
+		url('../fonts/FreightSans-Pro-Medium.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'FreightSans Pro';
+	font-style: normal;
+	font-weight: 600; // TODO: Double check weight
+	font-display: swap;
+	src:
+		url('../fonts/FreightSans-Pro-Semibold.woff2') format('woff2'),
+		url('../fonts/FreightSans-Pro-Semibold.woff') format('woff');
+}
+
+/* Gilroy */
+@font-face {
+	font-family: 'Gilroy';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src:
+		url('../fonts/Gilroy-Bold.woff2') format('woff2'),
+		url('../fonts/Gilroy-Bold.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Gilroy';
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+	src:
+		url('../fonts/Gilroy-Semibold.woff2') format('woff2'),
+		url('../fonts/Gilroy-Semibold.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Gilroy';
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src:
+		url('../fonts/Gilroy-Medium.woff2') format('woff2'),
+		url('../fonts/Gilroy-Medium.woff') format('woff');
+}
