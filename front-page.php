@@ -40,6 +40,7 @@ get_header();
         <?php get_template_part('template-parts/sections/section-feature'); ?>
         <?php get_template_part('template-parts/sections/section-cards'); ?>
         <?php get_template_part('template-parts/sections/section-text_media'); ?>
+        
       <?php endif; ?>
   <?php endwhile;
   endif; ?>

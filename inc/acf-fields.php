@@ -417,6 +417,547 @@ function starter_coat_register_acf_fields()
   call_user_func(
     'acf_add_local_field_group',
     array(
+      'key'    => 'group_sc_global_cta_settings',
+      'title'  => __('Global CTA Settings', 'starter-coat'),
+      'fields' => array(
+        array(
+          'key'   => 'field_sc_global_cta_enabled',
+          'label' => __('Enable Global CTA', 'starter-coat'),
+          'name'  => 'sc_global_cta_enabled',
+          'type'  => 'true_false',
+          'ui'    => 1,
+        ),
+        array(
+          'key'   => 'field_sc_global_cta_content_tab',
+          'label' => __('Content', 'starter-coat'),
+          'name'  => '',
+          'type'  => 'tab',
+        ),
+        array(
+          'key'   => 'field_sc_global_cta_eyebrow',
+          'label' => __('Eyebrow', 'starter-coat'),
+          'name'  => 'sc_global_cta_eyebrow',
+          'type'  => 'text',
+        ),
+        array(
+          'key'   => 'field_sc_global_cta_title',
+          'label' => __('Title', 'starter-coat'),
+          'name'  => 'sc_global_cta_title',
+          'type'  => 'text',
+        ),
+        array(
+          'key'   => 'field_sc_global_cta_subheading',
+          'label' => __('Subheading', 'starter-coat'),
+          'name'  => 'sc_global_cta_subheading',
+          'type'  => 'text',
+        ),
+        array(
+          'key'   => 'field_sc_global_cta_paragraph',
+          'label' => __('Paragraph', 'starter-coat'),
+          'name'  => 'sc_global_cta_paragraph',
+          'type'  => 'textarea',
+        ),
+        array(
+          'key'   => 'field_sc_global_cta_buttons_tab',
+          'label' => __('Buttons', 'starter-coat'),
+          'name'  => '',
+          'type'  => 'tab',
+        ),
+        array(
+          'key'   => 'field_sc_global_cta_action_mode',
+          'label' => __('Actions Type', 'starter-coat'),
+          'name'  => 'sc_global_cta_action_mode',
+          'type'  => 'select',
+          'choices' => array(
+            'buttons' => __('Buttons', 'starter-coat'),
+            'form'    => __('Form', 'starter-coat'),
+          ),
+          'default_value' => 'buttons',
+          'ui'            => 1,
+        ),
+        array(
+          'key'   => 'field_sc_global_cta_button_primary',
+          'label' => __('Primary Button', 'starter-coat'),
+          'name'  => 'sc_global_cta_button_primary',
+          'type'  => 'link',
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_global_cta_action_mode',
+                'operator' => '==',
+                'value'    => 'buttons',
+              ),
+            ),
+          ),
+        ),
+        array(
+          'key'   => 'field_sc_global_cta_button_primary_style',
+          'label' => __('Primary Button Style', 'starter-coat'),
+          'name'  => 'sc_global_cta_button_primary_style',
+          'type'  => 'select',
+          'choices' => array(
+            'primary'   => __('Primary', 'starter-coat'),
+            'secondary' => __('Secondary', 'starter-coat'),
+            'ghost'     => __('Ghost', 'starter-coat'),
+          ),
+          'default_value' => 'primary',
+          'ui'            => 1,
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_global_cta_action_mode',
+                'operator' => '==',
+                'value'    => 'buttons',
+              ),
+            ),
+          ),
+        ),
+        array(
+          'key'   => 'field_sc_global_cta_button_secondary',
+          'label' => __('Secondary Button', 'starter-coat'),
+          'name'  => 'sc_global_cta_button_secondary',
+          'type'  => 'link',
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_global_cta_action_mode',
+                'operator' => '==',
+                'value'    => 'buttons',
+              ),
+            ),
+          ),
+        ),
+        array(
+          'key'   => 'field_sc_global_cta_button_secondary_style',
+          'label' => __('Secondary Button Style', 'starter-coat'),
+          'name'  => 'sc_global_cta_button_secondary_style',
+          'type'  => 'select',
+          'choices' => array(
+            'primary'   => __('Primary', 'starter-coat'),
+            'secondary' => __('Secondary', 'starter-coat'),
+            'ghost'     => __('Ghost', 'starter-coat'),
+          ),
+          'default_value' => 'ghost',
+          'ui'            => 1,
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_global_cta_action_mode',
+                'operator' => '==',
+                'value'    => 'buttons',
+              ),
+            ),
+          ),
+        ),
+        array(
+          'key'   => 'field_sc_global_cta_form_shortcode',
+          'label' => __('Form Shortcode', 'starter-coat'),
+          'name'  => 'sc_global_cta_form_shortcode',
+          'type'  => 'text',
+          'instructions' => __('Examples: [gravityform id="1" title="false" description="false" ajax="true"], [fluentform id="1"], [wpforms id="123"]', 'starter-coat'),
+          'placeholder' => '[gravityform id="1" title="false" description="false" ajax="true"]',
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_global_cta_action_mode',
+                'operator' => '==',
+                'value'    => 'form',
+              ),
+            ),
+          ),
+        ),
+        array(
+          'key'   => 'field_sc_global_cta_style_tab',
+          'label' => __('Style', 'starter-coat'),
+          'name'  => '',
+          'type'  => 'tab',
+        ),
+        array(
+          'key'   => 'field_sc_global_cta_layout',
+          'label' => __('Layout', 'starter-coat'),
+          'name'  => 'sc_global_cta_layout',
+          'type'  => 'select',
+          'choices' => array(
+            'stacked' => __('Stacked', 'starter-coat'),
+            'split'   => __('Split', 'starter-coat'),
+          ),
+          'default_value' => 'stacked',
+          'ui'            => 1,
+        ),
+        array(
+          'key'   => 'field_sc_global_cta_split_ratio',
+          'label' => __('Split Ratio', 'starter-coat'),
+          'name'  => 'sc_global_cta_split_ratio',
+          'type'  => 'select',
+          'choices' => array(
+            'two-thirds' => __('2/3 + 1/3', 'starter-coat'),
+            'half'       => __('50/50', 'starter-coat'),
+          ),
+          'default_value' => 'two-thirds',
+          'ui'            => 1,
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_global_cta_layout',
+                'operator' => '==',
+                'value'    => 'split',
+              ),
+            ),
+          ),
+        ),
+        array(
+          'key'   => 'field_sc_global_cta_width',
+          'label' => __('Width', 'starter-coat'),
+          'name'  => 'sc_global_cta_width',
+          'type'  => 'select',
+          'choices' => array(
+            'container' => __('Container', 'starter-coat'),
+            'narrow'    => __('Narrow', 'starter-coat'),
+            'full'      => __('Full Width', 'starter-coat'),
+          ),
+          'default_value' => 'container',
+          'ui'            => 1,
+        ),
+        array(
+          'key'   => 'field_sc_global_cta_background',
+          'label' => __('Background', 'starter-coat'),
+          'name'  => 'sc_global_cta_background',
+          'type'  => 'select',
+          'choices' => array(
+            'none'  => __('Default', 'starter-coat'),
+            'light' => __('Light', 'starter-coat'),
+            'dark'  => __('Dark', 'starter-coat'),
+            'brand' => __('Brand', 'starter-coat'),
+            'muted' => __('Muted', 'starter-coat'),
+          ),
+          'default_value' => 'none',
+          'ui'            => 1,
+        ),
+        array(
+          'key'   => 'field_sc_global_cta_text_box_style',
+          'label' => __('Text Box Style', 'starter-coat'),
+          'name'  => 'sc_global_cta_text_box_style',
+          'type'  => 'select',
+          'choices' => array(
+            'surface' => __('Surface', 'starter-coat'),
+            'outline' => __('Outline', 'starter-coat'),
+            'none'    => __('None', 'starter-coat'),
+          ),
+          'default_value' => 'surface',
+          'ui'            => 1,
+        ),
+      ),
+      'location' => array(
+        array(
+          array(
+            'param'    => 'options_page',
+            'operator' => '==',
+            'value'    => 'starter-coat-theme-settings',
+          ),
+        ),
+      ),
+    )
+  );
+
+  call_user_func(
+    'acf_add_local_field_group',
+    array(
+      'key'    => 'group_sc_page_cta_override',
+      'title'  => __('CTA Override', 'starter-coat'),
+      'fields' => array(
+        array(
+          'key'   => 'field_sc_page_cta_override',
+          'label' => __('Override Global CTA', 'starter-coat'),
+          'name'  => 'sc_page_cta_override',
+          'type'  => 'true_false',
+          'ui'    => 1,
+        ),
+        array(
+          'key'   => 'field_sc_page_cta_enabled',
+          'label' => __('Enable CTA For This Page', 'starter-coat'),
+          'name'  => 'sc_page_cta_enabled',
+          'type'  => 'true_false',
+          'ui'    => 1,
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_page_cta_override',
+                'operator' => '==',
+                'value'    => '1',
+              ),
+            ),
+          ),
+        ),
+        array(
+          'key'   => 'field_sc_page_cta_content_tab',
+          'label' => __('Content', 'starter-coat'),
+          'name'  => '',
+          'type'  => 'tab',
+        ),
+        array(
+          'key'   => 'field_sc_page_cta_eyebrow',
+          'label' => __('Eyebrow', 'starter-coat'),
+          'name'  => 'sc_page_cta_eyebrow',
+          'type'  => 'text',
+        ),
+        array(
+          'key'   => 'field_sc_page_cta_title',
+          'label' => __('Title', 'starter-coat'),
+          'name'  => 'sc_page_cta_title',
+          'type'  => 'text',
+        ),
+        array(
+          'key'   => 'field_sc_page_cta_subheading',
+          'label' => __('Subheading', 'starter-coat'),
+          'name'  => 'sc_page_cta_subheading',
+          'type'  => 'text',
+        ),
+        array(
+          'key'   => 'field_sc_page_cta_paragraph',
+          'label' => __('Paragraph', 'starter-coat'),
+          'name'  => 'sc_page_cta_paragraph',
+          'type'  => 'textarea',
+        ),
+        array(
+          'key'   => 'field_sc_page_cta_buttons_tab',
+          'label' => __('Buttons', 'starter-coat'),
+          'name'  => '',
+          'type'  => 'tab',
+        ),
+        array(
+          'key'   => 'field_sc_page_cta_action_mode',
+          'label' => __('Actions Type', 'starter-coat'),
+          'name'  => 'sc_page_cta_action_mode',
+          'type'  => 'select',
+          'choices' => array(
+            'buttons' => __('Buttons', 'starter-coat'),
+            'form'    => __('Form', 'starter-coat'),
+          ),
+          'default_value' => 'buttons',
+          'ui'            => 1,
+        ),
+        array(
+          'key'   => 'field_sc_page_cta_button_primary',
+          'label' => __('Primary Button', 'starter-coat'),
+          'name'  => 'sc_page_cta_button_primary',
+          'type'  => 'link',
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_page_cta_action_mode',
+                'operator' => '==',
+                'value'    => 'buttons',
+              ),
+            ),
+          ),
+        ),
+        array(
+          'key'   => 'field_sc_page_cta_button_primary_style',
+          'label' => __('Primary Button Style', 'starter-coat'),
+          'name'  => 'sc_page_cta_button_primary_style',
+          'type'  => 'select',
+          'choices' => array(
+            'primary'   => __('Primary', 'starter-coat'),
+            'secondary' => __('Secondary', 'starter-coat'),
+            'ghost'     => __('Ghost', 'starter-coat'),
+          ),
+          'default_value' => 'primary',
+          'ui'            => 1,
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_page_cta_action_mode',
+                'operator' => '==',
+                'value'    => 'buttons',
+              ),
+            ),
+          ),
+        ),
+        array(
+          'key'   => 'field_sc_page_cta_button_secondary',
+          'label' => __('Secondary Button', 'starter-coat'),
+          'name'  => 'sc_page_cta_button_secondary',
+          'type'  => 'link',
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_page_cta_action_mode',
+                'operator' => '==',
+                'value'    => 'buttons',
+              ),
+            ),
+          ),
+        ),
+        array(
+          'key'   => 'field_sc_page_cta_button_secondary_style',
+          'label' => __('Secondary Button Style', 'starter-coat'),
+          'name'  => 'sc_page_cta_button_secondary_style',
+          'type'  => 'select',
+          'choices' => array(
+            'primary'   => __('Primary', 'starter-coat'),
+            'secondary' => __('Secondary', 'starter-coat'),
+            'ghost'     => __('Ghost', 'starter-coat'),
+          ),
+          'default_value' => 'ghost',
+          'ui'            => 1,
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_page_cta_action_mode',
+                'operator' => '==',
+                'value'    => 'buttons',
+              ),
+            ),
+          ),
+        ),
+        array(
+          'key'   => 'field_sc_page_cta_form_shortcode',
+          'label' => __('Form Shortcode', 'starter-coat'),
+          'name'  => 'sc_page_cta_form_shortcode',
+          'type'  => 'text',
+          'instructions' => __('Examples: [gravityform id="1" title="false" description="false" ajax="true"], [fluentform id="1"], [wpforms id="123"]', 'starter-coat'),
+          'placeholder' => '[gravityform id="1" title="false" description="false" ajax="true"]',
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_page_cta_action_mode',
+                'operator' => '==',
+                'value'    => 'form',
+              ),
+            ),
+          ),
+        ),
+        array(
+          'key'   => 'field_sc_page_cta_style_tab',
+          'label' => __('Style', 'starter-coat'),
+          'name'  => '',
+          'type'  => 'tab',
+        ),
+        array(
+          'key'   => 'field_sc_page_cta_layout',
+          'label' => __('Layout', 'starter-coat'),
+          'name'  => 'sc_page_cta_layout',
+          'type'  => 'select',
+          'choices' => array(
+            'stacked' => __('Stacked', 'starter-coat'),
+            'split'   => __('Split', 'starter-coat'),
+          ),
+          'default_value' => 'stacked',
+          'ui'            => 1,
+        ),
+        array(
+          'key'   => 'field_sc_page_cta_split_ratio',
+          'label' => __('Split Ratio', 'starter-coat'),
+          'name'  => 'sc_page_cta_split_ratio',
+          'type'  => 'select',
+          'choices' => array(
+            'two-thirds' => __('2/3 + 1/3', 'starter-coat'),
+            'half'       => __('50/50', 'starter-coat'),
+          ),
+          'default_value' => 'two-thirds',
+          'ui'            => 1,
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_page_cta_layout',
+                'operator' => '==',
+                'value'    => 'split',
+              ),
+            ),
+          ),
+        ),
+        array(
+          'key'   => 'field_sc_page_cta_width',
+          'label' => __('Width', 'starter-coat'),
+          'name'  => 'sc_page_cta_width',
+          'type'  => 'select',
+          'choices' => array(
+            'container' => __('Container', 'starter-coat'),
+            'narrow'    => __('Narrow', 'starter-coat'),
+            'full'      => __('Full Width', 'starter-coat'),
+          ),
+          'default_value' => 'container',
+          'ui'            => 1,
+        ),
+        array(
+          'key'   => 'field_sc_page_cta_background',
+          'label' => __('Background', 'starter-coat'),
+          'name'  => 'sc_page_cta_background',
+          'type'  => 'select',
+          'choices' => array(
+            'none'  => __('Default', 'starter-coat'),
+            'light' => __('Light', 'starter-coat'),
+            'dark'  => __('Dark', 'starter-coat'),
+            'brand' => __('Brand', 'starter-coat'),
+            'muted' => __('Muted', 'starter-coat'),
+          ),
+          'default_value' => 'none',
+          'ui'            => 1,
+        ),
+        array(
+          'key'   => 'field_sc_page_cta_text_box_style',
+          'label' => __('Text Box Style', 'starter-coat'),
+          'name'  => 'sc_page_cta_text_box_style',
+          'type'  => 'select',
+          'choices' => array(
+            'surface' => __('Surface', 'starter-coat'),
+            'outline' => __('Outline', 'starter-coat'),
+            'none'    => __('None', 'starter-coat'),
+          ),
+          'default_value' => 'surface',
+          'ui'            => 1,
+        ),
+      ),
+      'location' => array(
+        array(
+          array(
+            'param'    => 'post_type',
+            'operator' => '==',
+            'value'    => 'page',
+          ),
+        ),
+        array(
+          array(
+            'param'    => 'post_type',
+            'operator' => '==',
+            'value'    => 'post',
+          ),
+        ),
+        array(
+          array(
+            'param'    => 'post_type',
+            'operator' => '==',
+            'value'    => 'project',
+          ),
+        ),
+        array(
+          array(
+            'param'    => 'post_type',
+            'operator' => '==',
+            'value'    => 'event',
+          ),
+        ),
+        array(
+          array(
+            'param'    => 'post_type',
+            'operator' => '==',
+            'value'    => 'faq',
+          ),
+        ),
+        array(
+          array(
+            'param'    => 'post_type',
+            'operator' => '==',
+            'value'    => 'profile',
+          ),
+        ),
+      ),
+    )
+  );
+
+  call_user_func(
+    'acf_add_local_field_group',
+    array(
       'key'    => 'group_sc_page_sections',
       'title'  => __('Page Sections', 'starter-coat'),
       'fields' => array(

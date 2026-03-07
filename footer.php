@@ -12,6 +12,7 @@
 
 ?>
 
+<?php starter_coat_render_footer_cta(); ?>
 <?php get_template_part('template-parts/components/footer'); ?>
 </div><!-- #page -->
 

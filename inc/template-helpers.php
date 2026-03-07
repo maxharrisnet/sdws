@@ -99,6 +99,164 @@ function starter_coat_get_nav_settings()
 }
 
 /**
+ * Get global footer CTA settings.
+ *
+ * @return array<string,mixed>
+ */
+function starter_coat_get_global_cta_settings()
+{
+  $settings = array(
+    'enabled'                => false,
+    'eyebrow'                => '',
+    'title'                  => '',
+    'subheading'             => '',
+    'copy'                   => '',
+    'action_mode'            => 'buttons',
+    'form_shortcode'         => '',
+    'button_primary'         => null,
+    'button_primary_style'   => 'primary',
+    'button_secondary'       => null,
+    'button_secondary_style' => 'ghost',
+    'layout'                 => 'stacked',
+    'split_ratio'            => 'two-thirds',
+    'width'                  => 'container',
+    'background'             => 'none',
+    'text_box_style'         => 'surface',
+  );
+
+  if (! function_exists('get_field')) {
+    return $settings;
+  }
+
+  $settings['enabled'] = (bool) call_user_func('get_field', 'sc_global_cta_enabled', 'option');
+  $settings['eyebrow'] = (string) call_user_func('get_field', 'sc_global_cta_eyebrow', 'option');
+  $settings['title'] = (string) call_user_func('get_field', 'sc_global_cta_title', 'option');
+  $settings['subheading'] = (string) call_user_func('get_field', 'sc_global_cta_subheading', 'option');
+  $settings['copy'] = (string) call_user_func('get_field', 'sc_global_cta_paragraph', 'option');
+  $settings['action_mode'] = (string) call_user_func('get_field', 'sc_global_cta_action_mode', 'option') ?: $settings['action_mode'];
+  $settings['form_shortcode'] = (string) call_user_func('get_field', 'sc_global_cta_form_shortcode', 'option');
+  $settings['button_primary'] = call_user_func('get_field', 'sc_global_cta_button_primary', 'option');
+  $settings['button_primary_style'] = (string) call_user_func('get_field', 'sc_global_cta_button_primary_style', 'option') ?: $settings['button_primary_style'];
+  $settings['button_secondary'] = call_user_func('get_field', 'sc_global_cta_button_secondary', 'option');
+  $settings['button_secondary_style'] = (string) call_user_func('get_field', 'sc_global_cta_button_secondary_style', 'option') ?: $settings['button_secondary_style'];
+  $settings['layout'] = (string) call_user_func('get_field', 'sc_global_cta_layout', 'option') ?: $settings['layout'];
+  $settings['split_ratio'] = (string) call_user_func('get_field', 'sc_global_cta_split_ratio', 'option') ?: $settings['split_ratio'];
+  $settings['width'] = (string) call_user_func('get_field', 'sc_global_cta_width', 'option') ?: $settings['width'];
+  $settings['background'] = (string) call_user_func('get_field', 'sc_global_cta_background', 'option') ?: $settings['background'];
+  $settings['text_box_style'] = (string) call_user_func('get_field', 'sc_global_cta_text_box_style', 'option') ?: $settings['text_box_style'];
+
+  return $settings;
+}
+
+/**
+ * Get page-level CTA settings when override is enabled.
+ *
+ * @param int $post_id Post ID.
+ * @return array<string,mixed>|null
+ */
+function starter_coat_get_page_cta_override($post_id)
+{
+  if (! function_exists('get_field')) {
+    return null;
+  }
+
+  $post_id = absint($post_id);
+  if (! $post_id) {
+    return null;
+  }
+
+  $override = (bool) call_user_func('get_field', 'sc_page_cta_override', $post_id);
+  if (! $override) {
+    return null;
+  }
+
+  return array(
+    'enabled'                => (bool) call_user_func('get_field', 'sc_page_cta_enabled', $post_id),
+    'eyebrow'                => (string) call_user_func('get_field', 'sc_page_cta_eyebrow', $post_id),
+    'title'                  => (string) call_user_func('get_field', 'sc_page_cta_title', $post_id),
+    'subheading'             => (string) call_user_func('get_field', 'sc_page_cta_subheading', $post_id),
+    'copy'                   => (string) call_user_func('get_field', 'sc_page_cta_paragraph', $post_id),
+    'action_mode'            => (string) call_user_func('get_field', 'sc_page_cta_action_mode', $post_id),
+    'form_shortcode'         => (string) call_user_func('get_field', 'sc_page_cta_form_shortcode', $post_id),
+    'button_primary'         => call_user_func('get_field', 'sc_page_cta_button_primary', $post_id),
+    'button_primary_style'   => (string) call_user_func('get_field', 'sc_page_cta_button_primary_style', $post_id),
+    'button_secondary'       => call_user_func('get_field', 'sc_page_cta_button_secondary', $post_id),
+    'button_secondary_style' => (string) call_user_func('get_field', 'sc_page_cta_button_secondary_style', $post_id),
+    'layout'                 => (string) call_user_func('get_field', 'sc_page_cta_layout', $post_id),
+    'split_ratio'            => (string) call_user_func('get_field', 'sc_page_cta_split_ratio', $post_id),
+    'width'                  => (string) call_user_func('get_field', 'sc_page_cta_width', $post_id),
+    'background'             => (string) call_user_func('get_field', 'sc_page_cta_background', $post_id),
+    'text_box_style'         => (string) call_user_func('get_field', 'sc_page_cta_text_box_style', $post_id),
+  );
+}
+
+/**
+ * Build CTA data with page overrides applied to global defaults.
+ *
+ * @param int $post_id Optional post ID.
+ * @return array<string,mixed>
+ */
+function starter_coat_get_footer_cta_data($post_id = 0)
+{
+  $cta = starter_coat_get_global_cta_settings();
+
+  if (! is_singular()) {
+    return $cta;
+  }
+
+  $post_id = $post_id ? absint($post_id) : get_the_ID();
+  if (! $post_id) {
+    return $cta;
+  }
+
+  $override = starter_coat_get_page_cta_override($post_id);
+  if (! is_array($override)) {
+    return $cta;
+  }
+
+  $cta['enabled'] = $override['enabled'];
+
+  foreach ($override as $key => $value) {
+    if ('enabled' === $key) {
+      continue;
+    }
+
+    if (is_array($value) && ! empty($value)) {
+      $cta[$key] = $value;
+      continue;
+    }
+
+    if (is_string($value) && '' !== $value) {
+      $cta[$key] = $value;
+    }
+  }
+
+  return $cta;
+}
+
+/**
+ * Render global/page CTA above footer.
+ */
+function starter_coat_render_footer_cta()
+{
+  $cta = starter_coat_get_footer_cta_data();
+
+  if (empty($cta['enabled'])) {
+    return;
+  }
+
+  $action_mode = isset($cta['action_mode']) ? (string) $cta['action_mode'] : 'buttons';
+  $has_button = (! empty($cta['button_primary']['url']) && ! empty($cta['button_primary']['title'])) || (! empty($cta['button_secondary']['url']) && ! empty($cta['button_secondary']['title']));
+  $has_form = 'form' === $action_mode && ! empty($cta['form_shortcode']);
+
+  if (empty($cta['title']) && empty($cta['copy']) && ! $has_button && ! $has_form) {
+    return;
+  }
+
+  get_template_part('template-parts/components/cta', null, array('cta' => $cta));
+}
+
+/**
  * Add theme preset class to body.
  *
  * @param string[] $classes Existing classes.
