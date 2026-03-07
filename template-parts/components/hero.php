@@ -21,6 +21,7 @@ $button_primary_style = isset($hero['button_primary_style']) ? sanitize_html_cla
 $button_secondary_style = isset($hero['button_secondary_style']) ? sanitize_html_class((string) $hero['button_secondary_style']) : 'ghost';
 $media_type      = isset($hero['media_type']) ? sanitize_html_class((string) $hero['media_type']) : 'none';
 $image           = isset($hero['image']) && is_array($hero['image']) ? $hero['image'] : array();
+$image_id        = isset($image['ID']) ? absint($image['ID']) : 0;
 $image_style     = isset($hero['image_style']) ? sanitize_html_class((string) $hero['image_style']) : 'rounded';
 $video_embed     = isset($hero['video_embed']) ? (string) $hero['video_embed'] : '';
 $video_url       = isset($hero['video_url']) ? (string) $hero['video_url'] : '';
@@ -83,7 +84,23 @@ if ($full_height || 'page-fullheight' === $variant) {
 
       <?php if ('image' === $media_type && ! empty($image['url'])) : ?>
         <figure class="c-hero__media image image--<?php echo esc_attr($image_style); ?>">
-          <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr(isset($image['alt']) ? $image['alt'] : ''); ?>" loading="lazy" />
+          <?php if ($image_id) : ?>
+            <?php
+            echo wp_get_attachment_image(
+              $image_id,
+              'sc-hero',
+              false,
+              array(
+                'class'    => 'c-hero__image',
+                'loading'  => 'lazy',
+                'decoding' => 'async',
+                'sizes'    => '(min-width: 1200px) 560px, (min-width: 768px) 45vw, 100vw',
+              )
+            );
+            ?>
+          <?php else : ?>
+            <img class="c-hero__image" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr(isset($image['alt']) ? $image['alt'] : ''); ?>" loading="lazy" decoding="async" />
+          <?php endif; ?>
         </figure>
       <?php endif; ?>
 

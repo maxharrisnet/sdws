@@ -10,7 +10,7 @@ body {
 
 html {
 	scroll-behavior: smooth;
-	--header-offset: 0px !important;
+	--header-offset: 0px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -54,6 +54,11 @@ body.admin-bar {
 	padding-bottom: 32px;
 }
 
+html,
+body.admin-bar {
+	margin-top: 0 !important;
+}
+
 body.admin-bar #wpadminbar {
 	top: auto;
 	bottom: 0;
@@ -62,10 +67,6 @@ body.admin-bar #wpadminbar {
 
 html[style*='margin-top'] {
 	margin-top: 0 !important;
-}
-
-body.admin-bar.has-fixed-header #page {
-	padding-top: var(--header-offset, 0);
 }
 
 @media (max-width: 782px) {

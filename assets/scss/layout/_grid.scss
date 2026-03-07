@@ -1,4 +1,4 @@
-@use "../tokens/mixins";
+@use '../tokens/mixins';
 
 .container {
 	width: min(100% - (var(--space-md) * 2), var(--container-max));
@@ -7,6 +7,12 @@
 
 .container--narrow {
 	max-width: var(--container-narrow);
+}
+
+.container--full {
+	width: 100%;
+	max-width: none;
+	padding-inline: 0;
 }
 
 .layout {
@@ -22,6 +28,23 @@
 @include mixins.mq-sm {
 	.layout--2col > * {
 		flex-basis: calc(50% - var(--space-lg));
+	}
+
+	/* Keep media aligned to the outside edge in two-column rows. */
+	.section--feature .layout--2col > .feature__media,
+	.section--text-media .layout--2col > figure {
+		display: flex;
+		width: 100%;
+	}
+
+	.section--feature .layout--2col:not(.layout--reverse) > .feature__media,
+	.section--text-media .layout--2col:not(.layout--reverse) > figure {
+		justify-content: flex-start;
+	}
+
+	.section--feature .layout--2col.layout--reverse > .feature__media,
+	.section--text-media .layout--2col.layout--reverse > figure {
+		justify-content: flex-end;
 	}
 
 	.layout--reverse > *:first-child {

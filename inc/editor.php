@@ -47,6 +47,15 @@ function starter_coat_use_block_editor_for_post_type($use_block_editor, $post_ty
 add_filter('use_block_editor_for_post_type', 'starter_coat_use_block_editor_for_post_type', 10, 2);
 
 /**
+ * Temporarily hide the default content editor on Pages.
+ */
+function starter_coat_hide_page_content_editor()
+{
+  remove_post_type_support('page', 'editor');
+}
+add_action('init', 'starter_coat_hide_page_content_editor', 20);
+
+/**
  * Keep frontend clean when blocks are not used on page/CPT templates.
  */
 function starter_coat_dequeue_block_styles()

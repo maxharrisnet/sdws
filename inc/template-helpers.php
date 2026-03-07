@@ -47,7 +47,10 @@ function starter_coat_get_nav_settings()
     'show_logo'       => true,
     'logo_mode'       => 'custom_logo',
     'logo_image'      => null,
+    'logo_mark_image' => null,
     'logo_max_width'  => 180,
+    'logo_mark_max_width' => 48,
+    'logo_mark_breakpoint' => 1024,
     'show_cta'        => false,
     'cta_link'        => null,
     'cta_style'       => 'primary',
@@ -80,10 +83,21 @@ function starter_coat_get_nav_settings()
   $settings['show_logo'] = (bool) call_user_func('get_field', 'sc_nav_show_logo', 'option');
   $settings['logo_mode'] = (string) call_user_func('get_field', 'sc_nav_logo_mode', 'option') ?: $settings['logo_mode'];
   $settings['logo_image'] = call_user_func('get_field', 'sc_nav_logo_image', 'option');
+  $settings['logo_mark_image'] = call_user_func('get_field', 'sc_nav_logo_mark_image', 'option');
 
   $logo_max_width = absint((int) call_user_func('get_field', 'sc_nav_logo_max_width', 'option'));
   if ($logo_max_width > 0) {
     $settings['logo_max_width'] = $logo_max_width;
+  }
+
+  $logo_mark_max_width = absint((int) call_user_func('get_field', 'sc_nav_logo_mark_max_width', 'option'));
+  if ($logo_mark_max_width > 0) {
+    $settings['logo_mark_max_width'] = $logo_mark_max_width;
+  }
+
+  $logo_mark_breakpoint = absint((int) call_user_func('get_field', 'sc_nav_logo_mark_breakpoint', 'option'));
+  if ($logo_mark_breakpoint > 0) {
+    $settings['logo_mark_breakpoint'] = $logo_mark_breakpoint;
   }
 
   $settings['show_cta'] = (bool) call_user_func('get_field', 'sc_nav_show_cta', 'option');
@@ -276,6 +290,10 @@ function starter_coat_body_classes_with_theme($classes)
     $classes[] = 'has-top-banner';
   }
 
+  if (! empty($nav_settings['logo_mark_image']['url'])) {
+    $classes[] = 'has-logo-mark';
+  }
+
   return $classes;
 }
 add_filter('body_class', 'starter_coat_body_classes_with_theme');
@@ -352,10 +370,19 @@ function starter_coat_get_sub_field($name, $default = '')
  */
 function starter_coat_get_section_classes($base)
 {
-  $width   = sanitize_html_class((string) starter_coat_get_sub_field('section_width', 'container'));
-  $padding = sanitize_html_class((string) starter_coat_get_sub_field('section_padding', 'lg'));
-  $bg      = sanitize_html_class((string) starter_coat_get_sub_field('section_background', 'none'));
-  $extra   = trim((string) starter_coat_get_sub_field('section_class', ''));
+  $padding       = sanitize_html_class((string) starter_coat_get_sub_field('section_padding', 'normal'));
+  $bg            = sanitize_html_class((string) starter_coat_get_sub_field('section_background', 'none'));
+  $content_width = sanitize_html_class((string) starter_coat_get_sub_field('section_content_width', 'inherit'));
+  $extra         = trim((string) starter_coat_get_sub_field('section_class', ''));
+
+  // Normalize editor-friendly values and legacy values to shared utility classes.
+  if ('small' === $padding) {
+    $padding = 'sm';
+  } elseif ('normal' === $padding) {
+    $padding = 'md';
+  } elseif ('large' === $padding) {
+    $padding = 'lg';
+  }
 
   $classes = array(
     'section',
@@ -365,6 +392,10 @@ function starter_coat_get_section_classes($base)
 
   if ('none' !== $bg) {
     $classes[] = 'bg-' . $bg;
+  }
+
+  if (in_array($content_width, array('container', 'wide', 'narrow'), true)) {
+    $classes[] = 'section--content-' . $content_width;
   }
 
   if (! empty($extra)) {

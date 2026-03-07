@@ -180,3 +180,4 @@ require STARTER_COAT_PATH . '/inc/taxonomies.php';
 require STARTER_COAT_PATH . '/inc/ajax.php';
 require STARTER_COAT_PATH . '/inc/acf-fields.php';
 require STARTER_COAT_PATH . '/inc/template-helpers.php';
+require STARTER_COAT_PATH . '/inc/media.php';

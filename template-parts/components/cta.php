@@ -92,7 +92,8 @@ if (in_array($background, array('dark', 'brand'), true)) {
 
       <?php if ($has_form) : ?>
         <div class="c-cta__form">
-          <?php echo do_shortcode($form_shortcode); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+          <?php echo do_shortcode($form_shortcode); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+          ?>
         </div>
       <?php elseif ($has_buttons) : ?>
         <div class="c-cta__actions">

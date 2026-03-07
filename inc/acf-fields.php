@@ -34,24 +34,39 @@ function starter_coat_register_acf_fields()
       'ui'            => 1,
     ),
     array(
+      'key'           => 'field_sc_section_content_width',
+      'label'         => __('Content Max Width', 'starter-coat'),
+      'name'          => 'section_content_width',
+      'type'          => 'select',
+      'choices'       => array(
+        'inherit'   => __('Inherit From Width', 'starter-coat'),
+        'container' => __('Container', 'starter-coat'),
+        'wide'      => __('Wide', 'starter-coat'),
+        'narrow'    => __('Narrow', 'starter-coat'),
+      ),
+      'default_value' => 'inherit',
+      'ui'            => 1,
+      'instructions'  => __('Useful with Full Width sections to keep content constrained.', 'starter-coat'),
+    ),
+    array(
       'key'           => 'field_sc_section_padding',
       'label'         => __('Padding', 'starter-coat'),
       'name'          => 'section_padding',
       'type'          => 'select',
       'choices'       => array(
-        'sm' => __('Small', 'starter-coat'),
-        'md' => __('Medium', 'starter-coat'),
-        'lg' => __('Large', 'starter-coat'),
-        'xl' => __('Extra Large', 'starter-coat'),
+        'small'  => __('Small', 'starter-coat'),
+        'normal' => __('Normal', 'starter-coat'),
+        'large'  => __('Large', 'starter-coat'),
+        'xl'     => __('Extra Large', 'starter-coat'),
       ),
-      'default_value' => 'lg',
+      'default_value' => 'normal',
       'ui'            => 1,
     ),
     array(
       'key'           => 'field_sc_section_background',
       'label'         => __('Background', 'starter-coat'),
       'name'          => 'section_background',
-      'type'          => 'select',
+      'type'          => 'radio',
       'choices'       => array(
         'none'  => __('Default', 'starter-coat'),
         'light' => __('Light', 'starter-coat'),
@@ -60,7 +75,10 @@ function starter_coat_register_acf_fields()
         'muted' => __('Muted', 'starter-coat'),
       ),
       'default_value' => 'none',
-      'ui'            => 1,
+      'layout'        => 'horizontal',
+      'wrapper'       => array(
+        'class' => 'sc-acf-color-palette',
+      ),
     ),
     array(
       'key'   => 'field_sc_section_class',
@@ -101,6 +119,22 @@ function starter_coat_register_acf_fields()
           ),
           'default_value' => 'jill',
           'ui'            => 1,
+        ),
+        array(
+          'key'   => 'field_sc_theme_branding_tab',
+          'label' => __('Branding', 'starter-coat'),
+          'name'  => '',
+          'type'  => 'tab',
+        ),
+        array(
+          'key'   => 'field_sc_site_favicon',
+          'label' => __('Favicon', 'starter-coat'),
+          'name'  => 'sc_site_favicon',
+          'type'  => 'image',
+          'return_format' => 'array',
+          'preview_size'  => 'thumbnail',
+          'instructions'  => __('Optional fallback favicon (used when Site Icon is not set in Customizer).', 'starter-coat'),
+          'mime_types'    => 'ico,png,svg,webp',
         ),
       ),
       'location' => array(
@@ -255,6 +289,7 @@ function starter_coat_register_acf_fields()
           'type'  => 'image',
           'return_format' => 'array',
           'preview_size'  => 'medium',
+          'mime_types'    => 'jpg,jpeg,png,webp,svg',
           'conditional_logic' => array(
             array(
               array(
@@ -266,8 +301,27 @@ function starter_coat_register_acf_fields()
           ),
         ),
         array(
+          'key'   => 'field_sc_nav_logo_mark_image',
+          'label' => __('Mobile Logo Mark (Square)', 'starter-coat'),
+          'name'  => 'sc_nav_logo_mark_image',
+          'type'  => 'image',
+          'return_format' => 'array',
+          'preview_size'  => 'thumbnail',
+          'mime_types'    => 'jpg,jpeg,png,webp,svg',
+          'instructions'  => __('Optional square logo shown on smaller screens.', 'starter-coat'),
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_nav_show_logo',
+                'operator' => '==',
+                'value'    => '1',
+              ),
+            ),
+          ),
+        ),
+        array(
           'key'           => 'field_sc_nav_logo_max_width',
-          'label'         => __('Logo Max Width (px)', 'starter-coat'),
+          'label'         => __('Primary Logo Max Width (Desktop px)', 'starter-coat'),
           'name'          => 'sc_nav_logo_max_width',
           'type'          => 'number',
           'default_value' => 180,
@@ -280,6 +334,53 @@ function starter_coat_register_acf_fields()
                 'field'    => 'field_sc_nav_show_logo',
                 'operator' => '==',
                 'value'    => '1',
+              ),
+            ),
+          ),
+        ),
+        array(
+          'key'           => 'field_sc_nav_logo_mark_max_width',
+          'label'         => __('Mobile Logo Mark Max Width (px)', 'starter-coat'),
+          'name'          => 'sc_nav_logo_mark_max_width',
+          'type'          => 'number',
+          'default_value' => 48,
+          'min'           => 24,
+          'max'           => 120,
+          'step'          => 1,
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_nav_show_logo',
+                'operator' => '==',
+                'value'    => '1',
+              ),
+              array(
+                'field'    => 'field_sc_nav_logo_mark_image',
+                'operator' => '!=empty',
+              ),
+            ),
+          ),
+        ),
+        array(
+          'key'           => 'field_sc_nav_logo_mark_breakpoint',
+          'label'         => __('Logo Mark Breakpoint (px)', 'starter-coat'),
+          'name'          => 'sc_nav_logo_mark_breakpoint',
+          'type'          => 'number',
+          'default_value' => 1024,
+          'min'           => 480,
+          'max'           => 1600,
+          'step'          => 1,
+          'instructions'  => __('Below this width, the square logo mark replaces the primary logo.', 'starter-coat'),
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_nav_show_logo',
+                'operator' => '==',
+                'value'    => '1',
+              ),
+              array(
+                'field'    => 'field_sc_nav_logo_mark_image',
+                'operator' => '!=empty',
               ),
             ),
           ),
@@ -622,7 +723,7 @@ function starter_coat_register_acf_fields()
           'key'   => 'field_sc_global_cta_background',
           'label' => __('Background', 'starter-coat'),
           'name'  => 'sc_global_cta_background',
-          'type'  => 'select',
+          'type'  => 'radio',
           'choices' => array(
             'none'  => __('Default', 'starter-coat'),
             'light' => __('Light', 'starter-coat'),
@@ -631,7 +732,10 @@ function starter_coat_register_acf_fields()
             'muted' => __('Muted', 'starter-coat'),
           ),
           'default_value' => 'none',
-          'ui'            => 1,
+          'layout'        => 'horizontal',
+          'wrapper'       => array(
+            'class' => 'sc-acf-color-palette',
+          ),
         ),
         array(
           'key'   => 'field_sc_global_cta_text_box_style',
@@ -664,6 +768,7 @@ function starter_coat_register_acf_fields()
     array(
       'key'    => 'group_sc_page_cta_override',
       'title'  => __('CTA Override', 'starter-coat'),
+      'menu_order' => 30,
       'fields' => array(
         array(
           'key'   => 'field_sc_page_cta_override',
@@ -883,7 +988,7 @@ function starter_coat_register_acf_fields()
           'key'   => 'field_sc_page_cta_background',
           'label' => __('Background', 'starter-coat'),
           'name'  => 'sc_page_cta_background',
-          'type'  => 'select',
+          'type'  => 'radio',
           'choices' => array(
             'none'  => __('Default', 'starter-coat'),
             'light' => __('Light', 'starter-coat'),
@@ -892,7 +997,10 @@ function starter_coat_register_acf_fields()
             'muted' => __('Muted', 'starter-coat'),
           ),
           'default_value' => 'none',
-          'ui'            => 1,
+          'layout'        => 'horizontal',
+          'wrapper'       => array(
+            'class' => 'sc-acf-color-palette',
+          ),
         ),
         array(
           'key'   => 'field_sc_page_cta_text_box_style',
@@ -960,6 +1068,7 @@ function starter_coat_register_acf_fields()
     array(
       'key'    => 'group_sc_page_sections',
       'title'  => __('Page Sections', 'starter-coat'),
+      'menu_order' => 20,
       'fields' => array(
         array(
           'key'           => 'field_sc_sections',
@@ -1164,6 +1273,73 @@ function starter_coat_register_acf_fields()
                 ...$section_options,
               ),
             ),
+            'layout_sc_logos' => array(
+              'key'        => 'layout_sc_logos',
+              'name'       => 'logos',
+              'label'      => __('Logo Grid', 'starter-coat'),
+              'display'    => 'block',
+              'sub_fields' => array(
+                array(
+                  'key'   => 'field_sc_logos_heading',
+                  'label' => __('Heading', 'starter-coat'),
+                  'name'  => 'heading',
+                  'type'  => 'text',
+                ),
+                array(
+                  'key'   => 'field_sc_logos_subtext',
+                  'label' => __('Subtext', 'starter-coat'),
+                  'name'  => 'subtext',
+                  'type'  => 'textarea',
+                ),
+                array(
+                  'key'           => 'field_sc_logos_columns',
+                  'label'         => __('Columns (Desktop)', 'starter-coat'),
+                  'name'          => 'columns',
+                  'type'          => 'select',
+                  'choices'       => array(
+                    '2' => '2',
+                    '3' => '3',
+                    '4' => '4',
+                    '5' => '5',
+                    '6' => '6',
+                  ),
+                  'default_value' => '4',
+                  'ui'            => 1,
+                ),
+                array(
+                  'key'          => 'field_sc_logos_items',
+                  'label'        => __('Logos', 'starter-coat'),
+                  'name'         => 'logos',
+                  'type'         => 'repeater',
+                  'button_label' => __('Add Logo', 'starter-coat'),
+                  'layout'       => 'row',
+                  'sub_fields'   => array(
+                    array(
+                      'key'           => 'field_sc_logos_item_image',
+                      'label'         => __('Logo Image', 'starter-coat'),
+                      'name'          => 'image',
+                      'type'          => 'image',
+                      'return_format' => 'array',
+                      'preview_size'  => 'medium',
+                      'mime_types'    => 'svg,png,jpg,jpeg,webp',
+                    ),
+                    array(
+                      'key'   => 'field_sc_logos_item_link',
+                      'label' => __('Optional Link', 'starter-coat'),
+                      'name'  => 'link',
+                      'type'  => 'link',
+                    ),
+                  ),
+                ),
+                array(
+                  'key'   => 'field_sc_logos_options_tab',
+                  'label' => __('Section Options', 'starter-coat'),
+                  'name'  => '',
+                  'type'  => 'tab',
+                ),
+                ...$section_options,
+              ),
+            ),
           ),
         ),
       ),
@@ -1184,6 +1360,7 @@ function starter_coat_register_acf_fields()
     array(
       'key'    => 'group_sc_singular_hero',
       'title'  => __('Hero - Singular', 'starter-coat'),
+      'menu_order' => 10,
       'fields' => array(
         array(
           'key'   => 'field_sc_hero_enabled',
@@ -1569,7 +1746,7 @@ function starter_coat_register_acf_fields()
           'key'   => 'field_sc_hero_background',
           'label' => __('Background', 'starter-coat'),
           'name'  => 'sc_hero_background',
-          'type'  => 'select',
+          'type'  => 'radio',
           'choices' => array(
             'none'  => __('Default', 'starter-coat'),
             'light' => __('Light', 'starter-coat'),
@@ -1578,7 +1755,10 @@ function starter_coat_register_acf_fields()
             'muted' => __('Muted', 'starter-coat'),
           ),
           'default_value' => 'none',
-          'ui'            => 1,
+          'layout'        => 'horizontal',
+          'wrapper'       => array(
+            'class' => 'sc-acf-color-palette',
+          ),
           'conditional_logic' => array(
             array(
               array(
@@ -1863,7 +2043,7 @@ function starter_coat_register_acf_fields()
               'key'   => 'field_sc_archive_hero_background',
               'label' => __('Background', 'starter-coat'),
               'name'  => 'background',
-              'type'  => 'select',
+              'type'  => 'radio',
               'choices' => array(
                 'none'  => __('Default', 'starter-coat'),
                 'light' => __('Light', 'starter-coat'),
@@ -1872,7 +2052,10 @@ function starter_coat_register_acf_fields()
                 'muted' => __('Muted', 'starter-coat'),
               ),
               'default_value' => 'none',
-              'ui'            => 1,
+              'layout'        => 'horizontal',
+              'wrapper'       => array(
+                'class' => 'sc-acf-color-palette',
+              ),
             ),
             array(
               'key'   => 'field_sc_archive_hero_full_height',
@@ -1992,3 +2175,77 @@ function starter_coat_register_acf_fields()
   );
 }
 add_action('acf/init', 'starter_coat_register_acf_fields');
+
+/**
+ * Add visual swatches to background color radio fields in ACF.
+ */
+function starter_coat_acf_palette_admin_styles()
+{
+  if (! is_admin()) {
+    return;
+  }
+  ?>
+  <style>
+    :root {
+      --sc-palette-default: #ffffff;
+      --sc-palette-light: #f8fafc;
+      --sc-palette-dark: #0f172a;
+      --sc-palette-brand: #335cfa;
+      --sc-palette-muted: #f1f5f9;
+      --sc-palette-border: #cbd5e1;
+    }
+
+    .acf-field.sc-acf-color-palette .acf-radio-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .acf-field.sc-acf-color-palette .acf-radio-list label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.35rem 0.65rem;
+      border: 1px solid var(--sc-palette-border);
+      border-radius: 999px;
+      background: #fff;
+      line-height: 1.2;
+    }
+
+    .acf-field.sc-acf-color-palette .acf-radio-list input {
+      margin-right: 0.2rem;
+    }
+
+    .acf-field.sc-acf-color-palette .acf-radio-list label::after {
+      content: '';
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 23, 42, 0.2);
+      background: var(--sc-palette-default);
+      flex: 0 0 auto;
+    }
+
+    .acf-field.sc-acf-color-palette .acf-radio-list label:has(input[value="none"])::after {
+      background: var(--sc-palette-default);
+    }
+
+    .acf-field.sc-acf-color-palette .acf-radio-list label:has(input[value="light"])::after {
+      background: var(--sc-palette-light);
+    }
+
+    .acf-field.sc-acf-color-palette .acf-radio-list label:has(input[value="dark"])::after {
+      background: var(--sc-palette-dark);
+    }
+
+    .acf-field.sc-acf-color-palette .acf-radio-list label:has(input[value="brand"])::after {
+      background: var(--sc-palette-brand);
+    }
+
+    .acf-field.sc-acf-color-palette .acf-radio-list label:has(input[value="muted"])::after {
+      background: var(--sc-palette-muted);
+    }
+  </style>
+  <?php
+}
+add_action('admin_head', 'starter_coat_acf_palette_admin_styles');
