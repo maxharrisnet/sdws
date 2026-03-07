@@ -766,6 +766,130 @@ function starter_coat_register_acf_fields()
   call_user_func(
     'acf_add_local_field_group',
     array(
+      'key'    => 'group_sc_contact_info',
+      'title'  => __('Contact Information', 'starter-coat'),
+      'fields' => array(
+        array(
+          'key'   => 'field_sc_contact_tab',
+          'label' => __('Contact', 'starter-coat'),
+          'name'  => '',
+          'type'  => 'tab',
+        ),
+        array(
+          'key'   => 'field_sc_contact_phone',
+          'label' => __('Phone', 'starter-coat'),
+          'name'  => 'sc_contact_phone',
+          'type'  => 'text',
+        ),
+        array(
+          'key'   => 'field_sc_contact_email',
+          'label' => __('Email', 'starter-coat'),
+          'name'  => 'sc_contact_email',
+          'type'  => 'email',
+        ),
+        array(
+          'key'   => 'field_sc_contact_address',
+          'label' => __('Address', 'starter-coat'),
+          'name'  => 'sc_contact_address',
+          'type'  => 'textarea',
+          'rows'  => 3,
+        ),
+        array(
+          'key'   => 'field_sc_contact_hours',
+          'label' => __('Business Hours', 'starter-coat'),
+          'name'  => 'sc_contact_hours',
+          'type'  => 'textarea',
+          'rows'  => 3,
+        ),
+      ),
+      'location' => array(
+        array(
+          array(
+            'param'    => 'options_page',
+            'operator' => '==',
+            'value'    => 'starter-coat-theme-settings',
+          ),
+        ),
+      ),
+    )
+  );
+
+  call_user_func(
+    'acf_add_local_field_group',
+    array(
+      'key'    => 'group_sc_social_media',
+      'title'  => __('Social Media Links', 'starter-coat'),
+      'fields' => array(
+        array(
+          'key'   => 'field_sc_social_tab',
+          'label' => __('Social Media', 'starter-coat'),
+          'name'  => '',
+          'type'  => 'tab',
+        ),
+        array(
+          'key'   => 'field_sc_social_facebook',
+          'label' => __('Facebook URL', 'starter-coat'),
+          'name'  => 'sc_social_facebook',
+          'type'  => 'url',
+        ),
+        array(
+          'key'   => 'field_sc_social_twitter',
+          'label' => __('Twitter/X URL', 'starter-coat'),
+          'name'  => 'sc_social_twitter',
+          'type'  => 'url',
+        ),
+        array(
+          'key'   => 'field_sc_social_instagram',
+          'label' => __('Instagram URL', 'starter-coat'),
+          'name'  => 'sc_social_instagram',
+          'type'  => 'url',
+        ),
+        array(
+          'key'   => 'field_sc_social_linkedin',
+          'label' => __('LinkedIn URL', 'starter-coat'),
+          'name'  => 'sc_social_linkedin',
+          'type'  => 'url',
+        ),
+        array(
+          'key'   => 'field_sc_social_youtube',
+          'label' => __('YouTube URL', 'starter-coat'),
+          'name'  => 'sc_social_youtube',
+          'type'  => 'url',
+        ),
+        array(
+          'key'   => 'field_sc_social_tiktok',
+          'label' => __('TikTok URL', 'starter-coat'),
+          'name'  => 'sc_social_tiktok',
+          'type'  => 'url',
+        ),
+        array(
+          'key'   => 'field_sc_social_pinterest',
+          'label' => __('Pinterest URL', 'starter-coat'),
+          'name'  => 'sc_social_pinterest',
+          'type'  => 'url',
+        ),
+        array(
+          'key'   => 'field_sc_social_github',
+          'label' => __('GitHub URL', 'starter-coat'),
+          'name'  => 'sc_social_github',
+          'type'  => 'url',
+        ),
+      ),
+      'location' => array(
+        array(
+          array(
+            'param'    => 'options_page',
+            'operator' => '==',
+            'value'    => 'starter-coat-theme-settings',
+          ),
+        ),
+      ),
+    )
+  );
+
+  call_user_func(
+    'acf_add_local_field_group',
+    array(
       'key'    => 'group_sc_page_cta_override',
       'title'  => __('CTA Override', 'starter-coat'),
       'menu_order' => 30,
@@ -1266,6 +1390,408 @@ function starter_coat_register_acf_fields()
                 ),
                 array(
                   'key'   => 'field_sc_cards_options_tab',
+                  'label' => __('Section Options', 'starter-coat'),
+                  'name'  => '',
+                  'type'  => 'tab',
+                ),
+                ...$section_options,
+              ),
+            ),
+            'layout_sc_testimonials' => array(
+              'key'        => 'layout_sc_testimonials',
+              'name'       => 'testimonials',
+              'label'      => __('Testimonials', 'starter-coat'),
+              'display'    => 'block',
+              'sub_fields' => array(
+                array(
+                  'key'   => 'field_sc_testimonials_heading',
+                  'label' => __('Heading', 'starter-coat'),
+                  'name'  => 'heading',
+                  'type'  => 'text',
+                ),
+                array(
+                  'key'   => 'field_sc_testimonials_subtext',
+                  'label' => __('Subtext', 'starter-coat'),
+                  'name'  => 'subtext',
+                  'type'  => 'textarea',
+                ),
+                array(
+                  'key'   => 'field_sc_testimonials_style',
+                  'label' => __('Card Style', 'starter-coat'),
+                  'name'  => 'style',
+                  'type'  => 'select',
+                  'choices' => array(
+                    'simple'  => __('Simple', 'starter-coat'),
+                    'feature' => __('Feature', 'starter-coat'),
+                  ),
+                  'default_value' => 'simple',
+                  'ui'            => 1,
+                ),
+                array(
+                  'key'   => 'field_sc_testimonials_display_mode',
+                  'label' => __('Display Mode', 'starter-coat'),
+                  'name'  => 'display_mode',
+                  'type'  => 'select',
+                  'choices' => array(
+                    'grid'     => __('Grid', 'starter-coat'),
+                    'carousel' => __('Carousel', 'starter-coat'),
+                  ),
+                  'default_value' => 'grid',
+                  'ui'            => 1,
+                ),
+                array(
+                  'key'   => 'field_sc_testimonials_columns',
+                  'label' => __('Grid Columns', 'starter-coat'),
+                  'name'  => 'columns',
+                  'type'  => 'select',
+                  'choices' => array(
+                    '1' => '1',
+                    '2' => '2',
+                    '3' => '3',
+                  ),
+                  'default_value' => '3',
+                  'ui'            => 1,
+                  'conditional_logic' => array(
+                    array(
+                      array(
+                        'field'    => 'field_sc_testimonials_display_mode',
+                        'operator' => '==',
+                        'value'    => 'grid',
+                      ),
+                    ),
+                  ),
+                ),
+                array(
+                  'key'   => 'field_sc_testimonials_slides_per_view',
+                  'label' => __('Slides Per View (Desktop)', 'starter-coat'),
+                  'name'  => 'slides_per_view',
+                  'type'  => 'select',
+                  'choices' => array(
+                    '1' => '1',
+                    '2' => '2',
+                    '3' => '3',
+                  ),
+                  'default_value' => '1',
+                  'ui'            => 1,
+                  'conditional_logic' => array(
+                    array(
+                      array(
+                        'field'    => 'field_sc_testimonials_display_mode',
+                        'operator' => '==',
+                        'value'    => 'carousel',
+                      ),
+                    ),
+                  ),
+                ),
+                array(
+                  'key'   => 'field_sc_testimonials_show_controls',
+                  'label' => __('Show Carousel Controls', 'starter-coat'),
+                  'name'  => 'show_controls',
+                  'type'  => 'true_false',
+                  'ui'    => 1,
+                  'default_value' => 1,
+                  'conditional_logic' => array(
+                    array(
+                      array(
+                        'field'    => 'field_sc_testimonials_display_mode',
+                        'operator' => '==',
+                        'value'    => 'carousel',
+                      ),
+                    ),
+                  ),
+                ),
+                array(
+                  'key'          => 'field_sc_testimonials_items',
+                  'label'        => __('Testimonials', 'starter-coat'),
+                  'name'         => 'items',
+                  'type'         => 'repeater',
+                  'layout'       => 'row',
+                  'button_label' => __('Add Testimonial', 'starter-coat'),
+                  'sub_fields'   => array(
+                    array(
+                      'key'   => 'field_sc_testimonial_quote',
+                      'label' => __('Quote', 'starter-coat'),
+                      'name'  => 'quote',
+                      'type'  => 'textarea',
+                    ),
+                    array(
+                      'key'   => 'field_sc_testimonial_name',
+                      'label' => __('Name', 'starter-coat'),
+                      'name'  => 'name',
+                      'type'  => 'text',
+                    ),
+                    array(
+                      'key'   => 'field_sc_testimonial_info_line_one',
+                      'label' => __('Info Line 1', 'starter-coat'),
+                      'name'  => 'info_line_one',
+                      'type'  => 'text',
+                    ),
+                    array(
+                      'key'   => 'field_sc_testimonial_info_line_two',
+                      'label' => __('Info Line 2', 'starter-coat'),
+                      'name'  => 'info_line_two',
+                      'type'  => 'text',
+                    ),
+                    array(
+                      'key'           => 'field_sc_testimonial_photo',
+                      'label'         => __('Photo (Optional)', 'starter-coat'),
+                      'name'          => 'photo',
+                      'type'          => 'image',
+                      'return_format' => 'array',
+                      'preview_size'  => 'thumbnail',
+                      'mime_types'    => 'svg,png,jpg,jpeg,webp',
+                    ),
+                  ),
+                ),
+                array(
+                  'key'   => 'field_sc_testimonials_options_tab',
+                  'label' => __('Section Options', 'starter-coat'),
+                  'name'  => '',
+                  'type'  => 'tab',
+                ),
+                ...$section_options,
+              ),
+            ),
+            'layout_sc_carousel' => array(
+              'key'        => 'layout_sc_carousel',
+              'name'       => 'carousel',
+              'label'      => __('Carousel', 'starter-coat'),
+              'display'    => 'block',
+              'sub_fields' => array(
+                array(
+                  'key'   => 'field_sc_carousel_heading',
+                  'label' => __('Heading', 'starter-coat'),
+                  'name'  => 'heading',
+                  'type'  => 'text',
+                ),
+                array(
+                  'key'   => 'field_sc_carousel_subtext',
+                  'label' => __('Subtext', 'starter-coat'),
+                  'name'  => 'subtext',
+                  'type'  => 'textarea',
+                ),
+                array(
+                  'key'   => 'field_sc_carousel_slides_per_view',
+                  'label' => __('Slides Per View (Desktop)', 'starter-coat'),
+                  'name'  => 'slides_per_view',
+                  'type'  => 'select',
+                  'choices' => array(
+                    '1' => '1',
+                    '2' => '2',
+                    '3' => '3',
+                  ),
+                  'default_value' => '1',
+                  'ui'            => 1,
+                ),
+                array(
+                  'key'   => 'field_sc_carousel_show_controls',
+                  'label' => __('Show Carousel Controls', 'starter-coat'),
+                  'name'  => 'show_controls',
+                  'type'  => 'true_false',
+                  'ui'    => 1,
+                  'default_value' => 1,
+                ),
+                array(
+                  'key'          => 'field_sc_carousel_items',
+                  'label'        => __('Slides', 'starter-coat'),
+                  'name'         => 'items',
+                  'type'         => 'repeater',
+                  'layout'       => 'block',
+                  'button_label' => __('Add Slide', 'starter-coat'),
+                  'sub_fields'   => array(
+                    array(
+                      'key'   => 'field_sc_carousel_item_type',
+                      'label' => __('Card Type', 'starter-coat'),
+                      'name'  => 'card_type',
+                      'type'  => 'select',
+                      'choices' => array(
+                        'testimonial' => __('Testimonial', 'starter-coat'),
+                        'content'     => __('Content Card', 'starter-coat'),
+                      ),
+                      'default_value' => 'testimonial',
+                      'ui'            => 1,
+                    ),
+                    array(
+                      'key'   => 'field_sc_carousel_item_testimonial_style',
+                      'label' => __('Testimonial Style', 'starter-coat'),
+                      'name'  => 'testimonial_style',
+                      'type'  => 'select',
+                      'choices' => array(
+                        'simple'  => __('Simple', 'starter-coat'),
+                        'feature' => __('Feature', 'starter-coat'),
+                      ),
+                      'default_value' => 'feature',
+                      'ui'            => 1,
+                      'conditional_logic' => array(
+                        array(
+                          array(
+                            'field'    => 'field_sc_carousel_item_type',
+                            'operator' => '==',
+                            'value'    => 'testimonial',
+                          ),
+                        ),
+                      ),
+                    ),
+                    array(
+                      'key'   => 'field_sc_carousel_item_quote',
+                      'label' => __('Quote', 'starter-coat'),
+                      'name'  => 'quote',
+                      'type'  => 'textarea',
+                      'conditional_logic' => array(
+                        array(
+                          array(
+                            'field'    => 'field_sc_carousel_item_type',
+                            'operator' => '==',
+                            'value'    => 'testimonial',
+                          ),
+                        ),
+                      ),
+                    ),
+                    array(
+                      'key'   => 'field_sc_carousel_item_name',
+                      'label' => __('Name', 'starter-coat'),
+                      'name'  => 'name',
+                      'type'  => 'text',
+                      'conditional_logic' => array(
+                        array(
+                          array(
+                            'field'    => 'field_sc_carousel_item_type',
+                            'operator' => '==',
+                            'value'    => 'testimonial',
+                          ),
+                        ),
+                      ),
+                    ),
+                    array(
+                      'key'   => 'field_sc_carousel_item_info_line_one',
+                      'label' => __('Info Line 1', 'starter-coat'),
+                      'name'  => 'info_line_one',
+                      'type'  => 'text',
+                      'conditional_logic' => array(
+                        array(
+                          array(
+                            'field'    => 'field_sc_carousel_item_type',
+                            'operator' => '==',
+                            'value'    => 'testimonial',
+                          ),
+                        ),
+                      ),
+                    ),
+                    array(
+                      'key'   => 'field_sc_carousel_item_info_line_two',
+                      'label' => __('Info Line 2', 'starter-coat'),
+                      'name'  => 'info_line_two',
+                      'type'  => 'text',
+                      'conditional_logic' => array(
+                        array(
+                          array(
+                            'field'    => 'field_sc_carousel_item_type',
+                            'operator' => '==',
+                            'value'    => 'testimonial',
+                          ),
+                        ),
+                      ),
+                    ),
+                    array(
+                      'key'           => 'field_sc_carousel_item_photo',
+                      'label'         => __('Photo (Optional)', 'starter-coat'),
+                      'name'          => 'photo',
+                      'type'          => 'image',
+                      'return_format' => 'array',
+                      'preview_size'  => 'thumbnail',
+                      'mime_types'    => 'svg,png,jpg,jpeg,webp',
+                      'conditional_logic' => array(
+                        array(
+                          array(
+                            'field'    => 'field_sc_carousel_item_type',
+                            'operator' => '==',
+                            'value'    => 'testimonial',
+                          ),
+                        ),
+                      ),
+                    ),
+                    array(
+                      'key'   => 'field_sc_carousel_item_eyebrow',
+                      'label' => __('Eyebrow', 'starter-coat'),
+                      'name'  => 'eyebrow',
+                      'type'  => 'text',
+                      'conditional_logic' => array(
+                        array(
+                          array(
+                            'field'    => 'field_sc_carousel_item_type',
+                            'operator' => '==',
+                            'value'    => 'content',
+                          ),
+                        ),
+                      ),
+                    ),
+                    array(
+                      'key'   => 'field_sc_carousel_item_title',
+                      'label' => __('Title', 'starter-coat'),
+                      'name'  => 'title',
+                      'type'  => 'text',
+                      'conditional_logic' => array(
+                        array(
+                          array(
+                            'field'    => 'field_sc_carousel_item_type',
+                            'operator' => '==',
+                            'value'    => 'content',
+                          ),
+                        ),
+                      ),
+                    ),
+                    array(
+                      'key'   => 'field_sc_carousel_item_copy',
+                      'label' => __('Copy', 'starter-coat'),
+                      'name'  => 'copy',
+                      'type'  => 'textarea',
+                      'conditional_logic' => array(
+                        array(
+                          array(
+                            'field'    => 'field_sc_carousel_item_type',
+                            'operator' => '==',
+                            'value'    => 'content',
+                          ),
+                        ),
+                      ),
+                    ),
+                    array(
+                      'key'           => 'field_sc_carousel_item_image',
+                      'label'         => __('Image (Optional)', 'starter-coat'),
+                      'name'          => 'image',
+                      'type'          => 'image',
+                      'return_format' => 'array',
+                      'preview_size'  => 'medium',
+                      'mime_types'    => 'svg,png,jpg,jpeg,webp',
+                      'conditional_logic' => array(
+                        array(
+                          array(
+                            'field'    => 'field_sc_carousel_item_type',
+                            'operator' => '==',
+                            'value'    => 'content',
+                          ),
+                        ),
+                      ),
+                    ),
+                    array(
+                      'key'   => 'field_sc_carousel_item_button',
+                      'label' => __('Button (Optional)', 'starter-coat'),
+                      'name'  => 'button',
+                      'type'  => 'link',
+                      'conditional_logic' => array(
+                        array(
+                          array(
+                            'field'    => 'field_sc_carousel_item_type',
+                            'operator' => '==',
+                            'value'    => 'content',
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                array(
+                  'key'   => 'field_sc_carousel_options_tab',
                   'label' => __('Section Options', 'starter-coat'),
                   'name'  => '',
                   'type'  => 'tab',
@@ -2184,7 +2710,7 @@ function starter_coat_acf_palette_admin_styles()
   if (! is_admin()) {
     return;
   }
-  ?>
+?>
   <style>
     :root {
       --sc-palette-default: #ffffff;
@@ -2246,6 +2772,6 @@ function starter_coat_acf_palette_admin_styles()
       background: var(--sc-palette-muted);
     }
   </style>
-  <?php
+<?php
 }
 add_action('admin_head', 'starter_coat_acf_palette_admin_styles');

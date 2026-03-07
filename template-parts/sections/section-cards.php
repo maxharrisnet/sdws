@@ -38,23 +38,15 @@ if ('2' === (string) $columns) {
           $title  = starter_coat_get_sub_field('title', '');
           $copy   = starter_coat_get_sub_field('copy', '');
           $button = starter_coat_get_sub_field('button', null);
+          $card   = array(
+            'type'    => 'content',
+            'eyebrow' => $pill,
+            'title'   => $title,
+            'copy'    => $copy,
+            'button'  => $button,
+          );
         ?>
-          <article class="card card--surface">
-            <?php if ($pill) : ?>
-              <span class="c-flexible-card__pill"><?php echo esc_html($pill); ?></span>
-            <?php endif; ?>
-            <?php if ($title) : ?>
-              <h3 class="card__title"><?php echo esc_html($title); ?></h3>
-            <?php endif; ?>
-            <?php if ($copy) : ?>
-              <p><?php echo esc_html($copy); ?></p>
-            <?php endif; ?>
-            <?php if (! empty($button['url']) && ! empty($button['title'])) : ?>
-              <a class="btn btn--ghost btn--sm" href="<?php echo esc_url($button['url']); ?>" <?php echo ! empty($button['target']) ? 'target="' . esc_attr($button['target']) . '"' : ''; ?>>
-                <?php echo esc_html($button['title']); ?>
-              </a>
-            <?php endif; ?>
-          </article>
+          <?php get_template_part('template-parts/components/card', null, array('card' => $card)); ?>
         <?php endwhile; ?>
       <?php else : ?>
         <?php for ($index = 1; $index <= 3; $index++) : ?>

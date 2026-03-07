@@ -113,6 +113,56 @@ function starter_coat_get_nav_settings()
 }
 
 /**
+ * Get contact information from options.
+ *
+ * @return array<string,mixed>
+ */
+function starter_coat_get_contact_info()
+{
+  if (! function_exists('get_field')) {
+    return array(
+      'phone'   => '',
+      'email'   => '',
+      'address' => '',
+      'hours'   => '',
+    );
+  }
+
+  return array(
+    'phone'   => (string) call_user_func('get_field', 'sc_contact_phone', 'option'),
+    'email'   => (string) call_user_func('get_field', 'sc_contact_email', 'option'),
+    'address' => (string) call_user_func('get_field', 'sc_contact_address', 'option'),
+    'hours'   => (string) call_user_func('get_field', 'sc_contact_hours', 'option'),
+  );
+}
+
+/**
+ * Get social media links from options.
+ *
+ * @return array<string,mixed>
+ */
+function starter_coat_get_social_links()
+{
+  if (! function_exists('get_field')) {
+    return array();
+  }
+
+  $links = array(
+    'facebook'  => (string) call_user_func('get_field', 'sc_social_facebook', 'option'),
+    'twitter'   => (string) call_user_func('get_field', 'sc_social_twitter', 'option'),
+    'instagram' => (string) call_user_func('get_field', 'sc_social_instagram', 'option'),
+    'linkedin'  => (string) call_user_func('get_field', 'sc_social_linkedin', 'option'),
+    'youtube'   => (string) call_user_func('get_field', 'sc_social_youtube', 'option'),
+    'tiktok'    => (string) call_user_func('get_field', 'sc_social_tiktok', 'option'),
+    'pinterest' => (string) call_user_func('get_field', 'sc_social_pinterest', 'option'),
+    'github'    => (string) call_user_func('get_field', 'sc_social_github', 'option'),
+  );
+
+  // Filter out empty values.
+  return array_filter($links);
+}
+
+/**
  * Get global footer CTA settings.
  *
  * @return array<string,mixed>
