@@ -4,12 +4,18 @@ This folder contains import-ready content based on `_OG_CONTENT/Hype Relations A
 
 ## Files
 
+- `wordpress-import-profiles.xml`
+  - Preferred file for now.
+  - Use with native WordPress importer: `Tools -> Import -> WordPress`.
+  - Imports directly into `profile` custom post type.
+  - Includes a `profile_tier` post meta value for each entry.
+
 - `profile-posts-wp-all-import.csv`
   - Best for: WP All Import or similar CSV import plugins.
   - Contains columns: `post_type`, `post_status`, `post_title`, `post_content`, `profile_tier`, `profile_focus`.
 
 - `profile-posts-wxr.xml`
-  - Best for: WordPress native importer (`Tools -> Import -> WordPress`).
+  - Same content as `wordpress-import-profiles.xml` (legacy filename).
   - Imports directly into `profile` custom post type.
   - Includes a `profile_tier` post meta value for each entry.
 

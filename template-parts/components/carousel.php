@@ -54,8 +54,26 @@ if (1 === count($items)) {
 
   <?php if ($show_controls && count($items) > 1) : ?>
     <div class="c-carousel__controls">
-      <button type="button" class="c-carousel__arrow c-carousel__arrow--prev" data-carousel-prev aria-label="<?php esc_attr_e('Previous slide', 'starter-coat'); ?>">&larr;</button>
-      <button type="button" class="c-carousel__arrow c-carousel__arrow--next" data-carousel-next aria-label="<?php esc_attr_e('Next slide', 'starter-coat'); ?>">&rarr;</button>
+      <button type="button" class="c-carousel__arrow c-carousel__arrow--prev" data-carousel-prev aria-label="<?php esc_attr_e('Previous slide', 'starter-coat'); ?>">
+        <?php starter_coat_the_icon('icon-chevron-up', array('class' => 'c-carousel__arrow-icon')); ?>
+      </button>
+      <button type="button" class="c-carousel__arrow c-carousel__arrow--next" data-carousel-next aria-label="<?php esc_attr_e('Next slide', 'starter-coat'); ?>">
+        <?php starter_coat_the_icon('icon-chevron-up', array('class' => 'c-carousel__arrow-icon')); ?>
+      </button>
+    </div>
+  <?php endif; ?>
+
+  <?php if (count($items) > 1) : ?>
+    <div class="c-carousel__dots" data-carousel-dots aria-label="<?php esc_attr_e('Slide navigation', 'starter-coat'); ?>">
+      <?php foreach ($items as $index => $unused_item) : ?>
+        <button
+          type="button"
+          class="c-carousel__dot"
+          data-carousel-dot
+          data-slide-index="<?php echo esc_attr((string) $index); ?>"
+          aria-label="<?php echo esc_attr(sprintf(__('Go to slide %d', 'starter-coat'), $index + 1)); ?>"
+          aria-current="<?php echo 0 === $index ? 'true' : 'false'; ?>"></button>
+      <?php endforeach; ?>
     </div>
   <?php endif; ?>
 </div>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0"
+  xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:wp="http://wordpress.org/export/1.2/">
+  <channel>
+    <title>Starter Coat Artist Pages Import</title>
+    <link>https://example.local</link>
+    <description>Regular page import from Hype Relations artist content.</description>
+    <pubDate>Sat, 07 Mar 2026 14:00:00 +0000</pubDate>
+    <language>en-CA</language>
+    <wp:wxr_version>1.2</wp:wxr_version>
+
+    <item>
+      <title>Artists</title>
+      <dc:creator><![CDATA[admin]]></dc:creator>
+      <pubDate>Sat, 07 Mar 2026 14:00:00 +0000</pubDate>
+      <wp:post_id>9001</wp:post_id>
+      <wp:post_date>2026-03-07 14:00:00</wp:post_date>
+      <wp:post_date_gmt>2026-03-07 14:00:00</wp:post_date_gmt>
+      <wp:comment_status>closed</wp:comment_status>
+      <wp:ping_status>closed</wp:ping_status>
+      <wp:post_name>artists</wp:post_name>
+      <wp:status>publish</wp:status>
+      <wp:post_parent>0</wp:post_parent>
+      <wp:menu_order>0</wp:menu_order>
+      <wp:post_type>page</wp:post_type>
+      <content:encoded><![CDATA[<h2>Blossoming</h2><ul><li><a href="/artists/jay-lee/">Jay-Lee</a></li><li><a href="/artists/nicole-j/">Nicole J</a></li><li><a href="/artists/kirsten/">Kirsten</a></li></ul><h2>Seedlings</h2><ul><li><a href="/artists/chelsea-behnsen/">Chelsea Behnsen</a></li><li><a href="/artists/lindsay-tanner/">Lindsay Tanner</a></li><li><a href="/artists/cecilia-prince/">Cecilia Prince</a></li><li><a href="/artists/willow-auger/">Willow Auger</a></li></ul><p>Artist profiles for Hype Relations. Images can be added after import.</p>]]></content:encoded>
+    </item>
+
+    <item>
+      <title>Jay-Lee</title>
+      <dc:creator><![CDATA[admin]]></dc:creator>
+      <pubDate>Sat, 07 Mar 2026 14:00:00 +0000</pubDate>
+      <wp:post_id>9002</wp:post_id>
+      <wp:post_date>2026-03-07 14:00:00</wp:post_date>
+      <wp:post_date_gmt>2026-03-07 14:00:00</wp:post_date_gmt>
+      <wp:comment_status>closed</wp:comment_status>
+      <wp:ping_status>closed</wp:ping_status>
+      <wp:post_name>jay-lee</wp:post_name>
+      <wp:status>publish</wp:status>
+      <wp:post_parent>9001</wp:post_parent>
+      <wp:menu_order>1</wp:menu_order>
+      <wp:post_type>page</wp:post_type>
+      <content:encoded><![CDATA[<p><strong>Category:</strong> Blossoming</p><p><strong>Focus:</strong> Makeup and Hair</p><p>Jay-Lee Seymour is a Vancouver-based Coast Salish makeup artist whose artistry is defined by bold, dramatic, and edgy looks that empower her clients, particularly within the Indigenous community.</p><p>With over five years of experience, Jay-Lee specializes in creating striking eye makeup and glamorous transformations that make her clients feel confident and regal. Passionate about using premium products like MAC and YSL, she delivers not only impeccable results but a luxurious and personalized experience for each of her clients.</p><p>Jay-Lee's journey into makeup artistry began in high school and has since evolved into a career shaped by both formal education and mentorship. She studied at the renowned Blanche Macdonald Centre and later received invaluable guidance from Vancouver Indigenous Fashion Week (VIFW) and mentor Marlayna Pincott. These experiences have played a pivotal role in refining her craft and developing a distinctive approach to beauty that is both fierce and empowering.</p><p>Her clientele includes members of the Supernaturals modeling agency, Indigenous designers, and individuals from the VIFW community, among others. Jay-Lee's work has garnered attention in prestigious publications and campaigns, including features in Vogue, Chatelaine, Aritzia, and Sharpie, as well as a notable appearance in a documentary about the opioid crisis in downtown Vancouver. Her diverse portfolio showcases her versatility, while her commitment to projects with cultural and social impact remains a driving force in her career.</p><p>Beyond makeup, Jay-Lee is an advocate for physical wellness and mental health, promoting a holistic approach that balances both personal and professional growth. With ambitions to expand her artistry globally, she looks forward to collaborating with international music artists and bringing her empowering vision to new audiences worldwide.</p>]]></content:encoded>
+    </item>
+
+    <item>
+      <title>Nicole J</title>
+      <dc:creator><![CDATA[admin]]></dc:creator>
+      <pubDate>Sat, 07 Mar 2026 14:00:00 +0000</pubDate>
+      <wp:post_id>9003</wp:post_id>
+      <wp:post_date>2026-03-07 14:00:00</wp:post_date>
+      <wp:post_date_gmt>2026-03-07 14:00:00</wp:post_date_gmt>
+      <wp:comment_status>closed</wp:comment_status>
+      <wp:ping_status>closed</wp:ping_status>
+      <wp:post_name>nicole-j</wp:post_name>
+      <wp:status>publish</wp:status>
+      <wp:post_parent>9001</wp:post_parent>
+      <wp:menu_order>2</wp:menu_order>
+      <wp:post_type>page</wp:post_type>
+      <content:encoded><![CDATA[<p><strong>Category:</strong> Blossoming</p><p><strong>Focus:</strong> Makeup and Hair</p><p>Nicole Johnson is a Vancouver-based makeup artist and proud Ojibway creative from Rolling River First Nation, Manitoba. She is a passionate and detail-driven makeup artist with four years of experience transforming visions into reality across fashion, film, and photography and much more. Renowned for her sharp, precise eyeliner techniques and an exceptional ability to cater to all complexions, skin types, and tones, Nicole creates looks that are as inclusive as they are stunning.</p><p>A graduate of the prestigious Blanche MacDonald in the Global Makeup Program, Nicole combines technical skill with a warm, client-centered approach. She has lent her expertise to Vancouver Indigenous Fashion Week for three consecutive years, collaborating with diverse creatives to bring bold ideas to life.</p><p>Dedicated to comfort and well-being, Nicole maintains a safe, welcoming and clean environment, ensuring every client feels confident and cared for. Beyond makeup artistry, she offers hairstyling services, providing comprehensive beauty solutions tailored to any occasion.</p><p>Whether it's for a high-profile shoot, a runway event, or a special occasion, Nicole's artistry is rooted in creativity, professionalism, and a genuine passion for making every client look and feel their best. Book today to experience artistry that elevates your unique beauty.</p>]]></content:encoded>
+    </item>
+
+    <item>
+      <title>Kirsten</title>
+      <dc:creator><![CDATA[admin]]></dc:creator>
+      <pubDate>Sat, 07 Mar 2026 14:00:00 +0000</pubDate>
+      <wp:post_id>9004</wp:post_id>
+      <wp:post_date>2026-03-07 14:00:00</wp:post_date>
+      <wp:post_date_gmt>2026-03-07 14:00:00</wp:post_date_gmt>
+      <wp:comment_status>closed</wp:comment_status>
+      <wp:ping_status>closed</wp:ping_status>
+      <wp:post_name>kirsten</wp:post_name>
+      <wp:status>draft</wp:status>
+      <wp:post_parent>9001</wp:post_parent>
+      <wp:menu_order>3</wp:menu_order>
+      <wp:post_type>page</wp:post_type>
+      <content:encoded><![CDATA[<p><strong>Category:</strong> Blossoming</p><p><strong>Focus:</strong> Makeup and Hair</p><p>Bio pending.</p>]]></content:encoded>
+    </item>
+
+    <item>
+      <title>Chelsea Behnsen</title>
+      <dc:creator><![CDATA[admin]]></dc:creator>
+      <pubDate>Sat, 07 Mar 2026 14:00:00 +0000</pubDate>
+      <wp:post_id>9005</wp:post_id>
+      <wp:post_date>2026-03-07 14:00:00</wp:post_date>
+      <wp:post_date_gmt>2026-03-07 14:00:00</wp:post_date_gmt>
+      <wp:comment_status>closed</wp:comment_status>
+      <wp:ping_status>closed</wp:ping_status>
+      <wp:post_name>chelsea-behnsen</wp:post_name>
+      <wp:status>publish</wp:status>
+      <wp:post_parent>9001</wp:post_parent>
+      <wp:menu_order>4</wp:menu_order>
+      <wp:post_type>page</wp:post_type>
+      <content:encoded><![CDATA[<p><strong>Category:</strong> Seedlings</p><p><strong>Focus:</strong> Makeup and Hair</p><p>I'm Chelsea Behnsen (she/her), a proud member of the Oneida Nation of the Thames, based in Vancouver. I'm passionate about helping others look and feel their best.</p><p>After five years in the esthetics industry, I took a break during the pandemic to stay home with my children. During this time, I completed a communications internship with Indigenous 150+, which led to a full-time position, and I also completed the I-CEDAR business program to further develop my entrepreneurial skills.</p><p>In 2024, I returned to my beauty career by enrolling in the Global Makeup Diploma Program at Blanche MacDonald and ACCESS, while also interning with Vancouver Indigenous Fashion Week as a makeup mentee.</p><p>I specialize in waxing, laser hair removal, facials, and both gel and natural nail services. In makeup, I enjoy creating glamorous, skin-focused, and special effects looks. I'm passionate about natural skincare and hope to one day create my own line of products.</p><p>I'm excited to continue growing in this industry, blending my cultural heritage with my creativity.</p>]]></content:encoded>
+    </item>
+
+    <item>
+      <title>Lindsay Tanner</title>
+      <dc:creator><![CDATA[admin]]></dc:creator>
+      <pubDate>Sat, 07 Mar 2026 14:00:00 +0000</pubDate>
+      <wp:post_id>9006</wp:post_id>
+      <wp:post_date>2026-03-07 14:00:00</wp:post_date>
+      <wp:post_date_gmt>2026-03-07 14:00:00</wp:post_date_gmt>
+      <wp:comment_status>closed</wp:comment_status>
+      <wp:ping_status>closed</wp:ping_status>
+      <wp:post_name>lindsay-tanner</wp:post_name>
+      <wp:status>publish</wp:status>
+      <wp:post_parent>9001</wp:post_parent>
+      <wp:menu_order>5</wp:menu_order>
+      <wp:post_type>page</wp:post_type>
+      <content:encoded><![CDATA[<p><strong>Category:</strong> Seedlings</p><p><strong>Focus:</strong> Makeup and Hair</p><p>Lindsay Tanner, born and raised in Vancouver, is a proud member of the Waywayseecappo First Nation, Treaty 4. Her passion for makeup began early, inspired by her love of dance and growing up in a creative, performance-driven environment. For Lindsay, makeup has always been more than just an art form - it is a powerful means of self-expression, confidence, and connection to community.</p><p>She honed her craft at the renowned Blanche MacDonald Centre and has since gained valuable experience interning with Vancouver Indigenous Fashion Week. Outside of makeup, Lindsay is also an accomplished hip-hop dancer and has a deep passion for music and streetwear.</p><p>Whether working in the makeup room, the dance studio, or exploring new creative ventures, Lindsay is dedicated to empowering others. She is committed to enhancing, rather than masking, her clients' natural features, always striving to amplify confidence and celebrate individuality through beauty.</p>]]></content:encoded>
+    </item>
+
+    <item>
+      <title>Cecilia Prince</title>
+      <dc:creator><![CDATA[admin]]></dc:creator>
+      <pubDate>Sat, 07 Mar 2026 14:00:00 +0000</pubDate>
+      <wp:post_id>9007</wp:post_id>
+      <wp:post_date>2026-03-07 14:00:00</wp:post_date>
+      <wp:post_date_gmt>2026-03-07 14:00:00</wp:post_date_gmt>
+      <wp:comment_status>closed</wp:comment_status>
+      <wp:ping_status>closed</wp:ping_status>
+      <wp:post_name>cecilia-prince</wp:post_name>
+      <wp:status>publish</wp:status>
+      <wp:post_parent>9001</wp:post_parent>
+      <wp:menu_order>6</wp:menu_order>
+      <wp:post_type>page</wp:post_type>
+      <content:encoded><![CDATA[<p><strong>Category:</strong> Seedlings</p><p><strong>Focus:</strong> Makeup and Hair</p><p>Cecilia Prince: Indigenous Makeup Artist and Entrepreneur.</p><p>Through dedication, passion, and artistry, I aim to inspire my community.</p><p><strong>Training and Expertise</strong></p><ul><li>Makeup Fundamentals</li><li>Cosmetic Retailing</li><li>Bridal Makeup and Hair for Bridal and Fashion</li><li>Airbrushing</li><li>High Fashion and Cutting-Edge Makeup</li><li>Makeup and Hair for Stage, TV and Film</li><li>Prosthetics Makeup</li></ul>]]></content:encoded>
+    </item>
+
+    <item>
+      <title>Willow Auger</title>
+      <dc:creator><![CDATA[admin]]></dc:creator>
+      <pubDate>Sat, 07 Mar 2026 14:00:00 +0000</pubDate>
+      <wp:post_id>9008</wp:post_id>
+      <wp:post_date>2026-03-07 14:00:00</wp:post_date>
+      <wp:post_date_gmt>2026-03-07 14:00:00</wp:post_date_gmt>
+      <wp:comment_status>closed</wp:comment_status>
+      <wp:ping_status>closed</wp:ping_status>
+      <wp:post_name>willow-auger</wp:post_name>
+      <wp:status>publish</wp:status>
+      <wp:post_parent>9001</wp:post_parent>
+      <wp:menu_order>7</wp:menu_order>
+      <wp:post_type>page</wp:post_type>
+      <content:encoded><![CDATA[<p><strong>Category:</strong> Seedlings</p><p><strong>Focus:</strong> Makeup and Hair</p><p>Willow Auger (she/her) is a Nehiyaw Iskwew (Cree woman) from Bigstone Cree Nation, located in Treaty 8 Territory in northern Alberta, and is now based in Vancouver's Lower Mainland. A passionate makeup artist with six years of freelance experience, Willow is set to graduate from the Blanche Macdonald Global Makeup Program in January 2025.</p><p>With a background in performing arts - including dance, figure skating, theatre, and film - Willow brings a creative and versatile approach to her work. She has contributed to the film What We Carry as a junior producer and is currently involved in several exciting upcoming projects while continuing to pursue her passion in the makeup industry.</p><p>Willow's journey into beauty began in a small community where makeup and hairstyling were uncommon. From a young age, she felt a strong desire to stand out, embracing the transformative power of makeup to boost confidence and self-expression. She believes that when you look good, you feel good - and that feeling can fuel greater self-assurance and accomplishment. Her goal is to help others feel their best, whether through makeup, styling, or simply being their authentic selves.</p><p>In addition to her freelance work, Willow has had the opportunity to work on high-profile fashion events in Vancouver, Seattle, and beyond, including Vancouver Indigenous Fashion Week in November 2024. She has collaborated with notable photographers like Autumn Pham, in-house photographer for Aritzia, as well as designers such as Pam Baker, Yolonda Skelton, and Copper Canoe Woman. She also had the honor of working on the makeup for the Snotty Nose Rez Kids concert in support of their Savage Kids clothing line.</p><p>Willow's passion for beauty and makeup is deeply tied to her commitment to being a role model for the next generation, especially the children in her community. Having grown up in a small town, she is driven to show young people from her reservation that they can achieve anything they set their minds to. Her work is rooted in the belief that her success is not only for herself but for the generations before and after her, with every step taken to uplift others and inspire confidence.</p>]]></content:encoded>
+    </item>
+
+  </channel>
+</rss>

@@ -1,6 +1,7 @@
 .c-testimonial-card {
 	display: grid;
 	gap: var(--space-sm);
+	height: 100%;
 	padding: var(--space-lg);
 	border: 1px solid var(--color-border);
 	border-radius: var(--radius-lg);

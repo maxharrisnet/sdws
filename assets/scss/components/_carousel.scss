@@ -28,6 +28,7 @@
 .c-carousel__track {
 	display: flex;
 	gap: var(--carousel-gap);
+	align-items: stretch;
 	overflow-x: auto;
 	scroll-snap-type: x mandatory;
 	scrollbar-width: none;
@@ -39,8 +40,14 @@
 
 .c-carousel__slide {
 	flex: 0 0 100%;
-	scroll-snap-align: start;
+	scroll-snap-align: center;
 	min-width: 0;
+	display: flex;
+}
+
+.c-carousel__slide > * {
+	width: 100%;
+	height: 100%;
 }
 
 .c-carousel--single .c-carousel__track {
@@ -64,12 +71,74 @@
 }
 
 .c-carousel__arrow {
-	width: 2.5rem;
-	height: 2.5rem;
+	width: 2.75rem;
+	height: 2.75rem;
+	display: inline-grid;
+	place-items: center;
 	border-radius: 999px;
-	border: 1px solid #111111;
-	background: #ffffff;
+	border: 1px solid color-mix(in srgb, var(--color-brand) 55%, #1b1b1b 45%);
+	background: color-mix(in srgb, #ffffff 94%, var(--color-brand) 6%);
+	color: color-mix(in srgb, var(--color-brand) 80%, #1b1b1b 20%);
+	box-shadow: 0 10px 24px color-mix(in srgb, var(--color-brand) 18%, transparent 82%);
 	cursor: pointer;
+	transition: transform 160ms ease, background-color 160ms ease, color 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.c-carousel__arrow:hover,
+.c-carousel__arrow:focus-visible {
+	background: color-mix(in srgb, #ffffff 85%, var(--color-brand) 15%);
+	box-shadow: 0 14px 26px color-mix(in srgb, var(--color-brand) 24%, transparent 76%);
+}
+
+.c-carousel__arrow:active {
+	transform: translateY(1px);
+}
+
+.c-carousel__arrow:disabled {
+	opacity: 0.5;
+	cursor: default;
+	box-shadow: none;
+}
+
+.c-carousel__arrow-icon {
+	width: 1.1rem;
+	height: 1.1rem;
+}
+
+.c-carousel__arrow--prev .c-carousel__arrow-icon {
+	transform: rotate(-90deg);
+}
+
+.c-carousel__arrow--next .c-carousel__arrow-icon {
+	transform: rotate(90deg);
+}
+
+.c-carousel__dots {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.c-carousel__dot {
+	width: 0.56rem;
+	height: 0.56rem;
+	border-radius: 999px;
+	border: 0;
+	padding: 0;
+	background: color-mix(in srgb, var(--color-brand) 28%, #dcdde6 72%);
+	cursor: pointer;
+	transition: transform 160ms ease, background-color 160ms ease;
+}
+
+.c-carousel__dot:hover,
+.c-carousel__dot:focus-visible {
+	background: color-mix(in srgb, var(--color-brand) 45%, #dcdde6 55%);
+}
+
+.c-carousel__dot[aria-current='true'] {
+	transform: scale(1.35);
+	background: color-mix(in srgb, var(--color-brand) 74%, #ffffff 26%);
 }
 
 @media (min-width: 48rem) {

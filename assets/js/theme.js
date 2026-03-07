@@ -150,36 +150,177 @@
 		document.querySelectorAll('[data-carousel]').forEach(function (root) {
 			const viewport = root.querySelector('[data-carousel-viewport]');
 			const track = root.querySelector('[data-carousel-track]');
-			const slides = root.querySelectorAll('[data-carousel-slide]');
+			const originalSlides = Array.from(root.querySelectorAll('[data-carousel-slide]'));
 			const prev = root.querySelector('[data-carousel-prev]');
 			const next = root.querySelector('[data-carousel-next]');
+			const dots = Array.from(root.querySelectorAll('[data-carousel-dot]'));
+			const isTestimonials = root.classList.contains('c-carousel--testimonials');
+			const isLooping = originalSlides.length > 1;
+			const originalCount = originalSlides.length;
+			let slides = originalSlides.slice();
+			let currentRealIndex = 0;
+			let currentPhysicalIndex = 0;
+			let scrollEndTimer;
 
-			if (!viewport || !track || !slides.length) {
+			if (!viewport || !track || !originalSlides.length) {
 				return;
 			}
 
-			function getStep() {
-				const first = slides[0];
-				if (!first) {
-					return viewport.clientWidth;
+			if (isLooping) {
+				const leadClone = originalSlides[originalSlides.length - 1].cloneNode(true);
+				const tailClone = originalSlides[0].cloneNode(true);
+
+				leadClone.setAttribute('data-carousel-clone', 'true');
+				leadClone.setAttribute('data-origin-index', String(originalSlides.length - 1));
+				tailClone.setAttribute('data-carousel-clone', 'true');
+				tailClone.setAttribute('data-origin-index', '0');
+
+				track.insertBefore(leadClone, originalSlides[0]);
+				track.appendChild(tailClone);
+
+				slides = Array.from(track.querySelectorAll('[data-carousel-slide]'));
+			}
+
+			originalSlides.forEach(function (slide, index) {
+				slide.setAttribute('data-origin-index', String(index));
+			});
+
+			function clampIndex(index) {
+				return Math.max(0, Math.min(slides.length - 1, index));
+			}
+
+			function realToPhysicalIndex(realIndex) {
+				if (!isLooping) {
+					return clampIndex(realIndex);
 				}
 
-				const style = window.getComputedStyle(track);
-				const gap = parseFloat(style.columnGap || style.gap || '0') || 0;
-				return first.getBoundingClientRect().width + gap;
+				return clampIndex(realIndex + 1);
+			}
+
+			function physicalToRealIndex(physicalIndex) {
+				if (!isLooping) {
+					return clampIndex(physicalIndex);
+				}
+
+				if (physicalIndex <= 0) {
+					return originalCount - 1;
+				}
+
+				if (physicalIndex >= slides.length - 1) {
+					return 0;
+				}
+
+				return physicalIndex - 1;
+			}
+
+			function getSlideCenter(index) {
+				const slide = slides[index];
+				if (!slide) {
+					return 0;
+				}
+
+				return slide.offsetLeft + slide.offsetWidth / 2;
+			}
+
+			function getTargetScrollLeft(index) {
+				const maxScroll = Math.max(0, track.scrollWidth - viewport.clientWidth);
+				const raw = getSlideCenter(index) - viewport.clientWidth / 2;
+				return Math.min(Math.max(raw, 0), maxScroll);
+			}
+
+			function getClosestPhysicalIndex() {
+				const viewportCenter = track.scrollLeft + viewport.clientWidth / 2;
+				let closestIndex = 0;
+				let closestDistance = Number.POSITIVE_INFINITY;
+
+				slides.forEach(function (slide, index) {
+					const center = slide.offsetLeft + slide.offsetWidth / 2;
+					const distance = Math.abs(center - viewportCenter);
+					if (distance < closestDistance) {
+						closestDistance = distance;
+						closestIndex = index;
+					}
+				});
+
+				return closestIndex;
+			}
+
+			function updateUI(realIndex) {
+				currentRealIndex = Math.max(0, Math.min(originalCount - 1, realIndex));
+
+				slides.forEach(function (slide) {
+					const originIndex = parseInt(slide.getAttribute('data-origin-index') || '-1', 10);
+					slide.classList.toggle('is-active', originIndex === currentRealIndex);
+				});
+
+				dots.forEach(function (dot, dotIndex) {
+					dot.setAttribute('aria-current', String(dotIndex === currentRealIndex));
+				});
+
+				if (prev) {
+					prev.disabled = !isLooping && currentRealIndex <= 0;
+				}
+
+				if (next) {
+					next.disabled = !isLooping && currentRealIndex >= originalCount - 1;
+				}
+			}
+
+			function goToPhysicalIndex(index, behavior) {
+				currentPhysicalIndex = clampIndex(index);
+				track.scrollTo({ left: getTargetScrollLeft(currentPhysicalIndex), behavior: behavior || 'smooth' });
+				updateUI(physicalToRealIndex(currentPhysicalIndex));
+			}
+
+			function normalizeLoopEdges() {
+				if (!isLooping) {
+					return;
+				}
+
+				if (currentPhysicalIndex === 0) {
+					goToPhysicalIndex(realToPhysicalIndex(originalCount - 1), 'auto');
+					return;
+				}
+
+				if (currentPhysicalIndex === slides.length - 1) {
+					goToPhysicalIndex(realToPhysicalIndex(0), 'auto');
+				}
 			}
 
 			if (prev) {
 				prev.addEventListener('click', function () {
-					track.scrollBy({ left: -getStep(), behavior: 'smooth' });
+					goToPhysicalIndex(currentPhysicalIndex - 1);
 				});
 			}
 
 			if (next) {
 				next.addEventListener('click', function () {
-					track.scrollBy({ left: getStep(), behavior: 'smooth' });
+					goToPhysicalIndex(currentPhysicalIndex + 1);
 				});
 			}
+
+			dots.forEach(function (dot) {
+				dot.addEventListener('click', function () {
+					const index = parseInt(dot.getAttribute('data-slide-index') || '0', 10);
+					goToPhysicalIndex(realToPhysicalIndex(index));
+				});
+			});
+
+			track.addEventListener('scroll', function () {
+				window.clearTimeout(scrollEndTimer);
+				scrollEndTimer = window.setTimeout(function () {
+					currentPhysicalIndex = getClosestPhysicalIndex();
+					normalizeLoopEdges();
+					updateUI(physicalToRealIndex(currentPhysicalIndex));
+				}, 90);
+			});
+
+			window.addEventListener('resize', function () {
+				goToPhysicalIndex(realToPhysicalIndex(currentRealIndex), 'auto');
+			});
+
+			const startRealIndex = isTestimonials && originalCount > 1 ? 1 : 0;
+			goToPhysicalIndex(realToPhysicalIndex(startRealIndex), 'auto');
 		});
 	}
 
