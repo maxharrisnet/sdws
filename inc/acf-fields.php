@@ -118,6 +118,305 @@ function starter_coat_register_acf_fields()
   call_user_func(
     'acf_add_local_field_group',
     array(
+      'key'    => 'group_sc_nav_settings',
+      'title'  => __('Navigation Settings', 'starter-coat'),
+      'fields' => array(
+        array(
+          'key'   => 'field_sc_nav_layout_tab',
+          'label' => __('Layout', 'starter-coat'),
+          'name'  => '',
+          'type'  => 'tab',
+        ),
+        array(
+          'key'   => 'field_sc_nav_variant',
+          'label' => __('Nav Layout', 'starter-coat'),
+          'name'  => 'sc_nav_variant',
+          'type'  => 'select',
+          'choices' => array(
+            'inline'   => __('Inline: Brand Left, Menu Right', 'starter-coat'),
+            'centered' => __('Centered: Stacked Brand/Menu', 'starter-coat'),
+            'split'    => __('Split: Brand Left, Menu Center, CTA Right', 'starter-coat'),
+          ),
+          'default_value' => 'inline',
+          'ui'            => 1,
+        ),
+        array(
+          'key'   => 'field_sc_nav_style',
+          'label' => __('Nav Style', 'starter-coat'),
+          'name'  => 'sc_nav_style',
+          'type'  => 'select',
+          'choices' => array(
+            'clean'       => __('Clean', 'starter-coat'),
+            'outlined'    => __('Outlined', 'starter-coat'),
+            'soft'        => __('Soft Surface', 'starter-coat'),
+            'transparent' => __('Transparent To Solid', 'starter-coat'),
+          ),
+          'default_value' => 'clean',
+          'ui'            => 1,
+        ),
+        array(
+          'key'   => 'field_sc_nav_alignment',
+          'label' => __('Alignment', 'starter-coat'),
+          'name'  => 'sc_nav_alignment',
+          'type'  => 'select',
+          'choices' => array(
+            'between' => __('Brand Left / Menu Right', 'starter-coat'),
+            'left'    => __('All Left', 'starter-coat'),
+            'center'  => __('Centered', 'starter-coat'),
+          ),
+          'default_value' => 'between',
+          'ui'            => 1,
+        ),
+        array(
+          'key'   => 'field_sc_nav_item_style',
+          'label' => __('Menu Item Style', 'starter-coat'),
+          'name'  => 'sc_nav_item_style',
+          'type'  => 'select',
+          'choices' => array(
+            'text'   => __('Text', 'starter-coat'),
+            'button' => __('Button-like', 'starter-coat'),
+          ),
+          'default_value' => 'text',
+          'ui'            => 1,
+        ),
+        array(
+          'key'   => 'field_sc_nav_item_shape',
+          'label' => __('Rounding', 'starter-coat'),
+          'name'  => 'sc_nav_item_shape',
+          'type'  => 'select',
+          'choices' => array(
+            'none' => __('None', 'starter-coat'),
+            'soft' => __('Soft', 'starter-coat'),
+            'pill' => __('Pill', 'starter-coat'),
+          ),
+          'default_value' => 'soft',
+          'ui'            => 1,
+        ),
+        array(
+          'key'   => 'field_sc_nav_dropdown_style',
+          'label' => __('Dropdown Style', 'starter-coat'),
+          'name'  => 'sc_nav_dropdown_style',
+          'type'  => 'select',
+          'choices' => array(
+            'minimal'  => __('Minimal', 'starter-coat'),
+            'elevated' => __('Elevated', 'starter-coat'),
+          ),
+          'default_value' => 'elevated',
+          'ui'            => 1,
+        ),
+        array(
+          'key'           => 'field_sc_nav_fixed',
+          'label'         => __('Fixed Header', 'starter-coat'),
+          'name'          => 'sc_nav_fixed',
+          'type'          => 'true_false',
+          'ui'            => 1,
+          'default_value' => 1,
+        ),
+        array(
+          'key'   => 'field_sc_nav_logo_tab',
+          'label' => __('Logo', 'starter-coat'),
+          'name'  => '',
+          'type'  => 'tab',
+        ),
+        array(
+          'key'           => 'field_sc_nav_show_logo',
+          'label'         => __('Show Branding', 'starter-coat'),
+          'name'          => 'sc_nav_show_logo',
+          'type'          => 'true_false',
+          'ui'            => 1,
+          'default_value' => 1,
+        ),
+        array(
+          'key'   => 'field_sc_nav_logo_mode',
+          'label' => __('Logo Source', 'starter-coat'),
+          'name'  => 'sc_nav_logo_mode',
+          'type'  => 'select',
+          'choices' => array(
+            'custom_logo' => __('Custom Logo (Customizer)', 'starter-coat'),
+            'image'       => __('Image (Option)', 'starter-coat'),
+            'site_name'   => __('Site Name Text', 'starter-coat'),
+          ),
+          'default_value' => 'custom_logo',
+          'ui'            => 1,
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_nav_show_logo',
+                'operator' => '==',
+                'value'    => '1',
+              ),
+            ),
+          ),
+        ),
+        array(
+          'key'   => 'field_sc_nav_logo_image',
+          'label' => __('Logo Image', 'starter-coat'),
+          'name'  => 'sc_nav_logo_image',
+          'type'  => 'image',
+          'return_format' => 'array',
+          'preview_size'  => 'medium',
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_nav_logo_mode',
+                'operator' => '==',
+                'value'    => 'image',
+              ),
+            ),
+          ),
+        ),
+        array(
+          'key'           => 'field_sc_nav_logo_max_width',
+          'label'         => __('Logo Max Width (px)', 'starter-coat'),
+          'name'          => 'sc_nav_logo_max_width',
+          'type'          => 'number',
+          'default_value' => 180,
+          'min'           => 80,
+          'max'           => 360,
+          'step'          => 1,
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_nav_show_logo',
+                'operator' => '==',
+                'value'    => '1',
+              ),
+            ),
+          ),
+        ),
+        array(
+          'key'   => 'field_sc_nav_cta_tab',
+          'label' => __('CTA', 'starter-coat'),
+          'name'  => '',
+          'type'  => 'tab',
+        ),
+        array(
+          'key'           => 'field_sc_nav_show_cta',
+          'label'         => __('Show Nav CTA', 'starter-coat'),
+          'name'          => 'sc_nav_show_cta',
+          'type'          => 'true_false',
+          'ui'            => 1,
+          'default_value' => 0,
+        ),
+        array(
+          'key'   => 'field_sc_nav_cta_link',
+          'label' => __('CTA Link', 'starter-coat'),
+          'name'  => 'sc_nav_cta_link',
+          'type'  => 'link',
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_nav_show_cta',
+                'operator' => '==',
+                'value'    => '1',
+              ),
+            ),
+          ),
+        ),
+        array(
+          'key'   => 'field_sc_nav_cta_style',
+          'label' => __('CTA Style', 'starter-coat'),
+          'name'  => 'sc_nav_cta_style',
+          'type'  => 'select',
+          'choices' => array(
+            'primary'   => __('Primary', 'starter-coat'),
+            'secondary' => __('Secondary', 'starter-coat'),
+            'ghost'     => __('Ghost', 'starter-coat'),
+          ),
+          'default_value' => 'primary',
+          'ui'            => 1,
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_nav_show_cta',
+                'operator' => '==',
+                'value'    => '1',
+              ),
+            ),
+          ),
+        ),
+        array(
+          'key'   => 'field_sc_nav_banner_tab',
+          'label' => __('Banner', 'starter-coat'),
+          'name'  => '',
+          'type'  => 'tab',
+        ),
+        array(
+          'key'           => 'field_sc_nav_banner_enabled',
+          'label'         => __('Enable Top Banner', 'starter-coat'),
+          'name'          => 'sc_nav_banner_enabled',
+          'type'          => 'true_false',
+          'ui'            => 1,
+          'default_value' => 0,
+        ),
+        array(
+          'key'   => 'field_sc_nav_banner_text',
+          'label' => __('Banner Text', 'starter-coat'),
+          'name'  => 'sc_nav_banner_text',
+          'type'  => 'text',
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_nav_banner_enabled',
+                'operator' => '==',
+                'value'    => '1',
+              ),
+            ),
+          ),
+        ),
+        array(
+          'key'   => 'field_sc_nav_banner_link',
+          'label' => __('Banner Link (optional)', 'starter-coat'),
+          'name'  => 'sc_nav_banner_link',
+          'type'  => 'link',
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_nav_banner_enabled',
+                'operator' => '==',
+                'value'    => '1',
+              ),
+            ),
+          ),
+        ),
+        array(
+          'key'   => 'field_sc_nav_banner_style',
+          'label' => __('Banner Style', 'starter-coat'),
+          'name'  => 'sc_nav_banner_style',
+          'type'  => 'select',
+          'choices' => array(
+            'dark'  => __('Dark', 'starter-coat'),
+            'light' => __('Light', 'starter-coat'),
+            'brand' => __('Brand', 'starter-coat'),
+          ),
+          'default_value' => 'dark',
+          'ui'            => 1,
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_nav_banner_enabled',
+                'operator' => '==',
+                'value'    => '1',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'location' => array(
+        array(
+          array(
+            'param'    => 'options_page',
+            'operator' => '==',
+            'value'    => 'starter-coat-theme-settings',
+          ),
+        ),
+      ),
+    )
+  );
+
+  call_user_func(
+    'acf_add_local_field_group',
+    array(
       'key'    => 'group_sc_page_sections',
       'title'  => __('Page Sections', 'starter-coat'),
       'fields' => array(

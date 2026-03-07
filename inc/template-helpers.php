@@ -30,6 +30,75 @@ function starter_coat_get_theme_preset()
 }
 
 /**
+ * Get nav settings from options with safe defaults.
+ *
+ * @return array<string,mixed>
+ */
+function starter_coat_get_nav_settings()
+{
+  $settings = array(
+    'variant'         => 'inline',
+    'style'           => 'clean',
+    'alignment'       => 'between',
+    'item_style'      => 'text',
+    'item_shape'      => 'soft',
+    'dropdown_style'  => 'elevated',
+    'fixed'           => true,
+    'show_logo'       => true,
+    'logo_mode'       => 'custom_logo',
+    'logo_image'      => null,
+    'logo_max_width'  => 180,
+    'show_cta'        => false,
+    'cta_link'        => null,
+    'cta_style'       => 'primary',
+    'banner_enabled'  => false,
+    'banner_text'     => '',
+    'banner_link'     => null,
+    'banner_style'    => 'dark',
+  );
+
+  if (! function_exists('get_field')) {
+    return $settings;
+  }
+
+  $variant_value = (string) call_user_func('get_field', 'sc_nav_variant', 'option');
+  $style_value   = (string) call_user_func('get_field', 'sc_nav_style', 'option');
+
+  // Backward compatibility: older installs stored style in sc_nav_variant.
+  if (in_array($variant_value, array('clean', 'outlined', 'soft', 'transparent'), true)) {
+    $settings['style'] = $variant_value;
+    $settings['variant'] = 'inline';
+  } else {
+    $settings['variant'] = $variant_value ?: $settings['variant'];
+    $settings['style'] = $style_value ?: $settings['style'];
+  }
+  $settings['alignment'] = (string) call_user_func('get_field', 'sc_nav_alignment', 'option') ?: $settings['alignment'];
+  $settings['item_style'] = (string) call_user_func('get_field', 'sc_nav_item_style', 'option') ?: $settings['item_style'];
+  $settings['item_shape'] = (string) call_user_func('get_field', 'sc_nav_item_shape', 'option') ?: $settings['item_shape'];
+  $settings['dropdown_style'] = (string) call_user_func('get_field', 'sc_nav_dropdown_style', 'option') ?: $settings['dropdown_style'];
+  $settings['fixed'] = (bool) call_user_func('get_field', 'sc_nav_fixed', 'option');
+  $settings['show_logo'] = (bool) call_user_func('get_field', 'sc_nav_show_logo', 'option');
+  $settings['logo_mode'] = (string) call_user_func('get_field', 'sc_nav_logo_mode', 'option') ?: $settings['logo_mode'];
+  $settings['logo_image'] = call_user_func('get_field', 'sc_nav_logo_image', 'option');
+
+  $logo_max_width = absint((int) call_user_func('get_field', 'sc_nav_logo_max_width', 'option'));
+  if ($logo_max_width > 0) {
+    $settings['logo_max_width'] = $logo_max_width;
+  }
+
+  $settings['show_cta'] = (bool) call_user_func('get_field', 'sc_nav_show_cta', 'option');
+  $settings['cta_link'] = call_user_func('get_field', 'sc_nav_cta_link', 'option');
+  $settings['cta_style'] = (string) call_user_func('get_field', 'sc_nav_cta_style', 'option') ?: $settings['cta_style'];
+
+  $settings['banner_enabled'] = (bool) call_user_func('get_field', 'sc_nav_banner_enabled', 'option');
+  $settings['banner_text'] = (string) call_user_func('get_field', 'sc_nav_banner_text', 'option');
+  $settings['banner_link'] = call_user_func('get_field', 'sc_nav_banner_link', 'option');
+  $settings['banner_style'] = (string) call_user_func('get_field', 'sc_nav_banner_style', 'option') ?: $settings['banner_style'];
+
+  return $settings;
+}
+
+/**
  * Add theme preset class to body.
  *
  * @param string[] $classes Existing classes.
@@ -38,6 +107,16 @@ function starter_coat_get_theme_preset()
 function starter_coat_body_classes_with_theme($classes)
 {
   $classes[] = 'theme--' . starter_coat_get_theme_preset();
+
+  $nav_settings = starter_coat_get_nav_settings();
+
+  if (! empty($nav_settings['fixed'])) {
+    $classes[] = 'has-fixed-header';
+  }
+
+  if (! empty($nav_settings['banner_enabled'])) {
+    $classes[] = 'has-top-banner';
+  }
 
   return $classes;
 }

@@ -1,14 +1,127 @@
 (function () {
-	const menuToggle = document.querySelector('.menu-toggle');
-	const nav = document.getElementById('site-navigation');
+	function initHeaderNav() {
+		const header = document.getElementById('masthead');
+		const menuToggle = document.querySelector('.menu-toggle');
+		const nav = document.getElementById('site-navigation');
+		const menu = document.getElementById('primary-menu');
 
-	if (menuToggle && nav) {
+		if (!header || !menuToggle || !nav || !menu) {
+			return;
+		}
+
+		const isFixed = header.getAttribute('data-fixed') === 'true';
+		const isTransparentVariant = header.classList.contains('header--style-transparent');
+
+		function setHeaderHeightVar() {
+			if (!isFixed) {
+				document.documentElement.style.removeProperty('--header-offset');
+				return;
+			}
+
+			const headerHeight = header.offsetHeight;
+			document.documentElement.style.setProperty('--header-offset', String(headerHeight) + 'px');
+		}
+
+		setHeaderHeightVar();
+		window.addEventListener('resize', setHeaderHeightVar);
+
+		function updateScrolledState() {
+			if (!isTransparentVariant || !isFixed) {
+				return;
+			}
+
+			header.classList.toggle('is-scrolled', window.scrollY > 12);
+		}
+
+		updateScrolledState();
+		window.addEventListener('scroll', function () {
+			updateScrolledState();
+			setHeaderHeightVar();
+		});
+
+		function setMenuState(open) {
+			menuToggle.setAttribute('aria-expanded', String(open));
+			nav.classList.toggle('is-open', open);
+			document.body.classList.toggle('nav-is-open', open);
+		}
+
 		menuToggle.addEventListener('click', function () {
 			const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-			menuToggle.setAttribute('aria-expanded', String(!expanded));
-			nav.classList.toggle('is-open', !expanded);
+			setMenuState(!expanded);
+		});
+
+		document.addEventListener('keydown', function (event) {
+			if (event.key === 'Escape') {
+				setMenuState(false);
+				menu.querySelectorAll('.menu-item.is-submenu-open').forEach(function (item) {
+					item.classList.remove('is-submenu-open');
+				});
+			}
+		});
+
+		document.addEventListener('click', function (event) {
+			if (!nav.classList.contains('is-open')) {
+				return;
+			}
+
+			if (!header.contains(event.target)) {
+				setMenuState(false);
+			}
+		});
+
+		menu.querySelectorAll('.menu-item-has-children').forEach(function (item, index) {
+			const link = item.querySelector(':scope > a');
+			const submenu = item.querySelector(':scope > .sub-menu');
+
+			if (!link || !submenu) {
+				return;
+			}
+
+			const submenuId = 'submenu-' + String(index + 1);
+			submenu.id = submenuId;
+
+			const toggle = document.createElement('button');
+			toggle.type = 'button';
+			toggle.className = 'submenu-toggle';
+			toggle.setAttribute('aria-expanded', 'false');
+			toggle.setAttribute('aria-controls', submenuId);
+			toggle.setAttribute('aria-label', 'Toggle submenu');
+
+			item.insertBefore(toggle, submenu);
+
+			toggle.addEventListener('click', function (event) {
+				event.preventDefault();
+				const expanded = toggle.getAttribute('aria-expanded') === 'true';
+				toggle.setAttribute('aria-expanded', String(!expanded));
+				item.classList.toggle('is-submenu-open', !expanded);
+			});
+		});
+
+		menu.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+			anchor.addEventListener('click', function (event) {
+				const href = anchor.getAttribute('href');
+				if (!href || href.length < 2) {
+					return;
+				}
+
+				const target = document.querySelector(href);
+				if (!target) {
+					return;
+				}
+
+				event.preventDefault();
+				const offset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-offset') || '0', 10) || 0;
+				const top = target.getBoundingClientRect().top + window.scrollY - offset - 8;
+				window.scrollTo({ top: top, behavior: 'smooth' });
+
+				setMenuState(false);
+				target.setAttribute('tabindex', '-1');
+				target.focus({ preventScroll: true });
+			});
 		});
 	}
+
+	initHeaderNav();
 
 	document.querySelectorAll('[data-modal-target]').forEach(function (trigger) {
 		trigger.addEventListener('click', function (event) {

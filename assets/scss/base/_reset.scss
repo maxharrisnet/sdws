@@ -8,6 +8,72 @@ body {
 	padding: 0;
 }
 
+html {
+	scroll-behavior: smooth;
+	--header-offset: 0px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
+
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	word-wrap: normal;
+}
+
+.screen-reader-text:focus,
+.skip-link:focus {
+	clip: auto;
+	clip-path: none;
+	display: block;
+	height: auto;
+	left: 0.75rem;
+	top: 0.75rem;
+	margin: 0;
+	width: auto;
+	padding: 0.6rem 0.85rem;
+	background: #111111;
+	color: #ffffff;
+	z-index: 100000;
+	border-radius: var(--radius-sm);
+	text-decoration: none;
+}
+
+body.admin-bar {
+	padding-bottom: 32px;
+}
+
+body.admin-bar #wpadminbar {
+	top: auto;
+	bottom: 0;
+	position: fixed;
+}
+
+html[style*='margin-top'] {
+	margin-top: 0 !important;
+}
+
+body.admin-bar.has-fixed-header #page {
+	padding-top: var(--header-offset, 0);
+}
+
+@media (max-width: 782px) {
+	body.admin-bar {
+		padding-bottom: 46px;
+	}
+}
+
 img {
 	display: block;
 	max-width: 100%;

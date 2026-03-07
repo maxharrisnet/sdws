@@ -102,10 +102,10 @@ if ($full_height || 'page-fullheight' === $variant) {
       <?php if ('form' === $media_type) : ?>
         <div class="c-hero__media c-hero__media--form">
           <?php if (! empty($form_shortcode)) : ?>
-            <?php echo do_shortcode($form_shortcode); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+            <?php echo do_shortcode($form_shortcode); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             ?>
           <?php elseif (! empty($form_id) && 'wpforms' === $form_provider) : ?>
-            <?php echo do_shortcode('[wpforms id="' . esc_attr($form_id) . '"]'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+            <?php echo do_shortcode('[wpforms id="' . esc_attr($form_id) . '"]'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             ?>
           <?php elseif (! empty($form_id) && 'hubspot' === $form_provider) : ?>
             <div class="c-hero__hubspot-form" data-hubspot-form-id="<?php echo esc_attr($form_id); ?>"></div>
