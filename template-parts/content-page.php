@@ -11,15 +11,17 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-  <header class="entry-header">
-    <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
-  </header><!-- .entry-header -->
+  <?php if (! starter_coat_has_singular_hero(get_the_ID())) : ?>
+    <header class="entry-header">
+      <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
+    </header><!-- .entry-header -->
+  <?php endif; ?>
 
   <?php starter_coat_post_thumbnail(); ?>
 
   <div class="entry-content">
     <?php
-    if (function_exists('have_rows') && have_rows('sc_sections')) {
+    if (function_exists('have_rows') && call_user_func('have_rows', 'sc_sections')) {
       starter_coat_render_sections();
     } else {
       the_content();

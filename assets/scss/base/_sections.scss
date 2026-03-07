@@ -22,6 +22,19 @@
 	background: var(--color-brand);
 }
 
+.bg-light {
+	background: var(--color-surface-50);
+}
+
+.bg-muted {
+	background: var(--color-surface-100);
+}
+
+.bg-dark {
+	background: var(--color-bg-dark);
+	color: var(--color-text-light);
+}
+
 .bg-surface {
 	background: var(--color-surface-50);
 }
@@ -36,6 +49,14 @@
 .text-light h4,
 .text-light h5,
 .text-light h6 {
+	color: var(--color-text-light);
+}
+
+.bg-dark a,
+.bg-dark p,
+.bg-dark li,
+.bg-dark .eyebrow,
+.bg-dark .c-hero__subheading {
 	color: var(--color-text-light);
 }
 

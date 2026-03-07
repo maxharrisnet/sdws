@@ -10,10 +10,13 @@ get_header();
 ?>
 
 <main id="primary" class="site-main section section--lg">
+  <?php starter_coat_render_archive_hero(); ?>
   <div class="container container--narrow">
-    <header class="page-header">
-      <?php the_archive_title('<h1 class="page-title">', '</h1>'); ?>
-    </header>
+    <?php if (! starter_coat_has_archive_hero()) : ?>
+      <header class="page-header">
+        <?php the_archive_title('<h1 class="page-title">', '</h1>'); ?>
+      </header>
+    <?php endif; ?>
     <?php if (have_posts()) : ?>
       <div class="stack stack--md">
         <?php while (have_posts()) : the_post(); ?>

@@ -17,6 +17,8 @@ get_header();
   while (have_posts()) :
     the_post();
 
+    starter_coat_render_singular_hero(get_the_ID());
+
     get_template_part('template-parts/content', get_post_type());
 
     the_post_navigation(
