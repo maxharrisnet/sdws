@@ -6,19 +6,34 @@
  * @package Starter_Coat
  */
 
-$kicker          = starter_coat_get_sub_field('kicker', '');
-$title           = starter_coat_get_sub_field('title', '');
-$copy            = starter_coat_get_sub_field('copy', '');
-$ratio           = starter_coat_get_sub_field('ratio', '50-50');
-$media_position  = starter_coat_get_sub_field('media_position', 'left');
-$media_image     = starter_coat_get_sub_field('media_image', null);
-$button          = starter_coat_get_sub_field('button', null);
-$section_classes = starter_coat_get_section_classes('section--feature');
-$container_class = starter_coat_get_section_container_class();
+$kicker           = starter_coat_get_sub_field('kicker', '');
+$title            = starter_coat_get_sub_field('title', '');
+$copy             = starter_coat_get_sub_field('copy', '');
+$ratio            = starter_coat_get_sub_field('ratio', '50-50');
+$media_position   = starter_coat_get_sub_field('media_position', 'left');
+$media_image      = starter_coat_get_sub_field('media_image', null);
+$image_full_bleed = (bool) starter_coat_get_sub_field('image_full_bleed', false);
+$button           = starter_coat_get_sub_field('button', null);
+$section_width    = (string) starter_coat_get_sub_field('section_width', 'container');
+$section_classes  = starter_coat_get_section_classes('section--feature');
+$container_class  = starter_coat_get_section_container_class();
+$layout_classes   = array(
+  'layout',
+  'layout--2col',
+  '66-33' === $ratio ? 'layout--2col-wide' : 'layout--2col-even',
+);
+
+if ('right' === $media_position) {
+  $layout_classes[] = 'layout--reverse';
+}
+
+if ($image_full_bleed && 'full' === $section_width) {
+  $layout_classes[] = 'layout--media-full-bleed';
+}
 ?>
 <section class="<?php echo esc_attr($section_classes); ?>">
   <div class="<?php echo esc_attr($container_class); ?>">
-    <div class="layout layout--2col <?php echo '66-33' === $ratio ? 'layout--2col-wide' : 'layout--2col-even'; ?> <?php echo 'right' === $media_position ? 'layout--reverse' : ''; ?>">
+    <div class="<?php echo esc_attr(implode(' ', $layout_classes)); ?>">
       <div class="feature__media image image--rounded">
         <?php if (! empty($media_image['url'])) : ?>
           <img src="<?php echo esc_url($media_image['url']); ?>" alt="<?php echo esc_attr($media_image['alt'] ?? ''); ?>" loading="lazy" />
