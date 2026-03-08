@@ -14,7 +14,7 @@ $columns         = max(1, min(3, (int) starter_coat_get_sub_field('columns', '3'
 $slides_per_view = max(1, min(3, (int) starter_coat_get_sub_field('slides_per_view', '1')));
 $show_controls   = (bool) starter_coat_get_sub_field('show_controls', true);
 $section_classes = starter_coat_get_section_classes('section--testimonials');
-$container_class = starter_coat_get_section_container_class();
+$container_class = starter_coat_get_section_container_class('full');
 
 $cards = array();
 if (function_exists('have_rows') && call_user_func('have_rows', 'items')) {

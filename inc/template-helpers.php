@@ -458,11 +458,12 @@ function starter_coat_get_section_classes($base)
 /**
  * Get container class variant from section sub field.
  *
+ * @param string $width Optional width override: container, narrow, or full.
  * @return string
  */
-function starter_coat_get_section_container_class()
+function starter_coat_get_section_container_class($width = '')
 {
-  $width = starter_coat_get_sub_field('section_width', 'container');
+  $width = $width ? sanitize_key((string) $width) : sanitize_key((string) starter_coat_get_sub_field('section_width', 'container'));
 
   if ('full' === $width) {
     return 'container container--full';

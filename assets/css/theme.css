@@ -1409,7 +1409,7 @@ form {
   margin-inline: auto;
 }
 
-.c-carousel--testimonials .c-carousel__slide {
+.c-carousel__slide {
   max-width: var(--container-narrow);
 }
 
