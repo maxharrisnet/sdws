@@ -70,11 +70,12 @@ if (empty($left_items) && empty($right_items)) {
               $item_link  = isset($item['link']) && is_array($item['link']) ? $item['link'] : array();
               $tag        = ! empty($item_link['url']) ? 'a' : 'div';
               ?>
-              <<?php echo $tag; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+              <<?php echo $tag; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+                ?>
                 class="c-feature-list-card"
                 <?php if ('a' === $tag) : ?>
-                  href="<?php echo esc_url((string) $item_link['url']); ?>"
-                  <?php echo ! empty($item_link['target']) ? 'target="' . esc_attr((string) $item_link['target']) . '" rel="noopener"' : ''; ?>
+                href="<?php echo esc_url((string) $item_link['url']); ?>"
+                <?php echo ! empty($item_link['target']) ? 'target="' . esc_attr((string) $item_link['target']) . '" rel="noopener"' : ''; ?>
                 <?php endif; ?>>
                 <div class="c-feature-list-card__media">
                   <?php if (! empty($item_image['ID'])) : ?>
@@ -103,7 +104,8 @@ if (empty($left_items) && empty($right_items)) {
                     <p class="c-feature-list-card__description"><?php echo esc_html((string) $item['description']); ?></p>
                   <?php endif; ?>
                 </div>
-              </<?php echo $tag; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+              </<?php echo $tag; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+                ?>>
             <?php endforeach; ?>
           </div>
         <?php endforeach; ?>

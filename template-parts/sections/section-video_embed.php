@@ -47,7 +47,8 @@ $render_inline = ! $open_in_modal || '' === $modal_id;
 
       <?php if ($render_inline) : ?>
         <div class="c-video-embed__frame">
-          <?php echo $embed_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+          <?php echo $embed_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+          ?>
         </div>
       <?php else : ?>
         <div class="c-video-embed__actions">

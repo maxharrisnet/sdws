@@ -134,11 +134,11 @@ if (! empty($logo_mark_image['url'])) {
         <div class="header__branding">
           <?php if ($primary_logo_html) : ?>
             <a class="header__logo-link" href="<?php echo esc_url(home_url('/')); ?>" rel="home" style="<?php echo esc_attr($logo_style); ?>">
-              <?php echo $primary_logo_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+              <?php echo $primary_logo_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
               ?>
 
               <?php if ($logo_mark_html) : ?>
-                <?php echo $logo_mark_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+                <?php echo $logo_mark_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 ?>
               <?php endif; ?>
             </a>
