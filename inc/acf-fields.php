@@ -926,6 +926,219 @@ function starter_coat_register_acf_fields()
   call_user_func(
     'acf_add_local_field_group',
     array(
+      'key'    => 'group_sc_footer_settings',
+      'title'  => __('Footer Settings', 'starter-coat'),
+      'fields' => array(
+        array(
+          'key'   => 'field_sc_footer_layout_tab',
+          'label' => __('Layout', 'starter-coat'),
+          'name'  => '',
+          'type'  => 'tab',
+        ),
+        array(
+          'key'   => 'field_sc_footer_layout',
+          'label' => __('Footer Layout', 'starter-coat'),
+          'name'  => 'sc_footer_layout',
+          'type'  => 'select',
+          'choices' => array(
+            'simple'  => __('Simple', 'starter-coat'),
+            'complex' => __('Complex Columns', 'starter-coat'),
+          ),
+          'default_value' => 'simple',
+          'ui'            => 1,
+        ),
+        array(
+          'key'   => 'field_sc_footer_simple_columns',
+          'label' => __('Simple Layout Columns', 'starter-coat'),
+          'name'  => 'sc_footer_simple_columns',
+          'type'  => 'select',
+          'choices' => array(
+            'one' => __('One Column', 'starter-coat'),
+            'two' => __('Two Columns', 'starter-coat'),
+          ),
+          'default_value' => 'two',
+          'ui'            => 1,
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_footer_layout',
+                'operator' => '==',
+                'value'    => 'simple',
+              ),
+            ),
+          ),
+        ),
+        array(
+          'key'   => 'field_sc_footer_complex_columns',
+          'label' => __('Complex Menu Columns', 'starter-coat'),
+          'name'  => 'sc_footer_complex_columns',
+          'type'  => 'select',
+          'choices' => array(
+            'two'   => __('Two Menu Columns', 'starter-coat'),
+            'three' => __('Three Menu Columns', 'starter-coat'),
+          ),
+          'default_value' => 'three',
+          'ui'            => 1,
+          'instructions'  => __('Uses Footer Column 1-3 menu locations.', 'starter-coat'),
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_footer_layout',
+                'operator' => '==',
+                'value'    => 'complex',
+              ),
+            ),
+          ),
+        ),
+        array(
+          'key'   => 'field_sc_footer_sections_tab',
+          'label' => __('Sections', 'starter-coat'),
+          'name'  => '',
+          'type'  => 'tab',
+        ),
+        array(
+          'key'           => 'field_sc_footer_show_logo',
+          'label'         => __('Show Footer Logo', 'starter-coat'),
+          'name'          => 'sc_footer_show_logo',
+          'type'          => 'true_false',
+          'ui'            => 1,
+          'default_value' => 1,
+        ),
+        array(
+          'key'   => 'field_sc_footer_logo_mode',
+          'label' => __('Footer Logo Source', 'starter-coat'),
+          'name'  => 'sc_footer_logo_mode',
+          'type'  => 'select',
+          'choices' => array(
+            'inherit_nav' => __('Inherit Header Logo Setting', 'starter-coat'),
+            'custom_logo' => __('Customizer Logo', 'starter-coat'),
+            'image'       => __('Image (Option)', 'starter-coat'),
+            'site_name'   => __('Site Name Text', 'starter-coat'),
+          ),
+          'default_value' => 'inherit_nav',
+          'ui'            => 1,
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_footer_show_logo',
+                'operator' => '==',
+                'value'    => '1',
+              ),
+            ),
+          ),
+        ),
+        array(
+          'key'   => 'field_sc_footer_logo_image',
+          'label' => __('Footer Logo Image', 'starter-coat'),
+          'name'  => 'sc_footer_logo_image',
+          'type'  => 'image',
+          'return_format' => 'array',
+          'preview_size'  => 'medium',
+          'mime_types'    => 'jpg,jpeg,png,webp,svg',
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_footer_logo_mode',
+                'operator' => '==',
+                'value'    => 'image',
+              ),
+            ),
+          ),
+        ),
+        array(
+          'key'           => 'field_sc_footer_show_social',
+          'label'         => __('Show Social Links', 'starter-coat'),
+          'name'          => 'sc_footer_show_social',
+          'type'          => 'true_false',
+          'ui'            => 1,
+          'default_value' => 1,
+          'instructions'  => __('Uses URLs from Theme Settings > Social Media Links.', 'starter-coat'),
+        ),
+        array(
+          'key'   => 'field_sc_footer_social_style',
+          'label' => __('Footer Social Style', 'starter-coat'),
+          'name'  => 'sc_footer_social_style',
+          'type'  => 'select',
+          'choices' => array(
+            'icon' => __('Icon', 'starter-coat'),
+            'text' => __('Text', 'starter-coat'),
+          ),
+          'default_value' => 'icon',
+          'ui'            => 1,
+          'conditional_logic' => array(
+            array(
+              array(
+                'field'    => 'field_sc_footer_show_social',
+                'operator' => '==',
+                'value'    => '1',
+              ),
+            ),
+          ),
+        ),
+        array(
+          'key'           => 'field_sc_footer_show_main_menu',
+          'label'         => __('Show Main Footer Menu', 'starter-coat'),
+          'name'          => 'sc_footer_show_main_menu',
+          'type'          => 'true_false',
+          'ui'            => 1,
+          'default_value' => 1,
+          'instructions'  => __('Uses Footer Main menu location (falls back to Footer legacy location).', 'starter-coat'),
+        ),
+        array(
+          'key'           => 'field_sc_footer_show_legal_menu',
+          'label'         => __('Show Legal Menu', 'starter-coat'),
+          'name'          => 'sc_footer_show_legal_menu',
+          'type'          => 'true_false',
+          'ui'            => 1,
+          'default_value' => 1,
+          'instructions'  => __('Uses Footer Legal menu location.', 'starter-coat'),
+        ),
+        array(
+          'key'   => 'field_sc_footer_legal_links',
+          'label' => __('Extra Legal Links', 'starter-coat'),
+          'name'  => 'sc_footer_legal_links',
+          'type'  => 'repeater',
+          'button_label' => __('Add Link', 'starter-coat'),
+          'layout'       => 'table',
+          'sub_fields'   => array(
+            array(
+              'key'   => 'field_sc_footer_legal_link_item',
+              'label' => __('Link', 'starter-coat'),
+              'name'  => 'link',
+              'type'  => 'link',
+            ),
+          ),
+        ),
+        array(
+          'key'   => 'field_sc_footer_bottom_tab',
+          'label' => __('Bottom Row', 'starter-coat'),
+          'name'  => '',
+          'type'  => 'tab',
+        ),
+        array(
+          'key'           => 'field_sc_footer_copyright_text',
+          'label'         => __('Copyright Text', 'starter-coat'),
+          'name'          => 'sc_footer_copyright_text',
+          'type'          => 'text',
+          'default_value' => __('All rights reserved.', 'starter-coat'),
+          'instructions'  => __('Year and site name are added automatically.', 'starter-coat'),
+        ),
+      ),
+      'location' => array(
+        array(
+          array(
+            'param'    => 'options_page',
+            'operator' => '==',
+            'value'    => 'starter-coat-theme-settings',
+          ),
+        ),
+      ),
+    )
+  );
+
+  call_user_func(
+    'acf_add_local_field_group',
+    array(
       'key'    => 'group_sc_page_cta_override',
       'title'  => __('CTA Override', 'starter-coat'),
       'menu_order' => 30,
@@ -1237,28 +1450,144 @@ function starter_coat_register_acf_fields()
           'type'          => 'flexible_content',
           'button_label'  => __('Add Section', 'starter-coat'),
           'layouts'       => array(
-            'layout_sc_text_media' => array(
-              'key'        => 'layout_sc_text_media',
-              'name'       => 'text_media',
-              'label'      => __('1 Col Text / Media', 'starter-coat'),
+            'layout_sc_content_media' => array(
+              'key'        => 'layout_sc_content_media',
+              'name'       => 'content_media',
+              'label'      => __('Content + Media', 'starter-coat'),
               'display'    => 'block',
               'sub_fields' => array(
                 array(
-                  'key'   => 'field_sc_text_media_content',
+                  'key'           => 'field_sc_content_media_mode',
+                  'label'         => __('Layout Mode', 'starter-coat'),
+                  'name'          => 'layout_mode',
+                  'type'          => 'select',
+                  'choices'       => array(
+                    'split'   => __('Split (2 Column)', 'starter-coat'),
+                    'stacked' => __('Stacked (Single Column Flow)', 'starter-coat'),
+                  ),
+                  'default_value' => 'split',
+                  'ui'            => 1,
+                ),
+                array(
+                  'key'   => 'field_sc_content_media_kicker',
+                  'label' => __('Kicker', 'starter-coat'),
+                  'name'  => 'kicker',
+                  'type'  => 'text',
+                ),
+                array(
+                  'key'   => 'field_sc_content_media_title',
+                  'label' => __('Title', 'starter-coat'),
+                  'name'  => 'title',
+                  'type'  => 'text',
+                ),
+                array(
+                  'key'   => 'field_sc_content_media_content',
                   'label' => __('Content', 'starter-coat'),
                   'name'  => 'content',
                   'type'  => 'wysiwyg',
                 ),
                 array(
-                  'key'   => 'field_sc_text_media_media',
+                  'key'          => 'field_sc_content_media_cta_buttons',
+                  'label'        => __('Buttons', 'starter-coat'),
+                  'name'         => 'cta_buttons',
+                  'type'         => 'repeater',
+                  'layout'       => 'row',
+                  'button_label' => __('Add Button', 'starter-coat'),
+                  'sub_fields'   => array(
+                    array(
+                      'key'   => 'field_sc_content_media_cta_button_link',
+                      'label' => __('Button Link', 'starter-coat'),
+                      'name'  => 'button_link',
+                      'type'  => 'link',
+                    ),
+                    array(
+                      'key'           => 'field_sc_content_media_cta_button_style',
+                      'label'         => __('Button Style', 'starter-coat'),
+                      'name'          => 'button_style',
+                      'type'          => 'select',
+                      'choices'       => array(
+                        'primary' => __('Primary', 'starter-coat'),
+                        'ghost'   => __('Ghost', 'starter-coat'),
+                      ),
+                      'default_value' => 'primary',
+                      'ui'            => 1,
+                    ),
+                  ),
+                ),
+                array(
+                  'key'   => 'field_sc_content_media_media_image',
                   'label' => __('Media Image', 'starter-coat'),
                   'name'  => 'media_image',
                   'type'  => 'image',
                   'return_format' => 'array',
                   'preview_size'  => 'medium',
+                  'mime_types'    => 'jpg,jpeg,png,webp,svg',
                 ),
                 array(
-                  'key'           => 'field_sc_text_media_image_style',
+                  'key'           => 'field_sc_content_media_ratio',
+                  'label'         => __('Ratio', 'starter-coat'),
+                  'name'          => 'ratio',
+                  'type'          => 'select',
+                  'choices'       => array(
+                    '50-50' => '50 / 50',
+                    '66-33' => '2 / 3',
+                  ),
+                  'default_value' => '50-50',
+                  'ui'            => 1,
+                  'conditional_logic' => array(
+                    array(
+                      array(
+                        'field'    => 'field_sc_content_media_mode',
+                        'operator' => '==',
+                        'value'    => 'split',
+                      ),
+                    ),
+                  ),
+                ),
+                array(
+                  'key'           => 'field_sc_content_media_media_position',
+                  'label'         => __('Media Position', 'starter-coat'),
+                  'name'          => 'media_position',
+                  'type'          => 'select',
+                  'choices'       => array(
+                    'left'  => __('Left', 'starter-coat'),
+                    'right' => __('Right', 'starter-coat'),
+                  ),
+                  'default_value' => 'right',
+                  'ui'            => 1,
+                  'conditional_logic' => array(
+                    array(
+                      array(
+                        'field'    => 'field_sc_content_media_mode',
+                        'operator' => '==',
+                        'value'    => 'split',
+                      ),
+                    ),
+                  ),
+                ),
+                array(
+                  'key'           => 'field_sc_content_media_stack_order',
+                  'label'         => __('Stack Order', 'starter-coat'),
+                  'name'          => 'stack_order',
+                  'type'          => 'select',
+                  'choices'       => array(
+                    'text-media' => __('Text then Media', 'starter-coat'),
+                    'media-text' => __('Media then Text', 'starter-coat'),
+                  ),
+                  'default_value' => 'text-media',
+                  'ui'            => 1,
+                  'conditional_logic' => array(
+                    array(
+                      array(
+                        'field'    => 'field_sc_content_media_mode',
+                        'operator' => '==',
+                        'value'    => 'stacked',
+                      ),
+                    ),
+                  ),
+                ),
+                array(
+                  'key'           => 'field_sc_content_media_image_style',
                   'label'         => __('Image Style', 'starter-coat'),
                   'name'          => 'image_style',
                   'type'          => 'select',
@@ -1267,23 +1596,11 @@ function starter_coat_register_acf_fields()
                     'rounded' => __('Rounded', 'starter-coat'),
                     'sharp'   => __('Sharp', 'starter-coat'),
                   ),
-                  'default_value' => 'soft',
+                  'default_value' => 'rounded',
                   'ui'            => 1,
                 ),
                 array(
-                  'key'           => 'field_sc_text_media_media_position',
-                  'label'         => __('Media Position', 'starter-coat'),
-                  'name'          => 'media_position',
-                  'type'          => 'select',
-                  'choices'       => array(
-                    'right' => __('Right', 'starter-coat'),
-                    'left'  => __('Left', 'starter-coat'),
-                  ),
-                  'default_value' => 'right',
-                  'ui'            => 1,
-                ),
-                array(
-                  'key'           => 'field_sc_text_media_image_full_bleed',
+                  'key'           => 'field_sc_content_media_image_full_bleed',
                   'label'         => __('Image Full Bleed', 'starter-coat'),
                   'name'          => 'image_full_bleed',
                   'type'          => 'true_false',
@@ -1292,7 +1609,7 @@ function starter_coat_register_acf_fields()
                   'instructions'  => __('Extends image to page edge when section width is Full Width.', 'starter-coat'),
                 ),
                 array(
-                  'key'   => 'field_sc_text_media_options_tab',
+                  'key'   => 'field_sc_content_media_options_tab',
                   'label' => __('Section Options', 'starter-coat'),
                   'name'  => '',
                   'type'  => 'tab',
@@ -1300,109 +1617,77 @@ function starter_coat_register_acf_fields()
                 ...$section_options,
               ),
             ),
-            'layout_sc_feature' => array(
-              'key'        => 'layout_sc_feature',
-              'name'       => 'feature',
-              'label'      => __('2 Col Feature', 'starter-coat'),
+            'layout_sc_card_collection' => array(
+              'key'        => 'layout_sc_card_collection',
+              'name'       => 'card_collection',
+              'label'      => __('Card Collection (1-4 Columns)', 'starter-coat'),
               'display'    => 'block',
               'sub_fields' => array(
                 array(
-                  'key'   => 'field_sc_feature_kicker',
+                  'key'   => 'field_sc_card_collection_intro_tab',
+                  'label' => __('Intro (Optional)', 'starter-coat'),
+                  'name'  => '',
+                  'type'  => 'tab',
+                ),
+                array(
+                  'key'   => 'field_sc_card_collection_pre_kicker',
                   'label' => __('Kicker', 'starter-coat'),
-                  'name'  => 'kicker',
+                  'name'  => 'pre_kicker',
                   'type'  => 'text',
                 ),
                 array(
-                  'key'   => 'field_sc_feature_title',
-                  'label' => __('Title', 'starter-coat'),
-                  'name'  => 'title',
+                  'key'   => 'field_sc_card_collection_pre_title',
+                  'label' => __('Heading', 'starter-coat'),
+                  'name'  => 'pre_title',
                   'type'  => 'text',
                 ),
                 array(
-                  'key'   => 'field_sc_feature_copy',
-                  'label' => __('Copy', 'starter-coat'),
-                  'name'  => 'copy',
+                  'key'   => 'field_sc_card_collection_pre_copy',
+                  'label' => __('Intro Copy', 'starter-coat'),
+                  'name'  => 'pre_copy',
                   'type'  => 'textarea',
                 ),
                 array(
-                  'key'   => 'field_sc_feature_media_image',
-                  'label' => __('Media Image', 'starter-coat'),
-                  'name'  => 'media_image',
-                  'type'  => 'image',
-                  'return_format' => 'array',
-                  'preview_size'  => 'medium',
-                ),
-                array(
-                  'key'   => 'field_sc_feature_ratio',
-                  'label' => __('Ratio', 'starter-coat'),
-                  'name'  => 'ratio',
-                  'type'  => 'select',
-                  'choices' => array(
-                    '50-50' => '50 / 50',
-                    '66-33' => '2 / 3',
+                  'key'          => 'field_sc_card_collection_pre_buttons',
+                  'label'        => __('Intro Buttons', 'starter-coat'),
+                  'name'         => 'pre_buttons',
+                  'type'         => 'repeater',
+                  'layout'       => 'row',
+                  'button_label' => __('Add Intro Button', 'starter-coat'),
+                  'sub_fields'   => array(
+                    array(
+                      'key'   => 'field_sc_card_collection_pre_button_link',
+                      'label' => __('Button Link', 'starter-coat'),
+                      'name'  => 'button_link',
+                      'type'  => 'link',
+                    ),
+                    array(
+                      'key'           => 'field_sc_card_collection_pre_button_style',
+                      'label'         => __('Button Style', 'starter-coat'),
+                      'name'          => 'button_style',
+                      'type'          => 'select',
+                      'choices'       => array(
+                        'primary' => __('Primary', 'starter-coat'),
+                        'ghost'   => __('Ghost', 'starter-coat'),
+                      ),
+                      'default_value' => 'primary',
+                      'ui'            => 1,
+                    ),
                   ),
-                  'default_value' => '50-50',
                 ),
                 array(
-                  'key'           => 'field_sc_feature_media_position',
-                  'label'         => __('Media Position', 'starter-coat'),
-                  'name'          => 'media_position',
-                  'type'          => 'select',
-                  'choices'       => array(
-                    'left'  => __('Left', 'starter-coat'),
-                    'right' => __('Right', 'starter-coat'),
-                  ),
-                  'default_value' => 'left',
-                  'ui'            => 1,
-                ),
-                array(
-                  'key'           => 'field_sc_feature_image_full_bleed',
-                  'label'         => __('Image Full Bleed', 'starter-coat'),
-                  'name'          => 'image_full_bleed',
-                  'type'          => 'true_false',
-                  'ui'            => 1,
-                  'default_value' => 0,
-                  'instructions'  => __('Extends image to page edge when section width is Full Width.', 'starter-coat'),
-                ),
-                array(
-                  'key'   => 'field_sc_feature_button',
-                  'label' => __('Button', 'starter-coat'),
-                  'name'  => 'button',
-                  'type'  => 'link',
-                ),
-                array(
-                  'key'   => 'field_sc_feature_options_tab',
-                  'label' => __('Section Options', 'starter-coat'),
+                  'key'   => 'field_sc_card_collection_layout_tab',
+                  'label' => __('Cards', 'starter-coat'),
                   'name'  => '',
                   'type'  => 'tab',
                 ),
-                ...$section_options,
-              ),
-            ),
-            'layout_sc_cards' => array(
-              'key'        => 'layout_sc_cards',
-              'name'       => 'cards',
-              'label'      => __('3 Column Cards', 'starter-coat'),
-              'display'    => 'block',
-              'sub_fields' => array(
                 array(
-                  'key'   => 'field_sc_cards_heading',
-                  'label' => __('Heading', 'starter-coat'),
-                  'name'  => 'heading',
-                  'type'  => 'text',
-                ),
-                array(
-                  'key'   => 'field_sc_cards_intro',
-                  'label' => __('Intro Copy', 'starter-coat'),
-                  'name'  => 'intro',
-                  'type'  => 'textarea',
-                ),
-                array(
-                  'key'           => 'field_sc_cards_columns',
+                  'key'           => 'field_sc_card_collection_columns',
                   'label'         => __('Columns', 'starter-coat'),
                   'name'          => 'columns',
                   'type'          => 'select',
                   'choices'       => array(
+                    '1' => '1',
                     '2' => '2',
                     '3' => '3',
                     '4' => '4',
@@ -1411,39 +1696,227 @@ function starter_coat_register_acf_fields()
                   'ui'            => 1,
                 ),
                 array(
-                  'key'   => 'field_sc_cards_items',
-                  'label' => __('Items', 'starter-coat'),
-                  'name'  => 'items',
-                  'type'  => 'repeater',
-                  'sub_fields' => array(
+                  'key'           => 'field_sc_card_collection_card_style',
+                  'label'         => __('Card Style', 'starter-coat'),
+                  'name'          => 'card_style',
+                  'type'          => 'select',
+                  'choices'       => array(
+                    'surface'  => __('Surface', 'starter-coat'),
+                    'outline'  => __('Outline', 'starter-coat'),
+                    'featured' => __('Featured', 'starter-coat'),
+                  ),
+                  'default_value' => 'surface',
+                  'ui'            => 1,
+                ),
+                array(
+                  'key'           => 'field_sc_card_collection_equal_height',
+                  'label'         => __('Equal Card Height', 'starter-coat'),
+                  'name'          => 'equal_height',
+                  'type'          => 'true_false',
+                  'ui'            => 1,
+                  'default_value' => 1,
+                ),
+                array(
+                  'key'           => 'field_sc_card_collection_items',
+                  'label'         => __('Items', 'starter-coat'),
+                  'name'          => 'items',
+                  'type'          => 'repeater',
+                  'layout'        => 'row',
+                  'button_label'  => __('Add Card', 'starter-coat'),
+                  'min'           => 1,
+                  'sub_fields'    => array(
                     array(
-                      'key' => 'field_sc_card_pill',
-                      'label' => __('Pill', 'starter-coat'),
-                      'name' => 'pill',
-                      'type' => 'text',
+                      'key'   => 'field_sc_card_collection_item_title',
+                      'label' => __('Title (Optional)', 'starter-coat'),
+                      'name'  => 'title',
+                      'type'  => 'text',
                     ),
                     array(
-                      'key' => 'field_sc_card_title',
-                      'label' => __('Title', 'starter-coat'),
-                      'name' => 'title',
-                      'type' => 'text',
+                      'key'   => 'field_sc_card_collection_item_copy',
+                      'label' => __('Paragraph (Optional)', 'starter-coat'),
+                      'name'  => 'copy',
+                      'type'  => 'textarea',
                     ),
                     array(
-                      'key' => 'field_sc_card_copy',
-                      'label' => __('Copy', 'starter-coat'),
-                      'name' => 'copy',
-                      'type' => 'textarea',
+                      'key'          => 'field_sc_card_collection_item_list',
+                      'label'        => __('List (Optional)', 'starter-coat'),
+                      'name'         => 'list_items',
+                      'type'         => 'repeater',
+                      'layout'       => 'table',
+                      'button_label' => __('Add List Item', 'starter-coat'),
+                      'sub_fields'   => array(
+                        array(
+                          'key'   => 'field_sc_card_collection_item_list_text',
+                          'label' => __('List Text', 'starter-coat'),
+                          'name'  => 'text',
+                          'type'  => 'text',
+                        ),
+                      ),
                     ),
                     array(
-                      'key' => 'field_sc_card_button',
-                      'label' => __('Button', 'starter-coat'),
-                      'name' => 'button',
-                      'type' => 'link',
+                      'key'           => 'field_sc_card_collection_item_media_type',
+                      'label'         => __('Media Type', 'starter-coat'),
+                      'name'          => 'media_type',
+                      'type'          => 'select',
+                      'choices'       => array(
+                        'none'  => __('None', 'starter-coat'),
+                        'icon'  => __('Icon', 'starter-coat'),
+                        'image' => __('Image', 'starter-coat'),
+                      ),
+                      'default_value' => 'none',
+                      'ui'            => 1,
+                    ),
+                    array(
+                      'key'           => 'field_sc_card_collection_item_icon_name',
+                      'label'         => __('Icon Name', 'starter-coat'),
+                      'name'          => 'icon_name',
+                      'type'          => 'select',
+                      'choices'       => array(
+                        'check-in'     => 'check-in',
+                        'tablet'       => 'tablet',
+                        'messaging'    => 'messaging',
+                        'room-service' => 'room-service',
+                        'digital-key'  => 'digital-key',
+                        'casting'      => 'casting',
+                        'analytics'    => 'analytics',
+                        'automation'   => 'automation',
+                        'marketing'    => 'marketing',
+                        'concierge'    => 'concierge',
+                      ),
+                      'ui'            => 1,
+                      'required'      => 1,
+                      'instructions'  => __('Uses files from /assets/icons/cards/ named icon-card-{slug}.svg.', 'starter-coat'),
+                      'conditional_logic' => array(
+                        array(
+                          array(
+                            'field'    => 'field_sc_card_collection_item_media_type',
+                            'operator' => '==',
+                            'value'    => 'icon',
+                          ),
+                        ),
+                      ),
+                    ),
+                    array(
+                      'key'           => 'field_sc_card_collection_item_image',
+                      'label'         => __('Image', 'starter-coat'),
+                      'name'          => 'image',
+                      'type'          => 'image',
+                      'return_format' => 'array',
+                      'preview_size'  => 'medium',
+                      'mime_types'    => 'jpg,jpeg,png,webp,svg',
+                      'required'      => 1,
+                      'conditional_logic' => array(
+                        array(
+                          array(
+                            'field'    => 'field_sc_card_collection_item_media_type',
+                            'operator' => '==',
+                            'value'    => 'image',
+                          ),
+                        ),
+                      ),
+                    ),
+                    array(
+                      'key'           => 'field_sc_card_collection_item_media_position',
+                      'label'         => __('Media Placement', 'starter-coat'),
+                      'name'          => 'media_position',
+                      'type'          => 'select',
+                      'choices'       => array(
+                        'top'   => __('Top', 'starter-coat'),
+                        'left'  => __('Left', 'starter-coat'),
+                        'right' => __('Right', 'starter-coat'),
+                      ),
+                      'default_value' => 'left',
+                      'ui'            => 1,
+                      'conditional_logic' => array(
+                        array(
+                          array(
+                            'field'    => 'field_sc_card_collection_item_media_type',
+                            'operator' => '!=',
+                            'value'    => 'none',
+                          ),
+                        ),
+                      ),
+                    ),
+                    array(
+                      'key'   => 'field_sc_card_collection_item_url',
+                      'label' => __('Card URL (Optional)', 'starter-coat'),
+                      'name'  => 'card_url',
+                      'type'  => 'url',
+                      'instructions' => __('If set, the whole card becomes clickable.', 'starter-coat'),
+                    ),
+                    array(
+                      'key'           => 'field_sc_card_collection_item_open_new_tab',
+                      'label'         => __('Open in New Tab', 'starter-coat'),
+                      'name'          => 'open_new_tab',
+                      'type'          => 'true_false',
+                      'ui'            => 1,
+                      'default_value' => 0,
+                      'conditional_logic' => array(
+                        array(
+                          array(
+                            'field'    => 'field_sc_card_collection_item_url',
+                            'operator' => '!=empty',
+                            'value'    => '',
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
                 array(
-                  'key'   => 'field_sc_cards_options_tab',
+                  'key'   => 'field_sc_card_collection_footer_tab',
+                  'label' => __('Footer (Optional)', 'starter-coat'),
+                  'name'  => '',
+                  'type'  => 'tab',
+                ),
+                array(
+                  'key'   => 'field_sc_card_collection_post_copy',
+                  'label' => __('Footer Copy', 'starter-coat'),
+                  'name'  => 'post_copy',
+                  'type'  => 'textarea',
+                ),
+                array(
+                  'key'   => 'field_sc_card_collection_quote',
+                  'label' => __('Quote / Statement', 'starter-coat'),
+                  'name'  => 'quote',
+                  'type'  => 'textarea',
+                ),
+                array(
+                  'key'   => 'field_sc_card_collection_quote_source',
+                  'label' => __('Quote Source', 'starter-coat'),
+                  'name'  => 'quote_source',
+                  'type'  => 'text',
+                ),
+                array(
+                  'key'          => 'field_sc_card_collection_post_buttons',
+                  'label'        => __('Footer Buttons', 'starter-coat'),
+                  'name'         => 'post_buttons',
+                  'type'         => 'repeater',
+                  'layout'       => 'row',
+                  'button_label' => __('Add Footer Button', 'starter-coat'),
+                  'sub_fields'   => array(
+                    array(
+                      'key'   => 'field_sc_card_collection_post_button_link',
+                      'label' => __('Button Link', 'starter-coat'),
+                      'name'  => 'button_link',
+                      'type'  => 'link',
+                    ),
+                    array(
+                      'key'           => 'field_sc_card_collection_post_button_style',
+                      'label'         => __('Button Style', 'starter-coat'),
+                      'name'          => 'button_style',
+                      'type'          => 'select',
+                      'choices'       => array(
+                        'primary' => __('Primary', 'starter-coat'),
+                        'ghost'   => __('Ghost', 'starter-coat'),
+                      ),
+                      'default_value' => 'primary',
+                      'ui'            => 1,
+                    ),
+                  ),
+                ),
+                array(
+                  'key'   => 'field_sc_card_collection_options_tab',
                   'label' => __('Section Options', 'starter-coat'),
                   'name'  => '',
                   'type'  => 'tab',
@@ -1451,124 +1924,98 @@ function starter_coat_register_acf_fields()
                 ...$section_options,
               ),
             ),
-            'layout_sc_feature_list' => array(
-              'key'        => 'layout_sc_feature_list',
-              'name'       => 'feature_list',
-              'label'      => __('Feature List (2 Column)', 'starter-coat'),
+            'layout_sc_expressive_text' => array(
+              'key'        => 'layout_sc_expressive_text',
+              'name'       => 'expressive_text',
+              'label'      => __('Expressive Text', 'starter-coat'),
               'display'    => 'block',
               'sub_fields' => array(
                 array(
-                  'key'   => 'field_sc_feature_list_heading',
-                  'label' => __('Heading', 'starter-coat'),
-                  'name'  => 'heading',
+                  'key'   => 'field_sc_expressive_text_kicker',
+                  'label' => __('Kicker', 'starter-coat'),
+                  'name'  => 'kicker',
                   'type'  => 'text',
                 ),
                 array(
-                  'key'   => 'field_sc_feature_list_intro',
-                  'label' => __('Intro (Optional)', 'starter-coat'),
-                  'name'  => 'intro',
-                  'type'  => 'textarea',
+                  'key'   => 'field_sc_expressive_text_title',
+                  'label' => __('Title (Optional)', 'starter-coat'),
+                  'name'  => 'title',
+                  'type'  => 'text',
                 ),
                 array(
-                  'key'   => 'field_sc_feature_list_left_items',
-                  'label' => __('Left Column Items', 'starter-coat'),
-                  'name'  => 'left_items',
-                  'type'  => 'repeater',
-                  'layout' => 'row',
-                  'button_label' => __('Add Left Item', 'starter-coat'),
-                  'sub_fields' => array(
+                  'key'   => 'field_sc_expressive_text_content',
+                  'label' => __('Content', 'starter-coat'),
+                  'name'  => 'content',
+                  'type'  => 'wysiwyg',
+                ),
+                array(
+                  'key'           => 'field_sc_expressive_text_text_align',
+                  'label'         => __('Text Align', 'starter-coat'),
+                  'name'          => 'text_align',
+                  'type'          => 'select',
+                  'choices'       => array(
+                    'left'   => __('Left', 'starter-coat'),
+                    'center' => __('Center', 'starter-coat'),
+                  ),
+                  'default_value' => 'left',
+                  'ui'            => 1,
+                ),
+                array(
+                  'key'           => 'field_sc_expressive_text_text_size',
+                  'label'         => __('Text Scale', 'starter-coat'),
+                  'name'          => 'text_size',
+                  'type'          => 'select',
+                  'choices'       => array(
+                    'body'  => __('Body', 'starter-coat'),
+                    'large' => __('Large', 'starter-coat'),
+                    'xl'    => __('Extra Large', 'starter-coat'),
+                  ),
+                  'default_value' => 'large',
+                  'ui'            => 1,
+                ),
+                array(
+                  'key'           => 'field_sc_expressive_text_content_width',
+                  'label'         => __('Content Width', 'starter-coat'),
+                  'name'          => 'content_width',
+                  'type'          => 'select',
+                  'choices'       => array(
+                    'narrow'    => __('Narrow', 'starter-coat'),
+                    'container' => __('Container', 'starter-coat'),
+                    'wide'      => __('Wide', 'starter-coat'),
+                  ),
+                  'default_value' => 'narrow',
+                  'ui'            => 1,
+                ),
+                array(
+                  'key'          => 'field_sc_expressive_text_buttons',
+                  'label'        => __('Buttons (Optional)', 'starter-coat'),
+                  'name'         => 'buttons',
+                  'type'         => 'repeater',
+                  'layout'       => 'row',
+                  'button_label' => __('Add Button', 'starter-coat'),
+                  'sub_fields'   => array(
                     array(
-                      'key'           => 'field_sc_feature_list_left_image',
-                      'label'         => __('Image', 'starter-coat'),
-                      'name'          => 'image',
-                      'type'          => 'image',
-                      'return_format' => 'array',
-                      'preview_size'  => 'medium',
-                      'mime_types'    => 'jpg,jpeg,png,webp,svg',
-                    ),
-                    array(
-                      'key'   => 'field_sc_feature_list_left_title',
-                      'label' => __('Title', 'starter-coat'),
-                      'name'  => 'title',
-                      'type'  => 'text',
-                    ),
-                    array(
-                      'key'   => 'field_sc_feature_list_left_description',
-                      'label' => __('Description', 'starter-coat'),
-                      'name'  => 'description',
-                      'type'  => 'textarea',
-                    ),
-                    array(
-                      'key'   => 'field_sc_feature_list_left_link',
-                      'label' => __('Link (Optional)', 'starter-coat'),
-                      'name'  => 'link',
+                      'key'   => 'field_sc_expressive_text_button_link',
+                      'label' => __('Button Link', 'starter-coat'),
+                      'name'  => 'button_link',
                       'type'  => 'link',
+                    ),
+                    array(
+                      'key'           => 'field_sc_expressive_text_button_style',
+                      'label'         => __('Button Style', 'starter-coat'),
+                      'name'          => 'button_style',
+                      'type'          => 'select',
+                      'choices'       => array(
+                        'primary' => __('Primary', 'starter-coat'),
+                        'ghost'   => __('Ghost', 'starter-coat'),
+                      ),
+                      'default_value' => 'primary',
+                      'ui'            => 1,
                     ),
                   ),
                 ),
                 array(
-                  'key'   => 'field_sc_feature_list_right_items',
-                  'label' => __('Right Column Items', 'starter-coat'),
-                  'name'  => 'right_items',
-                  'type'  => 'repeater',
-                  'layout' => 'row',
-                  'button_label' => __('Add Right Item', 'starter-coat'),
-                  'sub_fields' => array(
-                    array(
-                      'key'           => 'field_sc_feature_list_right_image',
-                      'label'         => __('Image', 'starter-coat'),
-                      'name'          => 'image',
-                      'type'          => 'image',
-                      'return_format' => 'array',
-                      'preview_size'  => 'medium',
-                      'mime_types'    => 'jpg,jpeg,png,webp,svg',
-                    ),
-                    array(
-                      'key'   => 'field_sc_feature_list_right_title',
-                      'label' => __('Title', 'starter-coat'),
-                      'name'  => 'title',
-                      'type'  => 'text',
-                    ),
-                    array(
-                      'key'   => 'field_sc_feature_list_right_description',
-                      'label' => __('Description', 'starter-coat'),
-                      'name'  => 'description',
-                      'type'  => 'textarea',
-                    ),
-                    array(
-                      'key'   => 'field_sc_feature_list_right_link',
-                      'label' => __('Link (Optional)', 'starter-coat'),
-                      'name'  => 'link',
-                      'type'  => 'link',
-                    ),
-                  ),
-                ),
-                array(
-                  'key'   => 'field_sc_feature_list_footer_tab',
-                  'label' => __('Footer (Optional)', 'starter-coat'),
-                  'name'  => '',
-                  'type'  => 'tab',
-                ),
-                array(
-                  'key'   => 'field_sc_feature_list_quote',
-                  'label' => __('Quote / Statement', 'starter-coat'),
-                  'name'  => 'quote',
-                  'type'  => 'textarea',
-                ),
-                array(
-                  'key'   => 'field_sc_feature_list_quote_source',
-                  'label' => __('Quote Source', 'starter-coat'),
-                  'name'  => 'quote_source',
-                  'type'  => 'text',
-                ),
-                array(
-                  'key'   => 'field_sc_feature_list_cta',
-                  'label' => __('Footer CTA Button', 'starter-coat'),
-                  'name'  => 'cta_button',
-                  'type'  => 'link',
-                ),
-                array(
-                  'key'   => 'field_sc_feature_list_options_tab',
+                  'key'   => 'field_sc_expressive_text_options_tab',
                   'label' => __('Section Options', 'starter-coat'),
                   'name'  => '',
                   'type'  => 'tab',
@@ -3513,6 +3960,70 @@ function starter_coat_register_acf_fields()
   );
 }
 add_action('acf/init', 'starter_coat_register_acf_fields');
+
+/**
+ * Validate card collection rows to prevent empty cards.
+ *
+ * @param bool|string $valid Existing validation state.
+ * @param mixed       $value Repeater value.
+ * @return bool|string
+ */
+function starter_coat_validate_card_collection_items($valid, $value)
+{
+  if (true !== $valid) {
+    return $valid;
+  }
+
+  if (! is_array($value) || empty($value)) {
+    return __('Add at least one card item.', 'starter-coat');
+  }
+
+  foreach ($value as $row) {
+    if (! is_array($row)) {
+      continue;
+    }
+
+    $title = isset($row['title']) ? trim((string) $row['title']) : '';
+    $copy  = isset($row['copy']) ? trim((string) $row['copy']) : '';
+    $url   = isset($row['card_url']) ? trim((string) $row['card_url']) : '';
+
+    if ('' !== $title || '' !== $copy || '' !== $url) {
+      continue;
+    }
+
+    $media_type = isset($row['media_type']) ? (string) $row['media_type'] : 'none';
+    $icon_name  = isset($row['icon_name']) ? trim((string) $row['icon_name']) : '';
+    $image      = isset($row['image']) ? $row['image'] : null;
+    $has_image  = is_array($image) && (! empty($image['ID']) || ! empty($image['url']));
+
+    $list_items = isset($row['list_items']) && is_array($row['list_items']) ? $row['list_items'] : array();
+    $has_list   = false;
+    foreach ($list_items as $list_row) {
+      $list_text = isset($list_row['text']) ? trim((string) $list_row['text']) : '';
+      if ('' !== $list_text) {
+        $has_list = true;
+        break;
+      }
+    }
+
+    if ('icon' === $media_type && '' !== $icon_name) {
+      continue;
+    }
+
+    if ('image' === $media_type && $has_image) {
+      continue;
+    }
+
+    if ($has_list) {
+      continue;
+    }
+
+    return __('Each card needs at least one piece of content (title, paragraph, list, icon/image, or URL).', 'starter-coat');
+  }
+
+  return $valid;
+}
+add_filter('acf/validate_value/key=field_sc_card_collection_items', 'starter_coat_validate_card_collection_items', 10, 2);
 
 /**
  * Add visual swatches to background color radio fields in ACF.

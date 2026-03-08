@@ -59,7 +59,12 @@ function starter_coat_setup()
   register_nav_menus(
     array(
       'menu-1'      => esc_html__('Primary', 'starter-coat'),
-      'menu-footer' => esc_html__('Footer', 'starter-coat'),
+      'menu-footer' => esc_html__('Footer (Legacy)', 'starter-coat'),
+      'footer-main' => esc_html__('Footer Main', 'starter-coat'),
+      'footer-legal' => esc_html__('Footer Legal', 'starter-coat'),
+      'footer-col-1' => esc_html__('Footer Column 1', 'starter-coat'),
+      'footer-col-2' => esc_html__('Footer Column 2', 'starter-coat'),
+      'footer-col-3' => esc_html__('Footer Column 3', 'starter-coat'),
     )
   );
 

@@ -37,9 +37,9 @@ get_header();
           </div>
         </section>
 
-        <?php get_template_part('template-parts/sections/section-feature'); ?>
-        <?php get_template_part('template-parts/sections/section-cards'); ?>
-        <?php get_template_part('template-parts/sections/section-text_media'); ?>
+        <?php get_template_part('template-parts/sections/section-content_media'); ?>
+        <?php get_template_part('template-parts/sections/section-card_collection'); ?>
+        <?php get_template_part('template-parts/sections/section-expressive_text'); ?>
         
       <?php endif; ?>
   <?php endwhile;

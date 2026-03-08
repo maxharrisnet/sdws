@@ -117,6 +117,74 @@ function starter_coat_get_nav_settings()
 }
 
 /**
+ * Get footer settings from options with safe defaults.
+ *
+ * @return array<string,mixed>
+ */
+function starter_coat_get_footer_settings()
+{
+  $settings = array(
+    'layout'          => 'simple',
+    'simple_columns'  => 'two',
+    'complex_columns' => 'three',
+    'show_logo'       => true,
+    'logo_mode'       => 'inherit_nav',
+    'logo_image'      => null,
+    'show_social'     => true,
+    'social_style'    => 'icon',
+    'show_main_menu'  => true,
+    'show_legal_menu' => true,
+    'legal_links'     => array(),
+    'copyright_text'  => __('All rights reserved.', 'starter-coat'),
+  );
+
+  if (! function_exists('get_field')) {
+    return $settings;
+  }
+
+  $settings['layout'] = (string) call_user_func('get_field', 'sc_footer_layout', 'option') ?: $settings['layout'];
+  $settings['simple_columns'] = (string) call_user_func('get_field', 'sc_footer_simple_columns', 'option') ?: $settings['simple_columns'];
+  $settings['complex_columns'] = (string) call_user_func('get_field', 'sc_footer_complex_columns', 'option') ?: $settings['complex_columns'];
+
+  $show_logo = call_user_func('get_field', 'sc_footer_show_logo', 'option');
+  if (null !== $show_logo) {
+    $settings['show_logo'] = (bool) $show_logo;
+  }
+
+  $settings['logo_mode'] = (string) call_user_func('get_field', 'sc_footer_logo_mode', 'option') ?: $settings['logo_mode'];
+  $settings['logo_image'] = call_user_func('get_field', 'sc_footer_logo_image', 'option');
+
+  $show_social = call_user_func('get_field', 'sc_footer_show_social', 'option');
+  if (null !== $show_social) {
+    $settings['show_social'] = (bool) $show_social;
+  }
+
+  $settings['social_style'] = (string) call_user_func('get_field', 'sc_footer_social_style', 'option') ?: $settings['social_style'];
+
+  $show_main_menu = call_user_func('get_field', 'sc_footer_show_main_menu', 'option');
+  if (null !== $show_main_menu) {
+    $settings['show_main_menu'] = (bool) $show_main_menu;
+  }
+
+  $show_legal_menu = call_user_func('get_field', 'sc_footer_show_legal_menu', 'option');
+  if (null !== $show_legal_menu) {
+    $settings['show_legal_menu'] = (bool) $show_legal_menu;
+  }
+
+  $legal_links = call_user_func('get_field', 'sc_footer_legal_links', 'option');
+  if (is_array($legal_links)) {
+    $settings['legal_links'] = $legal_links;
+  }
+
+  $copyright_text = (string) call_user_func('get_field', 'sc_footer_copyright_text', 'option');
+  if ('' !== $copyright_text) {
+    $settings['copyright_text'] = $copyright_text;
+  }
+
+  return $settings;
+}
+
+/**
  * Get contact information from options.
  *
  * @return array<string,mixed>

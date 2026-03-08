@@ -32,30 +32,35 @@
 
 	/* Keep media aligned to the outside edge in two-column rows. */
 	.section--feature .layout--2col > .feature__media,
-	.section--text-media .layout--2col > figure {
+	.section--text-media .layout--2col > figure,
+	.section--content-media .layout--2col > .c-content-media__media {
 		display: flex;
 		width: 100%;
 	}
 
 	.section--feature .layout--2col:not(.layout--reverse) > .feature__media,
-	.section--text-media .layout--2col:not(.layout--reverse) > figure {
+	.section--text-media .layout--2col:not(.layout--reverse) > figure,
+	.section--content-media .layout--2col:not(.layout--reverse) > .c-content-media__media {
 		justify-content: flex-start;
 	}
 
 	.section--feature .layout--2col.layout--reverse > .feature__media,
-	.section--text-media .layout--2col.layout--reverse > figure {
+	.section--text-media .layout--2col.layout--reverse > figure,
+	.section--content-media .layout--2col.layout--reverse > .c-content-media__media {
 		justify-content: flex-end;
 	}
 
 	.section--feature .layout--2col.layout--media-full-bleed > .feature__media,
-	.section--text-media .layout--2col.layout--media-full-bleed > figure {
+	.section--text-media .layout--2col.layout--media-full-bleed > figure,
+	.section--content-media .layout--2col.layout--media-full-bleed > .c-content-media__media {
 		display: block;
 		overflow: hidden;
 		border-radius: 0;
 	}
 
 	.section--feature .layout--2col.layout--media-full-bleed > .feature__media img,
-	.section--text-media .layout--2col.layout--media-full-bleed > figure img {
+	.section--text-media .layout--2col.layout--media-full-bleed > figure img,
+	.section--content-media .layout--2col.layout--media-full-bleed > .c-content-media__media img {
 		display: block;
 		width: 100%;
 		height: 100%;
