@@ -13,7 +13,7 @@ $id = isset($args['id']) ? sanitize_html_class($args['id']) : 'starter-modal';
     <button type="button" class="modal__close" data-modal-close><?php esc_html_e('Close', 'starter-coat'); ?></button>
     <div class="modal__content">
       <?php if (! empty($args['content'])) : ?>
-        <?php echo wp_kses_post($args['content']); ?>
+        <?php echo $args['content']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
       <?php endif; ?>
     </div>
   </div>

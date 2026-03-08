@@ -1897,6 +1897,355 @@ function starter_coat_register_acf_fields()
                 ...$section_options,
               ),
             ),
+            'layout_sc_breakout_text' => array(
+              'key'        => 'layout_sc_breakout_text',
+              'name'       => 'breakout_text',
+              'label'      => __('Breakout Text', 'starter-coat'),
+              'display'    => 'block',
+              'sub_fields' => array(
+                array(
+                  'key'   => 'field_sc_breakout_text_content',
+                  'label' => __('Content', 'starter-coat'),
+                  'name'  => 'content',
+                  'type'  => 'wysiwyg',
+                ),
+                array(
+                  'key'           => 'field_sc_breakout_text_align',
+                  'label'         => __('Alignment', 'starter-coat'),
+                  'name'          => 'text_align',
+                  'type'          => 'select',
+                  'choices'       => array(
+                    'left'   => __('Left', 'starter-coat'),
+                    'center' => __('Center', 'starter-coat'),
+                    'right'  => __('Right', 'starter-coat'),
+                  ),
+                  'default_value' => 'center',
+                  'ui'            => 1,
+                ),
+                array(
+                  'key'           => 'field_sc_breakout_text_size',
+                  'label'         => __('Text Size', 'starter-coat'),
+                  'name'          => 'text_size',
+                  'type'          => 'select',
+                  'choices'       => array(
+                    'md' => __('Medium', 'starter-coat'),
+                    'lg' => __('Large', 'starter-coat'),
+                    'xl' => __('Extra Large', 'starter-coat'),
+                  ),
+                  'default_value' => 'lg',
+                  'ui'            => 1,
+                ),
+                array(
+                  'key'   => 'field_sc_breakout_text_button_tab',
+                  'label' => __('Button (Optional)', 'starter-coat'),
+                  'name'  => '',
+                  'type'  => 'tab',
+                ),
+                array(
+                  'key'   => 'field_sc_breakout_text_button_label',
+                  'label' => __('Button Label', 'starter-coat'),
+                  'name'  => 'button_label',
+                  'type'  => 'text',
+                ),
+                array(
+                  'key'   => 'field_sc_breakout_text_button_link',
+                  'label' => __('Button Link (Optional)', 'starter-coat'),
+                  'name'  => 'button_link',
+                  'type'  => 'link',
+                ),
+                array(
+                  'key'   => 'field_sc_breakout_text_modal_target',
+                  'label' => __('Modal Target ID (Optional)', 'starter-coat'),
+                  'name'  => 'modal_target_id',
+                  'type'  => 'text',
+                  'instructions' => __('Enter a hidden modal unique ID to open it from this button.', 'starter-coat'),
+                ),
+                array(
+                  'key'   => 'field_sc_breakout_text_options_tab',
+                  'label' => __('Section Options', 'starter-coat'),
+                  'name'  => '',
+                  'type'  => 'tab',
+                ),
+                ...$section_options,
+              ),
+            ),
+            'layout_sc_video_embed' => array(
+              'key'        => 'layout_sc_video_embed',
+              'name'       => 'video_embed',
+              'label'      => __('Video Embed', 'starter-coat'),
+              'display'    => 'block',
+              'sub_fields' => array(
+                array(
+                  'key'   => 'field_sc_video_embed_heading',
+                  'label' => __('Heading', 'starter-coat'),
+                  'name'  => 'heading',
+                  'type'  => 'text',
+                ),
+                array(
+                  'key'   => 'field_sc_video_embed_intro',
+                  'label' => __('Intro', 'starter-coat'),
+                  'name'  => 'intro',
+                  'type'  => 'textarea',
+                ),
+                array(
+                  'key'   => 'field_sc_video_embed_code',
+                  'label' => __('Video Embed Code', 'starter-coat'),
+                  'name'  => 'video_embed_code',
+                  'type'  => 'textarea',
+                  'instructions' => __('Paste iframe embed code (YouTube/Vimeo/etc).', 'starter-coat'),
+                ),
+                array(
+                  'key'   => 'field_sc_video_embed_url',
+                  'label' => __('Video URL (fallback)', 'starter-coat'),
+                  'name'  => 'video_url',
+                  'type'  => 'url',
+                ),
+                array(
+                  'key'           => 'field_sc_video_embed_open_modal',
+                  'label'         => __('Open In Modal', 'starter-coat'),
+                  'name'          => 'open_in_modal',
+                  'type'          => 'true_false',
+                  'ui'            => 1,
+                  'default_value' => 0,
+                ),
+                array(
+                  'key'   => 'field_sc_video_embed_modal_id',
+                  'label' => __('Modal Unique ID', 'starter-coat'),
+                  'name'  => 'modal_id',
+                  'type'  => 'text',
+                  'instructions' => __('Used for trigger target (letters, numbers, hyphens only).', 'starter-coat'),
+                  'conditional_logic' => array(
+                    array(
+                      array(
+                        'field'    => 'field_sc_video_embed_open_modal',
+                        'operator' => '==',
+                        'value'    => '1',
+                      ),
+                    ),
+                  ),
+                ),
+                array(
+                  'key'   => 'field_sc_video_embed_button_label',
+                  'label' => __('Modal Button Label', 'starter-coat'),
+                  'name'  => 'button_label',
+                  'type'  => 'text',
+                  'default_value' => __('Watch Video', 'starter-coat'),
+                  'conditional_logic' => array(
+                    array(
+                      array(
+                        'field'    => 'field_sc_video_embed_open_modal',
+                        'operator' => '==',
+                        'value'    => '1',
+                      ),
+                    ),
+                  ),
+                ),
+                array(
+                  'key'   => 'field_sc_video_embed_options_tab',
+                  'label' => __('Section Options', 'starter-coat'),
+                  'name'  => '',
+                  'type'  => 'tab',
+                ),
+                ...$section_options,
+              ),
+            ),
+            'layout_sc_forms_two_col' => array(
+              'key'        => 'layout_sc_forms_two_col',
+              'name'       => 'forms_two_col',
+              'label'      => __('Forms: Two Column', 'starter-coat'),
+              'display'    => 'block',
+              'sub_fields' => array(
+                array(
+                  'key'   => 'field_sc_forms_two_col_heading',
+                  'label' => __('Heading', 'starter-coat'),
+                  'name'  => 'heading',
+                  'type'  => 'text',
+                ),
+                array(
+                  'key'   => 'field_sc_forms_two_col_subtext',
+                  'label' => __('Subtext', 'starter-coat'),
+                  'name'  => 'subtext',
+                  'type'  => 'textarea',
+                ),
+                array(
+                  'key'   => 'field_sc_forms_two_col_left_intro',
+                  'label' => __('Left Column Intro', 'starter-coat'),
+                  'name'  => 'left_intro',
+                  'type'  => 'wysiwyg',
+                ),
+                array(
+                  'key'   => 'field_sc_forms_two_col_left_shortcode',
+                  'label' => __('Left Form Shortcode', 'starter-coat'),
+                  'name'  => 'left_form_shortcode',
+                  'type'  => 'text',
+                  'placeholder' => '[wpforms id="123"]',
+                ),
+                array(
+                  'key'   => 'field_sc_forms_two_col_right_intro',
+                  'label' => __('Right Column Intro', 'starter-coat'),
+                  'name'  => 'right_intro',
+                  'type'  => 'wysiwyg',
+                ),
+                array(
+                  'key'   => 'field_sc_forms_two_col_right_shortcode',
+                  'label' => __('Right Form Shortcode', 'starter-coat'),
+                  'name'  => 'right_form_shortcode',
+                  'type'  => 'text',
+                  'placeholder' => '[gravityform id="1" title="false" description="false"]',
+                ),
+                array(
+                  'key'   => 'field_sc_forms_two_col_options_tab',
+                  'label' => __('Section Options', 'starter-coat'),
+                  'name'  => '',
+                  'type'  => 'tab',
+                ),
+                ...$section_options,
+              ),
+            ),
+            'layout_sc_hidden_modal' => array(
+              'key'        => 'layout_sc_hidden_modal',
+              'name'       => 'hidden_modal',
+              'label'      => __('Hidden Modal', 'starter-coat'),
+              'display'    => 'block',
+              'sub_fields' => array(
+                array(
+                  'key'   => 'field_sc_hidden_modal_unique_id',
+                  'label' => __('Unique ID', 'starter-coat'),
+                  'name'  => 'modal_id',
+                  'type'  => 'text',
+                  'required' => 1,
+                  'instructions' => __('Example: demo-video-modal. Use this ID in modal trigger buttons.', 'starter-coat'),
+                ),
+                array(
+                  'key'   => 'field_sc_hidden_modal_content_type',
+                  'label' => __('Content Type', 'starter-coat'),
+                  'name'  => 'content_type',
+                  'type'  => 'select',
+                  'choices' => array(
+                    'video' => __('Video', 'starter-coat'),
+                    'form'  => __('Form', 'starter-coat'),
+                    'html'  => __('Custom HTML', 'starter-coat'),
+                  ),
+                  'default_value' => 'video',
+                  'ui'            => 1,
+                ),
+                array(
+                  'key'   => 'field_sc_hidden_modal_video_embed',
+                  'label' => __('Video Embed Code', 'starter-coat'),
+                  'name'  => 'video_embed_code',
+                  'type'  => 'textarea',
+                  'conditional_logic' => array(
+                    array(
+                      array(
+                        'field'    => 'field_sc_hidden_modal_content_type',
+                        'operator' => '==',
+                        'value'    => 'video',
+                      ),
+                    ),
+                  ),
+                ),
+                array(
+                  'key'   => 'field_sc_hidden_modal_video_url',
+                  'label' => __('Video URL (fallback)', 'starter-coat'),
+                  'name'  => 'video_url',
+                  'type'  => 'url',
+                  'conditional_logic' => array(
+                    array(
+                      array(
+                        'field'    => 'field_sc_hidden_modal_content_type',
+                        'operator' => '==',
+                        'value'    => 'video',
+                      ),
+                    ),
+                  ),
+                ),
+                array(
+                  'key'   => 'field_sc_hidden_modal_form_shortcode',
+                  'label' => __('Form Shortcode', 'starter-coat'),
+                  'name'  => 'form_shortcode',
+                  'type'  => 'text',
+                  'conditional_logic' => array(
+                    array(
+                      array(
+                        'field'    => 'field_sc_hidden_modal_content_type',
+                        'operator' => '==',
+                        'value'    => 'form',
+                      ),
+                    ),
+                  ),
+                ),
+                array(
+                  'key'   => 'field_sc_hidden_modal_html_content',
+                  'label' => __('HTML Content', 'starter-coat'),
+                  'name'  => 'html_content',
+                  'type'  => 'wysiwyg',
+                  'conditional_logic' => array(
+                    array(
+                      array(
+                        'field'    => 'field_sc_hidden_modal_content_type',
+                        'operator' => '==',
+                        'value'    => 'html',
+                      ),
+                    ),
+                  ),
+                ),
+                array(
+                  'key'   => 'field_sc_hidden_modal_trigger_tab',
+                  'label' => __('Optional Trigger Button', 'starter-coat'),
+                  'name'  => '',
+                  'type'  => 'tab',
+                ),
+                array(
+                  'key'           => 'field_sc_hidden_modal_render_trigger',
+                  'label'         => __('Render Trigger Button In Flow', 'starter-coat'),
+                  'name'          => 'render_trigger',
+                  'type'          => 'true_false',
+                  'ui'            => 1,
+                  'default_value' => 0,
+                ),
+                array(
+                  'key'   => 'field_sc_hidden_modal_trigger_label',
+                  'label' => __('Trigger Button Label', 'starter-coat'),
+                  'name'  => 'trigger_label',
+                  'type'  => 'text',
+                  'default_value' => __('Open Modal', 'starter-coat'),
+                  'conditional_logic' => array(
+                    array(
+                      array(
+                        'field'    => 'field_sc_hidden_modal_render_trigger',
+                        'operator' => '==',
+                        'value'    => '1',
+                      ),
+                    ),
+                  ),
+                ),
+                array(
+                  'key'   => 'field_sc_hidden_modal_trigger_snippet',
+                  'label' => __('Trigger Snippet (Copy)', 'starter-coat'),
+                  'name'  => 'trigger_snippet',
+                  'type'  => 'textarea',
+                  'rows'  => 3,
+                  'readonly' => 1,
+                  'instructions' => __('Auto-generated from Unique ID. Copy and paste into Generic HTML, Breakout Text, or custom templates.', 'starter-coat'),
+                  'conditional_logic' => array(
+                    array(
+                      array(
+                        'field'    => 'field_sc_hidden_modal_render_trigger',
+                        'operator' => '==',
+                        'value'    => '0',
+                      ),
+                    ),
+                  ),
+                ),
+                array(
+                  'key'   => 'field_sc_hidden_modal_options_tab',
+                  'label' => __('Section Options', 'starter-coat'),
+                  'name'  => '',
+                  'type'  => 'tab',
+                ),
+                ...$section_options,
+              ),
+            ),
           ),
         ),
       ),
@@ -2904,3 +3253,60 @@ function starter_coat_acf_palette_admin_styles()
 <?php
 }
 add_action('admin_head', 'starter_coat_acf_palette_admin_styles');
+
+/**
+ * Populate Hidden Modal trigger snippet helper fields in ACF editor.
+ */
+function starter_coat_acf_modal_trigger_helper_script()
+{
+  if (! is_admin()) {
+    return;
+  }
+?>
+  <script>
+    (function () {
+      function slugify(value) {
+        return String(value || '')
+          .trim()
+          .toLowerCase()
+          .replace(/[^a-z0-9\-_]+/g, '-')
+          .replace(/^-+|-+$/g, '');
+      }
+
+      function updateModalTriggerSnippets() {
+        document.querySelectorAll('.layout[data-layout="layout_sc_hidden_modal"]').forEach(function (layout) {
+          var idInput = layout.querySelector('.acf-field[data-name="modal_id"] input[type="text"]');
+          var snippetField = layout.querySelector('.acf-field[data-name="trigger_snippet"] textarea');
+
+          if (!idInput || !snippetField) {
+            return;
+          }
+
+          var modalId = slugify(idInput.value);
+
+          if (!modalId) {
+            snippetField.value = '<!-- Enter a Unique ID above to generate this snippet -->';
+            return;
+          }
+
+          snippetField.value = '<button type="button" class="btn btn--primary btn--md" data-modal-target="#' + modalId + '">Open Modal</button>';
+        });
+      }
+
+      document.addEventListener('input', function (event) {
+        if (event.target && event.target.closest('.acf-field[data-name="modal_id"], .acf-field[data-name="trigger_snippet"]')) {
+          updateModalTriggerSnippets();
+        }
+      });
+
+      document.addEventListener('DOMContentLoaded', updateModalTriggerSnippets);
+
+      if (window.acf && typeof window.acf.addAction === 'function') {
+        window.acf.addAction('append', updateModalTriggerSnippets);
+        window.acf.addAction('sortstop', updateModalTriggerSnippets);
+      }
+    })();
+  </script>
+<?php
+}
+add_action('admin_footer', 'starter_coat_acf_modal_trigger_helper_script');
