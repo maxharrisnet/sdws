@@ -2178,6 +2178,113 @@ function starter_coat_register_acf_fields()
                 ...$section_options,
               ),
             ),
+            'layout_sc_bold_list' => array(
+              'key'        => 'layout_sc_bold_list',
+              'name'       => 'bold_list',
+              'label'      => __('Bold List (Expand or Link)', 'starter-coat'),
+              'display'    => 'block',
+              'sub_fields' => array(
+                array(
+                  'key'   => 'field_sc_bold_list_heading',
+                  'label' => __('Heading', 'starter-coat'),
+                  'name'  => 'heading',
+                  'type'  => 'text',
+                ),
+                array(
+                  'key'   => 'field_sc_bold_list_intro',
+                  'label' => __('Intro (Optional)', 'starter-coat'),
+                  'name'  => 'intro',
+                  'type'  => 'textarea',
+                ),
+                array(
+                  'key'   => 'field_sc_bold_list_style_variant',
+                  'label' => __('Style Variant', 'starter-coat'),
+                  'name'  => 'style_variant',
+                  'type'  => 'select',
+                  'choices' => array(
+                    'brand-glow' => __('Brand Glow', 'starter-coat'),
+                    'dark'       => __('Dark', 'starter-coat'),
+                    'minimal'    => __('Minimal', 'starter-coat'),
+                  ),
+                  'default_value' => 'brand-glow',
+                  'ui'            => 1,
+                ),
+                array(
+                  'key'   => 'field_sc_bold_list_items',
+                  'label' => __('Items', 'starter-coat'),
+                  'name'  => 'items',
+                  'type'  => 'repeater',
+                  'layout' => 'block',
+                  'button_label' => __('Add Item', 'starter-coat'),
+                  'sub_fields' => array(
+                    array(
+                      'key'   => 'field_sc_bold_list_item_eyebrow',
+                      'label' => __('Eyebrow / Value (Optional)', 'starter-coat'),
+                      'name'  => 'eyebrow',
+                      'type'  => 'text',
+                      'placeholder' => '15',
+                    ),
+                    array(
+                      'key'   => 'field_sc_bold_list_item_title',
+                      'label' => __('Title', 'starter-coat'),
+                      'name'  => 'title',
+                      'type'  => 'text',
+                      'required' => 1,
+                    ),
+                    array(
+                      'key'   => 'field_sc_bold_list_item_mode',
+                      'label' => __('Interaction', 'starter-coat'),
+                      'name'  => 'item_mode',
+                      'type'  => 'select',
+                      'choices' => array(
+                        'expand' => __('Expand', 'starter-coat'),
+                        'link'   => __('Link Out', 'starter-coat'),
+                      ),
+                      'default_value' => 'expand',
+                      'ui'            => 1,
+                    ),
+                    array(
+                      'key'   => 'field_sc_bold_list_item_content',
+                      'label' => __('Expanded Content', 'starter-coat'),
+                      'name'  => 'content',
+                      'type'  => 'textarea',
+                      'rows'  => 4,
+                      'conditional_logic' => array(
+                        array(
+                          array(
+                            'field'    => 'field_sc_bold_list_item_mode',
+                            'operator' => '==',
+                            'value'    => 'expand',
+                          ),
+                        ),
+                      ),
+                    ),
+                    array(
+                      'key'   => 'field_sc_bold_list_item_link',
+                      'label' => __('Link', 'starter-coat'),
+                      'name'  => 'link',
+                      'type'  => 'link',
+                      'conditional_logic' => array(
+                        array(
+                          array(
+                            'field'    => 'field_sc_bold_list_item_mode',
+                            'operator' => '==',
+                            'value'    => 'link',
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                array(
+                  'key'   => 'field_sc_bold_list_options_tab',
+                  'label' => __('Section Options', 'starter-coat'),
+                  'name'  => '',
+                  'type'  => 'tab',
+                ),
+                ...$section_options,
+              ),
+            ),
             'layout_sc_testimonials' => array(
               'key'        => 'layout_sc_testimonials',
               'name'       => 'testimonials',

@@ -392,6 +392,52 @@
 
 	initStatCounters();
 
+	function initBoldLists() {
+		document.querySelectorAll('[data-bold-list]').forEach(function (root) {
+			const toggles = Array.from(root.querySelectorAll('[data-bold-list-toggle]'));
+			if (!toggles.length) {
+				return;
+			}
+
+			function closeToggle(toggle) {
+				const panel = toggle.closest('[data-bold-list-item]')?.querySelector('[data-bold-list-panel]');
+				if (!panel) {
+					return;
+				}
+
+				toggle.setAttribute('aria-expanded', 'false');
+				panel.hidden = true;
+			}
+
+			toggles.forEach(function (toggle) {
+				toggle.addEventListener('click', function () {
+					const panel = toggle.closest('[data-bold-list-item]')?.querySelector('[data-bold-list-panel]');
+					if (!panel) {
+						return;
+					}
+
+					const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+
+					toggles.forEach(function (other) {
+						if (other !== toggle) {
+							closeToggle(other);
+						}
+					});
+
+					if (isOpen) {
+						closeToggle(toggle);
+						return;
+					}
+
+					toggle.setAttribute('aria-expanded', 'true');
+					panel.hidden = false;
+				});
+			});
+		});
+	}
+
+	initBoldLists();
+
 	document.querySelectorAll('[data-modal-target]').forEach(function (trigger) {
 		trigger.addEventListener('click', function (event) {
 			event.preventDefault();
