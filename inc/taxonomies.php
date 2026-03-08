@@ -44,5 +44,20 @@ function starter_coat_register_taxonomies()
       'show_in_rest'      => false,
     )
   );
+
+  register_taxonomy(
+    'faq_topic',
+    array('faq'),
+    array(
+      'labels'            => array(
+        'name'          => __('FAQ Topics', 'starter-coat'),
+        'singular_name' => __('FAQ Topic', 'starter-coat'),
+      ),
+      'public'            => true,
+      'hierarchical'      => true,
+      'show_admin_column' => true,
+      'show_in_rest'      => false,
+    )
+  );
 }
 add_action('init', 'starter_coat_register_taxonomies');

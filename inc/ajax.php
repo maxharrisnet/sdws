@@ -44,7 +44,12 @@ function starter_coat_ajax_filter_posts()
   if ($query->have_posts()) {
     while ($query->have_posts()) {
       $query->the_post();
-      $style = 'project' === $post_type ? 'project' : 'post';
+      $style = 'post';
+      if ('project' === $post_type) {
+        $style = 'project';
+      } elseif ('press' === $post_type) {
+        $style = 'press';
+      }
       get_template_part('template-parts/components/archive-card', null, array('style' => $style));
     }
   } else {

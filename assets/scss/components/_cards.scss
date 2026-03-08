@@ -29,6 +29,20 @@
 	font-size: var(--font-size-lg);
 }
 
+.c-archive-card__meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-2xs);
+	margin: 0 0 var(--space-2xs);
+	font-size: var(--font-size-sm);
+	color: var(--color-text-muted);
+}
+
+.c-archive-card__meta > span + span::before {
+	content: '\2022';
+	margin-right: var(--space-2xs);
+}
+
 .c-content-card {
 	display: grid;
 	gap: var(--space-sm);

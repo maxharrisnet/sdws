@@ -24,6 +24,7 @@ function starter_coat_disable_block_editor_for_type($post_type)
     'event',
     'faq',
     'profile',
+    'press',
   );
 
   return in_array($post_type, $disabled_post_types, true);
@@ -64,7 +65,7 @@ function starter_coat_dequeue_block_styles()
     return;
   }
 
-  if (is_page() || is_singular(array('project', 'event', 'faq', 'profile'))) {
+  if (is_page() || is_singular(array('project', 'event', 'faq', 'profile', 'press'))) {
     wp_dequeue_style('wp-block-library');
     wp_dequeue_style('wp-block-library-theme');
     wp_dequeue_style('global-styles');

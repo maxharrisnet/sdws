@@ -3652,6 +3652,7 @@ function starter_coat_register_acf_fields()
                 'event'   => __('Event', 'starter-coat'),
                 'faq'     => __('FAQ', 'starter-coat'),
                 'profile' => __('Profile', 'starter-coat'),
+                'press'   => __('Press', 'starter-coat'),
               ),
               'ui' => 1,
             ),
@@ -4011,6 +4012,56 @@ function starter_coat_register_acf_fields()
   call_user_func(
     'acf_add_local_field_group',
     array(
+      'key'    => 'group_sc_press_fields',
+      'title'  => __('Press Fields', 'starter-coat'),
+      'fields' => array(
+        array(
+          'key'   => 'field_sc_press_external_url',
+          'label' => __('External URL', 'starter-coat'),
+          'name'  => 'sc_press_external_url',
+          'type'  => 'url',
+          'required' => 1,
+          'instructions' => __('Destination URL for this press item card.', 'starter-coat'),
+        ),
+        array(
+          'key'           => 'field_sc_press_open_new_tab',
+          'label'         => __('Open In New Tab', 'starter-coat'),
+          'name'          => 'sc_press_open_new_tab',
+          'type'          => 'true_false',
+          'ui'            => 1,
+          'default_value' => 1,
+        ),
+        array(
+          'key'   => 'field_sc_press_publication',
+          'label' => __('Publication', 'starter-coat'),
+          'name'  => 'sc_press_publication',
+          'type'  => 'text',
+        ),
+        array(
+          'key'   => 'field_sc_press_published_on',
+          'label' => __('Published On', 'starter-coat'),
+          'name'  => 'sc_press_published_on',
+          'type'  => 'date_picker',
+          'display_format' => 'F j, Y',
+          'return_format'  => 'Ymd',
+          'first_day'      => 0,
+        ),
+      ),
+      'location' => array(
+        array(
+          array(
+            'param'    => 'post_type',
+            'operator' => '==',
+            'value'    => 'press',
+          ),
+        ),
+      ),
+    )
+  );
+
+  call_user_func(
+    'acf_add_local_field_group',
+    array(
       'key'    => 'group_sc_archive_template',
       'title'  => __('Archive Template Fields', 'starter-coat'),
       'fields' => array(
@@ -4025,6 +4076,7 @@ function starter_coat_register_acf_fields()
             'event'   => __('Event', 'starter-coat'),
             'faq'     => __('FAQ', 'starter-coat'),
             'profile' => __('Profile', 'starter-coat'),
+            'press'   => __('Press', 'starter-coat'),
           ),
           'default_value' => 'post',
           'ui'            => 1,
@@ -4216,7 +4268,7 @@ function starter_coat_acf_modal_trigger_helper_script()
   }
 ?>
   <script>
-    (function () {
+    (function() {
       function slugify(value) {
         return String(value || '')
           .trim()
@@ -4226,7 +4278,7 @@ function starter_coat_acf_modal_trigger_helper_script()
       }
 
       function updateModalTriggerSnippets() {
-        document.querySelectorAll('.layout[data-layout="layout_sc_hidden_modal"]').forEach(function (layout) {
+        document.querySelectorAll('.layout[data-layout="layout_sc_hidden_modal"]').forEach(function(layout) {
           var idInput = layout.querySelector('.acf-field[data-name="modal_id"] input[type="text"]');
           var snippetField = layout.querySelector('.acf-field[data-name="trigger_snippet"] textarea');
 
@@ -4245,7 +4297,7 @@ function starter_coat_acf_modal_trigger_helper_script()
         });
       }
 
-      document.addEventListener('input', function (event) {
+      document.addEventListener('input', function(event) {
         if (event.target && event.target.closest('.acf-field[data-name="modal_id"], .acf-field[data-name="trigger_snippet"]')) {
           updateModalTriggerSnippets();
         }

@@ -57,7 +57,15 @@ get_header();
       <div id="archive-results" class="layout layout--3col">
         <?php if ($query->have_posts()) : ?>
           <?php while ($query->have_posts()) : $query->the_post(); ?>
-            <?php get_template_part('template-parts/components/archive-card', null, array('style' => 'project' === $post_type ? 'project' : 'post')); ?>
+            <?php
+            $card_style = 'post';
+            if ('project' === $post_type) {
+              $card_style = 'project';
+            } elseif ('press' === $post_type) {
+              $card_style = 'press';
+            }
+            get_template_part('template-parts/components/archive-card', null, array('style' => $card_style));
+            ?>
           <?php endwhile; ?>
           <?php wp_reset_postdata(); ?>
         <?php else : ?>

@@ -80,5 +80,21 @@ function starter_coat_register_post_types()
       'supports'     => array('title', 'editor', 'thumbnail', 'revisions'),
     )
   );
+
+  register_post_type(
+    'press',
+    array(
+      'labels'       => array(
+        'name'          => __('Press', 'starter-coat'),
+        'singular_name' => __('Press Item', 'starter-coat'),
+      ),
+      'public'       => true,
+      'has_archive'  => true,
+      'menu_icon'    => 'dashicons-megaphone',
+      'rewrite'      => array('slug' => 'press'),
+      'show_in_rest' => false,
+      'supports'     => array('title', 'thumbnail', 'excerpt', 'revisions'),
+    )
+  );
 }
 add_action('init', 'starter_coat_register_post_types');
