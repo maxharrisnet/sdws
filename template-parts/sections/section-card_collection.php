@@ -155,10 +155,12 @@ if ($equal_height) {
             $target_attr = $item['open_new_tab'] ? ' target="_blank" rel="noopener"' : '';
             $has_media   = ('icon' === $item['media_type'] && '' !== $item['icon_url']) || ('image' === $item['media_type'] && is_array($item['image']) && (! empty($item['image']['ID']) || ! empty($item['image']['url'])));
             ?>
-            <<?php echo $tag; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+            <<?php echo $tag; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+              ?>
               class="<?php echo esc_attr($card_class); ?>"
               <?php if ('a' === $tag) : ?>
-              href="<?php echo esc_url($item['card_url']); ?>"<?php echo $target_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+              href="<?php echo esc_url($item['card_url']); ?>" <?php echo $target_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+                                                                ?>
               <?php endif; ?>>
               <?php if ($has_media) : ?>
                 <div class="c-card-collection__media">
@@ -202,7 +204,8 @@ if ($equal_height) {
                   </ul>
                 <?php endif; ?>
               </div>
-            </<?php echo $tag; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+            </<?php echo $tag; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+              ?>>
           <?php endforeach; ?>
         </div>
       <?php endif; ?>

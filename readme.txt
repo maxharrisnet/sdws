@@ -1,39 +1,54 @@
 === Starter Coat ===
 
-Contributors: automattic
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
-
-Requires at least: 4.5
-Tested up to: 5.4
-Requires PHP: 5.6
+Contributors: maxharrisnet
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, accessibility-ready
+Requires at least: 6.0
+Tested up to: 6.6
+Requires PHP: 7.4
 Stable tag: 1.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
-A starter theme called Starter Coat.
+ACF-first section and component based starter theme for custom WordPress builds.
 
 == Description ==
 
-Description
+Starter Coat is a reusable WordPress theme foundation that uses ACF flexible content for page composition and keeps templates component-driven.
+
+Highlights:
+- ACF flexible section architecture (`sc_sections`).
+- Reusable section partials in `template-parts/sections/`.
+- Reusable UI components in `template-parts/components/`.
+- Theme options for navigation, footer, CTA, contact, and social settings.
+- Build pipeline using Sass + Vite.
 
 == Installation ==
 
-1. In your admin panel, go to Appearance > Themes and click the Add New button.
-2. Click Upload Theme and Choose File, then select the theme's .zip file. Click Install Now.
-3. Click Activate to use your new theme right away.
+1. Upload the theme and activate it in Appearance > Themes.
+2. Install required plugins (ACF Pro, optional form plugin such as WPForms).
+3. Configure options in Theme Settings (ACF options page).
+4. Start building page layouts using the Sections flexible content field.
 
 == Frequently Asked Questions ==
 
-= Does this theme support any plugins? =
+= Is this a block-editor-first theme? =
 
-Starter Coat includes support for WooCommerce and for Infinite Scroll in Jetpack.
+No. Pages and registered custom post types are configured for an ACF-first workflow.
+
+= Which plugins are expected? =
+
+Advanced Custom Fields Pro is expected. A shortcode-based form plugin is recommended for form sections.
+
+= Where are sections defined? =
+
+Sections are registered in `inc/acf-fields.php` and rendered from `template-parts/sections/`.
 
 == Changelog ==
 
-= 1.0 - May 12 2015 =
-* Initial release
+= 1.0.0 =
+* Initial Starter Coat base release with ACF-first section architecture.
 
 == Credits ==
 
-* Based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
-* normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2018 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)
+* Based on Underscores https://underscores.me/
+* normalize.css by Nicolas Gallagher and Jonathan Neal

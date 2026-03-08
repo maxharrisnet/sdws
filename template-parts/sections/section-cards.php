@@ -51,6 +51,7 @@ if ('2' === (string) $columns) {
       <?php else : ?>
         <?php for ($index = 1; $index <= 3; $index++) : ?>
           <article class="card card--surface">
+            <?php /* translators: %d: Card number. */ ?>
             <h3 class="card__title"><?php printf(esc_html__('Card %d', 'starter-coat'), $index); ?></h3>
             <p><?php esc_html_e('Add content in the ACF repeater.', 'starter-coat'); ?></p>
           </article>

@@ -66,12 +66,16 @@ if (1 === count($items)) {
   <?php if (count($items) > 1) : ?>
     <div class="c-carousel__dots" data-carousel-dots aria-label="<?php esc_attr_e('Slide navigation', 'starter-coat'); ?>">
       <?php foreach ($items as $index => $unused_item) : ?>
+        <?php
+        /* translators: %d: Slide number. */
+        $dot_label = sprintf(__('Go to slide %d', 'starter-coat'), $index + 1);
+        ?>
         <button
           type="button"
           class="c-carousel__dot"
           data-carousel-dot
           data-slide-index="<?php echo esc_attr((string) $index); ?>"
-          aria-label="<?php echo esc_attr(sprintf(__('Go to slide %d', 'starter-coat'), $index + 1)); ?>"
+          aria-label="<?php echo esc_attr($dot_label); ?>"
           aria-current="<?php echo 0 === $index ? 'true' : 'false'; ?>"></button>
       <?php endforeach; ?>
     </div>

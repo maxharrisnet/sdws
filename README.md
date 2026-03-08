@@ -1,26 +1,8 @@
-[![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
+# Starter Coat Theme
 
-# \_s
+Starter Coat is an ACF-first WordPress theme foundation derived from Underscores, optimized for reusable sections/components and a non-block-editor page-building workflow.
 
-## Starter Coat Base Theme (ACF-first)
-
-This repository has been scaffolded as a reusable, component and template focused WordPress theme foundation.
-
-### Current architecture
-
-- `inc/` contains focused modules for assets, editor policy, custom post types, taxonomies, ACF field registration, and template helpers.
-- `template-parts/components/` contains reusable UI components (cards, CTA, modal, filter, testimonials, etc.).
-- `template-parts/sections/` contains flexible-content section partials used by page templates.
-- `templates/` contains assignable page templates (generic container/full-width, contact, archive overview, homepage showcase).
-- `assets/scss/` contains tokenized Sass architecture with theme presets (`jill`, `yeezy`) and component-level partials.
-- `assets/js/theme.js` is the Vite-built frontend entry.
-
-### Editor strategy
-
-- Block editor is disabled for pages and registered CPTs (`project`, `event`, `faq`, `profile`).
-- Post type `post` remains unchanged.
-
-### Build commands
+## Quick Start
 
 ```sh
 npm install
@@ -28,87 +10,166 @@ npm run dev
 npm run build
 ```
 
+Build outputs:
+
 - CSS source: `assets/scss/theme.scss`
 - CSS output: `assets/css/theme.css`
 - JS source: `assets/js/theme.js`
 - JS output: `assets/js/dist/theme.js`
 
-### Notes
+## Architecture
 
-- ACF groups are registered via PHP in `inc/acf-fields.php`.
-- Theme preset class is applied to body as `theme--{preset}` and can be switched from ACF Theme Settings.
+- `inc/`: focused theme modules (assets, editor behavior, CPT/taxonomy setup, ACF registration, template helpers, media, ajax).
+- `template-parts/components/`: reusable rendering pieces (hero, cards, carousel, testimonials, modal, form, etc.).
+- `template-parts/sections/`: ACF flexible-content section partials.
+- `templates/`: assignable page templates.
+- `assets/scss/`: tokens, theme presets, base, layout, and component styles.
+- `assets/js/theme.js`: frontend interactions (nav, carousel, modal, counters, filters, accordions).
 
-Hi. I'm a starter theme called `_s`, or `underscores`, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+## Editor and Content Strategy
 
-My ultra-minimal CSS might make me look like theme tartare but that means less stuff to get in your way when you're designing your awesome theme. Here are some of the other more interesting things you'll find here:
+- ACF flexible sections drive page composition via `sc_sections`.
+- Block editor is disabled for pages and registered CPTs.
+- Block editor remains enabled for standard `post` unless changed in `inc/editor.php`.
+- Most section templates use shared helper functions:
+  - `starter_coat_get_section_classes()`
+  - `starter_coat_get_section_container_class()`
+  - `starter_coat_get_sub_field()`
 
-- A modern workflow with a pre-made command-line interface to turn your project into a more pleasant experience.
-- A just right amount of lean, well-commented, modern, HTML5 templates.
-- A custom header implementation in `inc/custom-header.php`. Just add the code snippet found in the comments of `inc/custom-header.php` to your `header.php` template.
-- Custom template tags in `inc/template-tags.php` that keep your templates clean and neat and prevent code duplication.
-- Some small tweaks in `inc/template-functions.php` that can improve your theming experience.
-- A script at `js/navigation.js` that makes your menu a toggled dropdown on small screens (like your phone), ready for CSS artistry. It's enqueued in `functions.php`.
-- 2 sample layouts in `sass/layouts/` made using CSS Grid for a sidebar on either side of your content. Just uncomment the layout of your choice in `sass/style.scss`.
-  Note: `.no-sidebar` styles are automatically loaded.
-- Smartly organized starter CSS in `style.css` that will help you to quickly get your design off the ground.
-- Full support for `WooCommerce plugin` integration with hooks in `inc/woocommerce.php`, styling override woocommerce.css with product gallery features (zoom, swipe, lightbox) enabled.
-- Licensed under GPLv2 or later. :) Use it to make something cool.
+## Registered Post Types
 
-## Installation
+Registered in `inc/post-types.php`:
 
-### Requirements
+- `project`
+- `event`
+- `faq`
+- `profile`
 
-`_s` requires the following dependencies:
+## Flexible Sections Reference
 
-- [Node.js](https://nodejs.org/)
-- [Composer](https://getcomposer.org/)
+All layouts are registered in `inc/acf-fields.php` and rendered automatically by `starter_coat_render_sections()` in `inc/template-helpers.php`.
 
-### Quick Start
+- `content_media`: expressive content + media block with layout variations.
+- `card_collection`: configurable multi-card section with pre/post content controls.
+- `expressive_text`: typography-forward content section with button support.
+- `feature`: two-column feature block.
+- `cards`: classic multi-column card grid.
+- `feature_list`: two-column capability-style list with image-backed items.
+- `logos`: logo/social-proof grid.
+- `testimonials`: testimonial grid or carousel.
+- `carousel`: mixed card carousel (content/testimonial).
+- `html`: generic HTML/shortcode section.
+- `breakout_text`: prominent text statement with optional button/modal trigger.
+- `video_embed`: inline video embed or modal-triggered video.
+- `forms_two_col`: two-column forms section using shortcode forms.
+- `hidden_modal`: reusable modal target by unique ID with video/form/html payload.
+- `marquee`: infinite horizontal marquee list with speed and direction controls.
+- `stats`: count-up stats with optional icon, prefix/suffix, and column controls.
+- `bold_list`: large interactive rows; each item can either expand or link out.
+- `text_media`: legacy text/media section retained for compatibility.
 
-Clone or download this repository, change its name to something else (like, say, `megatherium-is-awesome`), and then you'll need to do a six-step find and replace on the name in all the templates.
+## Theme Options Reference
 
-1. Search for `'_s'` (inside single quotations) to capture the text domain and replace with: `'megatherium-is-awesome'`.
-2. Search for `_s_` to capture all the functions names and replace with: `megatherium_is_awesome_`.
-3. Search for `Text Domain: _s` in `style.css` and replace with: `Text Domain: megatherium-is-awesome`.
-4. Search for <code>&nbsp;\_s</code> (with a space before it) to capture DocBlocks and replace with: <code>&nbsp;Megatherium_is_Awesome</code>.
-5. Search for `_s-` to capture prefixed handles and replace with: `megatherium-is-awesome-`.
-6. Search for `_S_` (in uppercase) to capture constants and replace with: `MEGATHERIUM_IS_AWESOME_`.
+Configured in `inc/acf-fields.php` under ACF Options and post-level field groups.
 
-Then, update the stylesheet header in `style.css`, the links in `footer.php` with your own information and rename `_s.pot` from `languages` folder to use the theme's slug. Next, update or delete this readme.
+Global options pages and groups:
 
-### Setup
+- Theme preset and branding (favicon fallback, preset class).
+- Navigation settings:
+  - layout/style/alignment variants
+  - logo source and logo mark behavior
+  - CTA button
+  - social display
+  - announcement/banner controls
+- Global CTA settings:
+  - content, actions (buttons or form), layout, width, background, styles.
+- Contact information.
+- Social links.
+- Footer settings:
+  - layout mode, logo options, social options, legal/main menus, copyright.
 
-To start using all the tools that come with `_s` you need to install the necessary Node.js and Composer dependencies :
+Per-post/page field groups:
 
-```sh
-$ composer install
-$ npm install
-```
+- CTA override (page/post/CPT level).
+- Singular hero settings.
+- Archive hero settings.
+- Template-specific fields:
+  - contact template
+  - artist profile
+  - archive template
 
-### Available CLI commands
+## Templates
 
-`_s` comes packed with CLI commands tailored for WordPress theme development :
+Found in `templates/`:
 
-- `composer lint:wpcs` : checks all PHP files against [PHP Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/).
-- `composer lint:php` : checks all PHP files for syntax errors.
-- `composer make-pot` : generates a .pot file in the `languages/` directory.
-- `npm run compile:css` : compiles SASS files to css.
-- `npm run compile:rtl` : generates an RTL stylesheet.
-- `npm run watch` : watches all SASS files and recompiles them to css when they change.
-- `npm run lint:scss` : checks all SASS files against [CSS Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/css/).
-- `npm run lint:js` : checks all JavaScript files against [JavaScript Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/javascript/).
-- `npm run bundle` : generates a .zip archive for distribution, excluding development and system files.
+- `template-homepage.php`
+- `template-contact.php`
+- `template-archive.php`
+- `template-generic-container.php`
+- `template-generic-full-width.php`
+- `template-artist-profile.php`
+- `template-artists-directory.php`
 
-Now you're ready to go! The next step is easy to say, but harder to do: make an awesome WordPress theme. :)
+## Frontend Behaviors
 
-Good luck!
+Implemented in `assets/js/theme.js`:
 
-### Plugins
+- Responsive navigation + submenu toggles.
+- Fixed-header offset syncing.
+- Carousel (centered slide, controls, dots, loop behavior).
+- Modal triggers and close behavior.
+- AJAX taxonomy filtering.
+- Stats count-up on intersection.
+- Bold-list accordion behavior.
 
-- [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/) - For custom field management and flexible content building.
-- [WP Forms](https://wpforms.com/) - For creating contact forms and other user input forms.
+## AI Agent Notes
 
-### Resource Links
+Use these rules when extending the codebase:
 
-- [Underscores.me](https://underscores.me/) - The original `_s` generator.
-- [Phospher Icons](https://ux.symfony.com/icons?set=ph&query=quote) - Source for the updated SVG icons.
+- Prefer adding new flexible layouts in `inc/acf-fields.php` and matching section partials in `template-parts/sections/`.
+- Keep section markup thin and move visual complexity to SCSS component partials.
+- Reuse shared helpers (`starter_coat_get_sub_field`, section class/container helpers) instead of direct `get_sub_field` calls when possible.
+- Preserve fallback behavior when fields are empty; templates should safely `return` on empty required content.
+- For interactive sections, add initialization in `assets/js/theme.js` with defensive checks (`if (!node) return;`).
+- For icons, use `starter_coat_the_icon()` with slugs from `assets/icons/*.svg`.
+- Keep output escaped unless intentionally rendering trusted shortcode/embed HTML.
+- Always run:
+  - `php -l` on touched PHP files
+  - `npm run build`
+  - diagnostics check for edited files
+
+## TODO Backlog
+
+Recommended next hardening steps:
+
+- Build an internal "Section Library" page/template that showcases every section and variant for QA.
+- Add global design controls (spacing/radius/motion intensity) to Theme Settings.
+- Add per-section enable/schedule controls for campaign timing.
+- Add optional dynamic data mode for reusable content sections (query CPTs instead of manual repeaters).
+- Add analytics metadata fields for key CTAs and emit `data-analytics-*` attributes.
+- Complete an accessibility pass:
+  - modal focus trap
+  - keyboard interaction checks for all accordions/carousels
+  - heading hierarchy validation
+- Add SEO/social defaults and schema helpers for FAQ/video/organization contexts.
+- Add consistent empty-state messaging where editors leave optional groups blank.
+- Define and document image-size usage per section and enforce in templates.
+- Add editor help text and copy-ready examples for complex field groups.
+- Add section presets to speed authoring (preconfigured layout/style defaults).
+- Add release checklist and smoke-test routine for deploy safety.
+
+## Plugins
+
+Required/expected:
+
+- Advanced Custom Fields Pro
+- WPForms (or equivalent shortcode form plugin)
+
+Optional:
+
+- Jetpack (responsive video support already enabled)
+
+## Credits
+
+- Based on Underscores by Automattic.
+- Licensed GPL-2.0-or-later.

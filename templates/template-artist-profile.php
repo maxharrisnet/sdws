@@ -197,12 +197,16 @@ get_header();
 
                     <div class="c-carousel__dots" data-carousel-dots aria-label="<?php esc_attr_e('Slide navigation', 'starter-coat'); ?>">
                       <?php foreach ($gallery_image_ids as $index => $unused_gallery_item) : ?>
+                        <?php
+                        /* translators: %d: Slide number. */
+                        $slide_label = sprintf(__('Go to slide %d', 'starter-coat'), $index + 1);
+                        ?>
                         <button
                           type="button"
                           class="c-carousel__dot"
                           data-carousel-dot
                           data-slide-index="<?php echo esc_attr((string) $index); ?>"
-                          aria-label="<?php echo esc_attr(sprintf(__('Go to slide %d', 'starter-coat'), $index + 1)); ?>"
+                          aria-label="<?php echo esc_attr($slide_label); ?>"
                           aria-current="<?php echo 0 === $index ? 'true' : 'false'; ?>"></button>
                       <?php endforeach; ?>
                     </div>
@@ -211,12 +215,16 @@ get_header();
                   <?php if ('carousel_thumbs' === $gallery_mode) : ?>
                     <div class="artist-gallery__thumbs artist-gallery__thumbs--cols-<?php echo esc_attr((string) $gallery_columns); ?>">
                       <?php foreach ($gallery_image_ids as $index => $image_id) : ?>
+                        <?php
+                        /* translators: %d: Image number. */
+                        $thumb_label = sprintf(__('Go to image %d', 'starter-coat'), $index + 1);
+                        ?>
                         <button
                           type="button"
                           class="artist-gallery__thumb c-carousel__dot"
                           data-carousel-dot
                           data-slide-index="<?php echo esc_attr((string) $index); ?>"
-                          aria-label="<?php echo esc_attr(sprintf(__('Go to image %d', 'starter-coat'), $index + 1)); ?>"
+                          aria-label="<?php echo esc_attr($thumb_label); ?>"
                           aria-current="<?php echo 0 === $index ? 'true' : 'false'; ?>">
                           <?php echo wp_get_attachment_image($image_id, 'thumbnail'); ?>
                         </button>
@@ -228,11 +236,15 @@ get_header();
                 <div class="artist-gallery__grid artist-gallery__grid--cols-<?php echo esc_attr((string) $gallery_columns); ?>">
                   <?php foreach ($gallery_image_ids as $index => $image_id) : ?>
                     <?php if ('modal' === $gallery_mode) : ?>
+                      <?php
+                      /* translators: %d: Image number. */
+                      $modal_label = sprintf(__('Open image %d', 'starter-coat'), $index + 1);
+                      ?>
                       <a
                         href="#"
                         class="artist-gallery__modal-trigger"
                         data-modal-target="#artist-gallery-modal-<?php echo esc_attr((string) $post_id . '-' . $index); ?>"
-                        aria-label="<?php echo esc_attr(sprintf(__('Open image %d', 'starter-coat'), $index + 1)); ?>">
+                        aria-label="<?php echo esc_attr($modal_label); ?>">
                         <?php echo wp_get_attachment_image($image_id, 'medium_large'); ?>
                       </a>
                       <div id="artist-gallery-modal-<?php echo esc_attr((string) $post_id . '-' . $index); ?>" class="modal artist-gallery__modal" role="dialog" aria-modal="true" aria-label="<?php esc_attr_e('Gallery image', 'starter-coat'); ?>">

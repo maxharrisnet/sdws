@@ -1,63 +1,71 @@
-# Copyright (C) 2020 Automattic
+# Copyright (C) 2026 Max Harris
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: _s 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/_s\n"
+"Project-Id-Version: Starter Coat 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/starter-coat\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-04-17T21:03:15+00:00\n"
+"POT-Creation-Date: 2026-03-08T09:32:53+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.4.0\n"
-"X-Domain: _s\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: starter-coat\n"
 
 #. Theme Name of the theme
-msgid "_s"
+#: style.css
+msgid "Starter Coat"
 msgstr ""
 
 #. Theme URI of the theme
-msgid "https://underscores.me/"
+#: style.css
+msgid "https://github.com/maxharrisnet/starter"
 msgstr ""
 
 #. Description of the theme
-msgid "Hi. I'm a starter theme called <code>_s</code>, or <em>underscores</em>, if you like. I'm a theme meant for hacking so don't use me as a <em>Parent Theme</em>. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for."
+#: style.css
+msgid "ACF-first component and section-based WordPress theme foundation."
 msgstr ""
 
 #. Author of the theme
-msgid "Automattic"
+#: style.css
+msgid "Max Harris"
 msgstr ""
 
 #. Author URI of the theme
-msgid "https://automattic.com/"
+#: style.css
+msgid "https://maxharris.net/"
 msgstr ""
 
-#: 404.php:18
+#: 404.php:17
 msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
 
-#: 404.php:22
+#: 404.php:21
 msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
 msgstr ""
 
-#: 404.php:31
+#: 404.php:30
 msgid "Most Used Categories"
 msgstr ""
 
 #. translators: %1$s: smiley
-#: 404.php:49
+#: 404.php:48
+#, php-format
 msgid "Try looking in the monthly archives. %1$s"
 msgstr ""
 
 #. translators: 1: title.
 #: comments.php:35
+#, php-format
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: 1: comment count number, 2: title.
 #: comments.php:41
+#, php-format
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
@@ -68,106 +76,2125 @@ msgstr[1] ""
 msgid "Comments are closed."
 msgstr ""
 
-#: footer.php:18
-msgid "https://wordpress.org/"
+#: front-page.php:20
+msgid "Starter Theme Showcase"
 msgstr ""
 
-#. translators: %s: CMS name, i.e. WordPress.
-#: footer.php:21
-msgid "Proudly powered by %s"
+#: front-page.php:21
+msgid "ACF-first WordPress base with reusable components"
 msgstr ""
 
-#. translators: 1: Theme name, 2: Theme author.
-#: footer.php:27
-msgid "Theme: %1$s by %2$s."
+#: front-page.php:22
+msgid "Use this page to validate tokens, spacing scales, and section/component variants."
 msgstr ""
 
-#: functions.php:53
+#: front-page.php:28
+msgid "Primary CTA"
+msgstr ""
+
+#: front-page.php:29
+msgid "Buttons support size and variant modifiers."
+msgstr ""
+
+#: front-page.php:31
+msgid "Get Started"
+msgstr ""
+
+#: functions.php:61
+#: inc/acf-fields.php:423
+#: inc/acf-fields.php:636
+#: inc/acf-fields.php:673
+#: inc/acf-fields.php:1238
+#: inc/acf-fields.php:1275
+#: inc/acf-fields.php:1509
+#: inc/acf-fields.php:1670
+#: inc/acf-fields.php:1910
+#: inc/acf-fields.php:2009
+#: inc/acf-fields.php:3260
+#: inc/acf-fields.php:3297
+#: inc/acf-fields.php:3713
+#: inc/acf-fields.php:3732
 msgid "Primary"
 msgstr ""
 
-#: functions.php:130
+#: functions.php:62
+msgid "Footer (Legacy)"
+msgstr ""
+
+#: functions.php:63
+msgid "Footer Main"
+msgstr ""
+
+#: functions.php:64
+msgid "Footer Legal"
+msgstr ""
+
+#: functions.php:65
+msgid "Footer Column 1"
+msgstr ""
+
+#: functions.php:66
+msgid "Footer Column 2"
+msgstr ""
+
+#: functions.php:67
+msgid "Footer Column 3"
+msgstr ""
+
+#: functions.php:142
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:132
+#: functions.php:144
 msgid "Add widgets here."
 msgstr ""
 
-#: header.php:26
+#: header.php:28
 msgid "Skip to content"
 msgstr ""
 
-#: header.php:49
-msgid "Primary Menu"
+#: inc/acf-fields.php:25
+#: inc/acf-fields.php:747
+#: inc/acf-fields.php:1349
+msgid "Width"
+msgstr ""
+
+#: inc/acf-fields.php:29
+#: inc/acf-fields.php:43
+#: inc/acf-fields.php:751
+#: inc/acf-fields.php:1353
+#: inc/acf-fields.php:1983
+msgid "Container"
+msgstr ""
+
+#: inc/acf-fields.php:30
+#: inc/acf-fields.php:45
+#: inc/acf-fields.php:752
+#: inc/acf-fields.php:1354
+#: inc/acf-fields.php:1982
+msgid "Narrow"
+msgstr ""
+
+#: inc/acf-fields.php:31
+#: inc/acf-fields.php:753
+#: inc/acf-fields.php:1355
+msgid "Full Width"
+msgstr ""
+
+#: inc/acf-fields.php:38
+msgid "Content Max Width"
+msgstr ""
+
+#: inc/acf-fields.php:42
+msgid "Inherit From Width"
+msgstr ""
+
+#: inc/acf-fields.php:44
+#: inc/acf-fields.php:1984
+msgid "Wide"
+msgstr ""
+
+#: inc/acf-fields.php:49
+msgid "Useful with Full Width sections to keep content constrained."
+msgstr ""
+
+#: inc/acf-fields.php:53
+msgid "Padding"
+msgstr ""
+
+#: inc/acf-fields.php:57
+msgid "Small"
+msgstr ""
+
+#: inc/acf-fields.php:58
+#: inc/acf-fields.php:2045
+msgid "Normal"
+msgstr ""
+
+#: inc/acf-fields.php:59
+#: inc/acf-fields.php:1970
+#: inc/acf-fields.php:2820
+msgid "Large"
+msgstr ""
+
+#: inc/acf-fields.php:60
+#: inc/acf-fields.php:1971
+#: inc/acf-fields.php:2821
+msgid "Extra Large"
+msgstr ""
+
+#: inc/acf-fields.php:67
+#: inc/acf-fields.php:760
+#: inc/acf-fields.php:1362
+#: inc/acf-fields.php:3541
+#: inc/acf-fields.php:3838
+msgid "Background"
+msgstr ""
+
+#: inc/acf-fields.php:71
+#: inc/acf-fields.php:764
+#: inc/acf-fields.php:1366
+#: inc/acf-fields.php:3545
+#: inc/acf-fields.php:3842
+msgid "Default"
+msgstr ""
+
+#: inc/acf-fields.php:72
+#: inc/acf-fields.php:526
+#: inc/acf-fields.php:765
+#: inc/acf-fields.php:1367
+#: inc/acf-fields.php:3546
+#: inc/acf-fields.php:3843
+msgid "Light"
+msgstr ""
+
+#: inc/acf-fields.php:73
+#: inc/acf-fields.php:525
+#: inc/acf-fields.php:766
+#: inc/acf-fields.php:1368
+#: inc/acf-fields.php:2206
+#: inc/acf-fields.php:3547
+#: inc/acf-fields.php:3844
+msgid "Dark"
+msgstr ""
+
+#: inc/acf-fields.php:74
+#: inc/acf-fields.php:527
+#: inc/acf-fields.php:767
+#: inc/acf-fields.php:1369
+#: inc/acf-fields.php:3548
+#: inc/acf-fields.php:3845
+msgid "Brand"
+msgstr ""
+
+#: inc/acf-fields.php:75
+#: inc/acf-fields.php:768
+#: inc/acf-fields.php:1370
+#: inc/acf-fields.php:3549
+#: inc/acf-fields.php:3846
+msgid "Muted"
+msgstr ""
+
+#: inc/acf-fields.php:85
+msgid "Extra Class"
+msgstr ""
+
+#: inc/acf-fields.php:88
+msgid "Optional utility class for this section."
+msgstr ""
+
+#: inc/acf-fields.php:96
+#: inc/acf-fields.php:97
+msgid "Theme Settings"
+msgstr ""
+
+#: inc/acf-fields.php:109
+#: inc/acf-fields.php:113
+msgid "Theme Preset"
+msgstr ""
+
+#: inc/acf-fields.php:125
+msgid "Branding"
+msgstr ""
+
+#: inc/acf-fields.php:131
+msgid "Favicon"
+msgstr ""
+
+#: inc/acf-fields.php:136
+msgid "Optional fallback favicon (used when Site Icon is not set in Customizer)."
+msgstr ""
+
+#: inc/acf-fields.php:156
+msgid "Navigation Settings"
+msgstr ""
+
+#: inc/acf-fields.php:160
+#: inc/acf-fields.php:714
+#: inc/acf-fields.php:934
+#: inc/acf-fields.php:1316
+msgid "Layout"
+msgstr ""
+
+#: inc/acf-fields.php:166
+msgid "Nav Layout"
+msgstr ""
+
+#: inc/acf-fields.php:170
+msgid "Inline: Brand Left, Menu Right"
+msgstr ""
+
+#: inc/acf-fields.php:171
+msgid "Centered: Stacked Brand/Menu"
+msgstr ""
+
+#: inc/acf-fields.php:172
+msgid "Split: Brand Left, Menu Center, CTA Right"
+msgstr ""
+
+#: inc/acf-fields.php:179
+msgid "Nav Style"
+msgstr ""
+
+#: inc/acf-fields.php:183
+msgid "Clean"
+msgstr ""
+
+#: inc/acf-fields.php:184
+msgid "Outlined"
+msgstr ""
+
+#: inc/acf-fields.php:185
+msgid "Soft Surface"
+msgstr ""
+
+#: inc/acf-fields.php:186
+msgid "Transparent To Solid"
+msgstr ""
+
+#: inc/acf-fields.php:193
+#: inc/acf-fields.php:2802
+msgid "Alignment"
+msgstr ""
+
+#: inc/acf-fields.php:197
+msgid "Brand Left / Menu Right"
+msgstr ""
+
+#: inc/acf-fields.php:198
+msgid "All Left"
+msgstr ""
+
+#: inc/acf-fields.php:199
+msgid "Centered"
+msgstr ""
+
+#: inc/acf-fields.php:206
+msgid "Menu Item Style"
+msgstr ""
+
+#: inc/acf-fields.php:210
+#: inc/acf-fields.php:461
+#: inc/acf-fields.php:1064
+#: inc/acf-fields.php:2073
+msgid "Text"
+msgstr ""
+
+#: inc/acf-fields.php:211
+msgid "Button-like"
+msgstr ""
+
+#: inc/acf-fields.php:218
+msgid "Rounding"
+msgstr ""
+
+#: inc/acf-fields.php:222
+#: inc/acf-fields.php:784
+#: inc/acf-fields.php:1386
+#: inc/acf-fields.php:1762
+#: inc/acf-fields.php:3325
+#: inc/acf-fields.php:3523
+#: inc/acf-fields.php:3745
+#: inc/acf-fields.php:3829
+msgid "None"
+msgstr ""
+
+#: inc/acf-fields.php:223
+msgid "Soft"
+msgstr ""
+
+#: inc/acf-fields.php:224
+msgid "Pill"
+msgstr ""
+
+#: inc/acf-fields.php:231
+msgid "Dropdown Style"
+msgstr ""
+
+#: inc/acf-fields.php:235
+#: inc/acf-fields.php:2207
+msgid "Minimal"
+msgstr ""
+
+#: inc/acf-fields.php:236
+msgid "Elevated"
+msgstr ""
+
+#: inc/acf-fields.php:243
+msgid "Fixed Header"
+msgstr ""
+
+#: inc/acf-fields.php:251
+#: inc/media.php:49
+msgid "Logo"
+msgstr ""
+
+#: inc/acf-fields.php:257
+msgid "Show Branding"
+msgstr ""
+
+#: inc/acf-fields.php:265
+msgid "Logo Source"
+msgstr ""
+
+#: inc/acf-fields.php:269
+msgid "Custom Logo (Customizer)"
+msgstr ""
+
+#: inc/acf-fields.php:270
+#: inc/acf-fields.php:1015
+msgid "Image (Option)"
+msgstr ""
+
+#: inc/acf-fields.php:271
+#: inc/acf-fields.php:1016
+msgid "Site Name Text"
+msgstr ""
+
+#: inc/acf-fields.php:287
+#: inc/acf-fields.php:2733
+msgid "Logo Image"
+msgstr ""
+
+#: inc/acf-fields.php:305
+msgid "Mobile Logo Mark (Square)"
+msgstr ""
+
+#: inc/acf-fields.php:311
+msgid "Optional square logo shown on smaller screens."
+msgstr ""
+
+#: inc/acf-fields.php:324
+msgid "Primary Logo Max Width (Desktop px)"
+msgstr ""
+
+#: inc/acf-fields.php:343
+msgid "Mobile Logo Mark Max Width (px)"
+msgstr ""
+
+#: inc/acf-fields.php:366
+msgid "Logo Mark Breakpoint (px)"
+msgstr ""
+
+#: inc/acf-fields.php:373
+msgid "Below this width, the square logo mark replaces the primary logo."
+msgstr ""
+
+#: inc/acf-fields.php:390
+msgid "CTA"
+msgstr ""
+
+#: inc/acf-fields.php:396
+msgid "Show Nav CTA"
+msgstr ""
+
+#: inc/acf-fields.php:404
+msgid "CTA Link"
+msgstr ""
+
+#: inc/acf-fields.php:419
+msgid "CTA Style"
+msgstr ""
+
+#: inc/acf-fields.php:424
+#: inc/acf-fields.php:637
+#: inc/acf-fields.php:674
+#: inc/acf-fields.php:1239
+#: inc/acf-fields.php:1276
+#: inc/acf-fields.php:3261
+#: inc/acf-fields.php:3298
+#: inc/acf-fields.php:3714
+#: inc/acf-fields.php:3733
+msgid "Secondary"
+msgstr ""
+
+#: inc/acf-fields.php:425
+#: inc/acf-fields.php:638
+#: inc/acf-fields.php:675
+#: inc/acf-fields.php:1240
+#: inc/acf-fields.php:1277
+#: inc/acf-fields.php:1510
+#: inc/acf-fields.php:1671
+#: inc/acf-fields.php:1911
+#: inc/acf-fields.php:2010
+#: inc/acf-fields.php:3262
+#: inc/acf-fields.php:3299
+#: inc/acf-fields.php:3715
+#: inc/acf-fields.php:3734
+msgid "Ghost"
+msgstr ""
+
+#: inc/acf-fields.php:441
+msgid "Social"
+msgstr ""
+
+#: inc/acf-fields.php:447
+msgid "Show Social Links In Header"
+msgstr ""
+
+#: inc/acf-fields.php:452
+#: inc/acf-fields.php:1055
+msgid "Uses URLs from Theme Settings > Social Media Links."
+msgstr ""
+
+#: inc/acf-fields.php:456
+msgid "Social Links Style"
+msgstr ""
+
+#: inc/acf-fields.php:460
+#: inc/acf-fields.php:1063
+#: inc/acf-fields.php:1763
+msgid "Icon"
+msgstr ""
+
+#: inc/acf-fields.php:477
+msgid "Banner"
+msgstr ""
+
+#: inc/acf-fields.php:483
+msgid "Enable Top Banner"
+msgstr ""
+
+#: inc/acf-fields.php:491
+msgid "Banner Text"
+msgstr ""
+
+#: inc/acf-fields.php:506
+msgid "Banner Link (optional)"
+msgstr ""
+
+#: inc/acf-fields.php:521
+msgid "Banner Style"
+msgstr ""
+
+#: inc/acf-fields.php:558
+msgid "Global CTA Settings"
+msgstr ""
+
+#: inc/acf-fields.php:562
+msgid "Enable Global CTA"
+msgstr ""
+
+#: inc/acf-fields.php:569
+#: inc/acf-fields.php:1171
+#: inc/acf-fields.php:1485
+#: inc/acf-fields.php:1947
+#: inc/acf-fields.php:2796
+#: inc/acf-fields.php:3168
+msgid "Content"
+msgstr ""
+
+#: inc/acf-fields.php:575
+#: inc/acf-fields.php:1177
+#: inc/acf-fields.php:2603
+#: inc/acf-fields.php:3174
+#: inc/acf-fields.php:3679
+msgid "Eyebrow"
+msgstr ""
+
+#: inc/acf-fields.php:581
+#: inc/acf-fields.php:1183
+#: inc/acf-fields.php:1479
+#: inc/acf-fields.php:2229
+#: inc/acf-fields.php:2618
+msgid "Title"
+msgstr ""
+
+#: inc/acf-fields.php:587
+#: inc/acf-fields.php:1189
+#: inc/acf-fields.php:3205
+#: inc/acf-fields.php:3691
+msgid "Subheading"
+msgstr ""
+
+#: inc/acf-fields.php:593
+#: inc/acf-fields.php:1195
+#: inc/acf-fields.php:3220
+#: inc/acf-fields.php:3697
+msgid "Paragraph"
+msgstr ""
+
+#: inc/acf-fields.php:599
+#: inc/acf-fields.php:609
+#: inc/acf-fields.php:1201
+#: inc/acf-fields.php:1211
+#: inc/acf-fields.php:1491
+#: inc/acf-fields.php:3235
+msgid "Buttons"
+msgstr ""
+
+#: inc/acf-fields.php:605
+#: inc/acf-fields.php:1207
+msgid "Actions Type"
+msgstr ""
+
+#: inc/acf-fields.php:610
+#: inc/acf-fields.php:1212
+#: inc/acf-fields.php:3014
+#: inc/acf-fields.php:3328
+#: inc/acf-fields.php:3748
+msgid "Form"
+msgstr ""
+
+#: inc/acf-fields.php:617
+#: inc/acf-fields.php:1219
+#: inc/acf-fields.php:3241
+#: inc/acf-fields.php:3703
+msgid "Primary Button"
+msgstr ""
+
+#: inc/acf-fields.php:632
+#: inc/acf-fields.php:1234
+#: inc/acf-fields.php:3256
+#: inc/acf-fields.php:3709
+msgid "Primary Button Style"
+msgstr ""
+
+#: inc/acf-fields.php:654
+#: inc/acf-fields.php:1256
+#: inc/acf-fields.php:3278
+#: inc/acf-fields.php:3722
+msgid "Secondary Button"
+msgstr ""
+
+#: inc/acf-fields.php:669
+#: inc/acf-fields.php:1271
+#: inc/acf-fields.php:3293
+#: inc/acf-fields.php:3728
+msgid "Secondary Button Style"
+msgstr ""
+
+#: inc/acf-fields.php:691
+#: inc/acf-fields.php:1293
+#: inc/acf-fields.php:3052
+#: inc/acf-fields.php:3435
+#: inc/acf-fields.php:3800
+#: inc/acf-fields.php:3890
+msgid "Form Shortcode"
+msgstr ""
+
+#: inc/acf-fields.php:694
+#: inc/acf-fields.php:1296
+msgid "Examples: [gravityform id=\"1\" title=\"false\" description=\"false\" ajax=\"true\"], [fluentform id=\"1\"], [wpforms id=\"123\"]"
+msgstr ""
+
+#: inc/acf-fields.php:708
+#: inc/acf-fields.php:1310
+#: inc/acf-fields.php:3489
+msgid "Style"
+msgstr ""
+
+#: inc/acf-fields.php:718
+#: inc/acf-fields.php:1320
+msgid "Stacked"
+msgstr ""
+
+#: inc/acf-fields.php:719
+#: inc/acf-fields.php:1321
+msgid "Split"
+msgstr ""
+
+#: inc/acf-fields.php:726
+#: inc/acf-fields.php:1328
+msgid "Split Ratio"
+msgstr ""
+
+#: inc/acf-fields.php:730
+#: inc/acf-fields.php:1332
+msgid "2/3 + 1/3"
+msgstr ""
+
+#: inc/acf-fields.php:731
+#: inc/acf-fields.php:1333
+msgid "50/50"
+msgstr ""
+
+#: inc/acf-fields.php:778
+#: inc/acf-fields.php:1380
+#: inc/acf-fields.php:3519
+#: inc/acf-fields.php:3825
+msgid "Text Box Style"
+msgstr ""
+
+#: inc/acf-fields.php:782
+#: inc/acf-fields.php:1384
+#: inc/acf-fields.php:1704
+#: inc/acf-fields.php:3524
+#: inc/acf-fields.php:3830
+msgid "Surface"
+msgstr ""
+
+#: inc/acf-fields.php:783
+#: inc/acf-fields.php:1385
+#: inc/acf-fields.php:1705
+#: inc/acf-fields.php:3525
+#: inc/acf-fields.php:3831
+msgid "Outline"
+msgstr ""
+
+#: inc/acf-fields.php:806
+msgid "Contact Information"
+msgstr ""
+
+#. Template Name of the theme
+#: inc/acf-fields.php:810
+msgid "Contact"
+msgstr ""
+
+#: inc/acf-fields.php:816
+#: template-parts/components/contact-info.php:26
+msgid "Phone"
+msgstr ""
+
+#: inc/acf-fields.php:822
+#: template-parts/components/contact-info.php:27
+msgid "Email"
+msgstr ""
+
+#: inc/acf-fields.php:828
+#: template-parts/components/contact-info.php:28
+msgid "Address"
+msgstr ""
+
+#: inc/acf-fields.php:835
+msgid "Business Hours"
+msgstr ""
+
+#: inc/acf-fields.php:857
+#: template-parts/components/footer.php:135
+#: template-parts/components/footer.php:212
+#: template-parts/components/header.php:183
+msgid "Social Media Links"
+msgstr ""
+
+#: inc/acf-fields.php:861
+msgid "Social Media"
+msgstr ""
+
+#: inc/acf-fields.php:867
+msgid "Facebook URL"
+msgstr ""
+
+#: inc/acf-fields.php:873
+msgid "Twitter/X URL"
+msgstr ""
+
+#: inc/acf-fields.php:879
+msgid "Instagram URL"
+msgstr ""
+
+#: inc/acf-fields.php:885
+msgid "LinkedIn URL"
+msgstr ""
+
+#: inc/acf-fields.php:891
+msgid "YouTube URL"
+msgstr ""
+
+#: inc/acf-fields.php:897
+msgid "TikTok URL"
+msgstr ""
+
+#: inc/acf-fields.php:903
+msgid "Pinterest URL"
+msgstr ""
+
+#: inc/acf-fields.php:909
+msgid "GitHub URL"
+msgstr ""
+
+#: inc/acf-fields.php:930
+msgid "Footer Settings"
+msgstr ""
+
+#: inc/acf-fields.php:940
+msgid "Footer Layout"
+msgstr ""
+
+#: inc/acf-fields.php:944
+#: inc/acf-fields.php:2312
+#: inc/acf-fields.php:2508
+msgid "Simple"
+msgstr ""
+
+#: inc/acf-fields.php:945
+msgid "Complex Columns"
+msgstr ""
+
+#: inc/acf-fields.php:952
+msgid "Simple Layout Columns"
+msgstr ""
+
+#: inc/acf-fields.php:956
+msgid "One Column"
+msgstr ""
+
+#: inc/acf-fields.php:957
+msgid "Two Columns"
+msgstr ""
+
+#: inc/acf-fields.php:973
+msgid "Complex Menu Columns"
+msgstr ""
+
+#: inc/acf-fields.php:977
+msgid "Two Menu Columns"
+msgstr ""
+
+#: inc/acf-fields.php:978
+msgid "Three Menu Columns"
+msgstr ""
+
+#: inc/acf-fields.php:982
+msgid "Uses Footer Column 1-3 menu locations."
+msgstr ""
+
+#: inc/acf-fields.php:995
+#: inc/acf-fields.php:1448
+msgid "Sections"
+msgstr ""
+
+#: inc/acf-fields.php:1001
+msgid "Show Footer Logo"
+msgstr ""
+
+#: inc/acf-fields.php:1009
+msgid "Footer Logo Source"
+msgstr ""
+
+#: inc/acf-fields.php:1013
+msgid "Inherit Header Logo Setting"
+msgstr ""
+
+#: inc/acf-fields.php:1014
+msgid "Customizer Logo"
+msgstr ""
+
+#: inc/acf-fields.php:1032
+msgid "Footer Logo Image"
+msgstr ""
+
+#: inc/acf-fields.php:1050
+msgid "Show Social Links"
+msgstr ""
+
+#: inc/acf-fields.php:1059
+msgid "Footer Social Style"
+msgstr ""
+
+#: inc/acf-fields.php:1080
+msgid "Show Main Footer Menu"
+msgstr ""
+
+#: inc/acf-fields.php:1085
+msgid "Uses Footer Main menu location (falls back to Footer legacy location)."
+msgstr ""
+
+#: inc/acf-fields.php:1089
+msgid "Show Legal Menu"
+msgstr ""
+
+#: inc/acf-fields.php:1094
+msgid "Uses Footer Legal menu location."
+msgstr ""
+
+#: inc/acf-fields.php:1098
+msgid "Extra Legal Links"
+msgstr ""
+
+#: inc/acf-fields.php:1101
+msgid "Add Link"
+msgstr ""
+
+#: inc/acf-fields.php:1106
+#: inc/acf-fields.php:2264
+msgid "Link"
+msgstr ""
+
+#: inc/acf-fields.php:1114
+msgid "Bottom Row"
+msgstr ""
+
+#: inc/acf-fields.php:1120
+msgid "Copyright Text"
+msgstr ""
+
+#: inc/acf-fields.php:1123
+#: inc/template-helpers.php:138
+msgid "All rights reserved."
+msgstr ""
+
+#: inc/acf-fields.php:1124
+msgid "Year and site name are added automatically."
+msgstr ""
+
+#: inc/acf-fields.php:1143
+msgid "CTA Override"
+msgstr ""
+
+#: inc/acf-fields.php:1148
+msgid "Override Global CTA"
+msgstr ""
+
+#: inc/acf-fields.php:1155
+msgid "Enable CTA For This Page"
+msgstr ""
+
+#: inc/acf-fields.php:1443
+msgid "Page Sections"
+msgstr ""
+
+#: inc/acf-fields.php:1451
+msgid "Add Section"
+msgstr ""
+
+#: inc/acf-fields.php:1456
+msgid "Content + Media"
+msgstr ""
+
+#: inc/acf-fields.php:1461
+msgid "Layout Mode"
+msgstr ""
+
+#: inc/acf-fields.php:1465
+msgid "Split (2 Column)"
+msgstr ""
+
+#: inc/acf-fields.php:1466
+msgid "Stacked (Single Column Flow)"
+msgstr ""
+
+#: inc/acf-fields.php:1473
+#: inc/acf-fields.php:1634
+#: inc/acf-fields.php:1935
+msgid "Kicker"
+msgstr ""
+
+#: inc/acf-fields.php:1495
+#: inc/acf-fields.php:1995
+msgid "Add Button"
+msgstr ""
+
+#: inc/acf-fields.php:1499
+#: inc/acf-fields.php:1660
+#: inc/acf-fields.php:1900
+#: inc/acf-fields.php:1999
+msgid "Button Link"
+msgstr ""
+
+#: inc/acf-fields.php:1505
+#: inc/acf-fields.php:1666
+#: inc/acf-fields.php:1906
+#: inc/acf-fields.php:2005
+msgid "Button Style"
+msgstr ""
+
+#: inc/acf-fields.php:1519
+msgid "Media Image"
+msgstr ""
+
+#: inc/acf-fields.php:1528
+msgid "Ratio"
+msgstr ""
+
+#: inc/acf-fields.php:1549
+#: inc/acf-fields.php:3344
+#: inc/acf-fields.php:3755
+msgid "Media Position"
+msgstr ""
+
+#: inc/acf-fields.php:1553
+#: inc/acf-fields.php:1825
+#: inc/acf-fields.php:1957
+#: inc/acf-fields.php:2806
+#: inc/acf-fields.php:3349
+#: inc/acf-fields.php:3760
+msgid "Left"
+msgstr ""
+
+#: inc/acf-fields.php:1554
+#: inc/acf-fields.php:1826
+#: inc/acf-fields.php:2808
+#: inc/acf-fields.php:3348
+#: inc/acf-fields.php:3759
+msgid "Right"
+msgstr ""
+
+#: inc/acf-fields.php:1570
+msgid "Stack Order"
+msgstr ""
+
+#: inc/acf-fields.php:1574
+msgid "Text then Media"
+msgstr ""
+
+#: inc/acf-fields.php:1575
+msgid "Media then Text"
+msgstr ""
+
+#: inc/acf-fields.php:1591
+#: inc/acf-fields.php:3382
+#: inc/acf-fields.php:3775
+msgid "Image Style"
+msgstr ""
+
+#: inc/acf-fields.php:1595
+#: inc/acf-fields.php:3386
+#: inc/acf-fields.php:3779
+msgid "Soft Radius"
+msgstr ""
+
+#: inc/acf-fields.php:1596
+#: inc/acf-fields.php:3387
+#: inc/acf-fields.php:3780
+msgid "Rounded"
+msgstr ""
+
+#: inc/acf-fields.php:1597
+#: inc/acf-fields.php:3388
+#: inc/acf-fields.php:3781
+msgid "Sharp"
+msgstr ""
+
+#: inc/acf-fields.php:1604
+msgid "Image Full Bleed"
+msgstr ""
+
+#: inc/acf-fields.php:1609
+msgid "Extends image to page edge when section width is Full Width."
+msgstr ""
+
+#: inc/acf-fields.php:1613
+#: inc/acf-fields.php:1920
+#: inc/acf-fields.php:2019
+#: inc/acf-fields.php:2088
+#: inc/acf-fields.php:2174
+#: inc/acf-fields.php:2281
+#: inc/acf-fields.php:2436
+#: inc/acf-fields.php:2683
+#: inc/acf-fields.php:2750
+#: inc/acf-fields.php:2781
+#: inc/acf-fields.php:2853
+#: inc/acf-fields.php:2933
+#: inc/acf-fields.php:2986
+#: inc/acf-fields.php:3130
+msgid "Section Options"
+msgstr ""
+
+#: inc/acf-fields.php:1623
+msgid "Card Collection (1-4 Columns)"
+msgstr ""
+
+#: inc/acf-fields.php:1628
+#: inc/acf-fields.php:2109
+#: inc/acf-fields.php:2195
+msgid "Intro (Optional)"
+msgstr ""
+
+#: inc/acf-fields.php:1640
+#: inc/acf-fields.php:2189
+#: inc/acf-fields.php:2296
+#: inc/acf-fields.php:2451
+#: inc/acf-fields.php:2698
+#: inc/acf-fields.php:2868
+#: inc/acf-fields.php:2948
+msgid "Heading"
+msgstr ""
+
+#: inc/acf-fields.php:1646
+msgid "Intro Copy"
+msgstr ""
+
+#: inc/acf-fields.php:1652
+msgid "Intro Buttons"
+msgstr ""
+
+#: inc/acf-fields.php:1656
+msgid "Add Intro Button"
+msgstr ""
+
+#: inc/acf-fields.php:1680
+msgid "Cards"
+msgstr ""
+
+#: inc/acf-fields.php:1686
+#: inc/acf-fields.php:2115
+msgid "Columns"
+msgstr ""
+
+#: inc/acf-fields.php:1700
+#: inc/acf-fields.php:2308
+msgid "Card Style"
+msgstr ""
+
+#: inc/acf-fields.php:1706
+#: template-parts/components/featured-item.php:19
+msgid "Featured"
+msgstr ""
+
+#: inc/acf-fields.php:1713
+msgid "Equal Card Height"
+msgstr ""
+
+#: inc/acf-fields.php:1721
+#: inc/acf-fields.php:2065
+#: inc/acf-fields.php:2214
+msgid "Items"
+msgstr ""
+
+#: inc/acf-fields.php:1725
+msgid "Add Card"
+msgstr ""
+
+#: inc/acf-fields.php:1730
+#: inc/acf-fields.php:1941
+msgid "Title (Optional)"
+msgstr ""
+
+#: inc/acf-fields.php:1736
+msgid "Paragraph (Optional)"
+msgstr ""
+
+#: inc/acf-fields.php:1742
+msgid "List (Optional)"
+msgstr ""
+
+#: inc/acf-fields.php:1746
+msgid "Add List Item"
+msgstr ""
+
+#: inc/acf-fields.php:1750
+msgid "List Text"
+msgstr ""
+
+#: inc/acf-fields.php:1758
+#: inc/acf-fields.php:3321
+#: inc/acf-fields.php:3741
+msgid "Media Type"
+msgstr ""
+
+#: inc/acf-fields.php:1764
+#: inc/acf-fields.php:1801
+#: inc/acf-fields.php:3326
+#: inc/acf-fields.php:3365
+#: inc/acf-fields.php:3746
+#: inc/acf-fields.php:3767
+msgid "Image"
+msgstr ""
+
+#: inc/acf-fields.php:1771
+msgid "Icon Name"
+msgstr ""
+
+#: inc/acf-fields.php:1788
+msgid "Uses files from /assets/icons/cards/ named icon-card-{slug}.svg."
+msgstr ""
+
+#: inc/acf-fields.php:1820
+msgid "Media Placement"
+msgstr ""
+
+#: inc/acf-fields.php:1824
+msgid "Top"
+msgstr ""
+
+#: inc/acf-fields.php:1842
+msgid "Card URL (Optional)"
+msgstr ""
+
+#: inc/acf-fields.php:1845
+msgid "If set, the whole card becomes clickable."
+msgstr ""
+
+#: inc/acf-fields.php:1849
+msgid "Open in New Tab"
+msgstr ""
+
+#: inc/acf-fields.php:1868
+msgid "Footer (Optional)"
+msgstr ""
+
+#: inc/acf-fields.php:1874
+msgid "Footer Copy"
+msgstr ""
+
+#: inc/acf-fields.php:1880
+msgid "Quote / Statement"
+msgstr ""
+
+#: inc/acf-fields.php:1886
+msgid "Quote Source"
+msgstr ""
+
+#: inc/acf-fields.php:1892
+msgid "Footer Buttons"
+msgstr ""
+
+#: inc/acf-fields.php:1896
+msgid "Add Footer Button"
+msgstr ""
+
+#: inc/acf-fields.php:1930
+msgid "Expressive Text"
+msgstr ""
+
+#: inc/acf-fields.php:1953
+msgid "Text Align"
+msgstr ""
+
+#: inc/acf-fields.php:1958
+#: inc/acf-fields.php:2807
+msgid "Center"
+msgstr ""
+
+#: inc/acf-fields.php:1965
+msgid "Text Scale"
+msgstr ""
+
+#: inc/acf-fields.php:1969
+msgid "Body"
+msgstr ""
+
+#: inc/acf-fields.php:1978
+msgid "Content Width"
+msgstr ""
+
+#: inc/acf-fields.php:1991
+msgid "Buttons (Optional)"
+msgstr ""
+
+#: inc/acf-fields.php:2029
+msgid "Horizontal Marquee"
+msgstr ""
+
+#: inc/acf-fields.php:2034
+#: inc/acf-fields.php:2103
+msgid "Heading (Optional)"
+msgstr ""
+
+#: inc/acf-fields.php:2040
+msgid "Scroll Speed"
+msgstr ""
+
+#: inc/acf-fields.php:2044
+msgid "Slow"
+msgstr ""
+
+#: inc/acf-fields.php:2046
+msgid "Fast"
+msgstr ""
+
+#: inc/acf-fields.php:2053
+msgid "Scroll Direction"
+msgstr ""
+
+#: inc/acf-fields.php:2057
+msgid "Right to Left"
+msgstr ""
+
+#: inc/acf-fields.php:2058
+msgid "Left to Right"
+msgstr ""
+
+#: inc/acf-fields.php:2069
+#: inc/acf-fields.php:2218
+msgid "Add Item"
+msgstr ""
+
+#: inc/acf-fields.php:2080
+msgid "Link (Optional)"
+msgstr ""
+
+#: inc/acf-fields.php:2098
+msgid "Stats (Count Up)"
+msgstr ""
+
+#: inc/acf-fields.php:2128
+msgid "Stats"
+msgstr ""
+
+#: inc/acf-fields.php:2132
+msgid "Add Stat"
+msgstr ""
+
+#: inc/acf-fields.php:2136
+msgid "Icon Slug (Optional)"
+msgstr ""
+
+#: inc/acf-fields.php:2139
+msgid "Use icon file name from assets/icons without .svg, e.g. icon-quote"
+msgstr ""
+
+#: inc/acf-fields.php:2143
+msgid "Value"
+msgstr ""
+
+#: inc/acf-fields.php:2152
+msgid "Prefix (Optional)"
+msgstr ""
+
+#: inc/acf-fields.php:2159
+msgid "Suffix (Optional)"
+msgstr ""
+
+#: inc/acf-fields.php:2166
+msgid "Label"
+msgstr ""
+
+#: inc/acf-fields.php:2184
+msgid "Bold List (Expand or Link)"
+msgstr ""
+
+#: inc/acf-fields.php:2201
+msgid "Style Variant"
+msgstr ""
+
+#: inc/acf-fields.php:2205
+msgid "Brand Glow"
+msgstr ""
+
+#: inc/acf-fields.php:2222
+msgid "Eyebrow / Value (Optional)"
+msgstr ""
+
+#: inc/acf-fields.php:2236
+msgid "Interaction"
+msgstr ""
+
+#: inc/acf-fields.php:2240
+msgid "Expand"
+msgstr ""
+
+#: inc/acf-fields.php:2241
+msgid "Link Out"
+msgstr ""
+
+#: inc/acf-fields.php:2248
+msgid "Expanded Content"
+msgstr ""
+
+#: inc/acf-fields.php:2291
+#: inc/acf-fields.php:2393
+msgid "Testimonials"
+msgstr ""
+
+#: inc/acf-fields.php:2302
+#: inc/acf-fields.php:2457
+#: inc/acf-fields.php:2704
+#: inc/acf-fields.php:2954
+msgid "Subtext"
+msgstr ""
+
+#: inc/acf-fields.php:2313
+#: inc/acf-fields.php:2509
+msgid "Feature"
+msgstr ""
+
+#: inc/acf-fields.php:2320
+msgid "Display Mode"
+msgstr ""
+
+#: inc/acf-fields.php:2324
+msgid "Grid"
+msgstr ""
+
+#: inc/acf-fields.php:2325
+#: inc/acf-fields.php:2446
+#: inc/acf-fields.php:3977
+msgid "Carousel"
+msgstr ""
+
+#: inc/acf-fields.php:2332
+msgid "Grid Columns"
+msgstr ""
+
+#: inc/acf-fields.php:2354
+#: inc/acf-fields.php:2463
+msgid "Slides Per View (Desktop)"
+msgstr ""
+
+#: inc/acf-fields.php:2376
+#: inc/acf-fields.php:2476
+msgid "Show Carousel Controls"
+msgstr ""
+
+#: inc/acf-fields.php:2397
+msgid "Add Testimonial"
+msgstr ""
+
+#: inc/acf-fields.php:2401
+#: inc/acf-fields.php:2525
+msgid "Quote"
+msgstr ""
+
+#: inc/acf-fields.php:2407
+#: inc/acf-fields.php:2540
+#: template-parts/components/form.php:17
+msgid "Name"
+msgstr ""
+
+#: inc/acf-fields.php:2413
+#: inc/acf-fields.php:2555
+msgid "Info Line 1"
+msgstr ""
+
+#: inc/acf-fields.php:2419
+#: inc/acf-fields.php:2570
+msgid "Info Line 2"
+msgstr ""
+
+#: inc/acf-fields.php:2425
+#: inc/acf-fields.php:2585
+msgid "Photo (Optional)"
+msgstr ""
+
+#: inc/acf-fields.php:2484
+msgid "Slides"
+msgstr ""
+
+#: inc/acf-fields.php:2488
+msgid "Add Slide"
+msgstr ""
+
+#: inc/acf-fields.php:2492
+msgid "Card Type"
+msgstr ""
+
+#: inc/acf-fields.php:2496
+msgid "Testimonial"
+msgstr ""
+
+#: inc/acf-fields.php:2497
+msgid "Content Card"
+msgstr ""
+
+#: inc/acf-fields.php:2504
+msgid "Testimonial Style"
+msgstr ""
+
+#: inc/acf-fields.php:2633
+msgid "Copy"
+msgstr ""
+
+#: inc/acf-fields.php:2648
+msgid "Image (Optional)"
+msgstr ""
+
+#: inc/acf-fields.php:2666
+#: inc/acf-fields.php:2828
+msgid "Button (Optional)"
+msgstr ""
+
+#: inc/acf-fields.php:2693
+msgid "Logo Grid"
+msgstr ""
+
+#: inc/acf-fields.php:2710
+msgid "Columns (Desktop)"
+msgstr ""
+
+#: inc/acf-fields.php:2725
+msgid "Logos"
+msgstr ""
+
+#: inc/acf-fields.php:2728
+msgid "Add Logo"
+msgstr ""
+
+#: inc/acf-fields.php:2742
+msgid "Optional Link"
+msgstr ""
+
+#: inc/acf-fields.php:2760
+msgid "Generic HTML"
+msgstr ""
+
+#: inc/acf-fields.php:2765
+msgid "Admin Label (Optional)"
+msgstr ""
+
+#: inc/acf-fields.php:2768
+msgid "Optional internal label to help identify this section in the editor."
+msgstr ""
+
+#: inc/acf-fields.php:2772
+#: inc/acf-fields.php:3067
+msgid "HTML Content"
+msgstr ""
+
+#: inc/acf-fields.php:2777
+msgid "Paste custom HTML (shortcodes are supported)."
+msgstr ""
+
+#: inc/acf-fields.php:2791
+msgid "Breakout Text"
+msgstr ""
+
+#: inc/acf-fields.php:2815
+msgid "Text Size"
+msgstr ""
+
+#: inc/acf-fields.php:2819
+msgid "Medium"
+msgstr ""
+
+#: inc/acf-fields.php:2834
+msgid "Button Label"
+msgstr ""
+
+#: inc/acf-fields.php:2840
+msgid "Button Link (Optional)"
+msgstr ""
+
+#: inc/acf-fields.php:2846
+msgid "Modal Target ID (Optional)"
+msgstr ""
+
+#: inc/acf-fields.php:2849
+msgid "Enter a hidden modal unique ID to open it from this button."
+msgstr ""
+
+#: inc/acf-fields.php:2863
+#: inc/acf-fields.php:3404
+#: inc/acf-fields.php:3788
+msgid "Video Embed"
+msgstr ""
+
+#: inc/acf-fields.php:2874
+msgid "Intro"
+msgstr ""
+
+#: inc/acf-fields.php:2880
+#: inc/acf-fields.php:3022
+msgid "Video Embed Code"
+msgstr ""
+
+#: inc/acf-fields.php:2883
+msgid "Paste iframe embed code (YouTube/Vimeo/etc)."
+msgstr ""
+
+#: inc/acf-fields.php:2887
+#: inc/acf-fields.php:3037
+msgid "Video URL (fallback)"
+msgstr ""
+
+#: inc/acf-fields.php:2893
+msgid "Open In Modal"
+msgstr ""
+
+#: inc/acf-fields.php:2901
+msgid "Modal Unique ID"
+msgstr ""
+
+#: inc/acf-fields.php:2904
+msgid "Used for trigger target (letters, numbers, hyphens only)."
+msgstr ""
+
+#: inc/acf-fields.php:2917
+msgid "Modal Button Label"
+msgstr ""
+
+#: inc/acf-fields.php:2920
+#: template-parts/sections/section-video_embed.php:15
+#: template-parts/sections/section-video_embed.php:56
+msgid "Watch Video"
+msgstr ""
+
+#: inc/acf-fields.php:2943
+msgid "Forms: Two Column"
+msgstr ""
+
+#: inc/acf-fields.php:2960
+msgid "Left Column Intro"
+msgstr ""
+
+#: inc/acf-fields.php:2966
+msgid "Left Form Shortcode"
+msgstr ""
+
+#: inc/acf-fields.php:2973
+msgid "Right Column Intro"
+msgstr ""
+
+#: inc/acf-fields.php:2979
+msgid "Right Form Shortcode"
+msgstr ""
+
+#: inc/acf-fields.php:2996
+msgid "Hidden Modal"
+msgstr ""
+
+#: inc/acf-fields.php:3001
+msgid "Unique ID"
+msgstr ""
+
+#: inc/acf-fields.php:3005
+msgid "Example: demo-video-modal. Use this ID in modal trigger buttons."
+msgstr ""
+
+#: inc/acf-fields.php:3009
+msgid "Content Type"
+msgstr ""
+
+#: inc/acf-fields.php:3013
+#: inc/acf-fields.php:3327
+#: inc/acf-fields.php:3747
+msgid "Video"
+msgstr ""
+
+#: inc/acf-fields.php:3015
+msgid "Custom HTML"
+msgstr ""
+
+#: inc/acf-fields.php:3082
+msgid "Optional Trigger Button"
+msgstr ""
+
+#: inc/acf-fields.php:3088
+msgid "Render Trigger Button In Flow"
+msgstr ""
+
+#: inc/acf-fields.php:3096
+msgid "Trigger Button Label"
+msgstr ""
+
+#: inc/acf-fields.php:3099
+#: template-parts/sections/section-hidden_modal.php:16
+msgid "Open Modal"
+msgstr ""
+
+#: inc/acf-fields.php:3112
+msgid "Trigger Snippet (Copy)"
+msgstr ""
+
+#: inc/acf-fields.php:3117
+msgid "Auto-generated from Unique ID. Copy and paste into Generic HTML, Breakout Text, or custom templates."
+msgstr ""
+
+#: inc/acf-fields.php:3156
+msgid "Hero - Singular"
+msgstr ""
+
+#: inc/acf-fields.php:3161
+#: inc/acf-fields.php:3660
+msgid "Enable Hero"
+msgstr ""
+
+#: inc/acf-fields.php:3189
+#: inc/acf-fields.php:3685
+msgid "Title (H1)"
+msgstr ""
+
+#: inc/acf-fields.php:3192
+msgid "If blank, the post/page title is used."
+msgstr ""
+
+#: inc/acf-fields.php:3315
+msgid "Media / Form"
+msgstr ""
+
+#: inc/acf-fields.php:3407
+msgid "Paste iframe embed code for YouTube/Vimeo/etc."
+msgstr ""
+
+#: inc/acf-fields.php:3420
+#: inc/acf-fields.php:3794
+msgid "Video URL (MP4)"
+msgstr ""
+
+#: inc/acf-fields.php:3438
+msgid "Preferred: paste plugin shortcode."
+msgstr ""
+
+#: inc/acf-fields.php:3451
+#: inc/acf-fields.php:3806
+msgid "Form Provider"
+msgstr ""
+
+#: inc/acf-fields.php:3455
+#: inc/acf-fields.php:3810
+msgid "Generic"
+msgstr ""
+
+#: inc/acf-fields.php:3456
+#: inc/acf-fields.php:3811
+msgid "WPForms"
+msgstr ""
+
+#: inc/acf-fields.php:3457
+#: inc/acf-fields.php:3812
+msgid "HubSpot"
+msgstr ""
+
+#: inc/acf-fields.php:3473
+#: inc/acf-fields.php:3819
+msgid "Form ID"
+msgstr ""
+
+#: inc/acf-fields.php:3476
+msgid "Fallback if shortcode is not used."
+msgstr ""
+
+#: inc/acf-fields.php:3495
+#: inc/acf-fields.php:3667
+msgid "Hero Variation"
+msgstr ""
+
+#: inc/acf-fields.php:3499
+msgid "Page: Centered"
+msgstr ""
+
+#: inc/acf-fields.php:3500
+msgid "Page: Two Column"
+msgstr ""
+
+#: inc/acf-fields.php:3501
+msgid "Page: Full Height (100vh)"
+msgstr ""
+
+#: inc/acf-fields.php:3502
+msgid "Single/CPT: Centered"
+msgstr ""
+
+#: inc/acf-fields.php:3503
+msgid "Single/CPT: Two Column"
+msgstr ""
+
+#: inc/acf-fields.php:3568
+#: inc/acf-fields.php:3856
+msgid "Force 100vh"
+msgstr ""
+
+#: inc/acf-fields.php:3634
+msgid "Archive Hero Variations"
+msgstr ""
+
+#: inc/acf-fields.php:3638
+msgid "Archive Hero Items"
+msgstr ""
+
+#: inc/acf-fields.php:3641
+msgid "Add Archive Hero"
+msgstr ""
+
+#: inc/acf-fields.php:3646
+msgid "Post Type"
+msgstr ""
+
+#: inc/acf-fields.php:3650
+#: inc/acf-fields.php:4023
+msgid "Post"
+msgstr ""
+
+#: inc/acf-fields.php:3651
+#: inc/acf-fields.php:4024
+#: inc/post-types.php:25
+msgid "Project"
+msgstr ""
+
+#: inc/acf-fields.php:3652
+#: inc/acf-fields.php:4025
+#: inc/post-types.php:41
+msgid "Event"
+msgstr ""
+
+#: inc/acf-fields.php:3653
+#: inc/acf-fields.php:4026
+#: inc/post-types.php:57
+msgid "FAQ"
+msgstr ""
+
+#: inc/acf-fields.php:3654
+#: inc/acf-fields.php:4027
+#: inc/post-types.php:73
+msgid "Profile"
+msgstr ""
+
+#: inc/acf-fields.php:3671
+msgid "Archive: Centered"
+msgstr ""
+
+#: inc/acf-fields.php:3672
+msgid "Archive: Two Column"
+msgstr ""
+
+#: inc/acf-fields.php:3880
+msgid "Contact Template Fields"
+msgstr ""
+
+#: inc/acf-fields.php:3884
+msgid "Intro Content"
+msgstr ""
+
+#: inc/acf-fields.php:3896
+msgid "Map Embed"
+msgstr ""
+
+#: inc/acf-fields.php:3917
+msgid "Artist Profile Fields"
+msgstr ""
+
+#: inc/acf-fields.php:3921
+msgid "Tier"
+msgstr ""
+
+#: inc/acf-fields.php:3925
+msgid "Blossoming"
+msgstr ""
+
+#: inc/acf-fields.php:3926
+msgid "Seedlings"
+msgstr ""
+
+#: inc/acf-fields.php:3934
+msgid "Focus"
+msgstr ""
+
+#: inc/acf-fields.php:3937
+msgid "Makeup and Hair"
+msgstr ""
+
+#: inc/acf-fields.php:3941
+msgid "Pronouns"
+msgstr ""
+
+#: inc/acf-fields.php:3944
+msgid "she/her"
+msgstr ""
+
+#: inc/acf-fields.php:3948
+msgid "Location"
+msgstr ""
+
+#: inc/acf-fields.php:3951
+msgid "Vancouver, BC"
+msgstr ""
+
+#: inc/acf-fields.php:3955
+msgid "CTA Button"
+msgstr ""
+
+#: inc/acf-fields.php:3958
+msgid "Example: Book Now button for booking links."
+msgstr ""
+
+#: inc/acf-fields.php:3962
+msgid "Gallery Images"
+msgstr ""
+
+#: inc/acf-fields.php:3973
+msgid "Gallery Display Mode"
+msgstr ""
+
+#: inc/acf-fields.php:3978
+msgid "Carousel + Thumbnails"
+msgstr ""
+
+#: inc/acf-fields.php:3979
+msgid "Inline Grid"
+msgstr ""
+
+#: inc/acf-fields.php:3980
+msgid "Grid + Modal"
+msgstr ""
+
+#: inc/acf-fields.php:3987
+msgid "Gallery Columns"
+msgstr ""
+
+#: inc/acf-fields.php:3991
+msgid "2 Columns"
+msgstr ""
+
+#: inc/acf-fields.php:3992
+msgid "3 Columns"
+msgstr ""
+
+#: inc/acf-fields.php:3993
+msgid "4 Columns"
+msgstr ""
+
+#: inc/acf-fields.php:4015
+msgid "Archive Template Fields"
+msgstr ""
+
+#: inc/acf-fields.php:4019
+msgid "Archive Post Type"
+msgstr ""
+
+#: inc/acf-fields.php:4034
+msgid "Featured Item"
+msgstr ""
+
+#: inc/acf-fields.php:4042
+msgid "Filter Taxonomy"
+msgstr ""
+
+#: inc/acf-fields.php:4045
+msgid "Example: category, project_category, event_type"
+msgstr ""
+
+#: inc/acf-fields.php:4049
+msgid "Items Per Page"
+msgstr ""
+
+#: inc/acf-fields.php:4085
+msgid "Add at least one card item."
+msgstr ""
+
+#: inc/acf-fields.php:4128
+msgid "Each card needs at least one piece of content (title, paragraph, list, icon/image, or URL)."
+msgstr ""
+
+#: inc/ajax.php:51
+#: templates/template-archive.php:64
+msgid "No items found."
+msgstr ""
+
+#: inc/media.php:45
+msgid "Profile Square - Small"
+msgstr ""
+
+#: inc/media.php:46
+msgid "Profile Square - Large"
+msgstr ""
+
+#: inc/media.php:47
+msgid "Hero - Desktop"
+msgstr ""
+
+#: inc/media.php:48
+msgid "Hero - Medium"
+msgstr ""
+
+#: inc/media.php:50
+msgid "Logo Mark (Square)"
+msgstr ""
+
+#: inc/media.php:51
+msgid "Card Header"
+msgstr ""
+
+#: inc/media.php:52
+msgid "Card Header - Featured"
+msgstr ""
+
+#: inc/post-types.php:24
+msgid "Projects"
+msgstr ""
+
+#: inc/post-types.php:40
+msgid "Events"
+msgstr ""
+
+#: inc/post-types.php:56
+msgid "FAQs"
+msgstr ""
+
+#: inc/post-types.php:72
+msgid "Profiles"
+msgstr ""
+
+#: inc/taxonomies.php:23
+msgid "Project Categories"
+msgstr ""
+
+#: inc/taxonomies.php:24
+msgid "Project Category"
+msgstr ""
+
+#: inc/taxonomies.php:38
+msgid "Event Types"
+msgstr ""
+
+#: inc/taxonomies.php:39
+msgid "Event Type"
 msgstr ""
 
 #. translators: %s: post date.
-#: inc/template-tags.php:30
+#: inc/template-tags.php:32
+#, php-format
 msgctxt "post date"
 msgid "Posted on %s"
 msgstr ""
 
 #. translators: %s: post author.
-#: inc/template-tags.php:46
+#: inc/template-tags.php:49
+#, php-format
 msgctxt "post author"
 msgid "by %s"
 msgstr ""
 
 #. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:63
+#: inc/template-tags.php:67
 msgid ", "
 msgstr ""
 
 #. translators: 1: list of categories.
-#: inc/template-tags.php:66
+#: inc/template-tags.php:70
+#, php-format
 msgid "Posted in %1$s"
 msgstr ""
 
 #. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:70
+#: inc/template-tags.php:74
 msgctxt "list item separator"
 msgid ", "
 msgstr ""
 
 #. translators: 1: list of tags.
-#: inc/template-tags.php:73
+#: inc/template-tags.php:77
+#, php-format
 msgid "Tagged %1$s"
 msgstr ""
 
 #. translators: %s: post title
-#: inc/template-tags.php:83
+#: inc/template-tags.php:87
+#, php-format
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: inc/template-tags.php:100
-#: template-parts/content-page.php:39
+#: inc/template-tags.php:104
+#: template-parts/content-page.php:46
+#, php-format
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr ""
 
-#: inc/woocommerce.php:186
-msgid "View your shopping cart"
-msgstr ""
-
-#. translators: number of items in the mini cart.
-#: inc/woocommerce.php:190
-msgid "%d item"
-msgid_plural "%d items"
-msgstr[0] ""
-msgstr[1] ""
-
 #. translators: %s: search query.
-#: search.php:22
+#: search.php:21
+#, php-format
 msgid "Search Results for: %s"
 msgstr ""
 
-#: single.php:23
+#: single.php:26
 msgid "Previous:"
 msgstr ""
 
-#: single.php:24
+#: single.php:27
 msgid "Next:"
+msgstr ""
+
+#: template-parts/components/carousel.php:57
+#: templates/template-artist-profile.php:190
+msgid "Previous slide"
+msgstr ""
+
+#: template-parts/components/carousel.php:60
+#: templates/template-artist-profile.php:193
+msgid "Next slide"
+msgstr ""
+
+#: template-parts/components/carousel.php:67
+#: templates/template-artist-profile.php:198
+msgid "Slide navigation"
+msgstr ""
+
+#. translators: %d: Slide number.
+#: template-parts/components/carousel.php:71
+#: templates/template-artist-profile.php:202
+#, php-format
+msgid "Go to slide %d"
+msgstr ""
+
+#: template-parts/components/category-filter.php:20
+msgid "All"
+msgstr ""
+
+#: template-parts/components/contact-info.php:29
+msgid "Hours"
+msgstr ""
+
+#: template-parts/components/expandable-list.php:13
+msgid "Question one"
+msgstr ""
+
+#: template-parts/components/expandable-list.php:13
+msgid "Answer one."
+msgstr ""
+
+#: template-parts/components/expandable-list.php:14
+msgid "Question two"
+msgstr ""
+
+#: template-parts/components/expandable-list.php:14
+msgid "Answer two."
+msgstr ""
+
+#. translators: %d: footer column number.
+#: template-parts/components/footer.php:160
+#, php-format
+msgid "Footer Column %d"
+msgstr ""
+
+#: template-parts/components/footer.php:181
+#: template-parts/components/footer.php:228
+msgid "Footer Menu"
+msgstr ""
+
+#: template-parts/components/footer.php:250
+msgid "Legal Links"
+msgstr ""
+
+#: template-parts/components/form.php:18
+msgid "Your name"
+msgstr ""
+
+#: template-parts/components/form.php:19
+msgid "Submit"
+msgstr ""
+
+#: template-parts/components/header.php:157
+msgid "Toggle menu"
+msgstr ""
+
+#: template-parts/components/header.php:161
+msgid "Menu"
+msgstr ""
+
+#: template-parts/components/header.php:164
+msgid "Primary Menu"
+msgstr ""
+
+#: template-parts/components/logos-grid.php:44
+msgid "Logo link"
+msgstr ""
+
+#: template-parts/components/modal.php:13
+#: templates/template-artist-profile.php:252
+msgid "Close"
+msgstr ""
+
+#: template-parts/components/social-links.php:18
+msgid "Facebook"
+msgstr ""
+
+#: template-parts/components/social-links.php:19
+msgid "Twitter"
+msgstr ""
+
+#: template-parts/components/social-links.php:20
+msgid "Instagram"
+msgstr ""
+
+#: template-parts/components/social-links.php:21
+msgid "LinkedIn"
+msgstr ""
+
+#: template-parts/components/social-links.php:22
+msgid "YouTube"
+msgstr ""
+
+#: template-parts/components/social-links.php:23
+msgid "TikTok"
+msgstr ""
+
+#: template-parts/components/social-links.php:24
+msgid "Pinterest"
+msgstr ""
+
+#: template-parts/components/social-links.php:25
+msgid "GitHub"
 msgstr ""
 
 #: template-parts/content-none.php:14
@@ -176,6 +2203,7 @@ msgstr ""
 
 #. translators: 1: link to WP admin new post page.
 #: template-parts/content-none.php:24
+#, php-format
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
@@ -187,12 +2215,123 @@ msgstr ""
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
-#: template-parts/content-page.php:25
-#: template-parts/content.php:53
+#: template-parts/content-page.php:32
+#: template-parts/content.php:56
 msgid "Pages:"
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/content.php:40
+#: template-parts/content.php:43
+#, php-format
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#. translators: %d: Card number.
+#: template-parts/sections/section-cards.php:55
+#, php-format
+msgid "Card %d"
+msgstr ""
+
+#: template-parts/sections/section-cards.php:56
+msgid "Add content in the ACF repeater."
+msgstr ""
+
+#: template-parts/sections/section-marquee.php:42
+msgid "Scrolling highlights"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Archive Overview"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Artist Profile Page"
+msgstr ""
+
+#: templates/template-artist-profile.php:123
+msgid "Back to "
+msgstr ""
+
+#: templates/template-artist-profile.php:133
+msgid "Profile details"
+msgstr ""
+
+#: templates/template-artist-profile.php:135
+msgid "Tier:"
+msgstr ""
+
+#: templates/template-artist-profile.php:138
+msgid "Focus:"
+msgstr ""
+
+#: templates/template-artist-profile.php:141
+msgid "Pronouns:"
+msgstr ""
+
+#: templates/template-artist-profile.php:144
+msgid "Location:"
+msgstr ""
+
+#: templates/template-artist-profile.php:171
+msgid "Artist gallery"
+msgstr ""
+
+#: templates/template-artist-profile.php:172
+msgid "Gallery"
+msgstr ""
+
+#. translators: %d: Image number.
+#: templates/template-artist-profile.php:220
+#, php-format
+msgid "Go to image %d"
+msgstr ""
+
+#. translators: %d: Image number.
+#: templates/template-artist-profile.php:241
+#, php-format
+msgid "Open image %d"
+msgstr ""
+
+#: templates/template-artist-profile.php:250
+msgid "Gallery image"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Artists Directory Page"
+msgstr ""
+
+#: templates/template-artists-directory.php:93
+msgid "Artist pages"
+msgstr ""
+
+#: templates/template-artists-directory.php:126
+msgid "View profile"
+msgstr ""
+
+#: templates/template-artists-directory.php:136
+msgid "No artist pages were found yet. Add child pages to populate this directory."
+msgstr ""
+
+#. Template Name of the theme
+msgid "Generic - Container"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Generic - Full Width"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Homepage Showcase"
+msgstr ""
+
+#. Template Name of the theme
+msgid "FAQ Page"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Landing Pages"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Resources"
 msgstr ""
