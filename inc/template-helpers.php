@@ -54,6 +54,8 @@ function starter_coat_get_nav_settings()
     'show_cta'        => false,
     'cta_link'        => null,
     'cta_style'       => 'primary',
+    'show_social'     => false,
+    'social_style'    => 'icon',
     'banner_enabled'  => false,
     'banner_text'     => '',
     'banner_link'     => null,
@@ -103,6 +105,8 @@ function starter_coat_get_nav_settings()
   $settings['show_cta'] = (bool) call_user_func('get_field', 'sc_nav_show_cta', 'option');
   $settings['cta_link'] = call_user_func('get_field', 'sc_nav_cta_link', 'option');
   $settings['cta_style'] = (string) call_user_func('get_field', 'sc_nav_cta_style', 'option') ?: $settings['cta_style'];
+  $settings['show_social'] = (bool) call_user_func('get_field', 'sc_nav_show_social', 'option');
+  $settings['social_style'] = (string) call_user_func('get_field', 'sc_nav_social_style', 'option') ?: $settings['social_style'];
 
   $settings['banner_enabled'] = (bool) call_user_func('get_field', 'sc_nav_banner_enabled', 'option');
   $settings['banner_text'] = (string) call_user_func('get_field', 'sc_nav_banner_text', 'option');

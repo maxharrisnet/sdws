@@ -22,6 +22,8 @@ $show_branding  = ! empty($nav_settings['show_logo']);
 $is_fixed       = ! empty($nav_settings['fixed']);
 $show_cta       = ! empty($nav_settings['show_cta']) && ! empty($nav_settings['cta_link']['url']) && ! empty($nav_settings['cta_link']['title']);
 $show_banner    = ! empty($nav_settings['banner_enabled']) && ! empty($nav_settings['banner_text']);
+$social_links   = function_exists('starter_coat_get_social_links') ? starter_coat_get_social_links() : array();
+$show_social    = ! empty($nav_settings['show_social']) && ! empty($social_links);
 
 $header_classes = array(
   'site-header',
@@ -175,6 +177,21 @@ if (! empty($logo_mark_image['url'])) {
           <a class="header__cta btn btn--<?php echo esc_attr($nav_settings['cta_style']); ?> btn--sm" href="<?php echo esc_url($nav_settings['cta_link']['url']); ?>" <?php echo ! empty($nav_settings['cta_link']['target']) ? 'target="' . esc_attr($nav_settings['cta_link']['target']) . '"' : ''; ?>>
             <?php echo esc_html($nav_settings['cta_link']['title']); ?>
           </a>
+        <?php endif; ?>
+
+        <?php if ($show_social) : ?>
+          <div class="header__social" aria-label="<?php esc_attr_e('Social Media Links', 'starter-coat'); ?>">
+            <?php
+            get_template_part(
+              'template-parts/components/social-links',
+              null,
+              array(
+                'style' => (string) $nav_settings['social_style'],
+                'size'  => 'sm',
+              )
+            );
+            ?>
+          </div>
         <?php endif; ?>
       </nav>
     </div>
