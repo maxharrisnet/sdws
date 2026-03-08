@@ -81,7 +81,12 @@
 	color: color-mix(in srgb, var(--color-brand) 80%, #1b1b1b 20%);
 	box-shadow: 0 10px 24px color-mix(in srgb, var(--color-brand) 18%, transparent 82%);
 	cursor: pointer;
-	transition: transform 160ms ease, background-color 160ms ease, color 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+	transition:
+		transform 160ms ease,
+		background-color 160ms ease,
+		color 160ms ease,
+		border-color 160ms ease,
+		box-shadow 160ms ease;
 }
 
 .c-carousel__arrow:hover,
@@ -128,7 +133,9 @@
 	padding: 0;
 	background: color-mix(in srgb, var(--color-brand) 28%, #dcdde6 72%);
 	cursor: pointer;
-	transition: transform 160ms ease, background-color 160ms ease;
+	transition:
+		transform 160ms ease,
+		background-color 160ms ease;
 }
 
 .c-carousel__dot:hover,

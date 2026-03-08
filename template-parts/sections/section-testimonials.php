@@ -49,7 +49,6 @@ if (empty($cards)) {
             'id'              => 'testimonials-' . wp_unique_id(),
             'heading'         => $heading,
             'subtext'         => $subtext,
-            'variant'         => 'testimonials',
             'slides_per_view' => $slides_per_view,
             'show_controls'   => $show_controls,
             'items'           => $cards,
