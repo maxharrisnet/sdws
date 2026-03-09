@@ -95,7 +95,175 @@ function starter_coat_demo_set_sections($post_id, $rows)
     return;
   }
 
-  update_field('sc_sections', $rows, $post_id);
+  $field = function_exists('acf_get_field') ? acf_get_field('field_sc_sections') : array();
+  $layouts = (! empty($field['layouts']) && is_array($field['layouts'])) ? $field['layouts'] : array();
+  $valid_layouts = array();
+
+  foreach ($layouts as $layout) {
+    if (! empty($layout['name'])) {
+      $valid_layouts[] = (string) $layout['name'];
+    }
+  }
+
+  if (empty($valid_layouts)) {
+    $valid_layouts = array(
+      'content_media',
+      'card_collection',
+      'expressive_text',
+      'marquee',
+      'stats',
+      'bold_list',
+      'testimonials',
+      'carousel',
+      'logos',
+      'html',
+      'breakout_text',
+      'video_embed',
+      'map_embed',
+      'forms_two_col',
+      'hidden_modal',
+    );
+  }
+
+  $normalized_rows = array();
+  foreach ((array) $rows as $row) {
+    if (! is_array($row) || empty($row['acf_fc_layout'])) {
+      continue;
+    }
+
+    $normalized = starter_coat_demo_normalize_section_row($row, $valid_layouts);
+    if (is_array($normalized) && ! empty($normalized['acf_fc_layout'])) {
+      $normalized_rows[] = $normalized;
+    }
+  }
+
+  if (empty($normalized_rows)) {
+    return;
+  }
+
+  update_field('field_sc_sections', $normalized_rows, $post_id);
+}
+
+function starter_coat_demo_normalize_section_row($row, $valid_layouts)
+{
+  $layout = (string) $row['acf_fc_layout'];
+
+  if (in_array($layout, $valid_layouts, true)) {
+    return $row;
+  }
+
+  // Back-compat for legacy seed payloads.
+  if ('feature' === $layout && in_array('content_media', $valid_layouts, true)) {
+    return array(
+      'acf_fc_layout'      => 'content_media',
+      'layout_mode'        => 'split',
+      'kicker'             => isset($row['kicker']) ? $row['kicker'] : '',
+      'title'              => isset($row['title']) ? $row['title'] : '',
+      'content'            => isset($row['copy']) ? '<p>' . wp_kses_post($row['copy']) . '</p>' : '',
+      'ratio'              => isset($row['ratio']) ? $row['ratio'] : '50-50',
+      'media_position'     => isset($row['media_position']) ? $row['media_position'] : 'right',
+      'image_full_bleed'   => ! empty($row['image_full_bleed']) ? 1 : 0,
+      'section_width'      => isset($row['section_width']) ? $row['section_width'] : 'container',
+      'section_padding'    => isset($row['section_padding']) ? $row['section_padding'] : 'md',
+      'section_background' => isset($row['section_background']) ? $row['section_background'] : 'none',
+      'section_class'      => isset($row['section_class']) ? $row['section_class'] : '',
+      'cta_buttons'        => ! empty($row['button']) && is_array($row['button']) ? array(
+        array(
+          'button_link'  => $row['button'],
+          'button_style' => 'primary',
+        ),
+      ) : array(),
+    );
+  }
+
+  if ('text_media' === $layout && in_array('content_media', $valid_layouts, true)) {
+    return array(
+      'acf_fc_layout'      => 'content_media',
+      'layout_mode'        => 'split',
+      'title'              => isset($row['title']) ? $row['title'] : '',
+      'content'            => isset($row['content']) ? $row['content'] : '',
+      'ratio'              => isset($row['ratio']) ? $row['ratio'] : '50-50',
+      'media_position'     => isset($row['media_position']) ? $row['media_position'] : 'right',
+      'image_style'        => isset($row['image_style']) ? $row['image_style'] : 'rounded',
+      'image_full_bleed'   => ! empty($row['image_full_bleed']) ? 1 : 0,
+      'section_width'      => isset($row['section_width']) ? $row['section_width'] : 'container',
+      'section_padding'    => isset($row['section_padding']) ? $row['section_padding'] : 'md',
+      'section_background' => isset($row['section_background']) ? $row['section_background'] : 'none',
+    );
+  }
+
+  if ('cards' === $layout && in_array('card_collection', $valid_layouts, true)) {
+    $items = array();
+    if (! empty($row['items']) && is_array($row['items'])) {
+      foreach ($row['items'] as $item) {
+        if (! is_array($item)) {
+          continue;
+        }
+
+        $items[] = array(
+          'title'        => isset($item['title']) ? $item['title'] : '',
+          'copy'         => isset($item['copy']) ? $item['copy'] : '',
+          'media_type'   => 'none',
+          'card_url'     => (! empty($item['button']) && is_array($item['button']) && ! empty($item['button']['url'])) ? $item['button']['url'] : '',
+          'open_new_tab' => 0,
+        );
+      }
+    }
+
+    return array(
+      'acf_fc_layout'      => 'card_collection',
+      'pre_title'          => isset($row['heading']) ? $row['heading'] : '',
+      'pre_copy'           => isset($row['intro']) ? $row['intro'] : '',
+      'columns'            => isset($row['columns']) ? $row['columns'] : '3',
+      'card_style'         => 'surface',
+      'equal_height'       => 1,
+      'items'              => $items,
+      'section_padding'    => isset($row['section_padding']) ? $row['section_padding'] : 'md',
+      'section_background' => isset($row['section_background']) ? $row['section_background'] : 'none',
+    );
+  }
+
+  if ('feature_list' === $layout && in_array('card_collection', $valid_layouts, true)) {
+    $items = array();
+
+    foreach (array('left_items', 'right_items') as $column_key) {
+      if (empty($row[$column_key]) || ! is_array($row[$column_key])) {
+        continue;
+      }
+      foreach ($row[$column_key] as $item) {
+        if (! is_array($item)) {
+          continue;
+        }
+        $items[] = array(
+          'title'      => isset($item['title']) ? $item['title'] : '',
+          'copy'       => isset($item['description']) ? $item['description'] : '',
+          'media_type' => 'none',
+        );
+      }
+    }
+
+    return array(
+      'acf_fc_layout'      => 'card_collection',
+      'pre_title'          => isset($row['heading']) ? $row['heading'] : '',
+      'pre_copy'           => isset($row['intro']) ? $row['intro'] : '',
+      'columns'            => '3',
+      'card_style'         => 'surface',
+      'equal_height'       => 1,
+      'items'              => $items,
+      'quote'              => isset($row['quote']) ? $row['quote'] : '',
+      'quote_source'       => isset($row['quote_source']) ? $row['quote_source'] : '',
+      'post_buttons'       => ! empty($row['cta_button']) && is_array($row['cta_button']) ? array(
+        array(
+          'button_link'  => $row['cta_button'],
+          'button_style' => 'primary',
+        ),
+      ) : array(),
+      'section_padding'    => isset($row['section_padding']) ? $row['section_padding'] : 'md',
+      'section_background' => isset($row['section_background']) ? $row['section_background'] : 'none',
+    );
+  }
+
+  return null;
 }
 
 $term_map = array(

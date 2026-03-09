@@ -2937,6 +2937,188 @@ function starter_coat_register_acf_fields()
                 ...$section_options,
               ),
             ),
+            'layout_sc_map_embed' => array(
+              'key'        => 'layout_sc_map_embed',
+              'name'       => 'map_embed',
+              'label'      => __('Map Embed (Google)', 'starter-coat'),
+              'display'    => 'block',
+              'sub_fields' => array(
+                array(
+                  'key'   => 'field_sc_map_embed_layout',
+                  'label' => __('Layout', 'starter-coat'),
+                  'name'  => 'layout_mode',
+                  'type'  => 'select',
+                  'choices' => array(
+                    'one-col' => __('One Column', 'starter-coat'),
+                    'two-col' => __('Two Column', 'starter-coat'),
+                  ),
+                  'default_value' => 'two-col',
+                  'ui'            => 1,
+                ),
+                array(
+                  'key'   => 'field_sc_map_embed_address',
+                  'label' => __('Address', 'starter-coat'),
+                  'name'  => 'address',
+                  'type'  => 'text',
+                  'instructions' => __('Used to generate a Google Maps embed when custom embed HTML is empty.', 'starter-coat'),
+                ),
+                array(
+                  'key'   => 'field_sc_map_embed_custom_embed',
+                  'label' => __('Custom Embed HTML (Optional)', 'starter-coat'),
+                  'name'  => 'custom_embed_html',
+                  'type'  => 'textarea',
+                  'rows'  => 5,
+                  'instructions' => __('Optional iframe embed code. If provided, this overrides address-generated embed.', 'starter-coat'),
+                ),
+                array(
+                  'key'           => 'field_sc_map_embed_height',
+                  'label'         => __('Map Height (px)', 'starter-coat'),
+                  'name'          => 'map_height',
+                  'type'          => 'number',
+                  'default_value' => 420,
+                  'min'           => 240,
+                  'max'           => 900,
+                  'step'          => 10,
+                ),
+                array(
+                  'key'   => 'field_sc_map_embed_width',
+                  'label' => __('Map Width', 'starter-coat'),
+                  'name'  => 'map_width',
+                  'type'  => 'select',
+                  'choices' => array(
+                    'narrow' => __('Narrow', 'starter-coat'),
+                    'normal' => __('Normal', 'starter-coat'),
+                    'wide'   => __('Wide', 'starter-coat'),
+                    'full'   => __('Full', 'starter-coat'),
+                  ),
+                  'default_value' => 'normal',
+                  'ui'            => 1,
+                ),
+                array(
+                  'key'   => 'field_sc_map_embed_ratio',
+                  'label' => __('Two Column Ratio', 'starter-coat'),
+                  'name'  => 'ratio',
+                  'type'  => 'select',
+                  'choices' => array(
+                    '50-50' => '50 / 50',
+                    '66-33' => '2 / 3',
+                  ),
+                  'default_value' => '50-50',
+                  'ui'            => 1,
+                  'conditional_logic' => array(
+                    array(
+                      array(
+                        'field'    => 'field_sc_map_embed_layout',
+                        'operator' => '==',
+                        'value'    => 'two-col',
+                      ),
+                    ),
+                  ),
+                ),
+                array(
+                  'key'   => 'field_sc_map_embed_position',
+                  'label' => __('Map Position', 'starter-coat'),
+                  'name'  => 'map_position',
+                  'type'  => 'select',
+                  'choices' => array(
+                    'right' => __('Right', 'starter-coat'),
+                    'left'  => __('Left', 'starter-coat'),
+                  ),
+                  'default_value' => 'right',
+                  'ui'            => 1,
+                  'conditional_logic' => array(
+                    array(
+                      array(
+                        'field'    => 'field_sc_map_embed_layout',
+                        'operator' => '==',
+                        'value'    => 'two-col',
+                      ),
+                    ),
+                  ),
+                ),
+                array(
+                  'key'   => 'field_sc_map_embed_content_type',
+                  'label' => __('Content Type', 'starter-coat'),
+                  'name'  => 'content_type',
+                  'type'  => 'select',
+                  'choices' => array(
+                    'text' => __('Text Fields', 'starter-coat'),
+                    'html' => __('Custom HTML', 'starter-coat'),
+                  ),
+                  'default_value' => 'text',
+                  'ui'            => 1,
+                ),
+                array(
+                  'key'   => 'field_sc_map_embed_kicker',
+                  'label' => __('Kicker', 'starter-coat'),
+                  'name'  => 'kicker',
+                  'type'  => 'text',
+                  'conditional_logic' => array(
+                    array(
+                      array(
+                        'field'    => 'field_sc_map_embed_content_type',
+                        'operator' => '==',
+                        'value'    => 'text',
+                      ),
+                    ),
+                  ),
+                ),
+                array(
+                  'key'   => 'field_sc_map_embed_heading',
+                  'label' => __('Heading', 'starter-coat'),
+                  'name'  => 'heading',
+                  'type'  => 'text',
+                  'conditional_logic' => array(
+                    array(
+                      array(
+                        'field'    => 'field_sc_map_embed_content_type',
+                        'operator' => '==',
+                        'value'    => 'text',
+                      ),
+                    ),
+                  ),
+                ),
+                array(
+                  'key'   => 'field_sc_map_embed_text_content',
+                  'label' => __('Text Content', 'starter-coat'),
+                  'name'  => 'text_content',
+                  'type'  => 'wysiwyg',
+                  'conditional_logic' => array(
+                    array(
+                      array(
+                        'field'    => 'field_sc_map_embed_content_type',
+                        'operator' => '==',
+                        'value'    => 'text',
+                      ),
+                    ),
+                  ),
+                ),
+                array(
+                  'key'   => 'field_sc_map_embed_custom_html_content',
+                  'label' => __('Custom HTML Content', 'starter-coat'),
+                  'name'  => 'custom_html_content',
+                  'type'  => 'textarea',
+                  'rows'  => 6,
+                  'instructions' => __('Optional HTML shown beside the map.', 'starter-coat'),
+                  'conditional_logic' => array(
+                    array(
+                      array(
+                        'field'    => 'field_sc_map_embed_content_type',
+                        'operator' => '==',
+                        'value'    => 'html',
+                      ),
+                    ),
+                  ),
+                ),
+                array(
+                  'key'   => 'field_sc_map_embed_options_tab',
+                  'label' => __('Section Options', 'starter-coat'),
+                  'name'  => '',
+                  'type'  => 'tab',
+                ),
+                ...$section_options,
+              ),
+            ),
             'layout_sc_forms_two_col' => array(
               'key'        => 'layout_sc_forms_two_col',
               'name'       => 'forms_two_col',
