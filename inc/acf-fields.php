@@ -121,6 +121,22 @@ function starter_coat_register_acf_fields()
           'ui'            => 1,
         ),
         array(
+          'key'           => 'field_sc_color_scheme',
+          'label'         => __('Color Scheme', 'starter-coat'),
+          'name'          => 'sc_color_scheme',
+          'type'          => 'select',
+          'choices'       => array(
+            'preset' => __('Preset Default', 'starter-coat'),
+            'ocean'  => __('Ocean', 'starter-coat'),
+            'sunset' => __('Sunset', 'starter-coat'),
+            'forest' => __('Forest', 'starter-coat'),
+            'mono'   => __('Monochrome', 'starter-coat'),
+          ),
+          'default_value' => 'preset',
+          'ui'            => 1,
+          'instructions'  => __('Choose a palette independently from Theme Preset (typography/shape).', 'starter-coat'),
+        ),
+        array(
           'key'   => 'field_sc_theme_branding_tab',
           'label' => __('Branding', 'starter-coat'),
           'name'  => '',

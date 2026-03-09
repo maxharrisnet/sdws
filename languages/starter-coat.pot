@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-03-08T09:32:53+00:00\n"
+"POT-Creation-Date: 2026-03-09T01:47:05+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: starter-coat\n"
@@ -101,19 +101,19 @@ msgid "Get Started"
 msgstr ""
 
 #: functions.php:61
-#: inc/acf-fields.php:423
-#: inc/acf-fields.php:636
-#: inc/acf-fields.php:673
-#: inc/acf-fields.php:1238
-#: inc/acf-fields.php:1275
-#: inc/acf-fields.php:1509
-#: inc/acf-fields.php:1670
-#: inc/acf-fields.php:1910
-#: inc/acf-fields.php:2009
-#: inc/acf-fields.php:3260
-#: inc/acf-fields.php:3297
-#: inc/acf-fields.php:3713
-#: inc/acf-fields.php:3732
+#: inc/acf-fields.php:439
+#: inc/acf-fields.php:652
+#: inc/acf-fields.php:689
+#: inc/acf-fields.php:1254
+#: inc/acf-fields.php:1291
+#: inc/acf-fields.php:1525
+#: inc/acf-fields.php:1686
+#: inc/acf-fields.php:1926
+#: inc/acf-fields.php:2025
+#: inc/acf-fields.php:3458
+#: inc/acf-fields.php:3495
+#: inc/acf-fields.php:3912
+#: inc/acf-fields.php:3931
 msgid "Primary"
 msgstr ""
 
@@ -154,30 +154,31 @@ msgid "Skip to content"
 msgstr ""
 
 #: inc/acf-fields.php:25
-#: inc/acf-fields.php:747
-#: inc/acf-fields.php:1349
+#: inc/acf-fields.php:763
+#: inc/acf-fields.php:1365
 msgid "Width"
 msgstr ""
 
 #: inc/acf-fields.php:29
 #: inc/acf-fields.php:43
-#: inc/acf-fields.php:751
-#: inc/acf-fields.php:1353
-#: inc/acf-fields.php:1983
+#: inc/acf-fields.php:767
+#: inc/acf-fields.php:1369
+#: inc/acf-fields.php:1999
 msgid "Container"
 msgstr ""
 
 #: inc/acf-fields.php:30
 #: inc/acf-fields.php:45
-#: inc/acf-fields.php:752
-#: inc/acf-fields.php:1354
-#: inc/acf-fields.php:1982
+#: inc/acf-fields.php:768
+#: inc/acf-fields.php:1370
+#: inc/acf-fields.php:1998
+#: inc/acf-fields.php:3005
 msgid "Narrow"
 msgstr ""
 
 #: inc/acf-fields.php:31
-#: inc/acf-fields.php:753
-#: inc/acf-fields.php:1355
+#: inc/acf-fields.php:769
+#: inc/acf-fields.php:1371
 msgid "Full Width"
 msgstr ""
 
@@ -190,7 +191,8 @@ msgid "Inherit From Width"
 msgstr ""
 
 #: inc/acf-fields.php:44
-#: inc/acf-fields.php:1984
+#: inc/acf-fields.php:2000
+#: inc/acf-fields.php:3007
 msgid "Wide"
 msgstr ""
 
@@ -207,71 +209,72 @@ msgid "Small"
 msgstr ""
 
 #: inc/acf-fields.php:58
-#: inc/acf-fields.php:2045
+#: inc/acf-fields.php:2061
+#: inc/acf-fields.php:3006
 msgid "Normal"
 msgstr ""
 
 #: inc/acf-fields.php:59
-#: inc/acf-fields.php:1970
-#: inc/acf-fields.php:2820
+#: inc/acf-fields.php:1986
+#: inc/acf-fields.php:2836
 msgid "Large"
 msgstr ""
 
 #: inc/acf-fields.php:60
-#: inc/acf-fields.php:1971
-#: inc/acf-fields.php:2821
+#: inc/acf-fields.php:1987
+#: inc/acf-fields.php:2837
 msgid "Extra Large"
 msgstr ""
 
 #: inc/acf-fields.php:67
-#: inc/acf-fields.php:760
-#: inc/acf-fields.php:1362
-#: inc/acf-fields.php:3541
-#: inc/acf-fields.php:3838
+#: inc/acf-fields.php:776
+#: inc/acf-fields.php:1378
+#: inc/acf-fields.php:3739
+#: inc/acf-fields.php:4037
 msgid "Background"
 msgstr ""
 
 #: inc/acf-fields.php:71
-#: inc/acf-fields.php:764
-#: inc/acf-fields.php:1366
-#: inc/acf-fields.php:3545
-#: inc/acf-fields.php:3842
+#: inc/acf-fields.php:780
+#: inc/acf-fields.php:1382
+#: inc/acf-fields.php:3743
+#: inc/acf-fields.php:4041
 msgid "Default"
 msgstr ""
 
 #: inc/acf-fields.php:72
-#: inc/acf-fields.php:526
-#: inc/acf-fields.php:765
-#: inc/acf-fields.php:1367
-#: inc/acf-fields.php:3546
-#: inc/acf-fields.php:3843
+#: inc/acf-fields.php:542
+#: inc/acf-fields.php:781
+#: inc/acf-fields.php:1383
+#: inc/acf-fields.php:3744
+#: inc/acf-fields.php:4042
 msgid "Light"
 msgstr ""
 
 #: inc/acf-fields.php:73
-#: inc/acf-fields.php:525
-#: inc/acf-fields.php:766
-#: inc/acf-fields.php:1368
-#: inc/acf-fields.php:2206
-#: inc/acf-fields.php:3547
-#: inc/acf-fields.php:3844
+#: inc/acf-fields.php:541
+#: inc/acf-fields.php:782
+#: inc/acf-fields.php:1384
+#: inc/acf-fields.php:2222
+#: inc/acf-fields.php:3745
+#: inc/acf-fields.php:4043
 msgid "Dark"
 msgstr ""
 
 #: inc/acf-fields.php:74
-#: inc/acf-fields.php:527
-#: inc/acf-fields.php:767
-#: inc/acf-fields.php:1369
-#: inc/acf-fields.php:3548
-#: inc/acf-fields.php:3845
+#: inc/acf-fields.php:543
+#: inc/acf-fields.php:783
+#: inc/acf-fields.php:1385
+#: inc/acf-fields.php:3746
+#: inc/acf-fields.php:4044
 msgid "Brand"
 msgstr ""
 
 #: inc/acf-fields.php:75
-#: inc/acf-fields.php:768
-#: inc/acf-fields.php:1370
-#: inc/acf-fields.php:3549
-#: inc/acf-fields.php:3846
+#: inc/acf-fields.php:784
+#: inc/acf-fields.php:1386
+#: inc/acf-fields.php:3747
+#: inc/acf-fields.php:4045
 msgid "Muted"
 msgstr ""
 
@@ -294,1660 +297,1784 @@ msgid "Theme Preset"
 msgstr ""
 
 #: inc/acf-fields.php:125
-msgid "Branding"
+msgid "Color Scheme"
+msgstr ""
+
+#: inc/acf-fields.php:129
+msgid "Preset Default"
+msgstr ""
+
+#: inc/acf-fields.php:130
+msgid "Ocean"
 msgstr ""
 
 #: inc/acf-fields.php:131
+msgid "Sunset"
+msgstr ""
+
+#: inc/acf-fields.php:132
+msgid "Forest"
+msgstr ""
+
+#: inc/acf-fields.php:133
+msgid "Monochrome"
+msgstr ""
+
+#: inc/acf-fields.php:137
+msgid "Choose a palette independently from Theme Preset (typography/shape)."
+msgstr ""
+
+#: inc/acf-fields.php:141
+msgid "Branding"
+msgstr ""
+
+#: inc/acf-fields.php:147
 msgid "Favicon"
 msgstr ""
 
-#: inc/acf-fields.php:136
+#: inc/acf-fields.php:152
 msgid "Optional fallback favicon (used when Site Icon is not set in Customizer)."
 msgstr ""
 
-#: inc/acf-fields.php:156
+#: inc/acf-fields.php:172
 msgid "Navigation Settings"
 msgstr ""
 
-#: inc/acf-fields.php:160
-#: inc/acf-fields.php:714
-#: inc/acf-fields.php:934
-#: inc/acf-fields.php:1316
+#: inc/acf-fields.php:176
+#: inc/acf-fields.php:730
+#: inc/acf-fields.php:950
+#: inc/acf-fields.php:1332
+#: inc/acf-fields.php:2964
 msgid "Layout"
 msgstr ""
 
-#: inc/acf-fields.php:166
+#: inc/acf-fields.php:182
 msgid "Nav Layout"
 msgstr ""
 
-#: inc/acf-fields.php:170
+#: inc/acf-fields.php:186
 msgid "Inline: Brand Left, Menu Right"
 msgstr ""
 
-#: inc/acf-fields.php:171
+#: inc/acf-fields.php:187
 msgid "Centered: Stacked Brand/Menu"
 msgstr ""
 
-#: inc/acf-fields.php:172
+#: inc/acf-fields.php:188
 msgid "Split: Brand Left, Menu Center, CTA Right"
 msgstr ""
 
-#: inc/acf-fields.php:179
+#: inc/acf-fields.php:195
 msgid "Nav Style"
 msgstr ""
 
-#: inc/acf-fields.php:183
+#: inc/acf-fields.php:199
 msgid "Clean"
 msgstr ""
 
-#: inc/acf-fields.php:184
+#: inc/acf-fields.php:200
 msgid "Outlined"
 msgstr ""
 
-#: inc/acf-fields.php:185
+#: inc/acf-fields.php:201
 msgid "Soft Surface"
 msgstr ""
 
-#: inc/acf-fields.php:186
+#: inc/acf-fields.php:202
 msgid "Transparent To Solid"
 msgstr ""
 
-#: inc/acf-fields.php:193
-#: inc/acf-fields.php:2802
+#: inc/acf-fields.php:209
+#: inc/acf-fields.php:2818
 msgid "Alignment"
 msgstr ""
 
-#: inc/acf-fields.php:197
+#: inc/acf-fields.php:213
 msgid "Brand Left / Menu Right"
 msgstr ""
 
-#: inc/acf-fields.php:198
+#: inc/acf-fields.php:214
 msgid "All Left"
 msgstr ""
 
-#: inc/acf-fields.php:199
+#: inc/acf-fields.php:215
 msgid "Centered"
 msgstr ""
 
-#: inc/acf-fields.php:206
+#: inc/acf-fields.php:222
 msgid "Menu Item Style"
 msgstr ""
 
-#: inc/acf-fields.php:210
-#: inc/acf-fields.php:461
-#: inc/acf-fields.php:1064
-#: inc/acf-fields.php:2073
+#: inc/acf-fields.php:226
+#: inc/acf-fields.php:477
+#: inc/acf-fields.php:1080
+#: inc/acf-fields.php:2089
 msgid "Text"
 msgstr ""
 
-#: inc/acf-fields.php:211
+#: inc/acf-fields.php:227
 msgid "Button-like"
 msgstr ""
 
-#: inc/acf-fields.php:218
+#: inc/acf-fields.php:234
 msgid "Rounding"
 msgstr ""
 
-#: inc/acf-fields.php:222
-#: inc/acf-fields.php:784
-#: inc/acf-fields.php:1386
-#: inc/acf-fields.php:1762
-#: inc/acf-fields.php:3325
+#: inc/acf-fields.php:238
+#: inc/acf-fields.php:800
+#: inc/acf-fields.php:1402
+#: inc/acf-fields.php:1778
 #: inc/acf-fields.php:3523
-#: inc/acf-fields.php:3745
-#: inc/acf-fields.php:3829
+#: inc/acf-fields.php:3721
+#: inc/acf-fields.php:3944
+#: inc/acf-fields.php:4028
 msgid "None"
 msgstr ""
 
-#: inc/acf-fields.php:223
+#: inc/acf-fields.php:239
 msgid "Soft"
 msgstr ""
 
-#: inc/acf-fields.php:224
+#: inc/acf-fields.php:240
 msgid "Pill"
 msgstr ""
 
-#: inc/acf-fields.php:231
+#: inc/acf-fields.php:247
 msgid "Dropdown Style"
 msgstr ""
 
-#: inc/acf-fields.php:235
-#: inc/acf-fields.php:2207
+#: inc/acf-fields.php:251
+#: inc/acf-fields.php:2223
 msgid "Minimal"
 msgstr ""
 
-#: inc/acf-fields.php:236
+#: inc/acf-fields.php:252
 msgid "Elevated"
 msgstr ""
 
-#: inc/acf-fields.php:243
+#: inc/acf-fields.php:259
 msgid "Fixed Header"
 msgstr ""
 
-#: inc/acf-fields.php:251
+#: inc/acf-fields.php:267
 #: inc/media.php:49
 msgid "Logo"
 msgstr ""
 
-#: inc/acf-fields.php:257
+#: inc/acf-fields.php:273
 msgid "Show Branding"
 msgstr ""
 
-#: inc/acf-fields.php:265
+#: inc/acf-fields.php:281
 msgid "Logo Source"
 msgstr ""
 
-#: inc/acf-fields.php:269
+#: inc/acf-fields.php:285
 msgid "Custom Logo (Customizer)"
 msgstr ""
 
-#: inc/acf-fields.php:270
-#: inc/acf-fields.php:1015
+#: inc/acf-fields.php:286
+#: inc/acf-fields.php:1031
 msgid "Image (Option)"
 msgstr ""
 
-#: inc/acf-fields.php:271
-#: inc/acf-fields.php:1016
+#: inc/acf-fields.php:287
+#: inc/acf-fields.php:1032
 msgid "Site Name Text"
 msgstr ""
 
-#: inc/acf-fields.php:287
-#: inc/acf-fields.php:2733
+#: inc/acf-fields.php:303
+#: inc/acf-fields.php:2749
 msgid "Logo Image"
 msgstr ""
 
-#: inc/acf-fields.php:305
+#: inc/acf-fields.php:321
 msgid "Mobile Logo Mark (Square)"
 msgstr ""
 
-#: inc/acf-fields.php:311
+#: inc/acf-fields.php:327
 msgid "Optional square logo shown on smaller screens."
 msgstr ""
 
-#: inc/acf-fields.php:324
+#: inc/acf-fields.php:340
 msgid "Primary Logo Max Width (Desktop px)"
 msgstr ""
 
-#: inc/acf-fields.php:343
+#: inc/acf-fields.php:359
 msgid "Mobile Logo Mark Max Width (px)"
 msgstr ""
 
-#: inc/acf-fields.php:366
+#: inc/acf-fields.php:382
 msgid "Logo Mark Breakpoint (px)"
 msgstr ""
 
-#: inc/acf-fields.php:373
+#: inc/acf-fields.php:389
 msgid "Below this width, the square logo mark replaces the primary logo."
 msgstr ""
 
-#: inc/acf-fields.php:390
+#: inc/acf-fields.php:406
 msgid "CTA"
 msgstr ""
 
-#: inc/acf-fields.php:396
+#: inc/acf-fields.php:412
 msgid "Show Nav CTA"
 msgstr ""
 
-#: inc/acf-fields.php:404
+#: inc/acf-fields.php:420
 msgid "CTA Link"
 msgstr ""
 
-#: inc/acf-fields.php:419
+#: inc/acf-fields.php:435
 msgid "CTA Style"
 msgstr ""
 
-#: inc/acf-fields.php:424
-#: inc/acf-fields.php:637
-#: inc/acf-fields.php:674
-#: inc/acf-fields.php:1239
-#: inc/acf-fields.php:1276
-#: inc/acf-fields.php:3261
-#: inc/acf-fields.php:3298
-#: inc/acf-fields.php:3714
-#: inc/acf-fields.php:3733
+#: inc/acf-fields.php:440
+#: inc/acf-fields.php:653
+#: inc/acf-fields.php:690
+#: inc/acf-fields.php:1255
+#: inc/acf-fields.php:1292
+#: inc/acf-fields.php:3459
+#: inc/acf-fields.php:3496
+#: inc/acf-fields.php:3913
+#: inc/acf-fields.php:3932
 msgid "Secondary"
 msgstr ""
 
-#: inc/acf-fields.php:425
-#: inc/acf-fields.php:638
-#: inc/acf-fields.php:675
-#: inc/acf-fields.php:1240
-#: inc/acf-fields.php:1277
-#: inc/acf-fields.php:1510
-#: inc/acf-fields.php:1671
-#: inc/acf-fields.php:1911
-#: inc/acf-fields.php:2010
-#: inc/acf-fields.php:3262
-#: inc/acf-fields.php:3299
-#: inc/acf-fields.php:3715
-#: inc/acf-fields.php:3734
+#: inc/acf-fields.php:441
+#: inc/acf-fields.php:654
+#: inc/acf-fields.php:691
+#: inc/acf-fields.php:1256
+#: inc/acf-fields.php:1293
+#: inc/acf-fields.php:1526
+#: inc/acf-fields.php:1687
+#: inc/acf-fields.php:1927
+#: inc/acf-fields.php:2026
+#: inc/acf-fields.php:3460
+#: inc/acf-fields.php:3497
+#: inc/acf-fields.php:3914
+#: inc/acf-fields.php:3933
 msgid "Ghost"
 msgstr ""
 
-#: inc/acf-fields.php:441
+#: inc/acf-fields.php:457
 msgid "Social"
 msgstr ""
 
-#: inc/acf-fields.php:447
+#: inc/acf-fields.php:463
 msgid "Show Social Links In Header"
 msgstr ""
 
-#: inc/acf-fields.php:452
-#: inc/acf-fields.php:1055
+#: inc/acf-fields.php:468
+#: inc/acf-fields.php:1071
 msgid "Uses URLs from Theme Settings > Social Media Links."
 msgstr ""
 
-#: inc/acf-fields.php:456
+#: inc/acf-fields.php:472
 msgid "Social Links Style"
 msgstr ""
 
-#: inc/acf-fields.php:460
-#: inc/acf-fields.php:1063
-#: inc/acf-fields.php:1763
+#: inc/acf-fields.php:476
+#: inc/acf-fields.php:1079
+#: inc/acf-fields.php:1779
 msgid "Icon"
 msgstr ""
 
-#: inc/acf-fields.php:477
+#: inc/acf-fields.php:493
 msgid "Banner"
 msgstr ""
 
-#: inc/acf-fields.php:483
+#: inc/acf-fields.php:499
 msgid "Enable Top Banner"
 msgstr ""
 
-#: inc/acf-fields.php:491
+#: inc/acf-fields.php:507
 msgid "Banner Text"
 msgstr ""
 
-#: inc/acf-fields.php:506
+#: inc/acf-fields.php:522
 msgid "Banner Link (optional)"
 msgstr ""
 
-#: inc/acf-fields.php:521
+#: inc/acf-fields.php:537
 msgid "Banner Style"
 msgstr ""
 
-#: inc/acf-fields.php:558
+#: inc/acf-fields.php:574
 msgid "Global CTA Settings"
 msgstr ""
 
-#: inc/acf-fields.php:562
+#: inc/acf-fields.php:578
 msgid "Enable Global CTA"
 msgstr ""
 
-#: inc/acf-fields.php:569
-#: inc/acf-fields.php:1171
-#: inc/acf-fields.php:1485
-#: inc/acf-fields.php:1947
-#: inc/acf-fields.php:2796
-#: inc/acf-fields.php:3168
+#: inc/acf-fields.php:585
+#: inc/acf-fields.php:1187
+#: inc/acf-fields.php:1501
+#: inc/acf-fields.php:1963
+#: inc/acf-fields.php:2812
+#: inc/acf-fields.php:3366
 msgid "Content"
 msgstr ""
 
-#: inc/acf-fields.php:575
-#: inc/acf-fields.php:1177
-#: inc/acf-fields.php:2603
-#: inc/acf-fields.php:3174
-#: inc/acf-fields.php:3679
+#: inc/acf-fields.php:591
+#: inc/acf-fields.php:1193
+#: inc/acf-fields.php:2619
+#: inc/acf-fields.php:3372
+#: inc/acf-fields.php:3878
 msgid "Eyebrow"
 msgstr ""
 
-#: inc/acf-fields.php:581
-#: inc/acf-fields.php:1183
-#: inc/acf-fields.php:1479
-#: inc/acf-fields.php:2229
-#: inc/acf-fields.php:2618
+#: inc/acf-fields.php:597
+#: inc/acf-fields.php:1199
+#: inc/acf-fields.php:1495
+#: inc/acf-fields.php:2245
+#: inc/acf-fields.php:2634
 msgid "Title"
 msgstr ""
 
-#: inc/acf-fields.php:587
-#: inc/acf-fields.php:1189
-#: inc/acf-fields.php:3205
-#: inc/acf-fields.php:3691
+#: inc/acf-fields.php:603
+#: inc/acf-fields.php:1205
+#: inc/acf-fields.php:3403
+#: inc/acf-fields.php:3890
 msgid "Subheading"
 msgstr ""
 
-#: inc/acf-fields.php:593
-#: inc/acf-fields.php:1195
-#: inc/acf-fields.php:3220
-#: inc/acf-fields.php:3697
+#: inc/acf-fields.php:609
+#: inc/acf-fields.php:1211
+#: inc/acf-fields.php:3418
+#: inc/acf-fields.php:3896
 msgid "Paragraph"
 msgstr ""
 
-#: inc/acf-fields.php:599
-#: inc/acf-fields.php:609
-#: inc/acf-fields.php:1201
-#: inc/acf-fields.php:1211
-#: inc/acf-fields.php:1491
-#: inc/acf-fields.php:3235
+#: inc/acf-fields.php:615
+#: inc/acf-fields.php:625
+#: inc/acf-fields.php:1217
+#: inc/acf-fields.php:1227
+#: inc/acf-fields.php:1507
+#: inc/acf-fields.php:3433
 msgid "Buttons"
 msgstr ""
 
-#: inc/acf-fields.php:605
-#: inc/acf-fields.php:1207
+#: inc/acf-fields.php:621
+#: inc/acf-fields.php:1223
 msgid "Actions Type"
 msgstr ""
 
-#: inc/acf-fields.php:610
-#: inc/acf-fields.php:1212
-#: inc/acf-fields.php:3014
-#: inc/acf-fields.php:3328
-#: inc/acf-fields.php:3748
+#: inc/acf-fields.php:626
+#: inc/acf-fields.php:1228
+#: inc/acf-fields.php:3212
+#: inc/acf-fields.php:3526
+#: inc/acf-fields.php:3947
 msgid "Form"
 msgstr ""
 
-#: inc/acf-fields.php:617
-#: inc/acf-fields.php:1219
-#: inc/acf-fields.php:3241
-#: inc/acf-fields.php:3703
+#: inc/acf-fields.php:633
+#: inc/acf-fields.php:1235
+#: inc/acf-fields.php:3439
+#: inc/acf-fields.php:3902
 msgid "Primary Button"
 msgstr ""
 
-#: inc/acf-fields.php:632
-#: inc/acf-fields.php:1234
-#: inc/acf-fields.php:3256
-#: inc/acf-fields.php:3709
+#: inc/acf-fields.php:648
+#: inc/acf-fields.php:1250
+#: inc/acf-fields.php:3454
+#: inc/acf-fields.php:3908
 msgid "Primary Button Style"
 msgstr ""
 
-#: inc/acf-fields.php:654
-#: inc/acf-fields.php:1256
-#: inc/acf-fields.php:3278
-#: inc/acf-fields.php:3722
+#: inc/acf-fields.php:670
+#: inc/acf-fields.php:1272
+#: inc/acf-fields.php:3476
+#: inc/acf-fields.php:3921
 msgid "Secondary Button"
 msgstr ""
 
-#: inc/acf-fields.php:669
-#: inc/acf-fields.php:1271
-#: inc/acf-fields.php:3293
-#: inc/acf-fields.php:3728
+#: inc/acf-fields.php:685
+#: inc/acf-fields.php:1287
+#: inc/acf-fields.php:3491
+#: inc/acf-fields.php:3927
 msgid "Secondary Button Style"
 msgstr ""
 
-#: inc/acf-fields.php:691
-#: inc/acf-fields.php:1293
-#: inc/acf-fields.php:3052
-#: inc/acf-fields.php:3435
-#: inc/acf-fields.php:3800
-#: inc/acf-fields.php:3890
+#: inc/acf-fields.php:707
+#: inc/acf-fields.php:1309
+#: inc/acf-fields.php:3250
+#: inc/acf-fields.php:3633
+#: inc/acf-fields.php:3999
+#: inc/acf-fields.php:4089
 msgid "Form Shortcode"
 msgstr ""
 
-#: inc/acf-fields.php:694
-#: inc/acf-fields.php:1296
+#: inc/acf-fields.php:710
+#: inc/acf-fields.php:1312
 msgid "Examples: [gravityform id=\"1\" title=\"false\" description=\"false\" ajax=\"true\"], [fluentform id=\"1\"], [wpforms id=\"123\"]"
 msgstr ""
 
-#: inc/acf-fields.php:708
-#: inc/acf-fields.php:1310
-#: inc/acf-fields.php:3489
+#: inc/acf-fields.php:724
+#: inc/acf-fields.php:1326
+#: inc/acf-fields.php:3687
 msgid "Style"
 msgstr ""
 
-#: inc/acf-fields.php:718
-#: inc/acf-fields.php:1320
+#: inc/acf-fields.php:734
+#: inc/acf-fields.php:1336
 msgid "Stacked"
 msgstr ""
 
-#: inc/acf-fields.php:719
-#: inc/acf-fields.php:1321
+#: inc/acf-fields.php:735
+#: inc/acf-fields.php:1337
 msgid "Split"
 msgstr ""
 
-#: inc/acf-fields.php:726
-#: inc/acf-fields.php:1328
+#: inc/acf-fields.php:742
+#: inc/acf-fields.php:1344
 msgid "Split Ratio"
 msgstr ""
 
-#: inc/acf-fields.php:730
-#: inc/acf-fields.php:1332
+#: inc/acf-fields.php:746
+#: inc/acf-fields.php:1348
 msgid "2/3 + 1/3"
 msgstr ""
 
-#: inc/acf-fields.php:731
-#: inc/acf-fields.php:1333
+#: inc/acf-fields.php:747
+#: inc/acf-fields.php:1349
 msgid "50/50"
 msgstr ""
 
-#: inc/acf-fields.php:778
-#: inc/acf-fields.php:1380
-#: inc/acf-fields.php:3519
-#: inc/acf-fields.php:3825
+#: inc/acf-fields.php:794
+#: inc/acf-fields.php:1396
+#: inc/acf-fields.php:3717
+#: inc/acf-fields.php:4024
 msgid "Text Box Style"
 msgstr ""
 
-#: inc/acf-fields.php:782
-#: inc/acf-fields.php:1384
-#: inc/acf-fields.php:1704
-#: inc/acf-fields.php:3524
-#: inc/acf-fields.php:3830
+#: inc/acf-fields.php:798
+#: inc/acf-fields.php:1400
+#: inc/acf-fields.php:1720
+#: inc/acf-fields.php:3722
+#: inc/acf-fields.php:4029
 msgid "Surface"
 msgstr ""
 
-#: inc/acf-fields.php:783
-#: inc/acf-fields.php:1385
-#: inc/acf-fields.php:1705
-#: inc/acf-fields.php:3525
-#: inc/acf-fields.php:3831
+#: inc/acf-fields.php:799
+#: inc/acf-fields.php:1401
+#: inc/acf-fields.php:1721
+#: inc/acf-fields.php:3723
+#: inc/acf-fields.php:4030
 msgid "Outline"
 msgstr ""
 
-#: inc/acf-fields.php:806
+#: inc/acf-fields.php:822
 msgid "Contact Information"
 msgstr ""
 
 #. Template Name of the theme
-#: inc/acf-fields.php:810
+#: inc/acf-fields.php:826
 msgid "Contact"
 msgstr ""
 
-#: inc/acf-fields.php:816
+#: inc/acf-fields.php:832
 #: template-parts/components/contact-info.php:26
 msgid "Phone"
 msgstr ""
 
-#: inc/acf-fields.php:822
+#: inc/acf-fields.php:838
 #: template-parts/components/contact-info.php:27
 msgid "Email"
 msgstr ""
 
-#: inc/acf-fields.php:828
+#: inc/acf-fields.php:844
+#: inc/acf-fields.php:2976
 #: template-parts/components/contact-info.php:28
 msgid "Address"
 msgstr ""
 
-#: inc/acf-fields.php:835
+#: inc/acf-fields.php:851
 msgid "Business Hours"
 msgstr ""
 
-#: inc/acf-fields.php:857
+#: inc/acf-fields.php:873
 #: template-parts/components/footer.php:135
 #: template-parts/components/footer.php:212
 #: template-parts/components/header.php:183
 msgid "Social Media Links"
 msgstr ""
 
-#: inc/acf-fields.php:861
+#: inc/acf-fields.php:877
 msgid "Social Media"
 msgstr ""
 
-#: inc/acf-fields.php:867
+#: inc/acf-fields.php:883
 msgid "Facebook URL"
 msgstr ""
 
-#: inc/acf-fields.php:873
+#: inc/acf-fields.php:889
 msgid "Twitter/X URL"
 msgstr ""
 
-#: inc/acf-fields.php:879
+#: inc/acf-fields.php:895
 msgid "Instagram URL"
 msgstr ""
 
-#: inc/acf-fields.php:885
+#: inc/acf-fields.php:901
 msgid "LinkedIn URL"
 msgstr ""
 
-#: inc/acf-fields.php:891
+#: inc/acf-fields.php:907
 msgid "YouTube URL"
 msgstr ""
 
-#: inc/acf-fields.php:897
+#: inc/acf-fields.php:913
 msgid "TikTok URL"
 msgstr ""
 
-#: inc/acf-fields.php:903
+#: inc/acf-fields.php:919
 msgid "Pinterest URL"
 msgstr ""
 
-#: inc/acf-fields.php:909
+#: inc/acf-fields.php:925
 msgid "GitHub URL"
 msgstr ""
 
-#: inc/acf-fields.php:930
+#: inc/acf-fields.php:946
 msgid "Footer Settings"
 msgstr ""
 
-#: inc/acf-fields.php:940
+#: inc/acf-fields.php:956
 msgid "Footer Layout"
 msgstr ""
 
-#: inc/acf-fields.php:944
-#: inc/acf-fields.php:2312
-#: inc/acf-fields.php:2508
+#: inc/acf-fields.php:960
+#: inc/acf-fields.php:2328
+#: inc/acf-fields.php:2524
 msgid "Simple"
 msgstr ""
 
-#: inc/acf-fields.php:945
+#: inc/acf-fields.php:961
 msgid "Complex Columns"
 msgstr ""
 
-#: inc/acf-fields.php:952
+#: inc/acf-fields.php:968
 msgid "Simple Layout Columns"
 msgstr ""
 
-#: inc/acf-fields.php:956
+#: inc/acf-fields.php:972
+#: inc/acf-fields.php:2968
 msgid "One Column"
 msgstr ""
 
-#: inc/acf-fields.php:957
+#: inc/acf-fields.php:973
 msgid "Two Columns"
 msgstr ""
 
-#: inc/acf-fields.php:973
+#: inc/acf-fields.php:989
 msgid "Complex Menu Columns"
 msgstr ""
 
-#: inc/acf-fields.php:977
+#: inc/acf-fields.php:993
 msgid "Two Menu Columns"
 msgstr ""
 
-#: inc/acf-fields.php:978
+#: inc/acf-fields.php:994
 msgid "Three Menu Columns"
 msgstr ""
 
-#: inc/acf-fields.php:982
+#: inc/acf-fields.php:998
 msgid "Uses Footer Column 1-3 menu locations."
 msgstr ""
 
-#: inc/acf-fields.php:995
-#: inc/acf-fields.php:1448
+#: inc/acf-fields.php:1011
+#: inc/acf-fields.php:1464
 msgid "Sections"
 msgstr ""
 
-#: inc/acf-fields.php:1001
+#: inc/acf-fields.php:1017
 msgid "Show Footer Logo"
 msgstr ""
 
-#: inc/acf-fields.php:1009
+#: inc/acf-fields.php:1025
 msgid "Footer Logo Source"
 msgstr ""
 
-#: inc/acf-fields.php:1013
+#: inc/acf-fields.php:1029
 msgid "Inherit Header Logo Setting"
 msgstr ""
 
-#: inc/acf-fields.php:1014
+#: inc/acf-fields.php:1030
 msgid "Customizer Logo"
 msgstr ""
 
-#: inc/acf-fields.php:1032
+#: inc/acf-fields.php:1048
 msgid "Footer Logo Image"
 msgstr ""
 
-#: inc/acf-fields.php:1050
+#: inc/acf-fields.php:1066
 msgid "Show Social Links"
 msgstr ""
 
-#: inc/acf-fields.php:1059
+#: inc/acf-fields.php:1075
 msgid "Footer Social Style"
 msgstr ""
 
-#: inc/acf-fields.php:1080
+#: inc/acf-fields.php:1096
 msgid "Show Main Footer Menu"
 msgstr ""
 
-#: inc/acf-fields.php:1085
+#: inc/acf-fields.php:1101
 msgid "Uses Footer Main menu location (falls back to Footer legacy location)."
 msgstr ""
 
-#: inc/acf-fields.php:1089
+#: inc/acf-fields.php:1105
 msgid "Show Legal Menu"
 msgstr ""
 
-#: inc/acf-fields.php:1094
+#: inc/acf-fields.php:1110
 msgid "Uses Footer Legal menu location."
 msgstr ""
 
-#: inc/acf-fields.php:1098
+#: inc/acf-fields.php:1114
 msgid "Extra Legal Links"
 msgstr ""
 
-#: inc/acf-fields.php:1101
+#: inc/acf-fields.php:1117
 msgid "Add Link"
 msgstr ""
 
-#: inc/acf-fields.php:1106
-#: inc/acf-fields.php:2264
+#: inc/acf-fields.php:1122
+#: inc/acf-fields.php:2280
 msgid "Link"
 msgstr ""
 
-#: inc/acf-fields.php:1114
+#: inc/acf-fields.php:1130
 msgid "Bottom Row"
 msgstr ""
 
-#: inc/acf-fields.php:1120
+#: inc/acf-fields.php:1136
 msgid "Copyright Text"
 msgstr ""
 
-#: inc/acf-fields.php:1123
-#: inc/template-helpers.php:138
+#: inc/acf-fields.php:1139
+#: inc/template-helpers.php:157
 msgid "All rights reserved."
 msgstr ""
 
-#: inc/acf-fields.php:1124
+#: inc/acf-fields.php:1140
 msgid "Year and site name are added automatically."
 msgstr ""
 
-#: inc/acf-fields.php:1143
+#: inc/acf-fields.php:1159
 msgid "CTA Override"
 msgstr ""
 
-#: inc/acf-fields.php:1148
+#: inc/acf-fields.php:1164
 msgid "Override Global CTA"
 msgstr ""
 
-#: inc/acf-fields.php:1155
+#: inc/acf-fields.php:1171
 msgid "Enable CTA For This Page"
 msgstr ""
 
-#: inc/acf-fields.php:1443
+#: inc/acf-fields.php:1459
 msgid "Page Sections"
 msgstr ""
 
-#: inc/acf-fields.php:1451
+#: inc/acf-fields.php:1467
 msgid "Add Section"
 msgstr ""
 
-#: inc/acf-fields.php:1456
+#: inc/acf-fields.php:1472
 msgid "Content + Media"
 msgstr ""
 
-#: inc/acf-fields.php:1461
+#: inc/acf-fields.php:1477
 msgid "Layout Mode"
 msgstr ""
 
-#: inc/acf-fields.php:1465
+#: inc/acf-fields.php:1481
 msgid "Split (2 Column)"
 msgstr ""
 
-#: inc/acf-fields.php:1466
+#: inc/acf-fields.php:1482
 msgid "Stacked (Single Column Flow)"
 msgstr ""
 
-#: inc/acf-fields.php:1473
-#: inc/acf-fields.php:1634
-#: inc/acf-fields.php:1935
+#: inc/acf-fields.php:1489
+#: inc/acf-fields.php:1650
+#: inc/acf-fields.php:1951
+#: inc/acf-fields.php:3069
 msgid "Kicker"
 msgstr ""
 
-#: inc/acf-fields.php:1495
-#: inc/acf-fields.php:1995
+#: inc/acf-fields.php:1511
+#: inc/acf-fields.php:2011
 msgid "Add Button"
 msgstr ""
 
-#: inc/acf-fields.php:1499
-#: inc/acf-fields.php:1660
-#: inc/acf-fields.php:1900
-#: inc/acf-fields.php:1999
+#: inc/acf-fields.php:1515
+#: inc/acf-fields.php:1676
+#: inc/acf-fields.php:1916
+#: inc/acf-fields.php:2015
 msgid "Button Link"
 msgstr ""
 
-#: inc/acf-fields.php:1505
-#: inc/acf-fields.php:1666
-#: inc/acf-fields.php:1906
-#: inc/acf-fields.php:2005
+#: inc/acf-fields.php:1521
+#: inc/acf-fields.php:1682
+#: inc/acf-fields.php:1922
+#: inc/acf-fields.php:2021
 msgid "Button Style"
 msgstr ""
 
-#: inc/acf-fields.php:1519
+#: inc/acf-fields.php:1535
 msgid "Media Image"
 msgstr ""
 
-#: inc/acf-fields.php:1528
+#: inc/acf-fields.php:1544
 msgid "Ratio"
 msgstr ""
 
-#: inc/acf-fields.php:1549
-#: inc/acf-fields.php:3344
-#: inc/acf-fields.php:3755
+#: inc/acf-fields.php:1565
+#: inc/acf-fields.php:3542
+#: inc/acf-fields.php:3954
 msgid "Media Position"
 msgstr ""
 
-#: inc/acf-fields.php:1553
-#: inc/acf-fields.php:1825
-#: inc/acf-fields.php:1957
-#: inc/acf-fields.php:2806
-#: inc/acf-fields.php:3349
-#: inc/acf-fields.php:3760
+#: inc/acf-fields.php:1569
+#: inc/acf-fields.php:1841
+#: inc/acf-fields.php:1973
+#: inc/acf-fields.php:2822
+#: inc/acf-fields.php:3041
+#: inc/acf-fields.php:3547
+#: inc/acf-fields.php:3959
 msgid "Left"
 msgstr ""
 
-#: inc/acf-fields.php:1554
-#: inc/acf-fields.php:1826
-#: inc/acf-fields.php:2808
-#: inc/acf-fields.php:3348
-#: inc/acf-fields.php:3759
+#: inc/acf-fields.php:1570
+#: inc/acf-fields.php:1842
+#: inc/acf-fields.php:2824
+#: inc/acf-fields.php:3040
+#: inc/acf-fields.php:3546
+#: inc/acf-fields.php:3958
 msgid "Right"
 msgstr ""
 
-#: inc/acf-fields.php:1570
+#: inc/acf-fields.php:1586
 msgid "Stack Order"
 msgstr ""
 
-#: inc/acf-fields.php:1574
+#: inc/acf-fields.php:1590
 msgid "Text then Media"
 msgstr ""
 
-#: inc/acf-fields.php:1575
+#: inc/acf-fields.php:1591
 msgid "Media then Text"
 msgstr ""
 
-#: inc/acf-fields.php:1591
-#: inc/acf-fields.php:3382
-#: inc/acf-fields.php:3775
+#: inc/acf-fields.php:1607
+#: inc/acf-fields.php:3580
+#: inc/acf-fields.php:3974
 msgid "Image Style"
 msgstr ""
 
-#: inc/acf-fields.php:1595
-#: inc/acf-fields.php:3386
-#: inc/acf-fields.php:3779
+#: inc/acf-fields.php:1611
+#: inc/acf-fields.php:3584
+#: inc/acf-fields.php:3978
 msgid "Soft Radius"
 msgstr ""
 
-#: inc/acf-fields.php:1596
-#: inc/acf-fields.php:3387
-#: inc/acf-fields.php:3780
+#: inc/acf-fields.php:1612
+#: inc/acf-fields.php:3585
+#: inc/acf-fields.php:3979
 msgid "Rounded"
 msgstr ""
 
-#: inc/acf-fields.php:1597
-#: inc/acf-fields.php:3388
-#: inc/acf-fields.php:3781
+#: inc/acf-fields.php:1613
+#: inc/acf-fields.php:3586
+#: inc/acf-fields.php:3980
 msgid "Sharp"
 msgstr ""
 
-#: inc/acf-fields.php:1604
+#: inc/acf-fields.php:1620
 msgid "Image Full Bleed"
 msgstr ""
 
-#: inc/acf-fields.php:1609
+#: inc/acf-fields.php:1625
 msgid "Extends image to page edge when section width is Full Width."
 msgstr ""
 
-#: inc/acf-fields.php:1613
-#: inc/acf-fields.php:1920
-#: inc/acf-fields.php:2019
-#: inc/acf-fields.php:2088
-#: inc/acf-fields.php:2174
-#: inc/acf-fields.php:2281
-#: inc/acf-fields.php:2436
-#: inc/acf-fields.php:2683
-#: inc/acf-fields.php:2750
-#: inc/acf-fields.php:2781
-#: inc/acf-fields.php:2853
-#: inc/acf-fields.php:2933
-#: inc/acf-fields.php:2986
-#: inc/acf-fields.php:3130
+#: inc/acf-fields.php:1629
+#: inc/acf-fields.php:1936
+#: inc/acf-fields.php:2035
+#: inc/acf-fields.php:2104
+#: inc/acf-fields.php:2190
+#: inc/acf-fields.php:2297
+#: inc/acf-fields.php:2452
+#: inc/acf-fields.php:2699
+#: inc/acf-fields.php:2766
+#: inc/acf-fields.php:2797
+#: inc/acf-fields.php:2869
+#: inc/acf-fields.php:2949
+#: inc/acf-fields.php:3131
+#: inc/acf-fields.php:3184
+#: inc/acf-fields.php:3328
 msgid "Section Options"
 msgstr ""
 
-#: inc/acf-fields.php:1623
+#: inc/acf-fields.php:1639
 msgid "Card Collection (1-4 Columns)"
 msgstr ""
 
-#: inc/acf-fields.php:1628
-#: inc/acf-fields.php:2109
-#: inc/acf-fields.php:2195
+#: inc/acf-fields.php:1644
+#: inc/acf-fields.php:2125
+#: inc/acf-fields.php:2211
 msgid "Intro (Optional)"
 msgstr ""
 
-#: inc/acf-fields.php:1640
-#: inc/acf-fields.php:2189
-#: inc/acf-fields.php:2296
-#: inc/acf-fields.php:2451
-#: inc/acf-fields.php:2698
-#: inc/acf-fields.php:2868
-#: inc/acf-fields.php:2948
+#: inc/acf-fields.php:1656
+#: inc/acf-fields.php:2205
+#: inc/acf-fields.php:2312
+#: inc/acf-fields.php:2467
+#: inc/acf-fields.php:2714
+#: inc/acf-fields.php:2884
+#: inc/acf-fields.php:3084
+#: inc/acf-fields.php:3146
 msgid "Heading"
 msgstr ""
 
-#: inc/acf-fields.php:1646
+#: inc/acf-fields.php:1662
 msgid "Intro Copy"
 msgstr ""
 
-#: inc/acf-fields.php:1652
+#: inc/acf-fields.php:1668
 msgid "Intro Buttons"
 msgstr ""
 
-#: inc/acf-fields.php:1656
+#: inc/acf-fields.php:1672
 msgid "Add Intro Button"
 msgstr ""
 
-#: inc/acf-fields.php:1680
+#: inc/acf-fields.php:1696
 msgid "Cards"
 msgstr ""
 
-#: inc/acf-fields.php:1686
-#: inc/acf-fields.php:2115
+#: inc/acf-fields.php:1702
+#: inc/acf-fields.php:2131
 msgid "Columns"
 msgstr ""
 
-#: inc/acf-fields.php:1700
-#: inc/acf-fields.php:2308
+#: inc/acf-fields.php:1716
+#: inc/acf-fields.php:2324
 msgid "Card Style"
 msgstr ""
 
-#: inc/acf-fields.php:1706
+#: inc/acf-fields.php:1722
 #: template-parts/components/featured-item.php:19
 msgid "Featured"
 msgstr ""
 
-#: inc/acf-fields.php:1713
+#: inc/acf-fields.php:1729
 msgid "Equal Card Height"
 msgstr ""
 
-#: inc/acf-fields.php:1721
-#: inc/acf-fields.php:2065
-#: inc/acf-fields.php:2214
+#: inc/acf-fields.php:1737
+#: inc/acf-fields.php:2081
+#: inc/acf-fields.php:2230
 msgid "Items"
 msgstr ""
 
-#: inc/acf-fields.php:1725
+#: inc/acf-fields.php:1741
 msgid "Add Card"
 msgstr ""
 
-#: inc/acf-fields.php:1730
-#: inc/acf-fields.php:1941
+#: inc/acf-fields.php:1746
+#: inc/acf-fields.php:1957
 msgid "Title (Optional)"
 msgstr ""
 
-#: inc/acf-fields.php:1736
+#: inc/acf-fields.php:1752
 msgid "Paragraph (Optional)"
 msgstr ""
 
-#: inc/acf-fields.php:1742
+#: inc/acf-fields.php:1758
 msgid "List (Optional)"
 msgstr ""
 
-#: inc/acf-fields.php:1746
+#: inc/acf-fields.php:1762
 msgid "Add List Item"
 msgstr ""
 
-#: inc/acf-fields.php:1750
+#: inc/acf-fields.php:1766
 msgid "List Text"
 msgstr ""
 
-#: inc/acf-fields.php:1758
-#: inc/acf-fields.php:3321
-#: inc/acf-fields.php:3741
+#: inc/acf-fields.php:1774
+#: inc/acf-fields.php:3519
+#: inc/acf-fields.php:3940
 msgid "Media Type"
 msgstr ""
 
-#: inc/acf-fields.php:1764
-#: inc/acf-fields.php:1801
-#: inc/acf-fields.php:3326
-#: inc/acf-fields.php:3365
-#: inc/acf-fields.php:3746
-#: inc/acf-fields.php:3767
+#: inc/acf-fields.php:1780
+#: inc/acf-fields.php:1817
+#: inc/acf-fields.php:3524
+#: inc/acf-fields.php:3563
+#: inc/acf-fields.php:3945
+#: inc/acf-fields.php:3966
 msgid "Image"
 msgstr ""
 
-#: inc/acf-fields.php:1771
+#: inc/acf-fields.php:1787
 msgid "Icon Name"
 msgstr ""
 
-#: inc/acf-fields.php:1788
+#: inc/acf-fields.php:1804
 msgid "Uses files from /assets/icons/cards/ named icon-card-{slug}.svg."
 msgstr ""
 
-#: inc/acf-fields.php:1820
+#: inc/acf-fields.php:1836
 msgid "Media Placement"
 msgstr ""
 
-#: inc/acf-fields.php:1824
+#: inc/acf-fields.php:1840
 msgid "Top"
 msgstr ""
 
-#: inc/acf-fields.php:1842
+#: inc/acf-fields.php:1858
 msgid "Card URL (Optional)"
 msgstr ""
 
-#: inc/acf-fields.php:1845
+#: inc/acf-fields.php:1861
 msgid "If set, the whole card becomes clickable."
 msgstr ""
 
-#: inc/acf-fields.php:1849
+#: inc/acf-fields.php:1865
 msgid "Open in New Tab"
 msgstr ""
 
-#: inc/acf-fields.php:1868
+#: inc/acf-fields.php:1884
 msgid "Footer (Optional)"
 msgstr ""
 
-#: inc/acf-fields.php:1874
+#: inc/acf-fields.php:1890
 msgid "Footer Copy"
 msgstr ""
 
-#: inc/acf-fields.php:1880
+#: inc/acf-fields.php:1896
 msgid "Quote / Statement"
 msgstr ""
 
-#: inc/acf-fields.php:1886
+#: inc/acf-fields.php:1902
 msgid "Quote Source"
 msgstr ""
 
-#: inc/acf-fields.php:1892
+#: inc/acf-fields.php:1908
 msgid "Footer Buttons"
 msgstr ""
 
-#: inc/acf-fields.php:1896
+#: inc/acf-fields.php:1912
 msgid "Add Footer Button"
 msgstr ""
 
-#: inc/acf-fields.php:1930
+#: inc/acf-fields.php:1946
 msgid "Expressive Text"
 msgstr ""
 
-#: inc/acf-fields.php:1953
+#: inc/acf-fields.php:1969
 msgid "Text Align"
 msgstr ""
 
-#: inc/acf-fields.php:1958
-#: inc/acf-fields.php:2807
+#: inc/acf-fields.php:1974
+#: inc/acf-fields.php:2823
 msgid "Center"
 msgstr ""
 
-#: inc/acf-fields.php:1965
+#: inc/acf-fields.php:1981
 msgid "Text Scale"
 msgstr ""
 
-#: inc/acf-fields.php:1969
+#: inc/acf-fields.php:1985
 msgid "Body"
 msgstr ""
 
-#: inc/acf-fields.php:1978
+#: inc/acf-fields.php:1994
 msgid "Content Width"
 msgstr ""
 
-#: inc/acf-fields.php:1991
+#: inc/acf-fields.php:2007
 msgid "Buttons (Optional)"
 msgstr ""
 
-#: inc/acf-fields.php:2029
+#: inc/acf-fields.php:2045
 msgid "Horizontal Marquee"
 msgstr ""
 
-#: inc/acf-fields.php:2034
-#: inc/acf-fields.php:2103
+#: inc/acf-fields.php:2050
+#: inc/acf-fields.php:2119
 msgid "Heading (Optional)"
 msgstr ""
 
-#: inc/acf-fields.php:2040
+#: inc/acf-fields.php:2056
 msgid "Scroll Speed"
 msgstr ""
 
-#: inc/acf-fields.php:2044
+#: inc/acf-fields.php:2060
 msgid "Slow"
 msgstr ""
 
-#: inc/acf-fields.php:2046
+#: inc/acf-fields.php:2062
 msgid "Fast"
 msgstr ""
 
-#: inc/acf-fields.php:2053
+#: inc/acf-fields.php:2069
 msgid "Scroll Direction"
 msgstr ""
 
-#: inc/acf-fields.php:2057
+#: inc/acf-fields.php:2073
 msgid "Right to Left"
 msgstr ""
 
-#: inc/acf-fields.php:2058
+#: inc/acf-fields.php:2074
 msgid "Left to Right"
 msgstr ""
 
-#: inc/acf-fields.php:2069
-#: inc/acf-fields.php:2218
+#: inc/acf-fields.php:2085
+#: inc/acf-fields.php:2234
 msgid "Add Item"
 msgstr ""
 
-#: inc/acf-fields.php:2080
+#: inc/acf-fields.php:2096
 msgid "Link (Optional)"
 msgstr ""
 
-#: inc/acf-fields.php:2098
+#: inc/acf-fields.php:2114
 msgid "Stats (Count Up)"
 msgstr ""
 
-#: inc/acf-fields.php:2128
+#: inc/acf-fields.php:2144
 msgid "Stats"
 msgstr ""
 
-#: inc/acf-fields.php:2132
+#: inc/acf-fields.php:2148
 msgid "Add Stat"
 msgstr ""
 
-#: inc/acf-fields.php:2136
+#: inc/acf-fields.php:2152
 msgid "Icon Slug (Optional)"
 msgstr ""
 
-#: inc/acf-fields.php:2139
+#: inc/acf-fields.php:2155
 msgid "Use icon file name from assets/icons without .svg, e.g. icon-quote"
 msgstr ""
 
-#: inc/acf-fields.php:2143
+#: inc/acf-fields.php:2159
 msgid "Value"
 msgstr ""
 
-#: inc/acf-fields.php:2152
+#: inc/acf-fields.php:2168
 msgid "Prefix (Optional)"
 msgstr ""
 
-#: inc/acf-fields.php:2159
+#: inc/acf-fields.php:2175
 msgid "Suffix (Optional)"
 msgstr ""
 
-#: inc/acf-fields.php:2166
+#: inc/acf-fields.php:2182
 msgid "Label"
 msgstr ""
 
-#: inc/acf-fields.php:2184
+#: inc/acf-fields.php:2200
 msgid "Bold List (Expand or Link)"
 msgstr ""
 
-#: inc/acf-fields.php:2201
+#: inc/acf-fields.php:2217
 msgid "Style Variant"
 msgstr ""
 
-#: inc/acf-fields.php:2205
+#: inc/acf-fields.php:2221
 msgid "Brand Glow"
 msgstr ""
 
-#: inc/acf-fields.php:2222
+#: inc/acf-fields.php:2238
 msgid "Eyebrow / Value (Optional)"
 msgstr ""
 
-#: inc/acf-fields.php:2236
+#: inc/acf-fields.php:2252
 msgid "Interaction"
 msgstr ""
 
-#: inc/acf-fields.php:2240
+#: inc/acf-fields.php:2256
 msgid "Expand"
 msgstr ""
 
-#: inc/acf-fields.php:2241
+#: inc/acf-fields.php:2257
 msgid "Link Out"
 msgstr ""
 
-#: inc/acf-fields.php:2248
+#: inc/acf-fields.php:2264
 msgid "Expanded Content"
 msgstr ""
 
-#: inc/acf-fields.php:2291
-#: inc/acf-fields.php:2393
+#: inc/acf-fields.php:2307
+#: inc/acf-fields.php:2409
 msgid "Testimonials"
 msgstr ""
 
-#: inc/acf-fields.php:2302
-#: inc/acf-fields.php:2457
-#: inc/acf-fields.php:2704
-#: inc/acf-fields.php:2954
+#: inc/acf-fields.php:2318
+#: inc/acf-fields.php:2473
+#: inc/acf-fields.php:2720
+#: inc/acf-fields.php:3152
 msgid "Subtext"
 msgstr ""
 
-#: inc/acf-fields.php:2313
-#: inc/acf-fields.php:2509
+#: inc/acf-fields.php:2329
+#: inc/acf-fields.php:2525
 msgid "Feature"
 msgstr ""
 
-#: inc/acf-fields.php:2320
+#: inc/acf-fields.php:2336
 msgid "Display Mode"
 msgstr ""
 
-#: inc/acf-fields.php:2324
+#: inc/acf-fields.php:2340
 msgid "Grid"
 msgstr ""
 
-#: inc/acf-fields.php:2325
-#: inc/acf-fields.php:2446
-#: inc/acf-fields.php:3977
+#: inc/acf-fields.php:2341
+#: inc/acf-fields.php:2462
+#: inc/acf-fields.php:4176
 msgid "Carousel"
 msgstr ""
 
-#: inc/acf-fields.php:2332
+#: inc/acf-fields.php:2348
 msgid "Grid Columns"
 msgstr ""
 
-#: inc/acf-fields.php:2354
-#: inc/acf-fields.php:2463
+#: inc/acf-fields.php:2370
+#: inc/acf-fields.php:2479
 msgid "Slides Per View (Desktop)"
 msgstr ""
 
-#: inc/acf-fields.php:2376
-#: inc/acf-fields.php:2476
+#: inc/acf-fields.php:2392
+#: inc/acf-fields.php:2492
 msgid "Show Carousel Controls"
 msgstr ""
 
-#: inc/acf-fields.php:2397
+#: inc/acf-fields.php:2413
 msgid "Add Testimonial"
 msgstr ""
 
-#: inc/acf-fields.php:2401
-#: inc/acf-fields.php:2525
+#: inc/acf-fields.php:2417
+#: inc/acf-fields.php:2541
 msgid "Quote"
 msgstr ""
 
-#: inc/acf-fields.php:2407
-#: inc/acf-fields.php:2540
+#: inc/acf-fields.php:2423
+#: inc/acf-fields.php:2556
 #: template-parts/components/form.php:17
 msgid "Name"
 msgstr ""
 
-#: inc/acf-fields.php:2413
-#: inc/acf-fields.php:2555
+#: inc/acf-fields.php:2429
+#: inc/acf-fields.php:2571
 msgid "Info Line 1"
 msgstr ""
 
-#: inc/acf-fields.php:2419
-#: inc/acf-fields.php:2570
+#: inc/acf-fields.php:2435
+#: inc/acf-fields.php:2586
 msgid "Info Line 2"
 msgstr ""
 
-#: inc/acf-fields.php:2425
-#: inc/acf-fields.php:2585
+#: inc/acf-fields.php:2441
+#: inc/acf-fields.php:2601
 msgid "Photo (Optional)"
 msgstr ""
 
-#: inc/acf-fields.php:2484
+#: inc/acf-fields.php:2500
 msgid "Slides"
 msgstr ""
 
-#: inc/acf-fields.php:2488
+#: inc/acf-fields.php:2504
 msgid "Add Slide"
 msgstr ""
 
-#: inc/acf-fields.php:2492
+#: inc/acf-fields.php:2508
 msgid "Card Type"
 msgstr ""
 
-#: inc/acf-fields.php:2496
+#: inc/acf-fields.php:2512
 msgid "Testimonial"
 msgstr ""
 
-#: inc/acf-fields.php:2497
+#: inc/acf-fields.php:2513
 msgid "Content Card"
 msgstr ""
 
-#: inc/acf-fields.php:2504
+#: inc/acf-fields.php:2520
 msgid "Testimonial Style"
 msgstr ""
 
-#: inc/acf-fields.php:2633
+#: inc/acf-fields.php:2649
 msgid "Copy"
 msgstr ""
 
-#: inc/acf-fields.php:2648
+#: inc/acf-fields.php:2664
 msgid "Image (Optional)"
 msgstr ""
 
-#: inc/acf-fields.php:2666
-#: inc/acf-fields.php:2828
+#: inc/acf-fields.php:2682
+#: inc/acf-fields.php:2844
 msgid "Button (Optional)"
 msgstr ""
 
-#: inc/acf-fields.php:2693
+#: inc/acf-fields.php:2709
 msgid "Logo Grid"
 msgstr ""
 
-#: inc/acf-fields.php:2710
+#: inc/acf-fields.php:2726
 msgid "Columns (Desktop)"
 msgstr ""
 
-#: inc/acf-fields.php:2725
+#: inc/acf-fields.php:2741
 msgid "Logos"
 msgstr ""
 
-#: inc/acf-fields.php:2728
+#: inc/acf-fields.php:2744
 msgid "Add Logo"
 msgstr ""
 
-#: inc/acf-fields.php:2742
+#: inc/acf-fields.php:2758
 msgid "Optional Link"
 msgstr ""
 
-#: inc/acf-fields.php:2760
+#: inc/acf-fields.php:2776
 msgid "Generic HTML"
 msgstr ""
 
-#: inc/acf-fields.php:2765
+#: inc/acf-fields.php:2781
 msgid "Admin Label (Optional)"
 msgstr ""
 
-#: inc/acf-fields.php:2768
+#: inc/acf-fields.php:2784
 msgid "Optional internal label to help identify this section in the editor."
 msgstr ""
 
-#: inc/acf-fields.php:2772
-#: inc/acf-fields.php:3067
+#: inc/acf-fields.php:2788
+#: inc/acf-fields.php:3265
 msgid "HTML Content"
 msgstr ""
 
-#: inc/acf-fields.php:2777
+#: inc/acf-fields.php:2793
 msgid "Paste custom HTML (shortcodes are supported)."
 msgstr ""
 
-#: inc/acf-fields.php:2791
+#: inc/acf-fields.php:2807
 msgid "Breakout Text"
 msgstr ""
 
-#: inc/acf-fields.php:2815
+#: inc/acf-fields.php:2831
 msgid "Text Size"
 msgstr ""
 
-#: inc/acf-fields.php:2819
+#: inc/acf-fields.php:2835
 msgid "Medium"
 msgstr ""
 
-#: inc/acf-fields.php:2834
+#: inc/acf-fields.php:2850
 msgid "Button Label"
 msgstr ""
 
-#: inc/acf-fields.php:2840
+#: inc/acf-fields.php:2856
 msgid "Button Link (Optional)"
 msgstr ""
 
-#: inc/acf-fields.php:2846
+#: inc/acf-fields.php:2862
 msgid "Modal Target ID (Optional)"
 msgstr ""
 
-#: inc/acf-fields.php:2849
+#: inc/acf-fields.php:2865
 msgid "Enter a hidden modal unique ID to open it from this button."
 msgstr ""
 
-#: inc/acf-fields.php:2863
-#: inc/acf-fields.php:3404
-#: inc/acf-fields.php:3788
+#: inc/acf-fields.php:2879
+#: inc/acf-fields.php:3602
+#: inc/acf-fields.php:3987
 msgid "Video Embed"
 msgstr ""
 
-#: inc/acf-fields.php:2874
+#: inc/acf-fields.php:2890
 msgid "Intro"
 msgstr ""
 
-#: inc/acf-fields.php:2880
-#: inc/acf-fields.php:3022
+#: inc/acf-fields.php:2896
+#: inc/acf-fields.php:3220
 msgid "Video Embed Code"
 msgstr ""
 
-#: inc/acf-fields.php:2883
+#: inc/acf-fields.php:2899
 msgid "Paste iframe embed code (YouTube/Vimeo/etc)."
 msgstr ""
 
-#: inc/acf-fields.php:2887
-#: inc/acf-fields.php:3037
+#: inc/acf-fields.php:2903
+#: inc/acf-fields.php:3235
 msgid "Video URL (fallback)"
 msgstr ""
 
-#: inc/acf-fields.php:2893
+#: inc/acf-fields.php:2909
 msgid "Open In Modal"
 msgstr ""
 
-#: inc/acf-fields.php:2901
+#: inc/acf-fields.php:2917
 msgid "Modal Unique ID"
 msgstr ""
 
-#: inc/acf-fields.php:2904
+#: inc/acf-fields.php:2920
 msgid "Used for trigger target (letters, numbers, hyphens only)."
 msgstr ""
 
-#: inc/acf-fields.php:2917
+#: inc/acf-fields.php:2933
 msgid "Modal Button Label"
 msgstr ""
 
-#: inc/acf-fields.php:2920
+#: inc/acf-fields.php:2936
 #: template-parts/sections/section-video_embed.php:15
 #: template-parts/sections/section-video_embed.php:56
 msgid "Watch Video"
 msgstr ""
 
-#: inc/acf-fields.php:2943
-msgid "Forms: Two Column"
+#: inc/acf-fields.php:2959
+msgid "Map Embed (Google)"
 msgstr ""
 
-#: inc/acf-fields.php:2960
-msgid "Left Column Intro"
-msgstr ""
-
-#: inc/acf-fields.php:2966
-msgid "Left Form Shortcode"
-msgstr ""
-
-#: inc/acf-fields.php:2973
-msgid "Right Column Intro"
+#: inc/acf-fields.php:2969
+msgid "Two Column"
 msgstr ""
 
 #: inc/acf-fields.php:2979
-msgid "Right Form Shortcode"
+msgid "Used to generate a Google Maps embed when custom embed HTML is empty."
 msgstr ""
 
-#: inc/acf-fields.php:2996
-msgid "Hidden Modal"
+#: inc/acf-fields.php:2983
+msgid "Custom Embed HTML (Optional)"
+msgstr ""
+
+#: inc/acf-fields.php:2987
+msgid "Optional iframe embed code. If provided, this overrides address-generated embed."
+msgstr ""
+
+#: inc/acf-fields.php:2991
+msgid "Map Height (px)"
 msgstr ""
 
 #: inc/acf-fields.php:3001
-msgid "Unique ID"
+msgid "Map Width"
 msgstr ""
 
-#: inc/acf-fields.php:3005
-msgid "Example: demo-video-modal. Use this ID in modal trigger buttons."
-msgstr ""
-
-#: inc/acf-fields.php:3009
-msgid "Content Type"
-msgstr ""
-
-#: inc/acf-fields.php:3013
-#: inc/acf-fields.php:3327
-#: inc/acf-fields.php:3747
-msgid "Video"
+#: inc/acf-fields.php:3008
+msgid "Full"
 msgstr ""
 
 #: inc/acf-fields.php:3015
+msgid "Two Column Ratio"
+msgstr ""
+
+#: inc/acf-fields.php:3036
+msgid "Map Position"
+msgstr ""
+
+#: inc/acf-fields.php:3057
+#: inc/acf-fields.php:3207
+msgid "Content Type"
+msgstr ""
+
+#: inc/acf-fields.php:3061
+msgid "Text Fields"
+msgstr ""
+
+#: inc/acf-fields.php:3062
+#: inc/acf-fields.php:3213
 msgid "Custom HTML"
 msgstr ""
 
-#: inc/acf-fields.php:3082
+#: inc/acf-fields.php:3099
+msgid "Text Content"
+msgstr ""
+
+#: inc/acf-fields.php:3114
+msgid "Custom HTML Content"
+msgstr ""
+
+#: inc/acf-fields.php:3118
+msgid "Optional HTML shown beside the map."
+msgstr ""
+
+#: inc/acf-fields.php:3141
+msgid "Forms: Two Column"
+msgstr ""
+
+#: inc/acf-fields.php:3158
+msgid "Left Column Intro"
+msgstr ""
+
+#: inc/acf-fields.php:3164
+msgid "Left Form Shortcode"
+msgstr ""
+
+#: inc/acf-fields.php:3171
+msgid "Right Column Intro"
+msgstr ""
+
+#: inc/acf-fields.php:3177
+msgid "Right Form Shortcode"
+msgstr ""
+
+#: inc/acf-fields.php:3194
+msgid "Hidden Modal"
+msgstr ""
+
+#: inc/acf-fields.php:3199
+msgid "Unique ID"
+msgstr ""
+
+#: inc/acf-fields.php:3203
+msgid "Example: demo-video-modal. Use this ID in modal trigger buttons."
+msgstr ""
+
+#: inc/acf-fields.php:3211
+#: inc/acf-fields.php:3525
+#: inc/acf-fields.php:3946
+msgid "Video"
+msgstr ""
+
+#: inc/acf-fields.php:3280
 msgid "Optional Trigger Button"
 msgstr ""
 
-#: inc/acf-fields.php:3088
+#: inc/acf-fields.php:3286
 msgid "Render Trigger Button In Flow"
 msgstr ""
 
-#: inc/acf-fields.php:3096
+#: inc/acf-fields.php:3294
 msgid "Trigger Button Label"
 msgstr ""
 
-#: inc/acf-fields.php:3099
+#: inc/acf-fields.php:3297
 #: template-parts/sections/section-hidden_modal.php:16
 msgid "Open Modal"
 msgstr ""
 
-#: inc/acf-fields.php:3112
+#: inc/acf-fields.php:3310
 msgid "Trigger Snippet (Copy)"
 msgstr ""
 
-#: inc/acf-fields.php:3117
+#: inc/acf-fields.php:3315
 msgid "Auto-generated from Unique ID. Copy and paste into Generic HTML, Breakout Text, or custom templates."
 msgstr ""
 
-#: inc/acf-fields.php:3156
+#: inc/acf-fields.php:3354
 msgid "Hero - Singular"
 msgstr ""
 
-#: inc/acf-fields.php:3161
-#: inc/acf-fields.php:3660
+#: inc/acf-fields.php:3359
+#: inc/acf-fields.php:3859
 msgid "Enable Hero"
 msgstr ""
 
-#: inc/acf-fields.php:3189
-#: inc/acf-fields.php:3685
+#: inc/acf-fields.php:3387
+#: inc/acf-fields.php:3884
 msgid "Title (H1)"
 msgstr ""
 
-#: inc/acf-fields.php:3192
+#: inc/acf-fields.php:3390
 msgid "If blank, the post/page title is used."
 msgstr ""
 
-#: inc/acf-fields.php:3315
+#: inc/acf-fields.php:3513
 msgid "Media / Form"
 msgstr ""
 
-#: inc/acf-fields.php:3407
+#: inc/acf-fields.php:3605
 msgid "Paste iframe embed code for YouTube/Vimeo/etc."
 msgstr ""
 
-#: inc/acf-fields.php:3420
-#: inc/acf-fields.php:3794
+#: inc/acf-fields.php:3618
+#: inc/acf-fields.php:3993
 msgid "Video URL (MP4)"
 msgstr ""
 
-#: inc/acf-fields.php:3438
+#: inc/acf-fields.php:3636
 msgid "Preferred: paste plugin shortcode."
 msgstr ""
 
-#: inc/acf-fields.php:3451
-#: inc/acf-fields.php:3806
+#: inc/acf-fields.php:3649
+#: inc/acf-fields.php:4005
 msgid "Form Provider"
 msgstr ""
 
-#: inc/acf-fields.php:3455
-#: inc/acf-fields.php:3810
+#: inc/acf-fields.php:3653
+#: inc/acf-fields.php:4009
 msgid "Generic"
 msgstr ""
 
-#: inc/acf-fields.php:3456
-#: inc/acf-fields.php:3811
+#: inc/acf-fields.php:3654
+#: inc/acf-fields.php:4010
 msgid "WPForms"
 msgstr ""
 
-#: inc/acf-fields.php:3457
-#: inc/acf-fields.php:3812
+#: inc/acf-fields.php:3655
+#: inc/acf-fields.php:4011
 msgid "HubSpot"
 msgstr ""
 
-#: inc/acf-fields.php:3473
-#: inc/acf-fields.php:3819
+#: inc/acf-fields.php:3671
+#: inc/acf-fields.php:4018
 msgid "Form ID"
 msgstr ""
 
-#: inc/acf-fields.php:3476
+#: inc/acf-fields.php:3674
 msgid "Fallback if shortcode is not used."
 msgstr ""
 
-#: inc/acf-fields.php:3495
-#: inc/acf-fields.php:3667
+#: inc/acf-fields.php:3693
+#: inc/acf-fields.php:3866
 msgid "Hero Variation"
 msgstr ""
 
-#: inc/acf-fields.php:3499
+#: inc/acf-fields.php:3697
 msgid "Page: Centered"
 msgstr ""
 
-#: inc/acf-fields.php:3500
+#: inc/acf-fields.php:3698
 msgid "Page: Two Column"
 msgstr ""
 
-#: inc/acf-fields.php:3501
+#: inc/acf-fields.php:3699
 msgid "Page: Full Height (100vh)"
 msgstr ""
 
-#: inc/acf-fields.php:3502
+#: inc/acf-fields.php:3700
 msgid "Single/CPT: Centered"
 msgstr ""
 
-#: inc/acf-fields.php:3503
+#: inc/acf-fields.php:3701
 msgid "Single/CPT: Two Column"
 msgstr ""
 
-#: inc/acf-fields.php:3568
-#: inc/acf-fields.php:3856
+#: inc/acf-fields.php:3766
+#: inc/acf-fields.php:4055
 msgid "Force 100vh"
 msgstr ""
 
-#: inc/acf-fields.php:3634
+#: inc/acf-fields.php:3832
 msgid "Archive Hero Variations"
 msgstr ""
 
-#: inc/acf-fields.php:3638
+#: inc/acf-fields.php:3836
 msgid "Archive Hero Items"
 msgstr ""
 
-#: inc/acf-fields.php:3641
+#: inc/acf-fields.php:3839
 msgid "Add Archive Hero"
 msgstr ""
 
-#: inc/acf-fields.php:3646
+#: inc/acf-fields.php:3844
 msgid "Post Type"
 msgstr ""
 
-#: inc/acf-fields.php:3650
-#: inc/acf-fields.php:4023
+#: inc/acf-fields.php:3848
+#: inc/acf-fields.php:4272
 msgid "Post"
 msgstr ""
 
-#: inc/acf-fields.php:3651
-#: inc/acf-fields.php:4024
+#: inc/acf-fields.php:3849
+#: inc/acf-fields.php:4273
 #: inc/post-types.php:25
 msgid "Project"
 msgstr ""
 
-#: inc/acf-fields.php:3652
-#: inc/acf-fields.php:4025
+#: inc/acf-fields.php:3850
+#: inc/acf-fields.php:4274
 #: inc/post-types.php:41
 msgid "Event"
 msgstr ""
 
-#: inc/acf-fields.php:3653
-#: inc/acf-fields.php:4026
+#: inc/acf-fields.php:3851
+#: inc/acf-fields.php:4275
 #: inc/post-types.php:57
 msgid "FAQ"
 msgstr ""
 
-#: inc/acf-fields.php:3654
-#: inc/acf-fields.php:4027
+#: inc/acf-fields.php:3852
+#: inc/acf-fields.php:4276
 #: inc/post-types.php:73
 msgid "Profile"
 msgstr ""
 
-#: inc/acf-fields.php:3671
+#: inc/acf-fields.php:3853
+#: inc/acf-fields.php:4277
+#: inc/post-types.php:88
+msgid "Press"
+msgstr ""
+
+#: inc/acf-fields.php:3870
 msgid "Archive: Centered"
 msgstr ""
 
-#: inc/acf-fields.php:3672
+#: inc/acf-fields.php:3871
 msgid "Archive: Two Column"
 msgstr ""
 
-#: inc/acf-fields.php:3880
+#: inc/acf-fields.php:4079
 msgid "Contact Template Fields"
 msgstr ""
 
-#: inc/acf-fields.php:3884
+#: inc/acf-fields.php:4083
 msgid "Intro Content"
 msgstr ""
 
-#: inc/acf-fields.php:3896
+#: inc/acf-fields.php:4095
 msgid "Map Embed"
 msgstr ""
 
-#: inc/acf-fields.php:3917
+#: inc/acf-fields.php:4116
 msgid "Artist Profile Fields"
 msgstr ""
 
-#: inc/acf-fields.php:3921
+#: inc/acf-fields.php:4120
 msgid "Tier"
 msgstr ""
 
-#: inc/acf-fields.php:3925
+#: inc/acf-fields.php:4124
 msgid "Blossoming"
 msgstr ""
 
-#: inc/acf-fields.php:3926
+#: inc/acf-fields.php:4125
 msgid "Seedlings"
 msgstr ""
 
-#: inc/acf-fields.php:3934
+#: inc/acf-fields.php:4133
 msgid "Focus"
 msgstr ""
 
-#: inc/acf-fields.php:3937
+#: inc/acf-fields.php:4136
 msgid "Makeup and Hair"
 msgstr ""
 
-#: inc/acf-fields.php:3941
+#: inc/acf-fields.php:4140
 msgid "Pronouns"
 msgstr ""
 
-#: inc/acf-fields.php:3944
+#: inc/acf-fields.php:4143
 msgid "she/her"
 msgstr ""
 
-#: inc/acf-fields.php:3948
+#: inc/acf-fields.php:4147
 msgid "Location"
 msgstr ""
 
-#: inc/acf-fields.php:3951
+#: inc/acf-fields.php:4150
 msgid "Vancouver, BC"
 msgstr ""
 
-#: inc/acf-fields.php:3955
+#: inc/acf-fields.php:4154
 msgid "CTA Button"
 msgstr ""
 
-#: inc/acf-fields.php:3958
+#: inc/acf-fields.php:4157
 msgid "Example: Book Now button for booking links."
 msgstr ""
 
-#: inc/acf-fields.php:3962
+#: inc/acf-fields.php:4161
 msgid "Gallery Images"
 msgstr ""
 
-#: inc/acf-fields.php:3973
+#: inc/acf-fields.php:4172
 msgid "Gallery Display Mode"
 msgstr ""
 
-#: inc/acf-fields.php:3978
+#: inc/acf-fields.php:4177
 msgid "Carousel + Thumbnails"
 msgstr ""
 
-#: inc/acf-fields.php:3979
+#: inc/acf-fields.php:4178
 msgid "Inline Grid"
 msgstr ""
 
-#: inc/acf-fields.php:3980
+#: inc/acf-fields.php:4179
 msgid "Grid + Modal"
 msgstr ""
 
-#: inc/acf-fields.php:3987
+#: inc/acf-fields.php:4186
 msgid "Gallery Columns"
 msgstr ""
 
-#: inc/acf-fields.php:3991
+#: inc/acf-fields.php:4190
 msgid "2 Columns"
 msgstr ""
 
-#: inc/acf-fields.php:3992
+#: inc/acf-fields.php:4191
 msgid "3 Columns"
 msgstr ""
 
-#: inc/acf-fields.php:3993
+#: inc/acf-fields.php:4192
 msgid "4 Columns"
 msgstr ""
 
-#: inc/acf-fields.php:4015
+#: inc/acf-fields.php:4214
+msgid "Press Fields"
+msgstr ""
+
+#: inc/acf-fields.php:4218
+msgid "External URL"
+msgstr ""
+
+#: inc/acf-fields.php:4222
+msgid "Destination URL for this press item card."
+msgstr ""
+
+#: inc/acf-fields.php:4226
+msgid "Open In New Tab"
+msgstr ""
+
+#: inc/acf-fields.php:4234
+msgid "Publication"
+msgstr ""
+
+#: inc/acf-fields.php:4240
+msgid "Published On"
+msgstr ""
+
+#: inc/acf-fields.php:4264
 msgid "Archive Template Fields"
 msgstr ""
 
-#: inc/acf-fields.php:4019
+#: inc/acf-fields.php:4268
 msgid "Archive Post Type"
 msgstr ""
 
-#: inc/acf-fields.php:4034
+#: inc/acf-fields.php:4284
 msgid "Featured Item"
 msgstr ""
 
-#: inc/acf-fields.php:4042
+#: inc/acf-fields.php:4292
 msgid "Filter Taxonomy"
 msgstr ""
 
-#: inc/acf-fields.php:4045
+#: inc/acf-fields.php:4295
 msgid "Example: category, project_category, event_type"
 msgstr ""
 
-#: inc/acf-fields.php:4049
+#: inc/acf-fields.php:4299
 msgid "Items Per Page"
 msgstr ""
 
-#: inc/acf-fields.php:4085
+#: inc/acf-fields.php:4335
 msgid "Add at least one card item."
 msgstr ""
 
-#: inc/acf-fields.php:4128
+#: inc/acf-fields.php:4378
 msgid "Each card needs at least one piece of content (title, paragraph, list, icon/image, or URL)."
 msgstr ""
 
-#: inc/ajax.php:51
-#: templates/template-archive.php:64
+#: inc/ajax.php:56
+#: templates/template-archive.php:72
 msgid "No items found."
 msgstr ""
 
@@ -1995,6 +2122,10 @@ msgstr ""
 msgid "Profiles"
 msgstr ""
 
+#: inc/post-types.php:89
+msgid "Press Item"
+msgstr ""
+
 #: inc/taxonomies.php:23
 msgid "Project Categories"
 msgstr ""
@@ -2009,6 +2140,14 @@ msgstr ""
 
 #: inc/taxonomies.php:39
 msgid "Event Type"
+msgstr ""
+
+#: inc/taxonomies.php:53
+msgid "FAQ Topics"
+msgstr ""
+
+#: inc/taxonomies.php:54
+msgid "FAQ Topic"
 msgstr ""
 
 #. translators: %s: post date.
@@ -2158,6 +2297,10 @@ msgstr ""
 
 #: template-parts/components/logos-grid.php:44
 msgid "Logo link"
+msgstr ""
+
+#: template-parts/components/map-embed.php:52
+msgid "Google Map"
 msgstr ""
 
 #: template-parts/components/modal.php:13

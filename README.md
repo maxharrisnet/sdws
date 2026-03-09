@@ -75,6 +75,7 @@ Configured in `inc/acf-fields.php` under ACF Options and post-level field groups
 Global options pages and groups:
 
 - Theme preset and branding (favicon fallback, preset class).
+- Color scheme selector (independent from preset) so palettes can be tested with any preset variation.
 - Navigation settings:
   - layout/style/alignment variants
   - logo source and logo mark behavior

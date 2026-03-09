@@ -30,6 +30,25 @@ function starter_coat_get_theme_preset()
 }
 
 /**
+ * Get current color scheme slug.
+ *
+ * @return string
+ */
+function starter_coat_get_color_scheme()
+{
+  $scheme = 'preset';
+
+  if (function_exists('get_field')) {
+    $acf_scheme = call_user_func('get_field', 'sc_color_scheme', 'option');
+    if (! empty($acf_scheme)) {
+      $scheme = sanitize_title($acf_scheme);
+    }
+  }
+
+  return $scheme;
+}
+
+/**
  * Get nav settings from options with safe defaults.
  *
  * @return array<string,mixed>
@@ -401,6 +420,7 @@ function starter_coat_render_footer_cta()
 function starter_coat_body_classes_with_theme($classes)
 {
   $classes[] = 'theme--' . starter_coat_get_theme_preset();
+  $classes[] = 'scheme--' . starter_coat_get_color_scheme();
 
   $nav_settings = starter_coat_get_nav_settings();
 
