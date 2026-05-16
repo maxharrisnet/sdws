@@ -77,8 +77,8 @@ add_action('wp_enqueue_scripts', 'starter_coat_enqueue_assets');
 function starter_coat_google_fonts_url()
 {
   $families = array(
-    'DM+Serif+Display:ital,wght@0,400;1,400',
-    'DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400',
+    'Cinzel:wght@400;600;700;900',
+    'Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400',
   );
 
   return 'https://fonts.googleapis.com/css2?' . implode('&', array_map(function ($f) {
