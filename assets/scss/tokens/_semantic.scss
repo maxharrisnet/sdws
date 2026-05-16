@@ -1,32 +1,34 @@
 :root {
-	--color-ink-900: #111827;
-	--color-ink-700: #334155;
-	--color-surface-50: #f8fafc;
-	--color-surface-100: #f1f5f9;
-	--color-brand-600: #335cfa;
-	--color-brand-700: #2043ce;
-	--color-highlight-500: #00b5a2;
-	--color-accent-500: #f59e0b;
+	/* SDWS color palette */
+	--color-primary: #3a9aaa;
+	--color-black: #000000;
 	--color-white: #ffffff;
+	--color-off-white: #f8f6f2;
+	--color-sand: #e8e0d5;
+	--color-aqua-light: #d4e8e4;
+	--color-accent: #c4703a;
 
-	--color-brand: var(--color-brand-600);
-	--color-highlight: var(--color-highlight-500);
-	--color-text-dark: var(--color-ink-900);
-	--color-text-light: var(--color-white);
-	--color-body-text: var(--color-ink-700);
-	--color-heading: var(--color-ink-900);
-	--color-bg: var(--color-white);
-	--color-bg-dark: var(--color-ink-900);
-	--color-border: #dbe3ed;
+	/* Semantic aliases */
+	--color-brand: var(--color-primary);
+	--color-brand-600: var(--color-primary);
+	--color-brand-700: #2e7f8d;
+	--color-highlight: var(--color-primary);
+	--color-highlight-500: var(--color-primary);
+	--color-accent-500: var(--color-accent);
+	--color-ink-900: #000000;
+	--color-ink-700: #000000;
+	--color-surface-50: var(--color-off-white);
+	--color-surface-100: var(--color-sand);
+	--color-text-dark: #000000;
+	--color-text-light: #ffffff;
+	--color-body-text: #000000;
+	--color-heading: #000000;
+	--color-bg: #ffffff;
+	--color-bg-dark: #000000;
+	--color-border: #000000;
 
-	--font-heading: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-	--font-body: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
-
-[data-theme-mode="dark"] {
-	--color-text-dark: #f8fafc;
-	--color-body-text: #e2e8f0;
-	--color-heading: #f8fafc;
-	--color-bg: #0f172a;
-	--color-border: #334155;
+	/* SDWS typography — fonts loaded via wp_enqueue_style, not @import */
+	--font-display: 'DM Serif Display', Georgia, serif;
+	--font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+	--font-heading: var(--font-display);
 }

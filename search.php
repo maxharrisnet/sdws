@@ -1,8 +1,6 @@
 <?php
 /**
- * The template for displaying search results pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
+ * The template for displaying search results pages.
  *
  * @package Starter_Coat
  */
@@ -10,44 +8,32 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<main id="primary" class="site-main">
+  <section class="section section--md">
+    <div class="container">
+      <header class="section__header" style="text-align:center;margin-bottom:var(--space-xl);">
+        <p class="eyebrow"><?php esc_html_e('Search Results', 'starter-coat'); ?></p>
+        <h1><?php printf(esc_html__('Results for: %s', 'starter-coat'), '<span>' . get_search_query() . '</span>'); ?></h1>
+      </header>
 
-		<?php if ( have_posts() ) : ?>
+      <?php if (have_posts()) : ?>
+        <div class="layout layout--3col">
+          <?php
+          while (have_posts()) :
+            the_post();
+            get_template_part('template-parts/components/archive-card', null, array('style' => 'post'));
+          endwhile;
+          ?>
+        </div>
 
-			<header class="page-header">
-				<h1 class="page-title">
-					<?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'starter-coat' ), '<span>' . get_search_query() . '</span>' );
-					?>
-				</h1>
-			</header><!-- .page-header -->
+        <?php get_template_part('template-parts/components/pagination'); ?>
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
-
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', 'search' );
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-	</main><!-- #main -->
+      <?php else : ?>
+        <?php get_template_part('template-parts/content', 'none'); ?>
+      <?php endif; ?>
+    </div>
+  </section>
+</main>
 
 <?php
-get_sidebar();
 get_footer();

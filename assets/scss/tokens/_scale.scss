@@ -7,10 +7,13 @@
 	--space-xl: 2rem;
 	--space-2xl: 3rem;
 	--space-3xl: 4rem;
+	--space-section: 80px;
+	--space-section-lg: 120px;
 
-	--radius-sm: 0.375rem;
-	--radius-md: 0.75rem;
-	--radius-lg: 1.25rem;
+	/* Zero — SDWS design system has no rounded corners */
+	--radius-sm: 0;
+	--radius-md: 0;
+	--radius-lg: 0;
 
 	--font-size-xs: 0.75rem;
 	--font-size-sm: 0.875rem;
@@ -19,6 +22,8 @@
 	--font-size-xl: 1.75rem;
 	--font-size-2xl: 2.5rem;
 
-	--container-max: 76rem;
+	--container-max: 80rem;
 	--container-narrow: 52rem;
+	--max-width: 1280px;
+	--border: 1px solid #000000;
 }

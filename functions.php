@@ -180,9 +180,30 @@ if (defined('JETPACK__VERSION')) {
 
 require STARTER_COAT_PATH . '/inc/assets.php';
 require STARTER_COAT_PATH . '/inc/editor.php';
-require STARTER_COAT_PATH . '/inc/post-types.php';
-require STARTER_COAT_PATH . '/inc/taxonomies.php';
 require STARTER_COAT_PATH . '/inc/ajax.php';
-require STARTER_COAT_PATH . '/inc/acf-fields.php';
+require STARTER_COAT_PATH . '/inc/separator-shapes.php';
 require STARTER_COAT_PATH . '/inc/template-helpers.php';
 require STARTER_COAT_PATH . '/inc/media.php';
+
+/**
+ * Security hardening — post-hack measures.
+ */
+add_filter('xmlrpc_enabled', '__return_false');
+remove_action('wp_head', 'wp_generator');
+remove_action('wp_head', 'wlwmanifest_link');
+remove_action('wp_head', 'rsd_link');
+
+/**
+ * Admin notice when Starter Coat Core plugin is not active.
+ */
+function starter_coat_core_plugin_notice()
+{
+  if (is_plugin_active('starter-coat-core/starter-coat-core.php')) {
+    return;
+  }
+
+  echo '<div class="notice notice-warning"><p>';
+  echo esc_html__('Starter Coat theme requires the Starter Coat Core plugin for custom post types, taxonomies, and ACF fields.', 'starter-coat');
+  echo '</p></div>';
+}
+add_action('admin_notices', 'starter_coat_core_plugin_notice');

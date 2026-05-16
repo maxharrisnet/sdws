@@ -18,6 +18,7 @@ get_header();
     the_post();
 
     starter_coat_render_singular_hero(get_the_ID());
+    get_template_part('template-parts/components/breadcrumbs');
 
     get_template_part('template-parts/content', get_post_type());
 
@@ -27,6 +28,8 @@ get_header();
         'next_text' => '<span class="nav-subtitle">' . esc_html__('Next:', 'starter-coat') . '</span> <span class="nav-title">%title</span>',
       )
     );
+
+    get_template_part('template-parts/components/related-posts');
 
     // If comments are open or we have at least one comment, load up the comment template.
     if (comments_open() || get_comments_number()) :

@@ -41,7 +41,7 @@ get_header();
       endwhile;
       echo '</div>';
 
-      the_posts_navigation();
+      get_template_part('template-parts/components/pagination');
 
     else :
 

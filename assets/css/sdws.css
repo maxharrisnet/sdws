@@ -1,0 +1,345 @@
+/*
+ * SDWS — San Diego Watercolor Society
+ * Global design system overrides applied on top of the compiled theme.css.
+ */
+
+/* === Base ============================================================== */
+
+*,
+*::before,
+*::after {
+  border-radius: 0 !important; /* SDWS: no rounded corners anywhere */
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 18px;
+  color: #000;
+  background-color: #fff;
+}
+
+/* === Typography ======================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: #000;
+  line-height: 1.15;
+}
+
+p, li, td, th, label, input, select, textarea {
+  font-family: var(--font-body);
+}
+
+/* === Images ============================================================ */
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.sdws-img-crop {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.sdws-img-4-3 { aspect-ratio: 4 / 3; }
+.sdws-img-3-2 { aspect-ratio: 3 / 2; }
+.sdws-img-16-9 { aspect-ratio: 16 / 9; }
+.sdws-img-square { aspect-ratio: 1 / 1; }
+
+/* === Sections ========================================================== */
+
+.sdws-section {
+  padding-top: var(--space-section);
+  padding-bottom: var(--space-section);
+}
+
+.sdws-section--lg {
+  padding-top: var(--space-section-lg);
+  padding-bottom: var(--space-section-lg);
+}
+
+.sdws-section--teal {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.sdws-section--teal h1,
+.sdws-section--teal h2,
+.sdws-section--teal h3,
+.sdws-section--teal p {
+  color: #fff;
+}
+
+.sdws-section--sand {
+  background-color: var(--color-sand);
+}
+
+.sdws-section--aqua {
+  background-color: var(--color-aqua-light);
+}
+
+.sdws-section--off-white {
+  background-color: var(--color-off-white);
+}
+
+.sdws-container {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: 2rem;
+}
+
+/* === Buttons =========================================================== */
+
+.sdws-btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.875rem 2rem;
+  border: 2px solid #000;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  line-height: 1;
+}
+
+/* Filled black */
+.sdws-btn--primary {
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.sdws-btn--primary:hover {
+  background-color: #222;
+  color: #fff;
+}
+
+/* Outlined black */
+.sdws-btn--outline {
+  background-color: transparent;
+  color: #000;
+  border-color: #000;
+}
+
+.sdws-btn--outline:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Filled teal */
+.sdws-btn--teal {
+  background-color: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+.sdws-btn--teal:hover {
+  background-color: #2e7f8d;
+  color: #fff;
+  border-color: #2e7f8d;
+}
+
+/* White (for use on teal/dark backgrounds) */
+.sdws-btn--white {
+  background-color: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+.sdws-btn--white:hover {
+  background-color: transparent;
+  color: #fff;
+}
+
+/* === Workshop card ===================================================== */
+
+.sdws-workshop-card {
+  border: var(--border);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.sdws-workshop-card__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.sdws-workshop-card__body {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sdws-workshop-card__instructor {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.sdws-workshop-card__title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: #000;
+  margin: 0;
+}
+
+.sdws-workshop-card__date {
+  font-size: 0.875rem;
+  font-variant: small-caps;
+  color: #000;
+}
+
+.sdws-workshop-card__prices {
+  font-size: 0.875rem;
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid #000;
+}
+
+/* === Exhibition card =================================================== */
+
+.sdws-exhibition-card {
+  border-top: 2px solid #000;
+  padding: 2rem 0;
+}
+
+.sdws-exhibition-card + .sdws-exhibition-card {
+  border-top: 1px solid #000;
+}
+
+.sdws-exhibition-card__title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  margin: 0 0 0.5rem;
+}
+
+.sdws-exhibition-card__dates {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.sdws-exhibition-card__key-dates {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.25rem 1.5rem;
+  font-size: 0.9375rem;
+  margin-bottom: 1rem;
+}
+
+.sdws-exhibition-card__key-dates dt {
+  font-weight: 500;
+}
+
+.sdws-exhibition-card__notes {
+  margin-top: 0.75rem;
+  font-size: 0.9375rem;
+}
+
+/* === Gallery strip ===================================================== */
+
+.sdws-gallery-strip {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.sdws-gallery-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.sdws-gallery-strip__item {
+  flex: 0 0 auto;
+  width: 280px;
+  aspect-ratio: 4 / 3;
+}
+
+.sdws-gallery-strip__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* === Grid utilities ==================================================== */
+
+.sdws-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.sdws-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .sdws-grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .sdws-grid-3,
+  .sdws-grid-2 { grid-template-columns: 1fr; }
+}
+
+/* === Donate page ======================================================= */
+
+.sdws-donate-btn {
+  display: inline-block;
+  margin-top: 2rem;
+}
+
+/* === Navigation overrides ============================================== */
+
+.site-header {
+  border-bottom: var(--border);
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* === Footer overrides ================================================== */
+
+.site-footer {
+  background-color: #000;
+  color: #fff;
+}
+
+.site-footer a {
+  color: #fff;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+/* === Tribe Events Calendar overrides =================================== */
+
+.tribe-events,
+.tribe-events * {
+  border-radius: 0 !important;
+  font-family: var(--font-body) !important;
+}
+
+.tribe-events .tribe-events-calendar td,
+.tribe-events .tribe-events-calendar th {
+  border-color: #000;
+}

@@ -1,6 +1,7 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap");
+/* Google Fonts loaded via wp_enqueue_style in inc/assets.php — no @import here */
 :root {
+  /* Spacing */
   --space-2xs: 0.25rem;
   --space-xs: 0.5rem;
   --space-sm: 0.75rem;
@@ -9,40 +10,62 @@
   --space-xl: 2rem;
   --space-2xl: 3rem;
   --space-3xl: 4rem;
-  --radius-sm: 0.375rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1.25rem;
+  --space-section: 80px;
+  --space-section-lg: 120px;
+
+  /* Border radius — zero per SDWS design system */
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+
+  /* Typography scale */
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-md: 1rem;
   --font-size-lg: 1.25rem;
   --font-size-xl: 1.75rem;
   --font-size-2xl: 2.5rem;
-  --container-max: 76rem;
+
+  /* Layout */
+  --container-max: 80rem;
   --container-narrow: 52rem;
+  --max-width: 1280px;
+  --border: 1px solid #000000;
 }
 
 :root {
-  --color-ink-900: #111827;
-  --color-ink-700: #334155;
-  --color-surface-50: #f8fafc;
-  --color-surface-100: #f1f5f9;
-  --color-brand-600: #335cfa;
-  --color-brand-700: #2043ce;
-  --color-highlight-500: #00b5a2;
-  --color-accent-500: #f59e0b;
+  /* SDWS color palette */
+  --color-primary: #3a9aaa;
+  --color-black: #000000;
   --color-white: #ffffff;
-  --color-brand: var(--color-brand-600);
-  --color-highlight: var(--color-highlight-500);
-  --color-text-dark: var(--color-ink-900);
-  --color-text-light: var(--color-white);
-  --color-body-text: var(--color-ink-700);
-  --color-heading: var(--color-ink-900);
-  --color-bg: var(--color-white);
-  --color-bg-dark: var(--color-ink-900);
-  --color-border: #dbe3ed;
-  --font-heading: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-body: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --color-off-white: #f8f6f2;
+  --color-sand: #e8e0d5;
+  --color-aqua-light: #d4e8e4;
+  --color-accent: #c4703a;
+
+  /* Semantic aliases */
+  --color-brand: var(--color-primary);
+  --color-brand-600: var(--color-primary);
+  --color-brand-700: #2e7f8d;
+  --color-highlight: var(--color-primary);
+  --color-highlight-500: var(--color-primary);
+  --color-accent-500: var(--color-accent);
+  --color-ink-900: #000000;
+  --color-ink-700: #000000;
+  --color-surface-50: var(--color-off-white);
+  --color-surface-100: var(--color-sand);
+  --color-text-dark: #000000;
+  --color-text-light: #ffffff;
+  --color-body-text: #000000;
+  --color-heading: #000000;
+  --color-bg: #ffffff;
+  --color-bg-dark: #000000;
+  --color-border: #000000;
+
+  /* SDWS typography */
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-heading: var(--font-display);
 }
 
 [data-theme-mode=dark] {

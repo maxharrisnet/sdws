@@ -478,7 +478,38 @@ function starter_coat_render_sections()
       continue;
     }
 
-    get_template_part('template-parts/sections/section', $layout);
+    $sep_top    = starter_coat_get_sub_field('separator_top_enabled', false);
+    $sep_bottom = starter_coat_get_sub_field('separator_bottom_enabled', false);
+
+    if ($sep_top || $sep_bottom) {
+      ob_start();
+      get_template_part('template-parts/sections/section', $layout);
+      $html = ob_get_clean();
+
+      // Inject top separator after opening <section ...>
+      if ($sep_top) {
+        ob_start();
+        starter_coat_render_separator_top();
+        $sep_top_html = ob_get_clean();
+        $html = preg_replace('/(<section[^>]*>)/', '$1' . $sep_top_html, $html, 1);
+      }
+
+      // Inject bottom separator before closing </section>
+      if ($sep_bottom) {
+        ob_start();
+        starter_coat_render_separator_bottom();
+        $sep_bottom_html = ob_get_clean();
+        $pos = strrpos($html, '</section>');
+        if (false !== $pos) {
+          $html = substr_replace($html, $sep_bottom_html . '</section>', $pos, strlen('</section>'));
+        }
+      }
+
+      echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+    } else {
+      get_template_part('template-parts/sections/section', $layout);
+    }
+
     $has_rows = call_user_func('have_rows', 'sc_sections');
   }
 }
@@ -544,6 +575,18 @@ function starter_coat_get_section_classes($base)
     $classes[] = sanitize_html_class($extra);
   }
 
+  $sep_top    = starter_coat_get_sub_field('separator_top_enabled', false);
+  $sep_bottom = starter_coat_get_sub_field('separator_bottom_enabled', false);
+  if ($sep_top || $sep_bottom) {
+    $classes[] = 'has-separator';
+  }
+  if ($sep_top) {
+    $classes[] = 'has-separator--top';
+  }
+  if ($sep_bottom) {
+    $classes[] = 'has-separator--bottom';
+  }
+
   return implode(' ', array_filter($classes));
 }
 
@@ -566,6 +609,83 @@ function starter_coat_get_section_container_class($width = '')
   }
 
   return 'container';
+}
+
+/**
+ * Get the CSS color value for a separator color slug.
+ *
+ * @param string $slug Color slug.
+ * @return string CSS color value.
+ */
+function starter_coat_get_separator_color($slug)
+{
+  $map = array(
+    'white' => 'var(--color-white, #ffffff)',
+    'light' => 'var(--color-surface-50, #f8fafc)',
+    'dark'  => 'var(--color-ink-900, #0f172a)',
+    'brand' => 'var(--color-brand, #335cfa)',
+    'muted' => 'var(--color-surface-100, #f1f5f9)',
+  );
+
+  return isset($map[$slug]) ? $map[$slug] : $map['white'];
+}
+
+/**
+ * Render the top section separator if enabled.
+ */
+function starter_coat_render_separator_top()
+{
+  if (! starter_coat_get_sub_field('separator_top_enabled', false)) {
+    return;
+  }
+
+  $shape  = starter_coat_get_sub_field('separator_top_shape', 'wave-gentle');
+  $height = (int) starter_coat_get_sub_field('separator_top_height', 60);
+  $color  = starter_coat_get_separator_color(starter_coat_get_sub_field('separator_top_color', 'white'));
+  $flip   = starter_coat_get_sub_field('separator_top_flip', false);
+
+  $svg = starter_coat_get_separator_svg($shape, $color, $height);
+  if (empty($svg)) {
+    return;
+  }
+
+  $classes = 'section-separator section-separator--top';
+  if ($flip) {
+    $classes .= ' section-separator--flip';
+  }
+
+  echo '<div class="' . esc_attr($classes) . '" style="--separator-height:' . esc_attr($height) . 'px" aria-hidden="true">';
+  echo $svg; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- trusted SVG
+  echo '</div>';
+}
+
+/**
+ * Render the bottom section separator if enabled.
+ */
+function starter_coat_render_separator_bottom()
+{
+  if (! starter_coat_get_sub_field('separator_bottom_enabled', false)) {
+    return;
+  }
+
+  $shape  = starter_coat_get_sub_field('separator_bottom_shape', 'wave-gentle');
+  $height = (int) starter_coat_get_sub_field('separator_bottom_height', 60);
+  $color  = starter_coat_get_separator_color(starter_coat_get_sub_field('separator_bottom_color', 'white'));
+  $flip   = starter_coat_get_sub_field('separator_bottom_flip', false);
+
+  $svg = starter_coat_get_separator_svg($shape, $color, $height);
+  if (empty($svg)) {
+    return;
+  }
+
+  $classes = 'section-separator section-separator--bottom';
+  if ($flip) {
+    $classes .= ' section-separator--flip';
+  }
+
+  echo '<div class="' . esc_attr($classes) . '" style="--separator-height:' . esc_attr($height) . 'px" aria-hidden="true">';
+  echo $svg; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- trusted SVG
+  echo '</div>';
 }
 
 /**

@@ -1,199 +1,206 @@
 <?php
 
 /**
- * Site header component.
+ * SDWS site header.
  *
  * @package Starter_Coat
  */
 
-$nav_settings = starter_coat_get_nav_settings();
-
-$header_variant = sanitize_html_class((string) $nav_settings['variant']);
-$header_style   = sanitize_html_class((string) $nav_settings['style']);
-$header_align   = sanitize_html_class((string) $nav_settings['alignment']);
-$item_style     = sanitize_html_class((string) $nav_settings['item_style']);
-$item_shape     = sanitize_html_class((string) $nav_settings['item_shape']);
-$dropdown_style = sanitize_html_class((string) $nav_settings['dropdown_style']);
-$logo_mode      = sanitize_html_class((string) $nav_settings['logo_mode']);
-$logo_image     = is_array($nav_settings['logo_image']) ? $nav_settings['logo_image'] : null;
-$logo_mark_image = is_array($nav_settings['logo_mark_image']) ? $nav_settings['logo_mark_image'] : null;
-
-$show_branding  = ! empty($nav_settings['show_logo']);
-$is_fixed       = ! empty($nav_settings['fixed']);
-$show_cta       = ! empty($nav_settings['show_cta']) && ! empty($nav_settings['cta_link']['url']) && ! empty($nav_settings['cta_link']['title']);
-$show_banner    = ! empty($nav_settings['banner_enabled']) && ! empty($nav_settings['banner_text']);
-$social_links   = function_exists('starter_coat_get_social_links') ? starter_coat_get_social_links() : array();
-$show_social    = ! empty($nav_settings['show_social']) && ! empty($social_links);
-
-$header_classes = array(
-  'site-header',
-  'header',
-  'header--layout-' . $header_variant,
-  'header--style-' . $header_style,
-  'header--align-' . $header_align,
-  'header--item-' . $item_style,
-  'header--round-' . $item_shape,
-  'header--dropdown-' . $dropdown_style,
-);
-
-$shell_classes = array('site-header-shell');
-if ($is_fixed) {
-  $shell_classes[] = 'is-fixed';
-}
-
-$logo_style = 'max-width:' . absint((int) $nav_settings['logo_max_width']) . 'px;';
-$logo_mark_style = 'max-width:' . absint((int) $nav_settings['logo_mark_max_width']) . 'px;';
-$logo_mark_breakpoint = absint((int) $nav_settings['logo_mark_breakpoint']);
-
-$primary_logo_html = '';
-$logo_mark_html = '';
-$primary_logo_alt = get_bloginfo('name');
-
-if ('image' === $logo_mode && ! empty($logo_image['url'])) {
-  $logo_image_id = isset($logo_image['ID']) ? absint($logo_image['ID']) : 0;
-
-  if (! empty($logo_image['alt'])) {
-    $primary_logo_alt = (string) $logo_image['alt'];
-  }
-
-  if ($logo_image_id) {
-    $primary_logo_html = wp_get_attachment_image(
-      $logo_image_id,
-      'sc-logo',
-      false,
-      array(
-        'class'    => 'header__logo-image header__logo-primary',
-        'loading'  => 'eager',
-        'decoding' => 'async',
-      )
-    );
-  } else {
-    $primary_logo_html = '<img class="header__logo-image header__logo-primary" src="' . esc_url((string) $logo_image['url']) . '" alt="' . esc_attr($primary_logo_alt) . '" loading="eager" decoding="async" />';
-  }
-} elseif ('custom_logo' === $logo_mode && has_custom_logo()) {
-  $custom_logo_id = absint((int) get_theme_mod('custom_logo'));
-  if ($custom_logo_id) {
-    $custom_logo_alt = get_post_meta($custom_logo_id, '_wp_attachment_image_alt', true);
-    if (is_string($custom_logo_alt) && '' !== $custom_logo_alt) {
-      $primary_logo_alt = $custom_logo_alt;
-    }
-
-    $primary_logo_html = wp_get_attachment_image(
-      $custom_logo_id,
-      'sc-logo',
-      false,
-      array(
-        'class'    => 'header__logo-image header__logo-primary',
-        'loading'  => 'eager',
-        'decoding' => 'async',
-      )
-    );
-  }
-}
-
-if (! empty($logo_mark_image['url'])) {
-  $logo_mark_id = isset($logo_mark_image['ID']) ? absint($logo_mark_image['ID']) : 0;
-  $logo_mark_alt = isset($logo_mark_image['alt']) && '' !== (string) $logo_mark_image['alt'] ? (string) $logo_mark_image['alt'] : $primary_logo_alt;
-
-  if ($logo_mark_id) {
-    $logo_mark_html = wp_get_attachment_image(
-      $logo_mark_id,
-      'sc-logo-mark',
-      false,
-      array(
-        'class'    => 'header__logo-image header__logo-mark',
-        'loading'  => 'eager',
-        'decoding' => 'async',
-        'style'    => $logo_mark_style,
-      )
-    );
-  } else {
-    $logo_mark_html = '<img class="header__logo-image header__logo-mark" src="' . esc_url((string) $logo_mark_image['url']) . '" alt="' . esc_attr($logo_mark_alt) . '" style="' . esc_attr($logo_mark_style) . '" loading="eager" decoding="async" />';
-  }
-}
+$logo_path = STARTER_COAT_URI . '/assets/images/sdws-logo.jpg';
 ?>
-<div class="<?php echo esc_attr(implode(' ', $shell_classes)); ?>" data-fixed="<?php echo $is_fixed ? 'true' : 'false'; ?>" data-logo-mark-breakpoint="<?php echo esc_attr($logo_mark_breakpoint); ?>">
-  <?php if ($show_banner) : ?>
-    <div class="header-banner header-banner--<?php echo esc_attr($nav_settings['banner_style']); ?>">
-      <div class="container header-banner__inner">
-        <?php if (! empty($nav_settings['banner_link']['url']) && ! empty($nav_settings['banner_link']['title'])) : ?>
-          <a href="<?php echo esc_url($nav_settings['banner_link']['url']); ?>" class="header-banner__link" <?php echo ! empty($nav_settings['banner_link']['target']) ? 'target="' . esc_attr($nav_settings['banner_link']['target']) . '"' : ''; ?>>
-            <span class="header-banner__text"><?php echo esc_html($nav_settings['banner_text']); ?></span>
-            <span class="header-banner__cta"><?php echo esc_html($nav_settings['banner_link']['title']); ?></span>
-          </a>
+
+<div class="site-header-shell">
+  <header id="masthead" class="site-header header" role="banner">
+    <div class="sdws-container" style="display:flex; align-items:center; justify-content:space-between; height:70px; gap:1.5rem;">
+
+      <!-- Logo -->
+      <a href="<?php echo esc_url( home_url('/') ); ?>" rel="home" class="sdws-header__logo-link" aria-label="<?php bloginfo('name'); ?> — Home"
+         style="flex-shrink:0; display:flex; align-items:center; text-decoration:none;">
+        <?php if ( file_exists( STARTER_COAT_PATH . '/assets/images/sdws-logo.jpg' ) ) : ?>
+          <img src="<?php echo esc_url( $logo_path ); ?>" alt="San Diego Watercolor Society logo" height="50" style="max-height:50px; width:auto; display:block;" loading="eager">
         <?php else : ?>
-          <p class="header-banner__text"><?php echo esc_html($nav_settings['banner_text']); ?></p>
+          <span style="font-family:var(--font-display); font-size:1.25rem; font-weight:400; color:#000; line-height:1.2;">
+            San Diego<br>Watercolor Society
+          </span>
         <?php endif; ?>
-      </div>
-    </div>
-  <?php endif; ?>
+      </a>
 
-  <header id="masthead" class="<?php echo esc_attr(implode(' ', $header_classes)); ?>" data-fixed="<?php echo $is_fixed ? 'true' : 'false'; ?>">
-    <div class="container header__inner">
-      <?php if ($show_branding) : ?>
-        <div class="header__branding">
-          <?php if ($primary_logo_html) : ?>
-            <a class="header__logo-link" href="<?php echo esc_url(home_url('/')); ?>" rel="home" style="<?php echo esc_attr($logo_style); ?>">
-              <?php echo $primary_logo_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-              ?>
+      <!-- Desktop navigation -->
+      <nav id="site-navigation" class="main-navigation sdws-header__nav" aria-label="Primary Menu"
+           style="display:flex; align-items:center; gap:0.25rem; list-style:none; margin:0; padding:0;">
+        <ul style="display:flex; align-items:center; gap:0.125rem; list-style:none; margin:0; padding:0;">
 
-              <?php if ($logo_mark_html) : ?>
-                <?php echo $logo_mark_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                ?>
-              <?php endif; ?>
+          <li>
+            <a href="<?php echo esc_url( home_url('/') ); ?>"
+               style="padding:0.5rem 0.875rem; font-size:0.9rem; font-weight:400; letter-spacing:0.02em; color:#000; text-decoration:none; display:block;"
+               <?php if ( is_front_page() ) echo 'aria-current="page"'; ?>>
+              Home
             </a>
-          <?php elseif ('site_name' === $logo_mode) : ?>
-            <a class="header__logo-link" href="<?php echo esc_url(home_url('/')); ?>" rel="home" style="<?php echo esc_attr($logo_style); ?>">
-              <span class="header__site-name"><?php bloginfo('name'); ?></span>
-            </a>
-          <?php else : ?>
-            <a class="header__logo-link" href="<?php echo esc_url(home_url('/')); ?>" rel="home" style="<?php echo esc_attr($logo_style); ?>">
-              <span class="header__site-name"><?php bloginfo('name'); ?></span>
-            </a>
-          <?php endif; ?>
-        </div>
-      <?php endif; ?>
+          </li>
 
-      <button class="header__menu-toggle menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="<?php esc_attr_e('Toggle menu', 'starter-coat'); ?>">
-        <span class="menu-toggle__line" aria-hidden="true"></span>
-        <span class="menu-toggle__line" aria-hidden="true"></span>
-        <span class="menu-toggle__line" aria-hidden="true"></span>
-        <span class="screen-reader-text"><?php esc_html_e('Menu', 'starter-coat'); ?></span>
+          <li>
+            <a href="<?php echo esc_url( home_url('/donate/') ); ?>"
+               style="padding:0.5rem 0.875rem; font-size:0.9rem; font-weight:400; letter-spacing:0.02em; color:#000; text-decoration:none; display:block;"
+               <?php if ( is_page('donate') ) echo 'aria-current="page"'; ?>>
+              Donate
+            </a>
+          </li>
+
+          <li>
+            <a href="<?php echo esc_url( home_url('/workshops/') ); ?>"
+               style="padding:0.5rem 0.875rem; font-size:0.9rem; font-weight:400; letter-spacing:0.02em; color:#000; text-decoration:none; display:block;"
+               <?php if ( is_page('workshops') || is_post_type_archive('sdws_workshop') || is_singular('sdws_workshop') ) echo 'aria-current="page"'; ?>>
+              Workshops
+            </a>
+          </li>
+
+          <!-- Exhibitions dropdown -->
+          <li class="sdws-dropdown" style="position:relative;">
+            <button class="sdws-dropdown__toggle"
+                    aria-expanded="false" aria-haspopup="true"
+                    style="padding:0.5rem 0.875rem; font-size:0.9rem; font-weight:400; letter-spacing:0.02em; color:#000; background:none; border:none; cursor:pointer; display:flex; align-items:center; gap:0.375rem; font-family:var(--font-body);">
+              Exhibitions
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+                <path d="M1 1l4 4 4-4" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <ul class="sdws-dropdown__menu"
+                style="display:none; position:absolute; top:100%; left:0; background:#fff; border:1px solid #000; min-width:220px; list-style:none; margin:0; padding:0; z-index:200;">
+              <li>
+                <a href="<?php echo esc_url( home_url('/schedule/') ); ?>"
+                   style="padding:0.75rem 1rem; font-size:0.9rem; color:#000; text-decoration:none; display:block; border-bottom:1px solid #000;">
+                  Exhibition Schedule
+                </a>
+              </li>
+              <li>
+                <a href="<?php echo esc_url( home_url('/international/') ); ?>"
+                   style="padding:0.75rem 1rem; font-size:0.9rem; color:#000; text-decoration:none; display:block;">
+                  International Exhibition
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="<?php echo esc_url( home_url('/calendar/') ); ?>"
+               style="padding:0.5rem 0.875rem; font-size:0.9rem; font-weight:400; letter-spacing:0.02em; color:#000; text-decoration:none; display:block;"
+               <?php if ( is_page('calendar') ) echo 'aria-current="page"'; ?>>
+              Calendar
+            </a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <!-- Mobile hamburger -->
+      <button class="sdws-menu-toggle" aria-controls="sdws-mobile-menu" aria-expanded="false" aria-label="Open menu"
+              style="display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:0.5rem;">
+        <span style="display:block; width:24px; height:2px; background:#000;"></span>
+        <span style="display:block; width:24px; height:2px; background:#000;"></span>
+        <span style="display:block; width:24px; height:2px; background:#000;"></span>
       </button>
 
-      <nav id="site-navigation" class="main-navigation header__nav" aria-label="<?php esc_attr_e('Primary Menu', 'starter-coat'); ?>">
-        <?php
-        wp_nav_menu(
-          array(
-            'theme_location' => 'menu-1',
-            'menu_id'        => 'primary-menu',
-            'menu_class'     => 'header__menu',
-            'container'      => false,
-          )
-        );
-        ?>
-
-        <?php if ($show_cta) : ?>
-          <a class="header__cta btn btn--<?php echo esc_attr($nav_settings['cta_style']); ?> btn--sm" href="<?php echo esc_url($nav_settings['cta_link']['url']); ?>" <?php echo ! empty($nav_settings['cta_link']['target']) ? 'target="' . esc_attr($nav_settings['cta_link']['target']) . '"' : ''; ?>>
-            <?php echo esc_html($nav_settings['cta_link']['title']); ?>
-          </a>
-        <?php endif; ?>
-
-        <?php if ($show_social) : ?>
-          <div class="header__social" aria-label="<?php esc_attr_e('Social Media Links', 'starter-coat'); ?>">
-            <?php
-            get_template_part(
-              'template-parts/components/social-links',
-              null,
-              array(
-                'style' => (string) $nav_settings['social_style'],
-                'size'  => 'sm',
-              )
-            );
-            ?>
-          </div>
-        <?php endif; ?>
-      </nav>
-    </div>
+    </div><!-- .sdws-container -->
   </header>
-</div>
+
+  <!-- Mobile menu overlay -->
+  <div id="sdws-mobile-menu" class="sdws-mobile-menu" aria-hidden="true"
+       style="display:none; position:fixed; inset:0; background:#fff; z-index:500; overflow-y:auto; padding:2rem;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:3rem; border-bottom:1px solid #000; padding-bottom:1.5rem;">
+      <span style="font-family:var(--font-display); font-size:1.25rem;">SDWS</span>
+      <button class="sdws-menu-close" aria-label="Close menu"
+              style="background:none; border:none; cursor:pointer; font-size:1.5rem; line-height:1; padding:0.25rem;">
+        ×
+      </button>
+    </div>
+    <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0;">
+      <?php
+      $mobile_links = array(
+        'Home'                    => home_url('/'),
+        'Donate'                  => home_url('/donate/'),
+        'Workshops'               => home_url('/workshops/'),
+        'Exhibition Schedule'     => home_url('/schedule/'),
+        'International Exhibition'=> home_url('/international/'),
+        'Calendar'                => home_url('/calendar/'),
+      );
+      foreach ($mobile_links as $label => $url) :
+      ?>
+        <li style="border-bottom:1px solid #000;">
+          <a href="<?php echo esc_url($url); ?>"
+             style="display:block; padding:1rem 0; font-family:var(--font-display); font-size:1.5rem; color:#000; text-decoration:none;">
+            <?php echo esc_html($label); ?>
+          </a>
+        </li>
+      <?php endforeach; ?>
+    </ul>
+  </div>
+
+</div><!-- .site-header-shell -->
+
+<style>
+/* Sticky header */
+.site-header-shell { position: sticky; top: 0; z-index: 100; }
+
+/* Desktop nav — hide hamburger */
+@media (min-width: 769px) {
+  .sdws-menu-toggle { display: none !important; }
+  .sdws-header__nav { display: flex !important; }
+}
+
+/* Mobile — hide desktop nav, show hamburger */
+@media (max-width: 768px) {
+  .sdws-header__nav { display: none !important; }
+  .sdws-menu-toggle { display: flex !important; }
+}
+
+/* Dropdown hover */
+.sdws-dropdown:hover .sdws-dropdown__menu,
+.sdws-dropdown:focus-within .sdws-dropdown__menu {
+  display: block !important;
+}
+
+/* Active nav link underline */
+.sdws-header__nav a[aria-current="page"],
+.sdws-header__nav button[aria-current="page"] {
+  border-bottom: 2px solid #000;
+}
+</style>
+
+<script>
+(function () {
+  var toggle = document.querySelector('.sdws-menu-toggle');
+  var menu   = document.getElementById('sdws-mobile-menu');
+  var close  = document.querySelector('.sdws-menu-close');
+
+  if (toggle && menu) {
+    toggle.addEventListener('click', function () {
+      var open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      menu.setAttribute('aria-hidden', String(open));
+      menu.style.display = open ? 'none' : 'block';
+      document.body.style.overflow = open ? '' : 'hidden';
+    });
+  }
+
+  if (close && menu) {
+    close.addEventListener('click', function () {
+      menu.style.display = 'none';
+      menu.setAttribute('aria-hidden', 'true');
+      if (toggle) {
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+      document.body.style.overflow = '';
+    });
+  }
+
+  // Dropdown keyboard
+  document.querySelectorAll('.sdws-dropdown__toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      var dd = btn.nextElementSibling;
+      if (dd) dd.style.display = expanded ? 'none' : 'block';
+    });
+  });
+})();
+</script>

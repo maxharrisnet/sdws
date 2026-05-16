@@ -55,6 +55,48 @@ function starter_coat_allow_svg_uploads($mimes)
 add_filter('upload_mimes', 'starter_coat_allow_svg_uploads');
 
 /**
+ * Sanitize SVG uploads by stripping dangerous elements and attributes.
+ *
+ * @param array $file File data from wp_handle_upload_prefilter.
+ * @return array
+ */
+function starter_coat_sanitize_svg_upload($file)
+{
+  if ($file['type'] !== 'image/svg+xml') {
+    return $file;
+  }
+
+  $content = file_get_contents($file['tmp_name']);
+  if ($content === false) {
+    $file['error'] = __('Could not read SVG file.', 'starter-coat');
+    return $file;
+  }
+
+  // Strip XML processing instructions and DOCTYPE.
+  $content = preg_replace('/<\?xml[^>]*\?>/i', '', $content);
+  $content = preg_replace('/<!DOCTYPE[^>]*>/i', '', $content);
+
+  // Remove dangerous elements.
+  $dangerous_tags = array('script', 'foreignObject', 'set', 'animate', 'animateTransform', 'animateMotion');
+  foreach ($dangerous_tags as $tag) {
+    $content = preg_replace('/<' . $tag . '\b[^>]*>.*?<\/' . $tag . '>/is', '', $content);
+    $content = preg_replace('/<' . $tag . '\b[^>]*\/>/is', '', $content);
+  }
+
+  // Remove on* event attributes.
+  $content = preg_replace('/\s+on\w+\s*=\s*(["\']).*?\1/is', '', $content);
+  $content = preg_replace('/\s+on\w+\s*=\s*[^\s>]+/is', '', $content);
+
+  // Remove javascript: URLs in href/xlink:href attributes.
+  $content = preg_replace('/\s+(href|xlink:href)\s*=\s*(["\'])\s*javascript:.*?\2/is', '', $content);
+
+  file_put_contents($file['tmp_name'], $content);
+
+  return $file;
+}
+add_filter('wp_handle_upload_prefilter', 'starter_coat_sanitize_svg_upload');
+
+/**
  * Render fallback favicon from Theme Settings when Site Icon is not set.
  */
 function starter_coat_render_favicon()
