@@ -85,9 +85,11 @@ if (empty($left_items) && empty($right_items)) {
                       'sc-card-header',
                       false,
                       array(
-                        'class'   => 'c-feature-list-card__image',
-                        'loading' => 'lazy',
-                        'alt'     => isset($item_image['alt']) ? (string) $item_image['alt'] : '',
+                        'class'    => 'c-feature-list-card__image',
+                        'loading'  => 'lazy',
+                        'decoding' => 'async',
+                        'alt'      => isset($item_image['alt']) ? (string) $item_image['alt'] : '',
+                        'sizes'    => '(min-width: 1200px) 480px, (min-width: 768px) 33vw, 100vw',
                       )
                     );
                     ?>

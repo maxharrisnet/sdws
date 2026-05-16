@@ -21,7 +21,7 @@ get_header();
           <?php
           while (have_posts()) :
             the_post();
-            get_template_part('template-parts/components/archive-card', null, array('style' => 'post'));
+            get_template_part('template-parts/sdws/sdws-card');
           endwhile;
           ?>
         </div>

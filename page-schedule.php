@@ -38,9 +38,11 @@ get_header();
       ?>
 
       <?php if ( $exhibitions->have_posts() ) : ?>
-        <?php while ( $exhibitions->have_posts() ) : $exhibitions->the_post(); ?>
-          <?php get_template_part( 'template-parts/sdws/exhibition-card' ); ?>
-        <?php endwhile; ?>
+        <div class="sdws-grid-2">
+          <?php while ( $exhibitions->have_posts() ) : $exhibitions->the_post(); ?>
+            <?php get_template_part( 'template-parts/sdws/sdws-card' ); ?>
+          <?php endwhile; ?>
+        </div>
         <?php wp_reset_postdata(); ?>
       <?php else : ?>
         <p style="color:#000; opacity:0.5;">Exhibition listings coming soon.</p>

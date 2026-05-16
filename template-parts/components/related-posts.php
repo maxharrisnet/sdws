@@ -85,7 +85,7 @@ if ('project' === $post_type) {
       <?php
       while ($related->have_posts()) :
         $related->the_post();
-        get_template_part('template-parts/components/archive-card', null, array('style' => $card_style));
+        get_template_part('template-parts/sdws/sdws-card');
       endwhile;
       ?>
     </div>

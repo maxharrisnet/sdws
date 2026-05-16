@@ -21,13 +21,88 @@ body {
 /* === Typography ======================================================== */
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
   color: #000;
   line-height: 1.15;
 }
 
+h1, h2 {
+  font-family: var(--font-display);
+}
+
+h3, h4, h5, h6 {
+  font-family: var(--font-body);
+  font-weight: 700;
+}
+
 p, li, td, th, label, input, select, textarea {
   font-family: var(--font-body);
+}
+
+/* === Links ============================================================= */
+
+/* Body/content links: underlined by default, turn teal on hover */
+a {
+  color: #000;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+  transition: color 0.15s ease;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Nav, card titles, UI links — no underline, just color on hover */
+.sdws-header__nav a,
+.sdws-card__title a {
+  text-decoration: none;
+}
+
+/* !important needed to override inline color styles in templates */
+.sdws-header__nav a:hover,
+.sdws-header__nav a:focus-visible,
+.sdws-dropdown__menu a:hover,
+.sdws-dropdown__menu a:focus-visible {
+  color: var(--color-primary) !important;
+  text-decoration: none;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  color: var(--color-primary) !important;
+  text-decoration: none;
+}
+
+.sdws-card__title a:hover,
+.sdws-card__title a:focus-visible {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* Buttons: never underline, only bg changes */
+.sdws-btn,
+.sdws-btn:hover,
+.sdws-btn:focus-visible {
+  text-decoration: none !important;
+}
+
+/* Teal sections: white links, underline on hover */
+.sdws-section--teal a:not(.sdws-btn) {
+  color: #fff;
+  text-decoration: none;
+}
+
+.sdws-section--teal a:not(.sdws-btn):hover,
+.sdws-section--teal a:not(.sdws-btn):focus-visible {
+  text-decoration: underline;
 }
 
 /* === Images ============================================================ */
@@ -157,23 +232,38 @@ img {
   color: #fff;
 }
 
-/* === Workshop card ===================================================== */
+/* === Unified card ====================================================== */
 
-.sdws-workshop-card {
+.sdws-card {
   border: var(--border);
   background: #fff;
   display: flex;
   flex-direction: column;
 }
 
-.sdws-workshop-card__image {
+.sdws-card__image {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
   display: block;
 }
 
-.sdws-workshop-card__body {
+.sdws-card__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  background: var(--color-sand);
+}
+
+.sdws-card__placeholder span {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.4;
+}
+
+.sdws-card__body {
   padding: 1.5rem;
   flex: 1;
   display: flex;
@@ -181,73 +271,54 @@ img {
   gap: 0.5rem;
 }
 
-.sdws-workshop-card__instructor {
-  font-family: var(--font-body);
+.sdws-card__eyebrow {
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #000;
+  margin: 0;
 }
 
-.sdws-workshop-card__title {
-  font-family: var(--font-display);
+.sdws-card__title {
+  font-weight: 700;
   font-size: 1.5rem;
   color: #000;
   margin: 0;
 }
 
-.sdws-workshop-card__date {
+.sdws-card__meta {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.sdws-card__meta li {
   font-size: 0.875rem;
-  font-variant: small-caps;
   color: #000;
 }
 
-.sdws-workshop-card__prices {
-  font-size: 0.875rem;
+.sdws-card__excerpt {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: #000;
+}
+
+.sdws-card__buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
   margin-top: auto;
   padding-top: 0.75rem;
   border-top: 1px solid #000;
 }
 
-/* === Exhibition card =================================================== */
-
-.sdws-exhibition-card {
-  border-top: 2px solid #000;
-  padding: 2rem 0;
-}
-
-.sdws-exhibition-card + .sdws-exhibition-card {
-  border-top: 1px solid #000;
-}
-
-.sdws-exhibition-card__title {
-  font-family: var(--font-display);
-  font-size: 2rem;
-  margin: 0 0 0.5rem;
-}
-
-.sdws-exhibition-card__dates {
-  font-size: 1rem;
-  font-weight: 500;
-  margin-bottom: 1rem;
-}
-
-.sdws-exhibition-card__key-dates {
-  display: grid;
-  grid-template-columns: max-content 1fr;
-  gap: 0.25rem 1.5rem;
-  font-size: 0.9375rem;
-  margin-bottom: 1rem;
-}
-
-.sdws-exhibition-card__key-dates dt {
-  font-weight: 500;
-}
-
-.sdws-exhibition-card__notes {
-  margin-top: 0.75rem;
-  font-size: 0.9375rem;
+.sdws-card__btn {
+  font-size: 0.875rem;
+  padding: 0.625rem 1.25rem;
 }
 
 /* === Gallery strip ===================================================== */
@@ -299,11 +370,188 @@ img {
   .sdws-grid-2 { grid-template-columns: 1fr; }
 }
 
+/* === Page header utilities ============================================= */
+
+.sdws-section--bordered-bottom {
+  border-bottom: var(--border);
+}
+
+/* Responsive h1 used on inner-page headers */
+.sdws-page-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin: 0 0 1rem;
+}
+
+/* Intro paragraph beneath a page title */
+.sdws-page-intro {
+  font-size: 1.125rem;
+  max-width: 680px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* h2 that divides content sections with a bottom rule */
+.sdws-section-heading {
+  font-size: 2rem;
+  margin: 0 0 2rem;
+  padding-bottom: 1rem;
+  border-bottom: var(--border);
+}
+
+/* === Button modifiers ================================================== */
+
+.sdws-btn--lg {
+  font-size: 1.125rem;
+  padding: 1.125rem 2.75rem;
+}
+
+/* === Container width modifier ========================================== */
+
+.sdws-container--narrow {
+  max-width: 720px;
+}
+
 /* === Donate page ======================================================= */
+
+.sdws-donate {
+  text-align: center;
+}
+
+.sdws-donate .sdws-page-title {
+  margin-bottom: 1.5rem;
+}
+
+.sdws-donate__intro {
+  margin: 0 auto 2rem;
+}
+
+.sdws-donate-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 2.5rem;
+  text-align: left;
+  display: inline-block;
+}
+
+.sdws-donate-bullets__item {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #000;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  display: flex;
+  gap: 1rem;
+  align-items: start;
+}
+
+.sdws-donate-bullets__item:first-child {
+  border-top: 1px solid #000;
+}
+
+.sdws-donate-bullets__arrow {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  margin-top: 0.1em;
+}
 
 .sdws-donate-btn {
   display: inline-block;
   margin-top: 2rem;
+}
+
+.sdws-donate-tax-note {
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  opacity: 0.6;
+}
+
+/* === Pagination ======================================================== */
+
+.pagination {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: var(--border);
+}
+
+.pagination__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.375rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pagination__list a.page-numbers,
+.pagination__list span.page-numbers {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  padding: 0 0.5rem;
+  border: 1px solid #000;
+  font-size: 0.875rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: #000;
+  background: #fff;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.pagination__list a.page-numbers:hover {
+  background: #000;
+  color: #fff;
+}
+
+.pagination__list span.page-numbers.current {
+  background: #000;
+  color: #fff;
+}
+
+.pagination__list .page-numbers.dots {
+  border: none;
+  background: transparent;
+  min-width: 1.5rem;
+  letter-spacing: 0;
+}
+
+.pagination__list a.page-numbers.prev,
+.pagination__list a.page-numbers.next {
+  min-width: auto;
+  padding: 0 1rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* === Back to top ======================================================= */
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 900;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.back-to-top:hover {
+  background: #333;
+}
+
+.back-to-top[hidden] {
+  display: none;
 }
 
 /* === Navigation overrides ============================================== */
@@ -331,15 +579,144 @@ img {
   text-decoration: underline;
 }
 
+/* === Tribe Events Calendar embed iframe ================================ */
+
+iframe[data-tec-events-ece-iframe="true"] {
+  width: 100%;
+  height: calc(100vw + 100px);
+  max-width: 100%;
+  display: block;
+  border: 0;
+}
+
+@media screen and (min-width: 600px) {
+  iframe[data-tec-events-ece-iframe="true"] {
+    height: 100vw;
+  }
+}
+
+@media screen and (min-width: 853px) {
+  iframe[data-tec-events-ece-iframe="true"] {
+    height: 1065px;
+  }
+}
+
 /* === Tribe Events Calendar overrides =================================== */
 
+/* Strip rounded corners and apply theme fonts site-wide */
 .tribe-events,
 .tribe-events * {
   border-radius: 0 !important;
   font-family: var(--font-body) !important;
 }
 
+/* Navigation bar */
+.tribe-events .tribe-events-c-nav__list {
+  gap: 0;
+}
+.tribe-events .tribe-events-c-nav__prev,
+.tribe-events .tribe-events-c-nav__next {
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+}
+.tribe-events .tribe-events-c-nav__prev:hover,
+.tribe-events .tribe-events-c-nav__next:hover {
+  text-decoration: underline;
+}
+
+/* View-switcher tabs */
+.tribe-events .tribe-events-c-view-selector__button,
+.tribe-events .tribe-events-c-view-selector__list-item-link {
+  border: 1px solid #000;
+  color: #000;
+  background: #fff;
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.9rem;
+}
+.tribe-events .tribe-events-c-view-selector__list-item-link--is-active,
+.tribe-events .tribe-events-c-view-selector__list-item-link:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* Month grid */
 .tribe-events .tribe-events-calendar td,
 .tribe-events .tribe-events-calendar th {
   border-color: #000;
+}
+.tribe-events .tribe-events-calendar__month-grid-cell--current .tribe-events-calendar__month-grid-cell-date-link {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* Event dots / pills in month view */
+.tribe-events .tribe-events-calendar__month-grid-cell-event .tribe-events-calendar__month-grid-cell-event-title a {
+  color: #000;
+  font-weight: 500;
+}
+.tribe-events .tribe-events-calendar__month-grid-cell-event-bar-inner {
+  background: var(--color-primary);
+}
+
+/* List view event rows */
+.tribe-events .tribe-events-calendar-list__event-row {
+  border-top: 1px solid #000;
+}
+.tribe-events .tribe-events-calendar-list__event-title a {
+  color: #000;
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.tribe-events .tribe-events-calendar-list__event-title a:hover {
+  color: var(--color-primary);
+}
+.tribe-events .tribe-events-calendar-list__event-datetime {
+  color: #000;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.tribe-events .tribe-events-calendar-list__event-cost {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* Category badges */
+.tribe-events .tribe-event-categories a {
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Buttons */
+.tribe-events .tribe-common-c-btn,
+.tribe-events .tribe-common-c-btn-border {
+  border-radius: 0 !important;
+  border: 1px solid #000;
+  color: #000;
+  background: transparent;
+  font-family: var(--font-body) !important;
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.5rem 1.25rem;
+}
+.tribe-events .tribe-common-c-btn:hover,
+.tribe-events .tribe-common-c-btn-border:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* Remove TEC's default blue accents */
+.tribe-events .tribe-events-c-nav__list-item-link--is-active,
+.tribe-events a {
+  color: #000;
+}
+.tribe-events a:hover {
+  color: var(--color-primary);
 }

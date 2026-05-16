@@ -107,8 +107,10 @@ if ('split' === $layout_mode) {
               'large',
               false,
               array(
-                'loading' => 'lazy',
-                'alt'     => isset($media_image['alt']) ? (string) $media_image['alt'] : '',
+                'loading'  => 'lazy',
+                'decoding' => 'async',
+                'alt'      => isset($media_image['alt']) ? (string) $media_image['alt'] : '',
+                'sizes'    => '(min-width: 1200px) 640px, (min-width: 768px) 50vw, 100vw',
               )
             );
             ?>

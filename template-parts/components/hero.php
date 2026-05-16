@@ -91,10 +91,11 @@ if ($full_height || 'page-fullheight' === $variant) {
               'sc-hero',
               false,
               array(
-                'class'    => 'c-hero__image',
-                'loading'  => 'lazy',
-                'decoding' => 'async',
-                'sizes'    => '(min-width: 1200px) 560px, (min-width: 768px) 45vw, 100vw',
+                'class'         => 'c-hero__image',
+                'loading'       => 'eager',
+                'fetchpriority' => 'high',
+                'decoding'      => 'async',
+                'sizes'         => '(min-width: 1200px) 560px, (min-width: 768px) 45vw, 100vw',
               )
             );
             ?>

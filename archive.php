@@ -31,13 +31,7 @@ get_header();
       echo '<div class="layout layout--3col">';
       while (have_posts()) :
         the_post();
-        $card_style = 'post';
-        if ('project' === get_post_type()) {
-          $card_style = 'project';
-        } elseif ('press' === get_post_type()) {
-          $card_style = 'press';
-        }
-        get_template_part('template-parts/components/archive-card', null, array('style' => $card_style));
+        get_template_part('template-parts/sdws/sdws-card');
       endwhile;
       echo '</div>';
 

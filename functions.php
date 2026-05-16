@@ -180,6 +180,7 @@ if (defined('JETPACK__VERSION')) {
 
 require STARTER_COAT_PATH . '/inc/assets.php';
 require STARTER_COAT_PATH . '/inc/editor.php';
+require STARTER_COAT_PATH . '/inc/nav-walkers.php';
 require STARTER_COAT_PATH . '/inc/ajax.php';
 require STARTER_COAT_PATH . '/inc/separator-shapes.php';
 require STARTER_COAT_PATH . '/inc/template-helpers.php';

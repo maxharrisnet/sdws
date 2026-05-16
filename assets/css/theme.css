@@ -247,10 +247,22 @@ h4,
 h5,
 h6 {
 	margin: 0 0 var(--space-md);
-	font-family: var(--font-heading);
 	font-weight: 200;
 	line-height: 1.15;
 	color: var(--color-heading);
+}
+
+h1,
+h2 {
+	font-family: var(--font-heading);
+}
+
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-body);
+	font-weight: 600;
 }
 
 h1 {
@@ -777,7 +789,7 @@ form {
 }
 
 .header__site-name {
-	font-family: var(--font-heading);
+	font-family: var(--font-body);
 	font-weight: 700;
 	font-size: var(--font-size-lg);
 	color: var(--color-heading);
@@ -1216,7 +1228,7 @@ form {
 }
 
 .footer__site-name {
-	font-family: var(--font-heading);
+	font-family: var(--font-body);
 	font-size: var(--font-size-lg);
 	font-weight: 700;
 	color: var(--color-heading);
@@ -1429,7 +1441,6 @@ form {
 	}
 }
 .card,
-.c-archive-card,
 .c-featured-item {
 	background: var(--color-bg);
 	border: 1px solid var(--color-border);
@@ -1441,7 +1452,6 @@ form {
 	padding: var(--space-lg);
 }
 
-.c-archive-card__link,
 .c-featured-item__link {
 	display: flex;
 	flex-direction: column;
@@ -1450,27 +1460,8 @@ form {
 	text-decoration: none;
 }
 
-.c-archive-card__body,
 .c-featured-item__body {
 	padding: var(--space-lg);
-}
-
-.c-archive-card--project .c-archive-card__title {
-	font-size: var(--font-size-lg);
-}
-
-.c-archive-card__meta {
-	display: flex;
-	flex-wrap: wrap;
-	gap: var(--space-2xs);
-	margin: 0 0 var(--space-2xs);
-	font-size: var(--font-size-sm);
-	color: var(--color-text-muted);
-}
-
-.c-archive-card__meta > span + span::before {
-	content: '•';
-	margin-right: var(--space-2xs);
 }
 
 .c-content-card {
@@ -2698,7 +2689,7 @@ form {
 }
 .artist-profile-page .artist-profile__title--compact {
 	font-size: clamp(1.2rem, 1vw + 1rem, 1.65rem);
-	font-family: var(--font-heading);
+	font-family: var(--font-body);
 	font-weight: 700;
 }
 .artist-profile-page .artist-profile__meta {

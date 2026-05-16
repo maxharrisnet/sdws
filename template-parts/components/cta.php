@@ -54,19 +54,16 @@ if (! $title && ! $copy && ! $has_buttons && ! $has_form) {
   return;
 }
 
-$container_class = 'container';
+$container_class = 'sdws-container';
 if ('narrow' === $width) {
-  $container_class = 'container container--narrow';
+  $container_class = 'sdws-container sdws-container--narrow';
 } elseif ('full' === $width) {
-  $container_class = 'container container--full';
+  $container_class = 'sdws-container sdws-container--full';
 }
 
-$section_classes = array('section', 'c-cta-band', 'c-cta-band--layout-' . $layout);
+$section_classes = array('sdws-section', 'c-cta-band', 'c-cta-band--layout-' . $layout);
 if ('none' !== $background) {
-  $section_classes[] = 'bg-' . $background;
-}
-if (in_array($background, array('dark', 'brand'), true)) {
-  $section_classes[] = 'text-light';
+  $section_classes[] = 'sdws-section--' . $background;
 }
 ?>
 <section class="<?php echo esc_attr(implode(' ', $section_classes)); ?>">
@@ -97,14 +94,20 @@ if (in_array($background, array('dark', 'brand'), true)) {
         </div>
       <?php elseif ($has_buttons) : ?>
         <div class="c-cta__actions">
+          <?php
+          // Map boilerplate style names to SDWS equivalents.
+          $style_map = array('ghost' => 'outline', 'secondary' => 'outline');
+          $primary_cls   = isset($style_map[$button_primary_style])   ? $style_map[$button_primary_style]   : $button_primary_style;
+          $secondary_cls = isset($style_map[$button_secondary_style]) ? $style_map[$button_secondary_style] : $button_secondary_style;
+          ?>
           <?php if ($has_primary) : ?>
-            <a class="btn btn--<?php echo esc_attr($button_primary_style); ?> btn--md" href="<?php echo esc_url($button_primary['url']); ?>" <?php echo ! empty($button_primary['target']) ? 'target="' . esc_attr($button_primary['target']) . '"' : ''; ?>>
+            <a class="sdws-btn sdws-btn--<?php echo esc_attr($primary_cls); ?>" href="<?php echo esc_url($button_primary['url']); ?>" <?php echo ! empty($button_primary['target']) ? 'target="' . esc_attr($button_primary['target']) . '"' : ''; ?>>
               <?php echo esc_html($button_primary['title']); ?>
             </a>
           <?php endif; ?>
 
           <?php if ($has_secondary) : ?>
-            <a class="btn btn--<?php echo esc_attr($button_secondary_style); ?> btn--md" href="<?php echo esc_url($button_secondary['url']); ?>" <?php echo ! empty($button_secondary['target']) ? 'target="' . esc_attr($button_secondary['target']) . '"' : ''; ?>>
+            <a class="sdws-btn sdws-btn--<?php echo esc_attr($secondary_cls); ?>" href="<?php echo esc_url($button_secondary['url']); ?>" <?php echo ! empty($button_secondary['target']) ? 'target="' . esc_attr($button_secondary['target']) . '"' : ''; ?>>
               <?php echo esc_html($button_secondary['title']); ?>
             </a>
           <?php endif; ?>

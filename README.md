@@ -123,6 +123,33 @@ Implemented in `assets/js/theme.js`:
 - Stats count-up on intersection.
 - Bold-list accordion behavior.
 
+## Image Sizes
+
+Registered in `inc/media.php` via `add_image_size()`.
+
+| Slug | Dimensions | Crop | Primary use |
+|------|-----------|------|-------------|
+| `sc-hero` | 1920 × 1080 | hard | Hero component (desktop) |
+| `sc-hero-md` | 1280 × 720 | hard | Hero component (medium) |
+| `sc-card-header` | 960 × 600 | hard | Workshop cards, gallery strip, gallery component |
+| `sc-card-header-featured` | 1440 × 900 | hard | Workshop single featured image |
+| `sc-profile-square-sm` | 320 × 320 | hard | Testimonial avatars |
+| `sc-profile-square-lg` | 640 × 640 | hard | Juror / author portraits |
+| `sc-logo` | 480 × 180 | soft | Partner / sponsor logos |
+| `sc-logo-mark` | 200 × 200 | hard | Square logo marks |
+
+WordPress built-in sizes are also tuned on theme activation (thumbnail 480 × 480, medium 768px, large 1920px).
+
+### Image output conventions
+
+- Always use `wp_get_attachment_image()` or `the_post_thumbnail()` — never a raw `<img>` from an ACF `['url']` value when `['ID']` is available.
+- All below-the-fold images: `loading="lazy"` + `decoding="async"`.
+- Above-the-fold hero (LCP): `loading="eager"` + `fetchpriority="high"` + `decoding="async"`.
+- Always pass a `sizes` attribute to let the browser pick the right srcset candidate. See `CLAUDE.md → Image System` for per-context values.
+- WordPress auto-generates `srcset` from all registered sizes — no manual `wp_get_attachment_image_srcset()` calls needed.
+
+---
+
 ## AI Agent Notes
 
 Use these rules when extending the codebase:
@@ -154,7 +181,7 @@ Recommended next hardening steps:
   - heading hierarchy validation
 - Add SEO/social defaults and schema helpers for FAQ/video/organization contexts.
 - Add consistent empty-state messaging where editors leave optional groups blank.
-- Define and document image-size usage per section and enforce in templates.
+- ~~Define and document image-size usage per section and enforce in templates.~~ ✓ Done — see Image Sizes section above.
 - Add editor help text and copy-ready examples for complex field groups.
 - Add section presets to speed authoring (preconfigured layout/style defaults).
 - Add release checklist and smoke-test routine for deploy safety.

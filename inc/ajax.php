@@ -45,12 +45,7 @@ function starter_coat_ajax_filter_posts()
     while ($query->have_posts()) {
       $query->the_post();
       $style = 'post';
-      if ('project' === $post_type) {
-        $style = 'project';
-      } elseif ('press' === $post_type) {
-        $style = 'press';
-      }
-      get_template_part('template-parts/components/archive-card', null, array('style' => $style));
+      get_template_part('template-parts/sdws/sdws-card');
     }
   } else {
     echo '<p>' . esc_html__('No items found.', 'starter-coat') . '</p>';

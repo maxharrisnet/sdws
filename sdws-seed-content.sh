@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 # ============================================================================
-# SDWS Content Seeding Script
-# Run AFTER starting Local by Flywheel and verifying WP-CLI connects.
-# Usage: bash sdws-seed-content.sh
+# SDWS Infrastructure Setup Script
+# Creates WP pages, taxonomy terms, and installs plugins.
+# NOTE: For real exhibition/workshop content, run sdws-import-content.php instead:
+#   wp eval-file wp-content/themes/starter-coat/sdws-import-content.php \
+#     --path="/Users/max/Local Sites/san-diego-watercolor-society/app/public"
 # ============================================================================
 
 WP="wp --path=\"/Users/max/Local Sites/san-diego-watercolor-society/app/public\""

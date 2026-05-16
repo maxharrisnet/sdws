@@ -135,7 +135,10 @@ if (! function_exists('starter_coat_post_thumbnail')) :
 ?>
 
       <div class="post-thumbnail">
-        <?php the_post_thumbnail($singular_size); ?>
+        <?php the_post_thumbnail($singular_size, array(
+          'loading'  => 'lazy',
+          'decoding' => 'async',
+        )); ?>
       </div><!-- .post-thumbnail -->
 
     <?php else : ?>
@@ -145,11 +148,9 @@ if (! function_exists('starter_coat_post_thumbnail')) :
         the_post_thumbnail(
           'post-thumbnail',
           array(
-            'alt' => the_title_attribute(
-              array(
-                'echo' => false,
-              )
-            ),
+            'alt'      => the_title_attribute(array('echo' => false)),
+            'loading'  => 'lazy',
+            'decoding' => 'async',
           )
         );
         ?>

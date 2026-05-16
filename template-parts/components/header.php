@@ -3,94 +3,119 @@
 /**
  * SDWS site header.
  *
+ * Pulls logo, CTA, and banner from Theme Settings → Navigation (ACF options).
+ * Primary menu is driven by the "Primary" (menu-1) menu location.
+ *
  * @package Starter_Coat
  */
 
-$logo_path = STARTER_COAT_URI . '/assets/images/sdws-logo.jpg';
+$nav = starter_coat_get_nav_settings();
+
+$logo_max_width = absint( $nav['logo_max_width'] ) ?: 180;
+$show_banner    = ! empty( $nav['banner_enabled'] ) && ! empty( $nav['banner_text'] );
+$show_cta       = ! empty( $nav['show_cta'] ) && ! empty( $nav['cta_link']['url'] );
+$cta_link       = $show_cta ? $nav['cta_link'] : null;
+$cta_style      = esc_attr( $nav['cta_style'] ?: 'primary' );
 ?>
 
 <div class="site-header-shell">
+
+  <?php if ( $show_banner ) :
+    $banner_map = array(
+      'dark'  => 'background:#000; color:#fff;',
+      'light' => 'background:var(--color-off-white,#f8f6f2); color:#000; border-bottom:1px solid #000;',
+      'brand' => 'background:var(--color-primary,#3a9aaa); color:#fff;',
+    );
+    $banner_css = isset( $banner_map[ $nav['banner_style'] ] ) ? $banner_map[ $nav['banner_style'] ] : $banner_map['dark'];
+    $banner_lnk = ! empty( $nav['banner_link']['url'] ) ? $nav['banner_link'] : null;
+  ?>
+  <div class="sdws-top-banner" style="<?php echo esc_attr( $banner_css ); ?> text-align:center; padding:0.5rem 1rem; font-size:0.875rem; font-weight:500;">
+    <?php if ( $banner_lnk ) : ?>
+      <a href="<?php echo esc_url( $banner_lnk['url'] ); ?>"
+        <?php echo ! empty( $banner_lnk['target'] ) ? 'target="' . esc_attr( $banner_lnk['target'] ) . '"' : ''; ?>
+        style="color:inherit; text-decoration:underline;">
+        <?php echo esc_html( $nav['banner_text'] ); ?>
+      </a>
+    <?php else : ?>
+      <?php echo esc_html( $nav['banner_text'] ); ?>
+    <?php endif; ?>
+  </div>
+  <?php endif; ?>
+
   <header id="masthead" class="site-header header" role="banner">
     <div class="sdws-container" style="display:flex; align-items:center; justify-content:space-between; height:70px; gap:1.5rem;">
 
       <!-- Logo -->
-      <a href="<?php echo esc_url( home_url('/') ); ?>" rel="home" class="sdws-header__logo-link" aria-label="<?php bloginfo('name'); ?> — Home"
+      <?php if ( ! empty( $nav['show_logo'] ) ) : ?>
+      <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="sdws-header__logo-link"
+         aria-label="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?> — Home"
          style="flex-shrink:0; display:flex; align-items:center; text-decoration:none;">
-        <?php if ( file_exists( STARTER_COAT_PATH . '/assets/images/sdws-logo.jpg' ) ) : ?>
-          <img src="<?php echo esc_url( $logo_path ); ?>" alt="San Diego Watercolor Society logo" height="50" style="max-height:50px; width:auto; display:block;" loading="eager">
-        <?php else : ?>
-          <span style="font-family:var(--font-display); font-size:1.25rem; font-weight:400; color:#000; line-height:1.2;">
-            San Diego<br>Watercolor Society
+        <?php
+        $logo_mode     = $nav['logo_mode'] ?: 'custom_logo';
+        $rendered_logo = false;
+
+        if ( 'image' === $logo_mode && ! empty( $nav['logo_image']['ID'] ) ) :
+          echo wp_get_attachment_image(
+            absint( $nav['logo_image']['ID'] ),
+            'sc-logo',
+            false,
+            array(
+              'alt'      => esc_attr( get_bloginfo( 'name' ) ) . ' logo',
+              'loading'  => 'eager',
+              'decoding' => 'async',
+              'style'    => 'max-width:' . $logo_max_width . 'px; height:auto; max-height:50px; display:block;',
+            )
+          );
+          $rendered_logo = true;
+        elseif ( 'custom_logo' === $logo_mode && has_custom_logo() ) :
+          the_custom_logo();
+          $rendered_logo = true;
+        elseif ( 'site_name' === $logo_mode ) : ?>
+          <span style="font-size:1.25rem; font-weight:700; color:#000; line-height:1.2;">
+            <?php bloginfo( 'name' ); ?>
           </span>
-        <?php endif; ?>
+          <?php $rendered_logo = true;
+        endif;
+
+        if ( ! $rendered_logo ) :
+          if ( file_exists( STARTER_COAT_PATH . '/assets/images/sdws-logo.jpg' ) ) : ?>
+            <img src="<?php echo esc_url( STARTER_COAT_URI . '/assets/images/sdws-logo.jpg' ); ?>"
+                 alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?> logo"
+                 height="50"
+                 style="max-height:50px; width:auto; display:block;"
+                 loading="eager" decoding="async">
+          <?php else : ?>
+            <span style="font-size:1.25rem; font-weight:700; color:#000; line-height:1.2;">
+              San Diego<br>Watercolor Society
+            </span>
+          <?php endif;
+        endif; ?>
       </a>
+      <?php endif; ?>
 
       <!-- Desktop navigation -->
       <nav id="site-navigation" class="main-navigation sdws-header__nav" aria-label="Primary Menu"
-           style="display:flex; align-items:center; gap:0.25rem; list-style:none; margin:0; padding:0;">
-        <ul style="display:flex; align-items:center; gap:0.125rem; list-style:none; margin:0; padding:0;">
-
-          <li>
-            <a href="<?php echo esc_url( home_url('/') ); ?>"
-               style="padding:0.5rem 0.875rem; font-size:0.9rem; font-weight:400; letter-spacing:0.02em; color:#000; text-decoration:none; display:block;"
-               <?php if ( is_front_page() ) echo 'aria-current="page"'; ?>>
-              Home
-            </a>
-          </li>
-
-          <li>
-            <a href="<?php echo esc_url( home_url('/donate/') ); ?>"
-               style="padding:0.5rem 0.875rem; font-size:0.9rem; font-weight:400; letter-spacing:0.02em; color:#000; text-decoration:none; display:block;"
-               <?php if ( is_page('donate') ) echo 'aria-current="page"'; ?>>
-              Donate
-            </a>
-          </li>
-
-          <li>
-            <a href="<?php echo esc_url( home_url('/workshops/') ); ?>"
-               style="padding:0.5rem 0.875rem; font-size:0.9rem; font-weight:400; letter-spacing:0.02em; color:#000; text-decoration:none; display:block;"
-               <?php if ( is_page('workshops') || is_post_type_archive('sdws_workshop') || is_singular('sdws_workshop') ) echo 'aria-current="page"'; ?>>
-              Workshops
-            </a>
-          </li>
-
-          <!-- Exhibitions dropdown -->
-          <li class="sdws-dropdown" style="position:relative;">
-            <button class="sdws-dropdown__toggle"
-                    aria-expanded="false" aria-haspopup="true"
-                    style="padding:0.5rem 0.875rem; font-size:0.9rem; font-weight:400; letter-spacing:0.02em; color:#000; background:none; border:none; cursor:pointer; display:flex; align-items:center; gap:0.375rem; font-family:var(--font-body);">
-              Exhibitions
-              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
-                <path d="M1 1l4 4 4-4" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            <ul class="sdws-dropdown__menu"
-                style="display:none; position:absolute; top:100%; left:0; background:#fff; border:1px solid #000; min-width:220px; list-style:none; margin:0; padding:0; z-index:200;">
-              <li>
-                <a href="<?php echo esc_url( home_url('/schedule/') ); ?>"
-                   style="padding:0.75rem 1rem; font-size:0.9rem; color:#000; text-decoration:none; display:block; border-bottom:1px solid #000;">
-                  Exhibition Schedule
-                </a>
-              </li>
-              <li>
-                <a href="<?php echo esc_url( home_url('/international/') ); ?>"
-                   style="padding:0.75rem 1rem; font-size:0.9rem; color:#000; text-decoration:none; display:block;">
-                  International Exhibition
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <li>
-            <a href="<?php echo esc_url( home_url('/calendar/') ); ?>"
-               style="padding:0.5rem 0.875rem; font-size:0.9rem; font-weight:400; letter-spacing:0.02em; color:#000; text-decoration:none; display:block;"
-               <?php if ( is_page('calendar') ) echo 'aria-current="page"'; ?>>
-              Calendar
-            </a>
-          </li>
-
-        </ul>
+           style="display:flex; align-items:center; gap:0;">
+        <?php
+        wp_nav_menu( array(
+          'theme_location' => 'menu-1',
+          'container'      => false,
+          'walker'         => new SDWS_Primary_Nav_Walker(),
+          'items_wrap'     => '<ul id="%1$s" class="%2$s" style="display:flex; align-items:center; gap:0.125rem; list-style:none; margin:0; padding:0;">%3$s</ul>',
+          'fallback_cb'    => false,
+        ) );
+        ?>
       </nav>
+
+      <!-- Optional nav CTA -->
+      <?php if ( $show_cta ) : ?>
+      <a href="<?php echo esc_url( $cta_link['url'] ); ?>"
+         <?php echo ! empty( $cta_link['target'] ) ? 'target="' . esc_attr( $cta_link['target'] ) . '"' : ''; ?>
+         style="flex-shrink:0; padding:0.5rem 1.25rem; font-size:0.875rem; font-weight:600;
+                text-decoration:none; color:#fff; background:#000; border:2px solid #000; white-space:nowrap;">
+        <?php echo esc_html( $cta_link['title'] ); ?>
+      </a>
+      <?php endif; ?>
 
       <!-- Mobile hamburger -->
       <button class="sdws-menu-toggle" aria-controls="sdws-mobile-menu" aria-expanded="false" aria-label="Open menu"
@@ -107,32 +132,22 @@ $logo_path = STARTER_COAT_URI . '/assets/images/sdws-logo.jpg';
   <div id="sdws-mobile-menu" class="sdws-mobile-menu" aria-hidden="true"
        style="display:none; position:fixed; inset:0; background:#fff; z-index:500; overflow-y:auto; padding:2rem;">
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:3rem; border-bottom:1px solid #000; padding-bottom:1.5rem;">
-      <span style="font-family:var(--font-display); font-size:1.25rem;">SDWS</span>
+      <span style="font-size:1.25rem; font-weight:700;">SDWS</span>
       <button class="sdws-menu-close" aria-label="Close menu"
               style="background:none; border:none; cursor:pointer; font-size:1.5rem; line-height:1; padding:0.25rem;">
         ×
       </button>
     </div>
-    <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0;">
-      <?php
-      $mobile_links = array(
-        'Home'                    => home_url('/'),
-        'Donate'                  => home_url('/donate/'),
-        'Workshops'               => home_url('/workshops/'),
-        'Exhibition Schedule'     => home_url('/schedule/'),
-        'International Exhibition'=> home_url('/international/'),
-        'Calendar'                => home_url('/calendar/'),
-      );
-      foreach ($mobile_links as $label => $url) :
-      ?>
-        <li style="border-bottom:1px solid #000;">
-          <a href="<?php echo esc_url($url); ?>"
-             style="display:block; padding:1rem 0; font-family:var(--font-display); font-size:1.5rem; color:#000; text-decoration:none;">
-            <?php echo esc_html($label); ?>
-          </a>
-        </li>
-      <?php endforeach; ?>
-    </ul>
+    <?php
+    wp_nav_menu( array(
+      'theme_location' => 'menu-1',
+      'container'      => false,
+      'walker'         => new SDWS_Mobile_Nav_Walker(),
+      'items_wrap'     => '<ul class="%2$s" style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0;">%3$s</ul>',
+      'fallback_cb'    => false,
+      'depth'          => 2,
+    ) );
+    ?>
   </div>
 
 </div><!-- .site-header-shell -->
@@ -159,10 +174,21 @@ $logo_path = STARTER_COAT_URI . '/assets/images/sdws-logo.jpg';
   display: block !important;
 }
 
+/* Remove border from last dropdown item */
+.sdws-dropdown__menu li:last-child a {
+  border-bottom: none;
+}
+
 /* Active nav link underline */
-.sdws-header__nav a[aria-current="page"],
-.sdws-header__nav button[aria-current="page"] {
+.sdws-header__nav a[aria-current="page"] {
   border-bottom: 2px solid #000;
+}
+
+/* Custom-logo sizing */
+.sdws-header__logo-link .custom-logo {
+  max-height: 50px;
+  width: auto;
+  display: block;
 }
 </style>
 
@@ -186,14 +212,12 @@ $logo_path = STARTER_COAT_URI . '/assets/images/sdws-logo.jpg';
     close.addEventListener('click', function () {
       menu.style.display = 'none';
       menu.setAttribute('aria-hidden', 'true');
-      if (toggle) {
-        toggle.setAttribute('aria-expanded', 'false');
-      }
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     });
   }
 
-  // Dropdown keyboard
+  // Dropdown keyboard / click toggle
   document.querySelectorAll('.sdws-dropdown__toggle').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var expanded = btn.getAttribute('aria-expanded') === 'true';

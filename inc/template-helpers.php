@@ -100,8 +100,14 @@ function starter_coat_get_nav_settings()
   $settings['item_style'] = (string) call_user_func('get_field', 'sc_nav_item_style', 'option') ?: $settings['item_style'];
   $settings['item_shape'] = (string) call_user_func('get_field', 'sc_nav_item_shape', 'option') ?: $settings['item_shape'];
   $settings['dropdown_style'] = (string) call_user_func('get_field', 'sc_nav_dropdown_style', 'option') ?: $settings['dropdown_style'];
-  $settings['fixed'] = (bool) call_user_func('get_field', 'sc_nav_fixed', 'option');
-  $settings['show_logo'] = (bool) call_user_func('get_field', 'sc_nav_show_logo', 'option');
+  $raw_fixed = call_user_func('get_field', 'sc_nav_fixed', 'option');
+  if (null !== $raw_fixed) {
+    $settings['fixed'] = (bool) $raw_fixed;
+  }
+  $raw_show_logo = call_user_func('get_field', 'sc_nav_show_logo', 'option');
+  if (null !== $raw_show_logo) {
+    $settings['show_logo'] = (bool) $raw_show_logo;
+  }
   $settings['logo_mode'] = (string) call_user_func('get_field', 'sc_nav_logo_mode', 'option') ?: $settings['logo_mode'];
   $settings['logo_image'] = call_user_func('get_field', 'sc_nav_logo_image', 'option');
   $settings['logo_mark_image'] = call_user_func('get_field', 'sc_nav_logo_mark_image', 'option');
@@ -121,13 +127,22 @@ function starter_coat_get_nav_settings()
     $settings['logo_mark_breakpoint'] = $logo_mark_breakpoint;
   }
 
-  $settings['show_cta'] = (bool) call_user_func('get_field', 'sc_nav_show_cta', 'option');
+  $raw_show_cta = call_user_func('get_field', 'sc_nav_show_cta', 'option');
+  if (null !== $raw_show_cta) {
+    $settings['show_cta'] = (bool) $raw_show_cta;
+  }
   $settings['cta_link'] = call_user_func('get_field', 'sc_nav_cta_link', 'option');
   $settings['cta_style'] = (string) call_user_func('get_field', 'sc_nav_cta_style', 'option') ?: $settings['cta_style'];
-  $settings['show_social'] = (bool) call_user_func('get_field', 'sc_nav_show_social', 'option');
+  $raw_show_social = call_user_func('get_field', 'sc_nav_show_social', 'option');
+  if (null !== $raw_show_social) {
+    $settings['show_social'] = (bool) $raw_show_social;
+  }
   $settings['social_style'] = (string) call_user_func('get_field', 'sc_nav_social_style', 'option') ?: $settings['social_style'];
 
-  $settings['banner_enabled'] = (bool) call_user_func('get_field', 'sc_nav_banner_enabled', 'option');
+  $raw_banner = call_user_func('get_field', 'sc_nav_banner_enabled', 'option');
+  if (null !== $raw_banner) {
+    $settings['banner_enabled'] = (bool) $raw_banner;
+  }
   $settings['banner_text'] = (string) call_user_func('get_field', 'sc_nav_banner_text', 'option');
   $settings['banner_link'] = call_user_func('get_field', 'sc_nav_banner_link', 'option');
   $settings['banner_style'] = (string) call_user_func('get_field', 'sc_nav_banner_style', 'option') ?: $settings['banner_style'];

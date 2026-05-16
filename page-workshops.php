@@ -8,16 +8,29 @@
  */
 
 get_header();
+
+// ── Helper ──────────────────────────────────────────────────────────────────
+if (!function_exists('sdws_opt')) {
+  function sdws_opt($key, $fallback = '') {
+    if (!function_exists('get_field')) return $fallback;
+    $val = get_field($key, 'option');
+    return ($val !== false && $val !== '') ? $val : $fallback;
+  }
+}
+
+$ws_intro   = sdws_opt('workshops_intro',          'SDWS workshops are led by nationally recognized instructors and open to all skill levels. Members receive discounted rates on all sessions.');
+$email_reg  = sdws_opt('workshops_email_registrar', 'registrar@sdws.org');
+$email_dir  = sdws_opt('workshops_email_director',  'workshops@sdws.org');
 ?>
 
 <main id="primary" class="site-main">
 
   <!-- Page header -->
-  <section class="sdws-section" style="background:#fff; border-bottom: var(--border); padding-bottom:2.5rem; padding-top:3rem;">
+  <section class="sdws-section sdws-section--bordered-bottom">
     <div class="sdws-container">
-      <h1 style="font-family:var(--font-display); font-size:clamp(2.5rem,5vw,4rem); margin:0 0 1rem; color:#000;">Workshops</h1>
-      <p style="font-size:1.125rem; max-width:680px; line-height:1.7; margin:0; color:#000;">
-        SDWS workshops are led by nationally recognized instructors and open to all skill levels. Members receive discounted rates on all sessions.
+      <h1 class="sdws-page-title">Workshops</h1>
+      <p class="sdws-page-intro">
+        <?php echo esc_html($ws_intro); ?>
       </p>
     </div>
   </section>
@@ -58,14 +71,14 @@ get_header();
     }
   ?>
 
-    <section class="sdws-section" style="border-bottom: var(--border); background:#fff;">
+    <section class="sdws-section sdws-section--bordered-bottom">
       <div class="sdws-container">
-        <h2 style="font-family:var(--font-display); font-size:2rem; margin:0 0 2rem; padding-bottom:1rem; border-bottom: var(--border);">
+        <h2 class="sdws-section-heading">
           <?php echo esc_html( $group['heading'] ); ?>
         </h2>
         <div class="sdws-grid-3">
           <?php while ( $workshops->have_posts() ) : $workshops->the_post(); ?>
-            <?php get_template_part( 'template-parts/sdws/workshop-card' ); ?>
+            <?php get_template_part( 'template-parts/sdws/sdws-card' ); ?>
           <?php endwhile; ?>
         </div>
       </div>
@@ -76,18 +89,21 @@ get_header();
   endforeach;
   ?>
 
-  <!-- Contact block -->
-  <section class="sdws-section" style="background: var(--color-off-white);">
-    <div class="sdws-container">
-      <h2 style="font-family:var(--font-display); font-size:2rem; margin:0 0 1rem;">Questions About Workshops?</h2>
-      <p style="font-size:1rem; line-height:1.7; margin:0 0 0.5rem;">
-        Registration: <a href="mailto:registrar@sdws.org" style="color:#000; font-weight:500;">registrar@sdws.org</a>
-      </p>
-      <p style="font-size:1rem; line-height:1.7; margin:0;">
-        Workshop Director: <a href="mailto:workshops@sdws.org" style="color:#000; font-weight:500;">workshops@sdws.org</a>
-      </p>
-    </div>
-  </section>
+  <!-- Contact CTA -->
+  <?php
+  $contact_copy = 'Registration: <a href="mailto:' . esc_attr($email_reg) . '">' . esc_html($email_reg) . '</a>' . "\n\n" .
+                  'Workshop Director: <a href="mailto:' . esc_attr($email_dir) . '">' . esc_html($email_dir) . '</a>';
+
+  get_template_part('template-parts/components/cta', null, array(
+    'cta' => array(
+      'title'          => 'Questions About Workshops?',
+      'copy'           => $contact_copy,
+      'background'     => 'off-white',
+      'layout'         => 'stacked',
+      'text_box_style' => 'none',
+    ),
+  ));
+  ?>
 
 </main>
 
