@@ -25,12 +25,30 @@ get_header();
   <!-- Calendar embed -->
   <section class="sdws-section" style="background:#fff;">
     <div class="sdws-container">
-      <?php if ( function_exists( 'tribe_get_events' ) || shortcode_exists( 'tribe_events' ) ) : ?>
-        <?php echo do_shortcode( '[tribe_events]' ); ?>
-      <?php else : ?>
+      <?php if (function_exists('tribe_get_events') || shortcode_exists('tribe_events')) : ?>
+
+        <style scoped>
+          iframe[data-tec-events-ece-iframe="true"] {
+            width: 100%;
+            height: calc(100vw + 100px);
+            max-width: 100%;
+          }
+
+          @media screen and (min-width: 600px) {
+            iframe[data-tec-events-ece-iframe="true"] {
+              height: 100vw;
+            }
+          }
+
+          @media screen and (min-width: 853px) {
+            iframe[data-tec-events-ece-iframe="true"] {
+              height: 1065px;
+            }
+          }
+        </style> <iframe data-tec-events-ece-iframe="true" src="http://sdws.local/calendar-embed/wBsn4PCa0Cz/embed/" frameborder="0"></iframe> <?php else : ?>
         <p style="color:#000; opacity:0.5; font-size:1rem;">
           The Events Calendar plugin is not active. Please install and activate it to display the calendar.
-          <br><a href="<?php echo esc_url( admin_url( 'plugin-install.php?s=the-events-calendar&tab=search&type=term' ) ); ?>" style="color:#000; font-weight:500;">Install The Events Calendar →</a>
+          <br><a href="<?php echo esc_url(admin_url('plugin-install.php?s=the-events-calendar&tab=search&type=term')); ?>" style="color:#000; font-weight:500;">Install The Events Calendar →</a>
         </p>
       <?php endif; ?>
     </div>
