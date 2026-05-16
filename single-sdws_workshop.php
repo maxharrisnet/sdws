@@ -74,7 +74,7 @@ if ($date_start) {
 
     <!-- Registration CTA -->
     <section class="sdws-section" style="background:var(--color-off-white); margin-bottom:var(--space-section);">
-      <div class="sdws-container" style="max-width:600px; text-align:center;">
+      <div class="sdws-container" style="text-align:center;">
         <h2 style="font-family:var(--font-display); font-size:2rem; margin:0 0 0.75rem;">Register for This Workshop</h2>
         <p style="margin:0 0 1.5rem; font-size:1rem; color:#000;">
           Questions? Email <a href="mailto:registrar@sdws.org" style="color:#000; font-weight:500;">registrar@sdws.org</a>

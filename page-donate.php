@@ -13,7 +13,7 @@ get_header();
 <main id="primary" class="site-main">
 
   <section class="sdws-section sdws-section--lg" style="background:#fff;">
-    <div class="sdws-container" style="max-width:680px; text-align:center;">
+    <div class="sdws-container" style="text-align:center;">
 
       <h1 style="font-family:var(--font-display); font-size:clamp(2.5rem,5vw,4rem); margin:0 0 1.5rem; color:#000;">
         Support SDWS

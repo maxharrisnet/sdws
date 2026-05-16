@@ -17,10 +17,11 @@ $reception    = function_exists('get_field') ? get_field('exhibition_reception_d
 $notes        = function_exists('get_field') ? get_field('exhibition_notes')             : get_post_meta(get_the_ID(), 'exhibition_notes', true);
 $prospectus   = function_exists('get_field') ? get_field('exhibition_prospectus_link')   : get_post_meta(get_the_ID(), 'exhibition_prospectus_link', true);
 
-// Format date display
-function sdws_fmt_date($date_str) {
-  if (!$date_str) return '';
-  return date('F j, Y', strtotime($date_str));
+if (!function_exists('sdws_fmt_date')) {
+  function sdws_fmt_date($date_str) {
+    if (!$date_str) return '';
+    return date('F j, Y', strtotime($date_str));
+  }
 }
 
 $show_dates_label = '';

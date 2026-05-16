@@ -78,7 +78,7 @@ get_header();
 
   <!-- Contact block -->
   <section class="sdws-section" style="background: var(--color-off-white);">
-    <div class="sdws-container" style="max-width:700px;">
+    <div class="sdws-container">
       <h2 style="font-family:var(--font-display); font-size:2rem; margin:0 0 1rem;">Questions About Workshops?</h2>
       <p style="font-size:1rem; line-height:1.7; margin:0 0 0.5rem;">
         Registration: <a href="mailto:registrar@sdws.org" style="color:#000; font-weight:500;">registrar@sdws.org</a>

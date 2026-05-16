@@ -14,7 +14,7 @@ get_header();
 
   <!-- Hero block -->
   <section class="sdws-section sdws-section--teal" style="border-bottom: 2px solid #000;">
-    <div class="sdws-container" style="max-width:860px;">
+    <div class="sdws-container">
       <p style="font-size:0.8125rem; letter-spacing:0.12em; text-transform:uppercase; font-weight:500; margin-bottom:1rem; color:#fff; opacity:0.8;">
         San Diego Watercolor Society
       </p>
@@ -36,7 +36,7 @@ get_header();
 
   <!-- Introduction -->
   <section class="sdws-section" style="background:#fff; border-bottom: var(--border);">
-    <div class="sdws-container" style="max-width:820px;">
+    <div class="sdws-container">
       <h2 style="font-family:var(--font-display); font-size:2.25rem; margin:0 0 1.5rem; color:#000;">About the Exhibition</h2>
       <p style="font-size:1.125rem; line-height:1.75; margin:0 0 1rem; color:#000;">
         The San Diego Watercolor Society's Annual International Exhibition is one of the premier juried watercolor exhibitions in the United States. Open to watercolor artists worldwide, the exhibition showcases excellence in the medium and awards over $30,000 in prizes.
@@ -52,7 +52,7 @@ get_header();
 
   <!-- Key Dates -->
   <section id="key-dates" class="sdws-section" style="background: var(--color-off-white); border-bottom: var(--border);">
-    <div class="sdws-container" style="max-width:820px;">
+    <div class="sdws-container">
       <h2 style="font-family:var(--font-display); font-size:2.25rem; margin:0 0 2rem; color:#000;">Key Dates</h2>
       <table style="width:100%; border-collapse:collapse; font-size:1rem;">
         <tbody>
@@ -86,7 +86,7 @@ get_header();
 
   <!-- Juror -->
   <section class="sdws-section" style="background:#fff; border-bottom: var(--border);">
-    <div class="sdws-container" style="max-width:820px;">
+    <div class="sdws-container">
       <h2 style="font-family:var(--font-display); font-size:2.25rem; margin:0 0 2rem; color:#000;">Juror</h2>
       <div style="display:grid; grid-template-columns:200px 1fr; gap:2.5rem; align-items:start;">
         <!-- Juror photo placeholder -->
@@ -109,7 +109,7 @@ get_header();
 
   <!-- Links -->
   <section class="sdws-section" style="background: var(--color-aqua-light);">
-    <div class="sdws-container" style="max-width:820px;">
+    <div class="sdws-container">
       <h2 style="font-family:var(--font-display); font-size:2rem; margin:0 0 1.5rem; color:#000;">Entry Resources</h2>
       <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.75rem;">
         <li>

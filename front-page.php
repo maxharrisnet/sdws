@@ -13,7 +13,7 @@ get_header();
 
   <!-- ======================== HERO ======================== -->
   <section class="sdws-section sdws-section--lg" style="background:#fff; border-bottom: var(--border);">
-    <div class="sdws-container" style="max-width:860px;">
+    <div class="sdws-container">
       <p style="font-size:0.8125rem; letter-spacing:0.12em; text-transform:uppercase; font-weight:500; margin-bottom:1.25rem;">
         San Diego Watercolor Society — Est. 1980
       </p>
@@ -82,7 +82,7 @@ get_header();
 
   <!-- ================ 46TH I-SHOW PROMO BLOCK ================ -->
   <section class="sdws-section sdws-section--teal" style="border-bottom: 2px solid #000;">
-    <div class="sdws-container" style="max-width:900px;">
+    <div class="sdws-container">
       <p style="font-size:0.8125rem; letter-spacing:0.12em; text-transform:uppercase; font-weight:500; margin-bottom:1rem; color:#fff; opacity:0.8;">
         Now Accepting Entries
       </p>
