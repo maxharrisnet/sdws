@@ -15,7 +15,7 @@ get_header();
   <!-- Page header -->
   <section class="sdws-section" style="background:#fff; border-bottom: var(--border); padding-bottom:2.5rem; padding-top:3rem;">
     <div class="sdws-container">
-      <h1 style="font-family:var(--font-display); font-size:clamp(2.5rem,5vw,4rem); margin:0 0 1rem; color:#000;">Calendar</h1>
+      <h1 style="font-size:clamp(2.5rem,5vw,4rem); margin:0 0 1rem; color:#000;">Calendar</h1>
       <p style="font-size:1.125rem; max-width:620px; line-height:1.7; margin:0; color:#000;">
         Stay up to date with SDWS exhibitions, receptions, workshops, and community events.
       </p>
@@ -28,7 +28,7 @@ get_header();
       <iframe
         id="sdws-calendar-iframe"
         data-tec-events-ece-iframe="true"
-        src="<?php echo esc_url(get_field('calendar_embed_url')); ?>"
+        src="<?php echo esc_url(get_field('calendar_embed_url', 'option')); ?>"
         frameborder="0"
         title="SDWS Events Calendar"
         style="display:block; width:100%;"></iframe>

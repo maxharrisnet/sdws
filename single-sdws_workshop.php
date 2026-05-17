@@ -19,12 +19,16 @@ while (have_posts()) : the_post();
   $buttons       = $gf ? (get_field('workshop_buttons') ?: array()) : array();
   $reg_email     = $gf ? (get_field('workshops_email_registrar', 'option') ?: 'registrar@sdws.org') : 'registrar@sdws.org';
 
-  $date_label = '';
+  $date_label  = '';
   if ($date_start) {
     $start_fmt  = date('F j', strtotime($date_start));
     $end_fmt    = $date_end ? date('j, Y', strtotime($date_end)) : date('Y', strtotime($date_start));
     $date_label = $start_fmt . '–' . $end_fmt;
   }
+
+  $format_terms  = get_the_terms(get_the_ID(), 'workshop_format');
+  $format_term   = ($format_terms && !is_wp_error($format_terms)) ? $format_terms[0] : null;
+  $workshops_url = get_post_type_archive_link('sdws_workshop') ?: home_url('/workshops/');
 ?>
 
   <main id="primary" class="site-main">
@@ -32,32 +36,45 @@ while (have_posts()) : the_post();
     <!-- Header -->
     <section class="sdws-section sdws-section--bordered-bottom">
       <div class="sdws-container">
+        <nav class="sdws-breadcrumb" aria-label="Breadcrumb">
+          <ol class="sdws-breadcrumb__list">
+            <li class="sdws-breadcrumb__item">
+              <a href="<?php echo esc_url($workshops_url); ?>">Workshops</a>
+            </li>
+            <?php if ($format_term) : ?>
+              <li class="sdws-breadcrumb__item">
+                <a href="<?php echo esc_url($workshops_url . '#format-' . $format_term->slug); ?>">
+                  <?php echo esc_html($format_term->name); ?>
+                </a>
+              </li>
+            <?php endif; ?>
+          </ol>
+        </nav>
         <h1 class="sdws-page-title"><?php the_title(); ?></h1>
         <?php if ($instructor) : ?>
           <p class="sdws-workshop-instructor">With <?php echo esc_html($instructor); ?></p>
         <?php endif; ?>
-        <?php if ($date_label || $price_mem || $price_non) : ?>
-          <div class="sdws-workshop-meta">
-            <?php if ($date_label) : ?>
-              <div class="sdws-workshop-meta__item">
-                <span class="sdws-workshop-meta__label">Date</span>
-                <?php echo esc_html($date_label); ?>
-              </div>
-            <?php endif; ?>
-            <?php if ($price_mem) : ?>
-              <div class="sdws-workshop-meta__item">
-                <span class="sdws-workshop-meta__label">Member</span>
-                $<?php echo esc_html(number_format((float) $price_mem)); ?>
-              </div>
-            <?php endif; ?>
-            <?php if ($price_non) : ?>
-              <div class="sdws-workshop-meta__item">
-                <span class="sdws-workshop-meta__label">Non-Member</span>
-                $<?php echo esc_html(number_format((float) $price_non)); ?>
-              </div>
-            <?php endif; ?>
-          </div>
-        <?php endif; ?>
+        <div class="sdws-workshop-meta">
+          <?php if ($date_label) : ?>
+            <div class="sdws-workshop-meta__item">
+              <span class="sdws-workshop-meta__label">Date</span>
+              <?php echo esc_html($date_label); ?>
+            </div>
+          <?php endif; ?>
+          <?php if ($price_mem) : ?>
+            <div class="sdws-workshop-meta__item">
+              <span class="sdws-workshop-meta__label">Member</span>
+              $<?php echo esc_html(number_format((float) $price_mem)); ?>
+            </div>
+          <?php endif; ?>
+          <?php if ($price_non) : ?>
+            <div class="sdws-workshop-meta__item">
+              <span class="sdws-workshop-meta__label">Non-Member</span>
+              $<?php echo esc_html(number_format((float) $price_non)); ?>
+            </div>
+          <?php endif; ?>
+          <a href="#register" class="sdws-btn sdws-btn--teal">Register</a>
+        </div>
       </div>
     </section>
 
@@ -96,19 +113,22 @@ while (have_posts()) : the_post();
     </section>
 
     <!-- Registration CTA -->
-    <?php
-    $mailto = 'mailto:' . $reg_email . '?subject=' . rawurlencode('Workshop Registration: ' . get_the_title());
-    get_template_part('template-parts/components/cta', null, array(
-      'cta' => array(
-        'title'               => 'Register for This Workshop',
-        'copy'                => 'Questions? Email <a href="mailto:' . esc_attr($reg_email) . '">' . esc_html($reg_email) . '</a>',
-        'background'          => 'off-white',
-        'layout'              => 'stacked',
-        'button_primary'      => array('title' => 'Register by Email', 'url' => $mailto),
-        'button_primary_style'=> 'teal',
-      ),
-    ));
-    ?>
+    <div id="register">
+      <?php
+      $mailto = 'mailto:' . $reg_email . '?subject=' . rawurlencode('Workshop Registration: ' . get_the_title());
+      get_template_part('template-parts/components/cta', null, array(
+        'cta' => array(
+          'title'               => 'Register for This Workshop',
+          'copy'                => 'Questions? Email <a href="mailto:' . esc_attr($reg_email) . '">' . esc_html($reg_email) . '</a>',
+          'background'          => 'off-white',
+          'layout'              => 'stacked',
+          'text_box_style'      => 'none',
+          'button_primary'      => array('title' => 'Register by Email', 'url' => $mailto),
+          'button_primary_style'=> 'teal',
+        ),
+      ));
+      ?>
+    </div>
 
   </main>
 

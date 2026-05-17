@@ -253,16 +253,13 @@ h6 {
 }
 
 h1,
-h2 {
-	font-family: var(--font-heading);
-}
-
+h2,
 h3,
 h4,
 h5,
 h6 {
 	font-family: var(--font-body);
-	font-weight: 600;
+	font-weight: 700;
 }
 
 h1 {

@@ -21,17 +21,23 @@ body {
 /* === Typography ======================================================== */
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-body);
   color: #000;
   line-height: 1.15;
 }
 
 h1, h2 {
-  font-family: var(--font-display);
+  font-weight: 300;
 }
 
 h3, h4, h5, h6 {
-  font-family: var(--font-body);
   font-weight: 700;
+}
+
+/* Homepage hero — only place display font is used in body content */
+.sdws-hero-title {
+  font-family: var(--font-display);
+  font-weight: 300;
 }
 
 p, li, td, th, label, input, select, textarea {
@@ -220,7 +226,7 @@ img {
   border-color: #2e7f8d;
 }
 
-/* White (for use on teal/dark backgrounds) */
+/* White filled (for use on teal/dark backgrounds) */
 .sdws-btn--white {
   background-color: #fff;
   color: #000;
@@ -230,6 +236,18 @@ img {
 .sdws-btn--white:hover {
   background-color: transparent;
   color: #fff;
+}
+
+/* White outline / ghost (secondary action on teal/dark backgrounds) */
+.sdws-btn--white-outline {
+  background-color: transparent;
+  color: #fff;
+  border-color: #fff;
+}
+
+.sdws-btn--white-outline:hover {
+  background-color: #fff;
+  color: #000;
 }
 
 /* === Unified card ====================================================== */
@@ -386,6 +404,117 @@ img {
 .sdws-format-nav__list li a:hover,
 .sdws-format-nav__list li a:focus-visible {
   color: var(--color-primary);
+}
+
+/* === Eyebrow label ===================================================== */
+
+.sdws-eyebrow {
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin: 0 0 1.25rem;
+}
+
+.sdws-section--teal .sdws-eyebrow {
+  opacity: 0.8;
+}
+
+/* === Homepage hero ===================================================== */
+
+/* Larger clamp range than sdws-page-title — homepage h1 only */
+.sdws-hero-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.1;
+  margin: 0 0 1.5rem;
+}
+
+.sdws-hero__sub {
+  font-size: 1.125rem;
+  max-width: 600px;
+  margin: 0 0 2.5rem;
+  line-height: 1.7;
+}
+
+.sdws-hero__actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.sdws-hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* === I-show promo block ================================================ */
+
+.sdws-ishow-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.15;
+  margin: 0 0 1rem;
+}
+
+.sdws-ishow-dates {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+.sdws-ishow-meta {
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
+}
+
+.sdws-ishow-body {
+  font-size: 0.9375rem;
+  margin: 0 0 2rem;
+}
+
+/* === Section header row (title + action links inline) ================= */
+
+.sdws-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: var(--border);
+}
+
+.sdws-section-header__title {
+  font-size: 2.25rem;
+  margin: 0;
+}
+
+.sdws-section-header__actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* === Empty state message =============================================== */
+
+.sdws-empty-state {
+  opacity: 0.5;
+}
+
+/* === 404 page ========================================================== */
+
+.sdws-error-404 {
+  text-align: center;
+}
+
+.sdws-error-404__search {
+  margin-top: var(--space-lg);
+}
+
+.sdws-error-404__back {
+  margin-top: var(--space-lg);
 }
 
 /* === Grid utilities ==================================================== */
@@ -946,7 +1075,7 @@ iframe[data-tec-events-ece-iframe="true"] {
 }
 
 .sdws-map-section__org {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: clamp(2rem, 2.75vw, 2.875rem);
   line-height: 1.08;
   color: #000;
@@ -1021,6 +1150,197 @@ iframe[data-tec-events-ece-iframe="true"] {
   color: var(--color-primary);
 }
 
+/* === Breadcrumb ========================================================== */
+
+.sdws-breadcrumb__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #000;
+  opacity: 0.6;
+}
+
+.sdws-breadcrumb__item + .sdws-breadcrumb__item::before {
+  content: '/';
+  padding: 0 0.5rem;
+}
+
+.sdws-breadcrumb__item a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.sdws-breadcrumb__item a:hover,
+.sdws-breadcrumb__item a:focus-visible {
+  color: var(--color-primary);
+  text-decoration: none;
+  opacity: 1;
+}
+
+/* On teal hero */
+.sdws-section--teal .sdws-breadcrumb__list {
+  color: #fff;
+  opacity: 0.75;
+}
+
+.sdws-section--teal .sdws-breadcrumb__item a:hover,
+.sdws-section--teal .sdws-breadcrumb__item a:focus-visible {
+  color: #fff;
+  opacity: 1;
+}
+
+/* === Exhibition single =================================================== */
+
+.sdws-exhibition-eyebrow {
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin: 0 0 1rem;
+  color: #fff;
+  opacity: 0.8;
+}
+
+.sdws-section--teal .sdws-page-title {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.sdws-exhibition-dates {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #fff;
+  margin: 0 0 0.5rem;
+}
+
+.sdws-exhibition-awards {
+  font-size: 1rem;
+  color: #fff;
+  margin: 0 0 2rem;
+}
+
+.sdws-exhibition-hero__actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.sdws-btn--white-outline {
+  background-color: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.sdws-btn--white-outline:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.sdws-exhibition-back-link {
+  font-size: 0.875rem;
+  color: #fff;
+  opacity: 0.7;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  padding-bottom: 1px;
+}
+
+.sdws-exhibition-back-link:hover,
+.sdws-exhibition-back-link:focus-visible {
+  opacity: 1;
+  color: #fff;
+  text-decoration: none;
+}
+
+.sdws-exhibition-content {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: #000;
+}
+
+.sdws-exhibition-content--spaced {
+  margin-top: 1.5rem;
+}
+
+/* Key dates table */
+
+.sdws-dates-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+.sdws-dates-table tr {
+  border-top: 1px solid #000;
+}
+
+.sdws-dates-table td {
+  padding: 0.875rem 0;
+  vertical-align: top;
+  color: #000;
+}
+
+.sdws-dates-table__label {
+  font-weight: 500;
+  white-space: nowrap;
+  padding-right: 1.5rem;
+  width: 14rem;
+}
+
+/* Juror */
+
+.sdws-juror {
+  display: grid;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.sdws-juror--with-image {
+  grid-template-columns: 200px 1fr;
+}
+
+@media (max-width: 600px) {
+  .sdws-juror--with-image {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sdws-juror__image {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.sdws-juror__name {
+  font-size: 1.75rem;
+  margin: 0 0 0.25rem;
+  color: #000;
+}
+
+.sdws-juror__role {
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin: 0 0 1.25rem;
+  color: #000;
+}
+
+.sdws-juror__bio {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #000;
+}
+
 /* === Workshop single ===================================================== */
 
 .sdws-workshop-instructor {
@@ -1036,6 +1356,7 @@ iframe[data-tec-events-ece-iframe="true"] {
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
+  align-items: center;
   margin-top: 1.5rem;
 }
 

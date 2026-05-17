@@ -9,18 +9,18 @@ get_header();
 ?>
 
 <main id="primary" class="site-main">
-  <section class="section section--lg error-404">
-    <div class="container container--narrow" style="text-align:center;">
-      <p class="eyebrow"><?php esc_html_e('404', 'starter-coat'); ?></p>
+  <section class="sdws-section sdws-section--lg sdws-error-404">
+    <div class="sdws-container sdws-container--narrow">
+      <p class="sdws-eyebrow"><?php esc_html_e('404', 'starter-coat'); ?></p>
       <h1><?php esc_html_e('Page Not Found', 'starter-coat'); ?></h1>
       <p><?php esc_html_e('The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.', 'starter-coat'); ?></p>
 
-      <div style="margin-top:var(--space-lg);">
+      <div class="sdws-error-404__search">
         <?php get_search_form(); ?>
       </div>
 
-      <p style="margin-top:var(--space-lg);">
-        <a href="<?php echo esc_url(home_url('/')); ?>" class="btn btn--primary btn--md">
+      <p class="sdws-error-404__back">
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="sdws-btn sdws-btn--primary">
           <?php esc_html_e('Back to Homepage', 'starter-coat'); ?>
         </a>
       </p>
@@ -28,5 +28,4 @@ get_header();
   </section>
 </main>
 
-<?php
-get_footer();
+<?php get_footer(); ?>

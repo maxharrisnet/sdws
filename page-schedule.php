@@ -15,7 +15,7 @@ get_header();
   <!-- Page header -->
   <section class="sdws-section" style="background:#fff; border-bottom: var(--border); padding-bottom:2.5rem; padding-top:3rem;">
     <div class="sdws-container">
-      <h1 style="font-family:var(--font-display); font-size:clamp(2.5rem,5vw,4rem); margin:0 0 1rem; color:#000;">
+      <h1 style="font-size:clamp(2.5rem,5vw,4rem); margin:0 0 1rem; color:#000;">
         Current and Upcoming Exhibitions
       </h1>
       <p style="font-size:1.125rem; max-width:680px; line-height:1.7; margin:0; color:#000;">

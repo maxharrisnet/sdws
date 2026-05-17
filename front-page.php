@@ -46,20 +46,14 @@ $ishow_cta_url  = $gf ? (get_field('home_ishow_cta_url')   ?: home_url('/interna
 <main id="primary" class="site-main">
 
   <!-- ======================== HERO ======================== -->
-  <section class="sdws-section sdws-section--lg" style="background:#fff; border-bottom: var(--border);">
+  <section class="sdws-section sdws-section--lg sdws-section--bordered-bottom">
     <div class="sdws-container">
-      <p style="font-size:0.8125rem; letter-spacing:0.12em; text-transform:uppercase; font-weight:500; margin-bottom:1.25rem;">
-        <?php echo esc_html($hero_eyebrow); ?>
-      </p>
-      <h1 style="font-family:var(--font-display); font-size:clamp(2.5rem,6vw,4.5rem); line-height:1.1; margin:0 0 1.5rem; color:#000;">
-        <?php echo esc_html($hero_headline); ?>
-      </h1>
+      <p class="sdws-eyebrow"><?php echo esc_html($hero_eyebrow); ?></p>
+      <h1 class="sdws-hero-title"><?php echo esc_html($hero_headline); ?></h1>
       <?php if ($hero_sub) : ?>
-        <p style="font-size:1.125rem; max-width:600px; margin:0 0 2.5rem; line-height:1.7; color:#000;">
-          <?php echo esc_html($hero_sub); ?>
-        </p>
+        <p class="sdws-hero__sub"><?php echo esc_html($hero_sub); ?></p>
       <?php endif; ?>
-      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+      <div class="sdws-hero__actions">
         <a href="<?php echo esc_url($hero_cta1_url); ?>" class="sdws-btn sdws-btn--teal">
           <?php echo esc_html($hero_cta1_text); ?>
         </a>
@@ -71,9 +65,9 @@ $ishow_cta_url  = $gf ? (get_field('home_ishow_cta_url')   ?: home_url('/interna
       </div>
     </div>
   </section>
-  <section>
-    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/sdws-home-hero.png'); ?>" alt="Collage of watercolor artworks by SDWS members" style="width:100%; height:auto; display:block; object-fit:cover;">
-  </section>
+  <div class="sdws-hero-image">
+    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/sdws-home-hero.png'); ?>" alt="Collage of watercolor artworks by SDWS members">
+  </div>
 
   <!-- ================== GALLERY STRIP ================== -->
   <!-- <section style="border-bottom: var(--border); overflow:hidden;">
@@ -135,28 +129,18 @@ $ishow_cta_url  = $gf ? (get_field('home_ishow_cta_url')   ?: home_url('/interna
 
   <!-- ================ I-SHOW PROMO BLOCK ================ -->
   <?php if ($ishow_visible) : ?>
-    <section class="sdws-section sdws-section--teal" style="border-bottom: 2px solid #000;">
+    <section class="sdws-section sdws-section--teal sdws-section--bordered-bottom">
       <div class="sdws-container">
-        <p style="font-size:0.8125rem; letter-spacing:0.12em; text-transform:uppercase; font-weight:500; margin-bottom:1rem; color:#fff; opacity:0.8;">
-          <?php echo esc_html($ishow_eyebrow); ?>
-        </p>
-        <h2 style="font-family:var(--font-display); font-size:clamp(2rem,5vw,3.5rem); color:#fff; margin:0 0 1rem; line-height:1.15;">
-          <?php echo esc_html($ishow_headline); ?>
-        </h2>
+        <p class="sdws-eyebrow"><?php echo esc_html($ishow_eyebrow); ?></p>
+        <h2 class="sdws-ishow-title"><?php echo esc_html($ishow_headline); ?></h2>
         <?php if ($ishow_dates) : ?>
-          <p style="font-size:1.125rem; color:#fff; margin:0 0 0.5rem;">
-            <strong><?php echo esc_html($ishow_dates); ?></strong>
-          </p>
+          <p class="sdws-ishow-dates"><?php echo esc_html($ishow_dates); ?></p>
         <?php endif; ?>
         <?php if ($ishow_meta) : ?>
-          <p style="font-size:1rem; color:#fff; margin:0 0 0.5rem;">
-            <?php echo wp_kses_post($ishow_meta); ?>
-          </p>
+          <p class="sdws-ishow-meta"><?php echo wp_kses_post($ishow_meta); ?></p>
         <?php endif; ?>
         <?php if ($ishow_body) : ?>
-          <p style="font-size:0.9375rem; color:#fff; margin:0 0 2rem;">
-            <?php echo esc_html($ishow_body); ?>
-          </p>
+          <p class="sdws-ishow-body"><?php echo esc_html($ishow_body); ?></p>
         <?php endif; ?>
         <a href="<?php echo esc_url($ishow_cta_url); ?>" class="sdws-btn sdws-btn--white">
           <?php echo esc_html($ishow_cta_text); ?>
@@ -188,11 +172,11 @@ $ishow_cta_url  = $gf ? (get_field('home_ishow_cta_url')   ?: home_url('/interna
   ?>
 
   <!-- ================ UPCOMING EVENTS GRID ================ -->
-  <section class="sdws-section" style="border-bottom: var(--border); background: #fff;">
+  <section class="sdws-section sdws-section--bordered-bottom">
     <div class="sdws-container">
-      <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:2.5rem; flex-wrap:wrap; gap:1rem; border-bottom: var(--border); padding-bottom:1.25rem;">
-        <h2 style="font-family:var(--font-display); font-size:2.25rem; margin:0;">What's Coming Up</h2>
-        <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+      <div class="sdws-section-header">
+        <h2 class="sdws-section-header__title">What's Coming Up</h2>
+        <div class="sdws-section-header__actions">
           <a href="<?php echo esc_url(home_url('/workshops/')); ?>" class="sdws-btn sdws-btn--outline">All Workshops</a>
           <a href="<?php echo esc_url(home_url('/schedule/')); ?>" class="sdws-btn sdws-btn--outline">All Exhibitions</a>
         </div>
@@ -247,7 +231,7 @@ $ishow_cta_url  = $gf ? (get_field('home_ishow_cta_url')   ?: home_url('/interna
           wp_reset_postdata(); ?>
         </div>
       <?php else : ?>
-        <p style="color:#000; opacity:0.5;">Events and workshops coming soon.</p>
+        <p class="sdws-empty-state">Events and workshops coming soon.</p>
       <?php endif; ?>
     </div>
   </section>
