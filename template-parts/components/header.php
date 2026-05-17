@@ -163,7 +163,7 @@ $cta_style      = esc_attr( $nav['cta_style'] ?: 'primary' );
 /* Site title lockup */
 .sdws-header__site-title {
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 400;
   letter-spacing: 0.06em;
   color: #000;

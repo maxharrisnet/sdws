@@ -19,7 +19,7 @@ $tax_note    = function_exists('get_field') ? (get_field('donate_tax_note')   ?:
 if (empty($bullets)) {
   $bullets = array(
     array('bullet_text' => 'The free SDWS Gallery offers monthly Member Exhibits, Special Exhibits and the Annual International Exhibition, which attracts hundreds of exceptional artists from all over the world.'),
-    array('bullet_text' => 'Painting classes are available for elementary school children and adult painters at all skill levels.'),
+    array('bullet_text' => 'Painting classes are available for adult painters at all skill levels.'),
     array('bullet_text' => 'Each week, community residents and SDWS members experience plein air painting at beautiful sites throughout San Diego County.'),
   );
 }

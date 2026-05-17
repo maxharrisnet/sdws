@@ -42,11 +42,7 @@ get_header();
 /* ── Container sizing ──────────────────────────────────────────── */
 .tribe-common-l-container,
 .tribe-events-l-container {
-  max-width: 1100px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding-left: 2rem !important;
-  padding-right: 2rem !important;
+
 }
 
 /* ── Fonts ──────────────────────────────────────────────────────── */
@@ -391,46 +387,46 @@ body, .tribe-common, .tribe-events,
 CSS;
       ?>
       <script>
-      (function () {
-        var iframe = document.getElementById('sdws-calendar-iframe');
-        if (!iframe) return;
+        (function() {
+          var iframe = document.getElementById('sdws-calendar-iframe');
+          if (!iframe) return;
 
-        function injectStyles() {
-          try {
-            var doc = iframe.contentDocument || iframe.contentWindow.document;
-            if (!doc || !doc.head) return;
+          function injectStyles() {
+            try {
+              var doc = iframe.contentDocument || iframe.contentWindow.document;
+              if (!doc || !doc.head) return;
 
-            // Inject Google Fonts link if not already present
-            if (!doc.getElementById('sdws-cal-fonts')) {
-              var link = doc.createElement('link');
-              link.id   = 'sdws-cal-fonts';
-              link.rel  = 'stylesheet';
-              link.href = <?php echo json_encode($google_fonts_url); ?>;
-              doc.head.appendChild(link);
+              // Inject Google Fonts link if not already present
+              if (!doc.getElementById('sdws-cal-fonts')) {
+                var link = doc.createElement('link');
+                link.id = 'sdws-cal-fonts';
+                link.rel = 'stylesheet';
+                link.href = <?php echo json_encode($google_fonts_url); ?>;
+                doc.head.appendChild(link);
+              }
+
+              // Inject or refresh custom styles
+              var existing = doc.getElementById('sdws-cal-styles');
+              if (existing) existing.remove();
+              var style = doc.createElement('style');
+              style.id = 'sdws-cal-styles';
+              style.textContent = <?php echo json_encode($calendar_css); ?>;
+              doc.head.appendChild(style);
+            } catch (e) {
+              console.warn('SDWS calendar style injection failed:', e);
             }
-
-            // Inject or refresh custom styles
-            var existing = doc.getElementById('sdws-cal-styles');
-            if (existing) existing.remove();
-            var style = doc.createElement('style');
-            style.id = 'sdws-cal-styles';
-            style.textContent = <?php echo json_encode($calendar_css); ?>;
-            doc.head.appendChild(style);
-          } catch (e) {
-            console.warn('SDWS calendar style injection failed:', e);
           }
-        }
 
-        // Initial inject after load
-        if (iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
-          injectStyles();
-        } else {
+          // Initial inject after load
+          if (iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
+            injectStyles();
+          } else {
+            iframe.addEventListener('load', injectStyles);
+          }
+
+          // Re-inject after TEC AJAX navigation swaps the DOM
           iframe.addEventListener('load', injectStyles);
-        }
-
-        // Re-inject after TEC AJAX navigation swaps the DOM
-        iframe.addEventListener('load', injectStyles);
-      }());
+        }());
       </script>
     <?php else : ?>
       <div class="sdws-container" style="padding-top:3rem; padding-bottom:3rem;">
