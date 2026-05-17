@@ -361,6 +361,7 @@ img {
   aspect-ratio: unset;
   object-fit: cover;
   object-position: center;
+  contain-intrinsic-size: none;
 }
 
 .sdws-card__image-col .sdws-card__placeholder {
@@ -1534,4 +1535,354 @@ iframe[data-tec-events-ece-iframe="true"] {
   color: #000;
   margin: 0;
   opacity: 0.7;
+}
+
+/* === The Events Calendar — single event override ========================== */
+
+/* Layout helper: single-column when no featured image */
+.sdws-content-2-col--no-image {
+  grid-template-columns: 1fr;
+}
+
+/* TEC notices ("This event has passed", etc.) */
+.sdws-tribe-notice {
+  margin-top: 1.25rem;
+}
+
+.sdws-tribe-notice .tribe-events-notices {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+.sdws-tribe-notice .tribe-events-notices ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.sdws-tribe-notice .tribe-events-notices li {
+  font-size: 0.8125rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 500;
+  opacity: 0.55;
+}
+
+/* Add-to-calendar widget */
+.sdws-tribe-cal-widget {
+  margin-top: 2rem;
+}
+
+.sdws-tribe-cal-widget .tribe-add-to-calendar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.sdws-tribe-cal-widget .tribe-add-to-calendar button,
+.sdws-tribe-cal-widget .tribe-add-to-calendar a {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid #000;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: #000;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.sdws-tribe-cal-widget .tribe-add-to-calendar button:hover,
+.sdws-tribe-cal-widget .tribe-add-to-calendar a:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+/* TEC meta details section (venue, organizer) */
+.sdws-tribe-meta .tribe-events-single-section {
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.sdws-tribe-meta .tribe-events-meta-group {
+  margin-bottom: 2rem;
+}
+
+.sdws-tribe-meta .tribe-events-single-section-header {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #000;
+  opacity: 0.5;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  border: none;
+}
+
+.sdws-tribe-meta .tribe-venue,
+.sdws-tribe-meta .tribe-organizer {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: #000;
+}
+
+.sdws-tribe-meta .tribe-events-abbr,
+.sdws-tribe-meta .tribe-venue-location a,
+.sdws-tribe-meta .tribe-organizer-url a,
+.sdws-tribe-meta .tribe-organizer-email a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.sdws-tribe-meta .tribe-venue-location a:hover,
+.sdws-tribe-meta .tribe-organizer-url a:hover,
+.sdws-tribe-meta .tribe-organizer-email a:hover {
+  text-decoration: underline;
+}
+
+/* Prev / Next event navigation */
+.sdws-tribe-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.sdws-tribe-nav__prev,
+.sdws-tribe-nav__next {
+  flex: 1;
+}
+
+.sdws-tribe-nav__next {
+  text-align: right;
+}
+
+.sdws-tribe-nav a {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  border: 1px solid #000;
+  padding: 0.75rem 1.25rem;
+  text-decoration: none;
+  color: #000;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  max-width: 28rem;
+}
+
+.sdws-tribe-nav__next a {
+  align-items: flex-end;
+}
+
+.sdws-tribe-nav a:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+.sdws-tribe-nav__label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  opacity: 0.6;
+}
+
+.sdws-tribe-nav a:hover .sdws-tribe-nav__label {
+  opacity: 0.85;
+}
+
+.sdws-tribe-nav__title {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* Suppress default TEC chrome within our custom content override only */
+.sdws-tribe-single .tribe-events-back,
+.sdws-tribe-single #tribe-events-header,
+.sdws-tribe-single #tribe-events-footer,
+.sdws-tribe-single .tribe-events-nav-pagination {
+  display: none;
+}
+
+/* === TEC single event — Add to Calendar (production V2 selectors) ======= */
+
+/* Make the dropdown container position:relative so the menu anchors to it */
+.tribe-events-c-subscribe-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* The button — natural width, 1px border, teal hover */
+.tribe-events .tribe-events-c-subscribe-dropdown__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #000;
+  background: transparent;
+  padding: 0.625rem 1.25rem;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  width: auto;
+}
+
+.tribe-events .tribe-events-c-subscribe-dropdown__button:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+/* Strip inner button's own border/background */
+.tribe-events .tribe-events-c-subscribe-dropdown__button-text {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: inherit;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+}
+
+/* Icon turns white on hover (SVG with currentColor) */
+.tribe-events .tribe-events-c-subscribe-dropdown__button:hover svg,
+.tribe-events .tribe-events-c-subscribe-dropdown__button:hover .tribe-common-c-svgicon {
+  color: #fff;
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+/* Dropdown list — styled like nav dropdown */
+.tribe-events-c-subscribe-dropdown__content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid #000;
+  border-top: none;
+  min-width: 200px;
+  z-index: 200;
+}
+
+.tribe-events-c-subscribe-dropdown__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tribe-events-c-subscribe-dropdown__list-item-link {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #000;
+  text-decoration: none;
+  font-size: 0.9375rem;
+  border-bottom: 1px solid #000;
+  transition: color 0.15s;
+}
+
+.tribe-events-c-subscribe-dropdown__list-item:last-child .tribe-events-c-subscribe-dropdown__list-item-link {
+  border-bottom: none;
+}
+
+.tribe-events-c-subscribe-dropdown__list-item-link:hover,
+.tribe-events-c-subscribe-dropdown__list-item-link:focus-visible {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* === TEC single event — Prev/Next nav (production V2 selectors) ========= */
+
+body.single-tribe_events #tribe-events-footer {
+  display: none;
+}
+
+body.single-tribe_events #tribe-events-header {
+  border-bottom: var(--border);
+}
+
+.tribe-events-sub-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: 2rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.tribe-events-nav-previous,
+.tribe-events-nav-next {
+  flex: 1;
+}
+
+.tribe-events-nav-next {
+  text-align: right;
+}
+
+.tribe-events-nav-previous a,
+.tribe-events-nav-next a {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  border: 1px solid #000;
+  padding: 0.75rem 1.25rem;
+  text-decoration: none;
+  color: #000;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  max-width: 28rem;
+}
+
+.tribe-events-nav-next a {
+  align-items: flex-end;
+}
+
+.tribe-events-nav-previous a:hover,
+.tribe-events-nav-next a:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+/* Hide the original «/» span arrows */
+.tribe-events-nav-previous a span,
+.tribe-events-nav-next a span {
+  display: none;
+}
+
+/* Inject "← Previous Event" / "Next Event →" labels */
+.tribe-events-nav-previous a::before {
+  content: "← Previous Event";
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  opacity: 0.6;
+}
+
+.tribe-events-nav-next a::before {
+  content: "Next Event →";
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  opacity: 0.6;
+}
+
+.tribe-events-nav-previous a:hover::before,
+.tribe-events-nav-next a:hover::before {
+  opacity: 0.85;
 }

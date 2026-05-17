@@ -50,7 +50,7 @@ $ishow_cta_url  = $gf ? (get_field('home_ishow_cta_url')   ?: home_url('/interna
     <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/sdws-home-hero.png'); ?>" alt="Collage of watercolor artworks by SDWS members">
   </div>
   <!-- ======================== HERO ======================== -->
-  <section class="sdws-section sdws-section--lg sdws-section--home-hero sdws-section--bordered-bottom">
+  <section class="sdws-section sdws-section--lg sdws-section--bordered-bottom">
     <div class="sdws-container">
       <?php if ($hero_eyebrow) : ?>
         <p class="sdws-eyebrow"><?php echo esc_html($hero_eyebrow); ?></p>

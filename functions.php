@@ -208,3 +208,17 @@ function starter_coat_core_plugin_notice()
   echo '</p></div>';
 }
 add_action('admin_notices', 'starter_coat_core_plugin_notice');
+
+/**
+ * Force single-tribe_events.php for TEC event singles, bypassing TEC's own
+ * template_include hook (priority 50). Runs at priority 100.
+ */
+add_filter('template_include', function ($template) {
+  if (is_singular('tribe_events')) {
+    $theme_tpl = locate_template('single-tribe_events.php');
+    if ($theme_tpl) {
+      return $theme_tpl;
+    }
+  }
+  return $template;
+}, 100);

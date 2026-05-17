@@ -17,7 +17,7 @@ get_header();
     <div class="sdws-container">
       <h1 class="sdws-page-title">Current and Upcoming Exhibitions</h1>
       <p class="sdws-page-intro">
-        SDWS exhibitions are held at the SDWS Gallery in Balboa Park, San Diego. All exhibitions are free and open to the public during gallery hours.
+        SDWS exhibitions are held at the SDWS Gallery in Liberty Station, San Diego. All exhibitions are free and open to the public during gallery hours.
       </p>
     </div>
   </section>
