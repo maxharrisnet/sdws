@@ -262,6 +262,7 @@ function starter_coat_get_social_links()
     'tiktok'    => (string) call_user_func('get_field', 'sc_social_tiktok', 'option'),
     'pinterest' => (string) call_user_func('get_field', 'sc_social_pinterest', 'option'),
     'github'    => (string) call_user_func('get_field', 'sc_social_github', 'option'),
+    'bluesky'   => (string) call_user_func('get_field', 'sc_social_bluesky', 'option'),
   );
 
   // Filter out empty values.
@@ -377,6 +378,26 @@ function starter_coat_get_footer_cta_data($post_id = 0)
   $post_id = $post_id ? absint($post_id) : get_the_ID();
   if (! $post_id) {
     return $cta;
+  }
+
+  // Dynamic CTA for workshop single pages — uses the workshop's own registration button.
+  if (is_singular('sdws_workshop') && function_exists('get_field')) {
+    $buttons = get_field('workshop_buttons', $post_id);
+    if (! empty($buttons) && ! empty($buttons[0]['url'])) {
+      $btn = $buttons[0];
+      return array(
+        'enabled'              => true,
+        'title'                => 'Register for this Workshop',
+        'copy'                 => get_the_title($post_id) . (get_field('workshop_instructor', $post_id) ? ' — ' . get_field('workshop_instructor', $post_id) : ''),
+        'action_mode'          => 'buttons',
+        'button_primary'       => array('url' => $btn['url'], 'title' => $btn['label'] ?: 'Register Now', 'target' => ''),
+        'button_primary_style' => 'primary',
+        'background'           => 'brand',
+        'layout'               => 'stacked',
+        'width'                => 'container',
+        'text_box_style'       => 'none',
+      );
+    }
   }
 
   $override = starter_coat_get_page_cta_override($post_id);

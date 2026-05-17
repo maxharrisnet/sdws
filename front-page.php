@@ -2,45 +2,45 @@
 
 /**
  * Homepage template — San Diego Watercolor Society
- * Content editable at: WP Admin > SDWS Content > Homepage
+ * Content editable at: WP Admin > Pages > (front page)
  *
  * @package Starter_Coat
  */
 
 get_header();
 
-// ── Helper ──────────────────────────────────────────────────────────────────
-function sdws_opt($key, $fallback = '')
-{
-  if (!function_exists('get_field')) return $fallback;
-  $val = get_field($key, 'option');
-  return ($val !== false && $val !== '') ? $val : $fallback;
-}
+$gf = function_exists('get_field');
 
 // ── Hero fields ─────────────────────────────────────────────────────────────
-$hero_eyebrow     = sdws_opt('home_hero_eyebrow',      'San Diego Watercolor Society — Est. 1980');
-$hero_headline    = sdws_opt('home_hero_headline',     'Watercolor art, community, and excellence in San Diego.');
-$hero_sub         = sdws_opt('home_hero_subheadline',  'The San Diego Watercolor Society has championed watercolor painting for over 40 years — offering gallery exhibitions, workshops, and a vibrant community for artists at every level.');
-$hero_cta1_text   = sdws_opt('home_hero_cta1_text',   'Visit the Gallery');
-$hero_cta1_url    = sdws_opt('home_hero_cta1_url',    home_url('/exhibitions/'));
-$hero_cta2_text   = sdws_opt('home_hero_cta2_text',   'Learn About the I-Show');
-$hero_cta2_url    = sdws_opt('home_hero_cta2_url',    home_url('/international/'));
+$hero_eyebrow     = $gf ? (get_field('home_hero_eyebrow')     ?: 'San Diego Watercolor Society — Est. 1980') : 'San Diego Watercolor Society — Est. 1980';
+$hero_headline    = $gf ? (get_field('home_hero_headline')    ?: 'Watercolor art, community, and excellence in San Diego.') : 'Watercolor art, community, and excellence in San Diego.';
+$hero_sub         = $gf ? (get_field('home_hero_subheadline') ?: 'The San Diego Watercolor Society has championed watercolor painting for over 40 years — offering gallery exhibitions, workshops, and a vibrant community for artists at every level.') : 'The San Diego Watercolor Society has championed watercolor painting for over 40 years — offering gallery exhibitions, workshops, and a vibrant community for artists at every level.';
+$hero_cta1_text   = $gf ? (get_field('home_hero_cta1_text')  ?: 'Visit the Gallery') : 'Visit the Gallery';
+$hero_cta1_url    = $gf ? (get_field('home_hero_cta1_url')   ?: home_url('/exhibitions/')) : home_url('/exhibitions/');
+$hero_cta2_text   = $gf ? (get_field('home_hero_cta2_text')  ?: 'Learn About the I-Show') : 'Learn About the I-Show';
+$hero_cta2_url    = $gf ? (get_field('home_hero_cta2_url')   ?: home_url('/international/')) : home_url('/international/');
 
 // ── Gallery strip fields ─────────────────────────────────────────────────────
-$gallery_label     = sdws_opt('home_gallery_label',     'June Member Show');
-$gallery_caption   = sdws_opt('home_gallery_caption',   '90+ works on display');
-$gallery_shortcode = sdws_opt('home_gallery_shortcode', '');
+$gallery_label     = $gf ? (get_field('home_gallery_label')     ?: 'June Member Show') : 'June Member Show';
+$gallery_caption   = $gf ? (get_field('home_gallery_caption')   ?: '90+ works on display') : '90+ works on display';
+$gallery_shortcode = $gf ? (get_field('home_gallery_shortcode') ?: '') : '';
+
+// ── Map section fields ───────────────────────────────────────
+$map_label         = $gf ? (get_field('home_map_label')         ?: 'Visit the Gallery') : 'Visit the Gallery';
+$map_address       = $gf ? (get_field('home_map_address')       ?: "2825 Dewey Road, Suite 105\nSan Diego, CA 92106") : "2825 Dewey Road, Suite 105\nSan Diego, CA 92106";
+$map_directions    = $gf ? (get_field('home_map_directions_url') ?: '') : '';
+$map_embed         = $gf ? (get_field('home_map_embed')         ?: '') : '';
 
 // ── I-Show promo fields ──────────────────────────────────────────────────────
-$ishow_visible  = function_exists('get_field') ? get_field('home_ishow_visible', 'option') : true;
+$ishow_visible  = $gf ? get_field('home_ishow_visible') : true;
 $ishow_visible  = ($ishow_visible === false) ? true : (bool) $ishow_visible; // default on
-$ishow_eyebrow  = sdws_opt('home_ishow_eyebrow',   'Now Accepting Entries');
-$ishow_headline = sdws_opt('home_ishow_headline',  '46th International Exhibition');
-$ishow_dates    = sdws_opt('home_ishow_dates',     'September 27 – October 31, 2026');
-$ishow_meta     = sdws_opt('home_ishow_meta',      'Awards: $30,000+ &nbsp;|&nbsp; Juror: Ana Laura Salazar');
-$ishow_body     = sdws_opt('home_ishow_body',      'Open to watercolor artists worldwide. Submit via online entry.');
-$ishow_cta_text = sdws_opt('home_ishow_cta_text',  'View Exhibition Details');
-$ishow_cta_url  = sdws_opt('home_ishow_cta_url',   home_url('/international/'));
+$ishow_eyebrow  = $gf ? (get_field('home_ishow_eyebrow')   ?: 'Now Accepting Entries') : 'Now Accepting Entries';
+$ishow_headline = $gf ? (get_field('home_ishow_headline')  ?: '46th International Exhibition') : '46th International Exhibition';
+$ishow_dates    = $gf ? (get_field('home_ishow_dates')     ?: 'September 27 – October 31, 2026') : 'September 27 – October 31, 2026';
+$ishow_meta     = $gf ? (get_field('home_ishow_meta')      ?: 'Awards: $30,000+ &nbsp;|&nbsp; Juror: Ana Laura Salazar') : 'Awards: $30,000+ &nbsp;|&nbsp; Juror: Ana Laura Salazar';
+$ishow_body     = $gf ? (get_field('home_ishow_body')      ?: 'Open to watercolor artists worldwide. Submit via online entry.') : 'Open to watercolor artists worldwide. Submit via online entry.';
+$ishow_cta_text = $gf ? (get_field('home_ishow_cta_text')  ?: 'View Exhibition Details') : 'View Exhibition Details';
+$ishow_cta_url  = $gf ? (get_field('home_ishow_cta_url')   ?: home_url('/international/')) : home_url('/international/');
 ?>
 
 <main id="primary" class="site-main">
@@ -165,6 +165,31 @@ $ishow_cta_url  = sdws_opt('home_ishow_cta_url',   home_url('/international/'));
     </section>
   <?php endif; ?>
 
+  <!-- ==================== MAP SECTION ===================== -->
+  <?php if ($map_embed) : ?>
+  <section class="sdws-map-section">
+    <div class="sdws-map-section__inner">
+      <div class="sdws-map-section__info">
+        <p class="sdws-map-section__label"><?php echo esc_html($map_label); ?></p>
+        <h2 class="sdws-map-section__org">San Diego<br>Watercolor<br>Society</h2>
+        <?php if ($map_address) : ?>
+          <address class="sdws-map-section__address">
+            <?php echo nl2br(esc_html($map_address)); ?>
+          </address>
+        <?php endif; ?>
+        <?php if ($map_directions) : ?>
+          <a href="<?php echo esc_url($map_directions); ?>" class="sdws-map-section__directions" target="_blank" rel="noopener">
+            Get Directions →
+          </a>
+        <?php endif; ?>
+      </div>
+      <div class="sdws-map-section__map">
+        <?php echo $map_embed; // phpcs:ignore WordPress.Security.EscapeOutput -- admin-controlled iframe embed ?>
+      </div>
+    </div>
+  </section>
+  <?php endif; ?>
+
   <!-- ============== FLEXIBLE CONTENT SECTIONS ============== -->
   <?php
   // Render the sc_sections flexible content from the static front page (if one is set).
@@ -185,33 +210,71 @@ $ishow_cta_url  = sdws_opt('home_ishow_cta_url',   home_url('/international/'));
   }
   ?>
 
-  <!-- ================ UPCOMING WORKSHOPS GRID ================ -->
+  <!-- ================ UPCOMING EVENTS GRID ================ -->
   <section class="sdws-section" style="border-bottom: var(--border); background: #fff;">
     <div class="sdws-container">
       <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:2.5rem; flex-wrap:wrap; gap:1rem; border-bottom: var(--border); padding-bottom:1.25rem;">
-        <h2 style="font-family:var(--font-display); font-size:2.25rem; margin:0;">Upcoming Workshops</h2>
-        <a href="<?php echo esc_url(get_post_type_archive_link('sdws_workshop') ?: home_url('/workshops/')); ?>" style="font-size:0.875rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:#000; text-decoration:none; border-bottom:1px solid #000;">
-          View All Workshops →
-        </a>
+        <h2 style="font-family:var(--font-display); font-size:2.25rem; margin:0;">What's Coming Up</h2>
+        <div style="display:flex; gap:1.5rem; flex-wrap:wrap;">
+          <a href="<?php echo esc_url(home_url('/workshops/')); ?>" style="font-size:0.875rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:#000; text-decoration:none; border-bottom:1px solid #000;">
+            All Workshops →
+          </a>
+          <a href="<?php echo esc_url(home_url('/schedule/')); ?>" style="font-size:0.875rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:#000; text-decoration:none; border-bottom:1px solid #000;">
+            All Exhibitions →
+          </a>
+        </div>
       </div>
       <?php
-      $workshops = new WP_Query(array(
+      $today = date('Ymd');
+
+      $workshop_posts = get_posts(array(
         'post_type'      => 'sdws_workshop',
-        'posts_per_page' => 3,
-        'orderby'        => 'meta_value',
+        'posts_per_page' => 10,
         'meta_key'       => 'workshop_date_start',
-        'order'          => 'ASC',
+        'meta_query'     => array(array(
+          'key'     => 'workshop_date_start',
+          'value'   => $today,
+          'compare' => '>=',
+          'type'    => 'CHAR',
+        )),
+        'orderby' => 'meta_value',
+        'order'   => 'ASC',
       ));
+
+      $exhibition_posts = get_posts(array(
+        'post_type'      => 'sdws_exhibition',
+        'posts_per_page' => 10,
+        'meta_key'       => 'exhibition_show_dates_start',
+        'meta_query'     => array(array(
+          'key'     => 'exhibition_show_dates_start',
+          'value'   => $today,
+          'compare' => '>=',
+          'type'    => 'CHAR',
+        )),
+        'orderby' => 'meta_value',
+        'order'   => 'ASC',
+      ));
+
+      $all_items = array_merge($workshop_posts, $exhibition_posts);
+      usort($all_items, function ($a, $b) {
+        $key_a = 'sdws_workshop' === get_post_type($a) ? 'workshop_date_start' : 'exhibition_show_dates_start';
+        $key_b = 'sdws_workshop' === get_post_type($b) ? 'workshop_date_start' : 'exhibition_show_dates_start';
+        $date_a = get_post_meta($a->ID, $key_a, true) ?: '99999999';
+        $date_b = get_post_meta($b->ID, $key_b, true) ?: '99999999';
+        return strcmp($date_a, $date_b);
+      });
+      $all_items = array_slice($all_items, 0, 3);
       ?>
-      <?php if ($workshops->have_posts()) : ?>
+      <?php if ($all_items) : ?>
         <div class="sdws-grid-3">
-          <?php while ($workshops->have_posts()) : $workshops->the_post(); ?>
-            <?php get_template_part('template-parts/sdws/sdws-card'); ?>
-          <?php endwhile; ?>
+          <?php foreach ($all_items as $post) :
+            setup_postdata($post);
+            get_template_part('template-parts/sdws/sdws-card');
+          endforeach;
+          wp_reset_postdata(); ?>
         </div>
-        <?php wp_reset_postdata(); ?>
       <?php else : ?>
-        <p style="color:#000; opacity:0.5;">Workshop listings coming soon.</p>
+        <p style="color:#000; opacity:0.5;">Events and workshops coming soon.</p>
       <?php endif; ?>
     </div>
   </section>

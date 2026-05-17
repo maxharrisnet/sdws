@@ -23,6 +23,7 @@ $platform_labels = array(
   'tiktok'    => __('TikTok', 'starter-coat'),
   'pinterest' => __('Pinterest', 'starter-coat'),
   'github'    => __('GitHub', 'starter-coat'),
+  'bluesky'   => __('BlueSky', 'starter-coat'),
 );
 
 $platform_icons = array(
@@ -34,6 +35,7 @@ $platform_icons = array(
   'tiktok'    => 'tiktok',
   'pinterest' => 'pinterest',
   'github'    => 'github',
+  'bluesky'   => 'icon-social-bluesky',
 );
 ?>
 <div class="c-social-links c-social-links--<?php echo esc_attr($style); ?> c-social-links--<?php echo esc_attr($size); ?>">

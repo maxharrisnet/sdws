@@ -28,7 +28,7 @@ get_header();
       <iframe
         id="sdws-calendar-iframe"
         data-tec-events-ece-iframe="true"
-        src="<?php echo esc_url(get_field('calendar_embed_url', 'option')); ?>"
+        src="<?php echo esc_url(get_field('calendar_embed_url')); ?>"
         frameborder="0"
         title="SDWS Events Calendar"
         style="display:block; width:100%;"></iframe>

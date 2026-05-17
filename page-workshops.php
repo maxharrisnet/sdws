@@ -9,18 +9,10 @@
 
 get_header();
 
-// ── Helper ──────────────────────────────────────────────────────────────────
-if (!function_exists('sdws_opt')) {
-  function sdws_opt($key, $fallback = '') {
-    if (!function_exists('get_field')) return $fallback;
-    $val = get_field($key, 'option');
-    return ($val !== false && $val !== '') ? $val : $fallback;
-  }
-}
-
-$ws_intro   = sdws_opt('workshops_intro',          'SDWS workshops are led by nationally recognized instructors and open to all skill levels. Members receive discounted rates on all sessions.');
-$email_reg  = sdws_opt('workshops_email_registrar', 'registrar@sdws.org');
-$email_dir  = sdws_opt('workshops_email_director',  'workshops@sdws.org');
+$gf         = function_exists('get_field');
+$ws_intro   = $gf ? (get_field('workshops_intro',           'option') ?: 'SDWS workshops are led by nationally recognized instructors and open to all skill levels. Members receive discounted rates on all sessions.') : 'SDWS workshops are led by nationally recognized instructors and open to all skill levels. Members receive discounted rates on all sessions.';
+$email_reg  = $gf ? (get_field('workshops_email_registrar', 'option') ?: 'registrar@sdws.org') : 'registrar@sdws.org';
+$email_dir  = $gf ? (get_field('workshops_email_director',  'option') ?: 'workshops@sdws.org') : 'workshops@sdws.org';
 ?>
 
 <main id="primary" class="site-main">
@@ -36,57 +28,72 @@ $email_dir  = sdws_opt('workshops_email_director',  'workshops@sdws.org');
   </section>
 
   <?php
-  $format_groups = array(
-    array(
-      'slug'    => 'in-person',
-      'heading' => 'In-Gallery Workshops',
-    ),
-    array(
-      'slug'    => 'zoom',
-      'heading' => 'Zoom Workshops',
-    ),
-    array(
-      'slug'    => 'beginner-series',
-      'heading' => 'Beginner Series',
-    ),
-  );
-
-  foreach ( $format_groups as $group ) :
-    $workshops = new WP_Query( array(
-      'post_type'      => 'sdws_workshop',
-      'posts_per_page' => -1,
-      'orderby'        => 'meta_value',
-      'meta_key'       => 'workshop_date_start',
-      'order'          => 'ASC',
-      'tax_query'      => array( array(
-        'taxonomy' => 'workshop_format',
-        'field'    => 'slug',
-        'terms'    => $group['slug'],
-      ) ),
-    ) );
-
-    if ( ! $workshops->have_posts() ) {
-      wp_reset_postdata();
-      continue;
-    }
+  $formats = get_terms( array(
+    'taxonomy'   => 'workshop_format',
+    'hide_empty' => true,
+    'orderby'    => 'term_order',
+    'order'      => 'ASC',
+  ) );
   ?>
 
-    <section class="sdws-section sdws-section--bordered-bottom">
-      <div class="sdws-container">
-        <h2 class="sdws-section-heading">
-          <?php echo esc_html( $group['heading'] ); ?>
-        </h2>
-        <div class="sdws-grid-3">
-          <?php while ( $workshops->have_posts() ) : $workshops->the_post(); ?>
-            <?php get_template_part( 'template-parts/sdws/sdws-card' ); ?>
-          <?php endwhile; ?>
-        </div>
-      </div>
-    </section>
+  <?php if ( ! is_wp_error( $formats ) && count( $formats ) > 1 ) : ?>
+  <nav class="sdws-format-nav" aria-label="Workshop formats">
+    <div class="sdws-container">
+      <ul class="sdws-format-nav__list">
+        <?php foreach ( $formats as $format ) : ?>
+          <li><a href="#format-<?php echo esc_attr( $format->slug ); ?>"><?php echo esc_html( $format->name ); ?></a></li>
+        <?php endforeach; ?>
+      </ul>
+    </div>
+  </nav>
+  <?php endif; ?>
 
   <?php
-    wp_reset_postdata();
-  endforeach;
+  if ( ! is_wp_error( $formats ) && ! empty( $formats ) ) :
+    foreach ( $formats as $format ) :
+      $workshops = new WP_Query( array(
+        'post_type'      => 'sdws_workshop',
+        'posts_per_page' => -1,
+        'orderby'        => 'meta_value',
+        'meta_key'       => 'workshop_date_start',
+        'order'          => 'ASC',
+        'tax_query'      => array( array(
+          'taxonomy' => 'workshop_format',
+          'field'    => 'term_id',
+          'terms'    => $format->term_id,
+        ) ),
+      ) );
+
+      if ( ! $workshops->have_posts() ) {
+        wp_reset_postdata();
+        continue;
+      }
+  ?>
+
+      <section id="format-<?php echo esc_attr( $format->slug ); ?>" class="sdws-section sdws-section--bordered-bottom">
+        <div class="sdws-container">
+          <div style="max-width:680px; margin-bottom:2.5rem; padding-bottom:1.5rem; border-bottom:var(--border);">
+            <h2 class="sdws-section-heading" style="margin-bottom:<?php echo $format->description ? '0.75rem' : '0'; ?>;">
+              <?php echo esc_html( $format->name ); ?>
+            </h2>
+            <?php if ( $format->description ) : ?>
+              <p style="font-size:1rem; line-height:1.7; color:#000; margin:0;">
+                <?php echo wp_kses_post( $format->description ); ?>
+              </p>
+            <?php endif; ?>
+          </div>
+          <div class="sdws-grid-3">
+            <?php while ( $workshops->have_posts() ) : $workshops->the_post(); ?>
+              <?php get_template_part( 'template-parts/sdws/sdws-card' ); ?>
+            <?php endwhile; ?>
+          </div>
+        </div>
+      </section>
+
+  <?php
+      wp_reset_postdata();
+    endforeach;
+  endif;
   ?>
 
   <!-- Contact CTA -->

@@ -26,7 +26,7 @@ if (!function_exists('sdws_fmt_date')) {
 $post_type = get_post_type();
 
 // Defaults vary by post type
-$default_image_size = ('sdws_exhibition' === $post_type) ? false : 'sc-card-header';
+$default_image_size = 'sc-card-header';
 
 $image_size = array_key_exists('image_size', (array) $args) ? $args['image_size'] : $default_image_size;
 $eyebrow    = isset($args['eyebrow'])  ? $args['eyebrow']  : null;
@@ -119,7 +119,7 @@ if (null === $excerpt) {
 if (!$title) return;
 
 $has_image   = false !== $image_size && has_post_thumbnail();
-$has_ph      = false !== $image_size && !has_post_thumbnail() && 'sdws_workshop' === $post_type;
+$has_ph      = false !== $image_size && !has_post_thumbnail();
 $has_buttons = !empty($buttons);
 ?>
 <article class="sdws-card">

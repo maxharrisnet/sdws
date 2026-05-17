@@ -51,31 +51,34 @@ while (have_posts()) : the_post();
         </div>
       </section>
 
-      <!-- Featured image -->
-      <?php if (has_post_thumbnail()) : ?>
-        <?php the_post_thumbnail('sc-card-header-featured', array(
-          'class'    => 'sdws-img-crop sdws-img-16-9',
-          'loading'  => 'lazy',
-          'decoding' => 'async',
-          'sizes'    => '(min-width: 768px) 720px, 100vw',
-        )); ?>
-      <?php endif; ?>
+
 
       <!-- Content -->
       <section class="sdws-section" style="max-width:720px;">
-        <div style="font-size:1.0625rem; line-height:1.8; color:#000;">
-          <?php the_content(); ?>
-        </div>
-        <?php if (!empty($buttons)) : ?>
-          <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:2rem;">
-            <?php foreach ($buttons as $btn) :
-              if (empty($btn['url']) || empty($btn['label'])) continue; ?>
-              <a href="<?php echo esc_url($btn['url']); ?>" target="_blank" rel="noopener" class="sdws-btn sdws-btn--outline">
-                <?php echo esc_html($btn['label']); ?>
-              </a>
-            <?php endforeach; ?>
+        <div class="sdws-content-2-col">
+          <!-- Featured image -->
+          <?php if (has_post_thumbnail()) : ?>
+            <?php the_post_thumbnail('sc-card-header-featured', array(
+              'class'    => 'sdws-img-crop sdws-img-16-9',
+              'loading'  => 'lazy',
+              'decoding' => 'async',
+              'sizes'    => '(min-width: 768px) 720px, 100vw',
+            )); ?>
+          <?php endif; ?>
+          <div style="font-size:1.0625rem; line-height:1.8; color:#000;">
+            <?php the_content(); ?>
           </div>
-        <?php endif; ?>
+          <?php if (!empty($buttons)) : ?>
+            <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:2rem;">
+              <?php foreach ($buttons as $btn) :
+                if (empty($btn['url']) || empty($btn['label'])) continue; ?>
+                <a href="<?php echo esc_url($btn['url']); ?>" target="_blank" rel="noopener" class="sdws-btn sdws-btn--outline">
+                  <?php echo esc_html($btn['label']); ?>
+                </a>
+              <?php endforeach; ?>
+            </div>
+          <?php endif; ?>
+        </div>
       </section>
 
       <!-- Registration CTA -->
