@@ -165,30 +165,7 @@ $ishow_cta_url  = $gf ? (get_field('home_ishow_cta_url')   ?: home_url('/interna
     </section>
   <?php endif; ?>
 
-  <!-- ==================== MAP SECTION ===================== -->
-  <?php if ($map_embed) : ?>
-  <section class="sdws-map-section">
-    <div class="sdws-map-section__inner">
-      <div class="sdws-map-section__info">
-        <p class="sdws-map-section__label"><?php echo esc_html($map_label); ?></p>
-        <h2 class="sdws-map-section__org">San Diego<br>Watercolor<br>Society</h2>
-        <?php if ($map_address) : ?>
-          <address class="sdws-map-section__address">
-            <?php echo nl2br(esc_html($map_address)); ?>
-          </address>
-        <?php endif; ?>
-        <?php if ($map_directions) : ?>
-          <a href="<?php echo esc_url($map_directions); ?>" class="sdws-map-section__directions" target="_blank" rel="noopener">
-            Get Directions →
-          </a>
-        <?php endif; ?>
-      </div>
-      <div class="sdws-map-section__map">
-        <?php echo $map_embed; // phpcs:ignore WordPress.Security.EscapeOutput -- admin-controlled iframe embed ?>
-      </div>
-    </div>
-  </section>
-  <?php endif; ?>
+
 
   <!-- ============== FLEXIBLE CONTENT SECTIONS ============== -->
   <?php
@@ -215,13 +192,9 @@ $ishow_cta_url  = $gf ? (get_field('home_ishow_cta_url')   ?: home_url('/interna
     <div class="sdws-container">
       <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:2.5rem; flex-wrap:wrap; gap:1rem; border-bottom: var(--border); padding-bottom:1.25rem;">
         <h2 style="font-family:var(--font-display); font-size:2.25rem; margin:0;">What's Coming Up</h2>
-        <div style="display:flex; gap:1.5rem; flex-wrap:wrap;">
-          <a href="<?php echo esc_url(home_url('/workshops/')); ?>" style="font-size:0.875rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:#000; text-decoration:none; border-bottom:1px solid #000;">
-            All Workshops →
-          </a>
-          <a href="<?php echo esc_url(home_url('/schedule/')); ?>" style="font-size:0.875rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:#000; text-decoration:none; border-bottom:1px solid #000;">
-            All Exhibitions →
-          </a>
+        <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+          <a href="<?php echo esc_url(home_url('/workshops/')); ?>" class="sdws-btn sdws-btn--outline">All Workshops</a>
+          <a href="<?php echo esc_url(home_url('/schedule/')); ?>" class="sdws-btn sdws-btn--outline">All Exhibitions</a>
         </div>
       </div>
       <?php
@@ -278,6 +251,32 @@ $ishow_cta_url  = $gf ? (get_field('home_ishow_cta_url')   ?: home_url('/interna
       <?php endif; ?>
     </div>
   </section>
+
+  <!-- ==================== MAP SECTION ===================== -->
+  <?php if ($map_embed) : ?>
+    <section class="sdws-map-section">
+      <div class="sdws-map-section__inner">
+        <div class="sdws-map-section__info">
+          <p class="sdws-map-section__label"><?php echo esc_html($map_label); ?></p>
+          <h2 class="sdws-map-section__org">San Diego<br>Watercolor<br>Society</h2>
+          <?php if ($map_address) : ?>
+            <address class="sdws-map-section__address">
+              <?php echo nl2br(esc_html($map_address)); ?>
+            </address>
+          <?php endif; ?>
+          <?php if ($map_directions) : ?>
+            <a href="<?php echo esc_url($map_directions); ?>" class="sdws-map-section__directions" target="_blank" rel="noopener">
+              Get Directions →
+            </a>
+          <?php endif; ?>
+        </div>
+        <div class="sdws-map-section__map">
+          <?php echo $map_embed; // phpcs:ignore WordPress.Security.EscapeOutput -- admin-controlled iframe embed
+          ?>
+        </div>
+      </div>
+    </section>
+  <?php endif; ?>
 
 </main>
 

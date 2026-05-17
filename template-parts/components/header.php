@@ -91,9 +91,9 @@ $cta_style      = esc_attr( $nav['cta_style'] ?: 'primary' );
           <?php endif;
         endif; ?>
         <span class="sdws-header__site-title" aria-hidden="true"
-              style="font-size:0.8rem; font-weight:500; letter-spacing:0.12em; color:#000;
-                     text-transform:uppercase; line-height:1.3; margin-left:0.875rem;
-                     padding-left:0.875rem; border-left:1px solid #000;">
+              style="font-family:var(--font-display); font-size:1rem; font-weight:400;
+                     letter-spacing:0.06em; color:#000; line-height:1.2;
+                     margin-left:0.875rem; padding-left:0.875rem; border-left:1px solid #000;">
           <?php bloginfo( 'name' ); ?>
         </span>
       </a>
