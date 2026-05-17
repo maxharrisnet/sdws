@@ -12,7 +12,7 @@ get_header();
 $gf = function_exists('get_field');
 
 // ── Hero fields ─────────────────────────────────────────────────────────────
-$hero_eyebrow     = $gf ? (get_field('home_hero_eyebrow')     ?: 'San Diego Watercolor Society — Est. 1980') : 'San Diego Watercolor Society — Est. 1980';
+$hero_eyebrow     = $gf ? (get_field('home_hero_eyebrow')) : '';
 $hero_headline    = $gf ? (get_field('home_hero_headline')    ?: 'Watercolor art, community, and excellence in San Diego.') : 'Watercolor art, community, and excellence in San Diego.';
 $hero_sub         = $gf ? (get_field('home_hero_subheadline') ?: 'The San Diego Watercolor Society has championed watercolor painting for over 40 years — offering gallery exhibitions, workshops, and a vibrant community for artists at every level.') : 'The San Diego Watercolor Society has championed watercolor painting for over 40 years — offering gallery exhibitions, workshops, and a vibrant community for artists at every level.';
 $hero_cta1_text   = $gf ? (get_field('home_hero_cta1_text')  ?: 'Visit the Gallery') : 'Visit the Gallery';
@@ -33,6 +33,8 @@ $map_embed         = $gf ? (get_field('home_map_embed')         ?: '') : '';
 
 // ── I-Show promo fields ──────────────────────────────────────────────────────
 $ishow_visible  = $gf ? get_field('home_ishow_visible') : true;
+$ishow_image    = $gf ? get_field('home_ishow_image') : null;
+$ishow_img_id   = !empty($ishow_image['ID']) ? (int) $ishow_image['ID'] : 0;
 $ishow_visible  = ($ishow_visible === false) ? true : (bool) $ishow_visible; // default on
 $ishow_eyebrow  = $gf ? (get_field('home_ishow_eyebrow')   ?: 'Now Accepting Entries') : 'Now Accepting Entries';
 $ishow_headline = $gf ? (get_field('home_ishow_headline')  ?: '46th International Exhibition') : '46th International Exhibition';
@@ -44,11 +46,15 @@ $ishow_cta_url  = $gf ? (get_field('home_ishow_cta_url')   ?: home_url('/interna
 ?>
 
 <main id="primary" class="site-main">
-
+  <div class="sdws-hero-image">
+    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/sdws-home-hero.png'); ?>" alt="Collage of watercolor artworks by SDWS members">
+  </div>
   <!-- ======================== HERO ======================== -->
   <section class="sdws-section sdws-section--lg sdws-section--bordered-bottom">
     <div class="sdws-container">
-      <p class="sdws-eyebrow"><?php echo esc_html($hero_eyebrow); ?></p>
+      <?php if ($hero_eyebrow) : ?>
+        <p class="sdws-eyebrow"><?php echo esc_html($hero_eyebrow); ?></p>
+      <?php endif; ?>
       <h1 class="sdws-hero-title"><?php echo esc_html($hero_headline); ?></h1>
       <?php if ($hero_sub) : ?>
         <p class="sdws-hero__sub"><?php echo esc_html($hero_sub); ?></p>
@@ -65,9 +71,7 @@ $ishow_cta_url  = $gf ? (get_field('home_ishow_cta_url')   ?: home_url('/interna
       </div>
     </div>
   </section>
-  <div class="sdws-hero-image">
-    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/sdws-home-hero.png'); ?>" alt="Collage of watercolor artworks by SDWS members">
-  </div>
+
 
   <!-- ================== GALLERY STRIP ================== -->
   <!-- <section style="border-bottom: var(--border); overflow:hidden;">
@@ -131,20 +135,38 @@ $ishow_cta_url  = $gf ? (get_field('home_ishow_cta_url')   ?: home_url('/interna
   <?php if ($ishow_visible) : ?>
     <section class="sdws-section sdws-section--teal sdws-section--bordered-bottom">
       <div class="sdws-container">
-        <p class="sdws-eyebrow"><?php echo esc_html($ishow_eyebrow); ?></p>
-        <h2 class="sdws-ishow-title"><?php echo esc_html($ishow_headline); ?></h2>
-        <?php if ($ishow_dates) : ?>
-          <p class="sdws-ishow-dates"><?php echo esc_html($ishow_dates); ?></p>
-        <?php endif; ?>
-        <?php if ($ishow_meta) : ?>
-          <p class="sdws-ishow-meta"><?php echo wp_kses_post($ishow_meta); ?></p>
-        <?php endif; ?>
-        <?php if ($ishow_body) : ?>
-          <p class="sdws-ishow-body"><?php echo esc_html($ishow_body); ?></p>
-        <?php endif; ?>
-        <a href="<?php echo esc_url($ishow_cta_url); ?>" class="sdws-btn sdws-btn--white">
-          <?php echo esc_html($ishow_cta_text); ?>
-        </a>
+        <div class="sdws-ishow__layout<?php echo $ishow_img_id ? ' sdws-ishow--with-image' : ''; ?>">
+
+          <?php if ($ishow_img_id) : ?>
+            <div class="sdws-ishow__img-col">
+              <?php echo wp_get_attachment_image($ishow_img_id, 'large', false, array(
+                'class'    => 'sdws-ishow__img',
+                'loading'  => 'lazy',
+                'decoding' => 'async',
+                'sizes'    => '(min-width: 768px) 280px, 80vw',
+                'alt'      => $ishow_headline,
+              )); ?>
+            </div>
+          <?php endif; ?>
+
+          <div class="sdws-ishow__content">
+            <p class="sdws-eyebrow"><?php echo esc_html($ishow_eyebrow); ?></p>
+            <h2 class="sdws-ishow-title"><?php echo esc_html($ishow_headline); ?></h2>
+            <?php if ($ishow_dates) : ?>
+              <p class="sdws-ishow-dates"><?php echo esc_html($ishow_dates); ?></p>
+            <?php endif; ?>
+            <?php if ($ishow_meta) : ?>
+              <p class="sdws-ishow-meta"><?php echo wp_kses_post($ishow_meta); ?></p>
+            <?php endif; ?>
+            <?php if ($ishow_body) : ?>
+              <p class="sdws-ishow-body"><?php echo esc_html($ishow_body); ?></p>
+            <?php endif; ?>
+            <a href="<?php echo esc_url($ishow_cta_url); ?>" class="sdws-btn sdws-btn--white">
+              <?php echo esc_html($ishow_cta_text); ?>
+            </a>
+          </div>
+
+        </div>
       </div>
     </section>
   <?php endif; ?>
@@ -242,7 +264,7 @@ $ishow_cta_url  = $gf ? (get_field('home_ishow_cta_url')   ?: home_url('/interna
       <div class="sdws-map-section__inner">
         <div class="sdws-map-section__info">
           <p class="sdws-map-section__label"><?php echo esc_html($map_label); ?></p>
-          <h2 class="sdws-map-section__org">San Diego<br>Watercolor<br>Society</h2>
+          <h2 class="sdws-map-section__org">San Diego Watercolor Society</h2>
           <?php if ($map_address) : ?>
             <address class="sdws-map-section__address">
               <?php echo nl2br(esc_html($map_address)); ?>

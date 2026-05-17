@@ -16,7 +16,8 @@ while (have_posts()) : the_post();
   $date_end      = $gf ? get_field('workshop_date_end')        : get_post_meta(get_the_ID(), 'workshop_date_end', true);
   $price_mem     = $gf ? get_field('workshop_price_member')    : get_post_meta(get_the_ID(), 'workshop_price_member', true);
   $price_non     = $gf ? get_field('workshop_price_nonmember') : get_post_meta(get_the_ID(), 'workshop_price_nonmember', true);
-  $buttons       = $gf ? (get_field('workshop_buttons') ?: array()) : array();
+  $buttons       = $gf ? (get_field('workshop_buttons')   ?: array()) : array();
+  $resources     = $gf ? (get_field('workshop_resources') ?: array()) : array();
   $reg_email     = $gf ? (get_field('workshops_email_registrar', 'option') ?: 'registrar@sdws.org') : 'registrar@sdws.org';
 
   $date_label  = '';
@@ -85,8 +86,8 @@ while (have_posts()) : the_post();
 
           <!-- Left: featured image -->
           <?php if (has_post_thumbnail()) : ?>
-            <?php the_post_thumbnail('sc-card-header-featured', array(
-              'class'    => 'sdws-img-crop sdws-img-16-9',
+            <?php the_post_thumbnail('large', array(
+              'class'    => 'sdws-workshop-featured-img',
               'loading'  => 'lazy',
               'decoding' => 'async',
               'sizes'    => '(min-width: 1200px) 560px, (min-width: 768px) 45vw, 100vw',
@@ -111,6 +112,31 @@ while (have_posts()) : the_post();
         </div>
       </div>
     </section>
+
+    <!-- Resources & Materials -->
+    <?php if (!empty($resources)) : ?>
+      <section class="sdws-section sdws-section--off-white sdws-section--bordered-bottom">
+        <div class="sdws-container">
+          <h2 class="sdws-section-heading">Resources &amp; Materials</h2>
+          <div class="sdws-workshop-resources">
+            <?php foreach ($resources as $item) :
+              $rtype  = !empty($item['type'])  ? $item['type']  : 'button';
+              $rlabel = !empty($item['label']) ? $item['label'] : '';
+              $rurl   = !empty($item['url'])   ? $item['url']   : '';
+              if (!$rlabel) continue;
+
+              if ('button' === $rtype && $rurl) : ?>
+                <a href="<?php echo esc_url($rurl); ?>" target="_blank" rel="noopener" class="sdws-btn sdws-btn--outline">
+                  <?php echo esc_html($rlabel); ?>
+                </a>
+              <?php elseif ('text' === $rtype) : ?>
+                <p class="sdws-resource-note"><?php echo esc_html($rlabel); ?></p>
+              <?php endif; ?>
+            <?php endforeach; ?>
+          </div>
+        </div>
+      </section>
+    <?php endif; ?>
 
     <!-- Registration CTA -->
     <div id="register">

@@ -90,10 +90,7 @@ $cta_style      = esc_attr( $nav['cta_style'] ?: 'primary' );
             </span>
           <?php endif;
         endif; ?>
-        <span class="sdws-header__site-title" aria-hidden="true"
-              style="font-family:var(--font-display); font-size:1rem; font-weight:400;
-                     letter-spacing:0.06em; color:#000; line-height:1.2;
-                     margin-left:0.875rem; padding-left:0.875rem; border-left:1px solid #000;">
+        <span class="sdws-header__site-title" aria-hidden="true">
           <?php bloginfo( 'name' ); ?>
         </span>
       </a>
@@ -159,8 +156,23 @@ $cta_style      = esc_attr( $nav['cta_style'] ?: 'primary' );
 </div><!-- .site-header-shell -->
 
 <style>
-/* Sticky header */
-.site-header-shell { position: sticky; top: 0; z-index: 100; }
+/* Sticky header — overflow hidden prevents child content bursting layout width */
+.site-header-shell { position: sticky; top: 0; z-index: 100; overflow: hidden; }
+.site-header { background: #fff; border-bottom: 1px solid #f0f0f0; }
+
+/* Site title lockup */
+.sdws-header__site-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: #000;
+  line-height: 1.2;
+  margin-left: 0.875rem;
+  padding-left: 0.875rem;
+  white-space: nowrap;
+  /* No divider by default — added via class below */
+}
 
 /* Desktop nav — hide hamburger */
 @media (min-width: 769px) {
@@ -168,10 +180,11 @@ $cta_style      = esc_attr( $nav['cta_style'] ?: 'primary' );
   .sdws-header__nav { display: flex !important; }
 }
 
-/* Mobile — hide desktop nav, show hamburger */
+/* Mobile — hide desktop nav, show hamburger; hide site title */
 @media (max-width: 768px) {
   .sdws-header__nav { display: none !important; }
   .sdws-menu-toggle { display: flex !important; }
+  .sdws-header__site-title { display: none; }
 }
 
 /* Dropdown hover */

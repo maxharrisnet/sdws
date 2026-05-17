@@ -6,13 +6,14 @@
  * All values can be overridden via $args.
  *
  * Args:
+ *   layout       (string)       — 'stacked' (default) or 'horizontal' (image left, body right)
  *   image_size   (string|false) — thumbnail size key, or false to skip image
  *   eyebrow      (string)
  *   title        (string)
  *   url          (string)
- *   meta         (string[]) — lines shown below the title
+ *   meta         (string[])     — lines shown below the title
  *   excerpt      (string)
- *   buttons      (array[]) — each: ['label' => '', 'url' => '']
+ *   buttons      (array[])      — each: ['label' => '', 'url' => '']
  *
  * @package Starter_Coat
  */
@@ -25,10 +26,10 @@ if (!function_exists('sdws_fmt_date')) {
 
 $post_type = get_post_type();
 
-// Defaults vary by post type
-$default_image_size = 'sc-card-header';
+$layout     = isset($args['layout']) ? $args['layout'] : 'stacked';
+$is_horiz   = 'horizontal' === $layout;
 
-$image_size = array_key_exists('image_size', (array) $args) ? $args['image_size'] : $default_image_size;
+$image_size = array_key_exists('image_size', (array) $args) ? $args['image_size'] : ($is_horiz ? 'sc-profile-square-lg' : 'sc-card-header');
 $eyebrow    = isset($args['eyebrow'])  ? $args['eyebrow']  : null;
 $title      = isset($args['title'])    ? $args['title']    : get_the_title();
 $url        = isset($args['url'])      ? $args['url']      : get_permalink();
@@ -109,9 +110,14 @@ if ('sdws_exhibition' === $post_type) {
       ? (get_field('exhibition_buttons') ?: array())
       : array();
   }
+
+  // Always show excerpt for exhibitions (auto-generates from content if no manual excerpt)
+  if (null === $excerpt) {
+    $excerpt = get_the_excerpt();
+  }
 }
 
-// Auto-populate excerpt for generic post types
+// Fallback excerpt for other post types
 if (null === $excerpt) {
   $excerpt = has_excerpt() ? get_the_excerpt() : '';
 }
@@ -121,14 +127,34 @@ if (!$title) return;
 $has_image   = false !== $image_size && has_post_thumbnail();
 $has_ph      = false !== $image_size && !has_post_thumbnail();
 $has_buttons = !empty($buttons);
-?>
-<article class="sdws-card">
 
-  <?php if ($has_image) : ?>
+$img_sizes = $is_horiz
+  ? '(min-width: 768px) 240px, 100vw'
+  : '(min-width: 1200px) 380px, (min-width: 768px) 45vw, 100vw';
+
+$article_class = 'sdws-card' . ($is_horiz ? ' sdws-card--horizontal' : '');
+?>
+<article class="<?php echo esc_attr($article_class); ?>">
+
+  <?php if ($is_horiz && ($has_image || $has_ph)) : ?>
+    <div class="sdws-card__image-col">
+      <?php if ($has_image) : ?>
+        <?php the_post_thumbnail($image_size, array(
+          'class'    => 'sdws-card__image',
+          'loading'  => 'lazy',
+          'decoding' => 'async',
+          'sizes'    => $img_sizes,
+        )); ?>
+      <?php else : ?>
+        <div class="sdws-card__placeholder"><span>Image Placeholder</span></div>
+      <?php endif; ?>
+    </div>
+  <?php elseif ($has_image) : ?>
     <?php the_post_thumbnail($image_size, array(
       'class'    => 'sdws-card__image',
       'loading'  => 'lazy',
       'decoding' => 'async',
+      'sizes'    => $img_sizes,
     )); ?>
   <?php elseif ($has_ph) : ?>
     <div class="sdws-card__image sdws-card__placeholder">
