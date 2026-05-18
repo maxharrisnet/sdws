@@ -12,7 +12,15 @@
 
 ?>
 
-<?php starter_coat_render_footer_cta(); ?>
+<?php
+// Page-level CTA: show only when the override is explicitly enabled on this page/post.
+if (function_exists('starter_coat_get_page_cta_override')) {
+  $sdws_cta = starter_coat_get_page_cta_override(get_the_ID());
+  if ($sdws_cta !== null && ! empty($sdws_cta['enabled'])) {
+    get_template_part('template-parts/components/cta', null, array('cta' => $sdws_cta));
+  }
+}
+?>
 <?php get_template_part('template-parts/components/footer'); ?>
 </div><!-- #page -->
 

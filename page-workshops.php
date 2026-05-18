@@ -9,10 +9,9 @@
 
 get_header();
 
-$gf         = function_exists('get_field');
-$ws_intro   = $gf ? (get_field('workshops_intro',           'option') ?: 'SDWS workshops are led by nationally recognized instructors and open to all skill levels. Members receive discounted rates on all sessions.') : 'SDWS workshops are led by nationally recognized instructors and open to all skill levels. Members receive discounted rates on all sessions.';
-$email_reg  = $gf ? (get_field('workshops_email_registrar', 'option') ?: 'registrar@sdws.org') : 'registrar@sdws.org';
-$email_dir  = $gf ? (get_field('workshops_email_director',  'option') ?: 'workshops@sdws.org') : 'workshops@sdws.org';
+$ws_intro  = function_exists('get_field') ? (get_field('workshops_intro',           'option') ?: 'SDWS workshops are led by nationally recognized instructors and open to all skill levels. Members receive discounted rates on all sessions.') : 'SDWS workshops are led by nationally recognized instructors and open to all skill levels. Members receive discounted rates on all sessions.';
+$email_reg = function_exists('get_field') ? (get_field('workshops_email_registrar', 'option') ?: 'registrar@sdws.org') : 'registrar@sdws.org';
+$email_dir = function_exists('get_field') ? (get_field('workshops_email_director',  'option') ?: 'workshops@sdws.org') : 'workshops@sdws.org';
 ?>
 
 <main id="primary" class="site-main">
@@ -96,21 +95,6 @@ $email_dir  = $gf ? (get_field('workshops_email_director',  'option') ?: 'worksh
   endif;
   ?>
 
-  <!-- Contact CTA -->
-  <?php
-  $contact_copy = 'Registration: <a href="mailto:' . esc_attr($email_reg) . '">' . esc_html($email_reg) . '</a>' . "\n\n" .
-                  'Workshop Director: <a href="mailto:' . esc_attr($email_dir) . '">' . esc_html($email_dir) . '</a>';
-
-  get_template_part('template-parts/components/cta', null, array(
-    'cta' => array(
-      'title'          => 'Questions About Workshops?',
-      'copy'           => $contact_copy,
-      'background'     => 'off-white',
-      'layout'         => 'stacked',
-      'text_box_style' => 'none',
-    ),
-  ));
-  ?>
 
 </main>
 

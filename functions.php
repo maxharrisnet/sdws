@@ -55,16 +55,10 @@ function starter_coat_setup()
 		*/
   add_theme_support('post-thumbnails');
 
-  // This theme uses wp_nav_menu() in one location.
   register_nav_menus(
     array(
       'menu-1'      => esc_html__('Primary', 'starter-coat'),
-      'menu-footer' => esc_html__('Footer (Legacy)', 'starter-coat'),
-      'footer-main' => esc_html__('Footer Main', 'starter-coat'),
-      'footer-legal' => esc_html__('Footer Legal', 'starter-coat'),
-      'footer-col-1' => esc_html__('Footer Column 1', 'starter-coat'),
-      'footer-col-2' => esc_html__('Footer Column 2', 'starter-coat'),
-      'footer-col-3' => esc_html__('Footer Column 3', 'starter-coat'),
+      'footer-col-1' => esc_html__('Footer', 'starter-coat'),
     )
   );
 
@@ -82,18 +76,6 @@ function starter_coat_setup()
       'caption',
       'style',
       'script',
-    )
-  );
-
-  // Set up the WordPress core custom background feature.
-  add_theme_support(
-    'custom-background',
-    apply_filters(
-      'starter_coat_custom_background_args',
-      array(
-        'default-color' => 'ffffff',
-        'default-image' => '',
-      )
     )
   );
 
@@ -130,26 +112,6 @@ function starter_coat_content_width()
 }
 add_action('after_setup_theme', 'starter_coat_content_width', 0);
 
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function starter_coat_widgets_init()
-{
-  register_sidebar(
-    array(
-      'name'          => esc_html__('Sidebar', 'starter-coat'),
-      'id'            => 'sidebar-1',
-      'description'   => esc_html__('Add widgets here.', 'starter-coat'),
-      'before_widget' => '<section id="%1$s" class="widget %2$s">',
-      'after_widget'  => '</section>',
-      'before_title'  => '<h2 class="widget-title">',
-      'after_title'   => '</h2>',
-    )
-  );
-}
-add_action('widgets_init', 'starter_coat_widgets_init');
 
 /**
  * Implement the Custom Header feature.

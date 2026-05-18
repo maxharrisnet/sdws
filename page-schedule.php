@@ -13,12 +13,20 @@ get_header();
 <main id="primary" class="site-main">
 
   <!-- Page header -->
+  <?php
+  $ex_title = get_field('exhibitions_hero_title', 'option');
+  $ex_intro = get_field('exhibitions_hero_intro', 'option');
+  ?>
   <section class="sdws-section sdws-section--bordered-bottom">
     <div class="sdws-container">
-      <h1 class="sdws-page-title">Current and Upcoming Exhibitions</h1>
-      <p class="sdws-page-intro">
-        SDWS exhibitions are held at the SDWS Gallery in Liberty Station, San Diego. All exhibitions are free and open to the public during gallery hours.
-      </p>
+      <h1 class="sdws-page-title"><?php echo $ex_title ? esc_html($ex_title) : 'Current and Upcoming Exhibitions'; ?></h1>
+      <?php if ($ex_intro) : ?>
+        <div class="sdws-page-intro"><?php echo wp_kses_post($ex_intro); ?></div>
+      <?php else : ?>
+        <p class="sdws-page-intro">
+          SDWS exhibitions are held at the SDWS Gallery in Liberty Station, San Diego. All exhibitions are free and open to the public during gallery hours.
+        </p>
+      <?php endif; ?>
     </div>
   </section>
 
@@ -47,6 +55,15 @@ get_header();
       <?php endif; ?>
     </div>
   </section>
+
+  <!-- CTA -->
+  <?php
+  $GLOBALS['sdws_in_page_cta'] = true;
+  $page_cta = starter_coat_get_page_cta_override(get_the_ID());
+  if ($page_cta !== null && ! empty($page_cta['enabled'])) {
+    get_template_part('template-parts/components/cta', null, array('cta' => $page_cta));
+  }
+  ?>
 
 </main>
 
