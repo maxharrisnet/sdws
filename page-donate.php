@@ -39,6 +39,7 @@ $cta_copy = 'Donate online via PayPal — please indicate the award you are cont
         <div class="sdws-donate__intro sdws-prose">
           <?php echo wp_kses_post($intro); ?>
         </div>
+        <a href="#donate-now" class="sdws-btn sdws-btn--teal">Donate Now</a>
       </div>
     </div>
   </section>
@@ -123,6 +124,7 @@ $cta_copy = 'Donate online via PayPal — please indicate the award you are cont
   </section>
 
   <!-- How to donate CTA -->
+  <div id="donate-now">
   <?php
   get_template_part('template-parts/components/cta', null, array(
     'cta' => array(
@@ -138,6 +140,7 @@ $cta_copy = 'Donate online via PayPal — please indicate the award you are cont
     ),
   ));
   ?>
+  </div><!-- #donate-now -->
 
   <!-- Tax note -->
   <section class="sdws-section sdws-donate__tax-section">

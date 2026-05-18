@@ -149,7 +149,7 @@ class SDWS_Footer_Nav_Walker extends Walker_Nav_Menu {
 		$target = ! empty( $item->target ) ? ' target="' . esc_attr( $item->target ) . '"' : '';
 		$output .= '<li>';
 		$output .= '<a href="' . esc_url( $item->url ) . '"' . $target
-			. ' style="font-size:0.9375rem; color:#fff; text-decoration:none; opacity:0.85;">'
+			. ' class="sdws-footer__link">'
 			. esc_html( $item->title ) . '</a>';
 	}
 

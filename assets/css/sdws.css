@@ -735,6 +735,10 @@ img {
 	margin-bottom: 1.25rem;
 }
 
+.sdws-donate__intro-wrap > .sdws-btn {
+	margin-top: 0.75rem;
+}
+
 /* Full-bleed banner image between intro and awards */
 .sdws-donate__banner {
 	overflow: hidden;
@@ -754,7 +758,6 @@ img {
 	flex-direction: column;
 	gap: 0;
 	margin-bottom: 2.5rem;
-	border-top: var(--border);
 }
 
 /* Sections 1, 2, 4 — centered layout with row of award boxes */
@@ -772,7 +775,7 @@ img {
 /* Section 3 — left-aligned card, leave as-is */
 .sdws-donate__award-group {
 	border: 1px solid #000;
-	border-left: 8px solid var(--color-primary);
+	border-left: 6px solid var(--color-primary);
 	padding: 1.75rem 1.5rem;
 	margin: 2.5rem 0;
 }
@@ -960,7 +963,6 @@ img {
 /* === Back to top ======================================================= */
 
 .back-to-top {
-	display: none;
 	position: fixed;
 	bottom: 2rem;
 	right: 2rem;
@@ -975,6 +977,11 @@ img {
 	border: none;
 	cursor: pointer;
 	transition: background-color 0.15s ease;
+}
+
+.back-to-top svg {
+	display: block;
+	stroke: #fff;
 }
 
 .back-to-top:hover {
