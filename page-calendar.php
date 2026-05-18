@@ -8,6 +8,10 @@
  */
 
 get_header();
+
+$gf        = function_exists('get_field');
+$cal_title = $gf ? (get_field('calendar_hero_title', 'option') ?: 'Calendar') : 'Calendar';
+$cal_intro = $gf ? get_field('calendar_hero_intro', 'option') : '';
 ?>
 
 <main id="primary" class="site-main">
@@ -15,10 +19,10 @@ get_header();
   <!-- Page header -->
   <section class="sdws-section sdws-section--calendar-header">
     <div class="sdws-container">
-      <h1 class="sdws-page-title">Calendar</h1>
-      <p class="sdws-page-intro">
-        Stay up to date with SDWS exhibitions, receptions, workshops, and community events.
-      </p>
+      <h1 class="sdws-page-title"><?php echo esc_html($cal_title); ?></h1>
+      <?php if ($cal_intro) : ?>
+        <div class="sdws-page-intro"><?php echo wp_kses_post($cal_intro); ?></div>
+      <?php endif; ?>
     </div>
   </section>
 
