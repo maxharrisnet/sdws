@@ -3,6 +3,12 @@
  * Global design system overrides applied on top of the compiled theme.css.
  */
 
+/* === Color overrides =================================================== */
+
+:root {
+	--color-primary: #2a7a88; /* darkened from #3a9aaa — 4.96:1 with white, passes WCAG AA */
+}
+
 /* === Base ============================================================== */
 
 *,
@@ -247,9 +253,9 @@ img {
 }
 
 .sdws-btn--teal:hover {
-	background-color: #2e7f8d;
+	background-color: #1f6573;
 	color: #fff;
-	border-color: #2e7f8d;
+	border-color: #1f6573;
 }
 
 /* White filled (for use on teal/dark backgrounds) */
@@ -1294,7 +1300,7 @@ img {
 /* Current-page indicator on nav link or toggle */
 .sdws-nav__link--current,
 .sdws-dropdown__toggle--current {
-	border-bottom: 2px solid #3a9aaa;
+	border-bottom: 2px solid #2a7a88;
 }
 
 /* Dropdown child link */
@@ -1309,7 +1315,7 @@ img {
 
 /* Active nav link via aria-current */
 .sdws-header__nav a[aria-current="page"] {
-	border-bottom: 2px solid #3a9aaa;
+	border-bottom: 2px solid #2a7a88;
 }
 
 /* Custom-logo sizing */
@@ -2495,4 +2501,14 @@ body.single-tribe_events #tribe-events-header {
 .tribe-events-nav-previous a:hover::before,
 .tribe-events-nav-next a:hover::before {
 	opacity: 0.85;
+}
+
+/* === Motion preferences ================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+	a,
+	.sdws-btn,
+	.back-to-top {
+		transition: none;
+	}
 }
