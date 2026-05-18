@@ -19,7 +19,8 @@
  */
 
 if (!function_exists('sdws_fmt_date')) {
-  function sdws_fmt_date($date_str) {
+  function sdws_fmt_date($date_str)
+  {
     return $date_str ? date('F j, Y', strtotime($date_str)) : '';
   }
 }
@@ -179,22 +180,5 @@ $article_class = 'sdws-card' . ($is_horiz ? ' sdws-card--horizontal' : '');
         <?php endforeach; ?>
       </ul>
     <?php endif; ?>
-
-    <?php if ($excerpt) : ?>
-      <div class="sdws-card__excerpt"><?php echo wp_kses_post($excerpt); ?></div>
-    <?php endif; ?>
-
-    <?php if ($has_buttons) : ?>
-      <div class="sdws-card__buttons">
-        <?php foreach ($buttons as $btn) :
-          if (empty($btn['url']) || empty($btn['label'])) continue; ?>
-          <a href="<?php echo esc_url($btn['url']); ?>" target="_blank" rel="noopener"
-             class="sdws-btn sdws-btn--outline sdws-card__btn">
-            <?php echo esc_html($btn['label']); ?>
-          </a>
-        <?php endforeach; ?>
-      </div>
-    <?php endif; ?>
-
   </div>
 </article>
