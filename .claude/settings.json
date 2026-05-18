@@ -3,7 +3,9 @@
     "allow": [
       "Skill(frontend-design)",
       "Skill(frontend-design:*)",
-      "Bash(xargs -I{} basename {})"
+      "Bash(xargs -I{} basename {})",
+      "Bash(grep -rn 'global $acf' '/Users/max/Local Sites/san-diego-watercolor-society/app/public/wp-content/themes/starter-coat/' '/Users/max/Local Sites/san-diego-watercolor-society/app/public/wp-content/plugins/starter-coat-core/')",
+      "Bash(grep -rn '^$acf\\\\s*=' '/Users/max/Local Sites/san-diego-watercolor-society/app/public/wp-content/themes/starter-coat/')"
     ]
   }
 }

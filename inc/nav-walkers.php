@@ -53,7 +53,7 @@ class SDWS_Primary_Nav_Walker extends Walker_Nav_Menu {
 				. ' cursor:pointer; display:flex; align-items:center; gap:0.375rem;'
 				. ' font-family:var(--font-body);';
 			if ( $is_current ) {
-				$btn_style .= ' border-bottom:2px solid #000;';
+				$btn_style .= ' border-bottom:2px solid #3a9aaa;';
 			}
 			$output .= '<button class="sdws-dropdown__toggle" aria-expanded="false" aria-haspopup="true" style="' . esc_attr( $btn_style ) . '">';
 			$output .= esc_html( $item->title );
@@ -71,7 +71,7 @@ class SDWS_Primary_Nav_Walker extends Walker_Nav_Menu {
 				$a_style = 'padding:0.5rem 0.875rem; font-size:1rem; font-weight:400;'
 					. ' letter-spacing:0.02em; color:#000; text-decoration:none; display:block;';
 				if ( $is_current ) {
-					$a_style .= ' border-bottom:2px solid #000;';
+					$a_style .= ' border-bottom:2px solid #3a9aaa;';
 				}
 			} else {
 				$a_style = 'padding:0.75rem 1rem; font-size:1rem; color:#000; text-decoration:none; display:block;';

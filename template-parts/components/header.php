@@ -221,7 +221,7 @@ $cta_style      = esc_attr($nav['cta_style'] ?: 'primary');
 
   /* Active nav link underline */
   .sdws-header__nav a[aria-current="page"] {
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid #3a9aaa;
   }
 
   /* Custom-logo sizing */
