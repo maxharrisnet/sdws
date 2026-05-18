@@ -748,53 +748,104 @@ img {
 	object-position: center;
 }
 
-/* Award sections — 2-column card grid */
+/* Award sections — vertical stack, each full width */
 .sdws-donate__sections {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	gap: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0;
 	margin-bottom: 2.5rem;
+	border-top: var(--border);
 }
 
+/* Sections 1, 2, 4 — centered layout with row of award boxes */
+.sdws-donate__award-section {
+	padding: 2.5rem 0;
+	border-bottom: var(--border);
+	text-align: center;
+}
+
+.sdws-donate__award-section .sdws-donate__section-title,
+.sdws-donate__award-section .sdws-donate__section-note {
+	text-align: center;
+}
+
+/* Section 3 — left-aligned card, leave as-is */
 .sdws-donate__award-group {
 	border: 1px solid #000;
 	border-left: 8px solid var(--color-primary);
 	padding: 1.75rem 1.5rem;
+	margin: 2.5rem 0;
 }
 
+/* Row of individual award boxes */
+.sdws-donate__award-row {
+	display: flex;
+	justify-content: center;
+	gap: 1.25rem;
+	flex-wrap: wrap;
+	margin-top: 1.5rem;
+}
+
+/* Individual award box */
+.sdws-donate__award-box {
+	border: 1px solid #000;
+	border-top: 6px solid var(--color-primary);
+	padding: 1.75rem 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+	gap: 0.4rem;
+	flex: 1 1 200px;
+	max-width: 300px;
+}
+
+.sdws-donate__award-box--wide {
+	max-width: 420px;
+}
+
+.sdws-donate__award-amount {
+	display: block;
+	font-size: 2rem;
+	font-weight: 700;
+	color: var(--color-primary);
+	line-height: 1;
+}
+
+.sdws-donate__award-name {
+	display: block;
+	font-size: 1.0625rem;
+	font-weight: 600;
+	line-height: 1.3;
+}
+
+.sdws-donate__award-meta {
+	display: block;
+	font-size: 0.875rem;
+	opacity: 0.6;
+	margin-top: 0.125rem;
+}
+
+/* Section titles and notes */
 .sdws-donate__section-title {
 	font-size: 1.0625rem;
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 0.06em;
-	margin-bottom: 1rem;
+	margin-bottom: 0.5rem;
 	color: #000;
 }
 
 .sdws-donate__section-note {
 	font-size: 0.9375rem;
 	opacity: 0.6;
-	margin-bottom: 0.5rem;
+	margin-bottom: 0;
 }
 
 .sdws-donate__section-body {
 	font-size: 1rem;
 	line-height: 1.65;
-}
-
-/* Bordered list items — no arrow bullets */
-.sdws-donate-list {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	border-top: 1px solid #000;
-}
-
-.sdws-donate-list li {
-	padding: 0.625rem 0;
-	border-bottom: 1px solid #000;
-	font-size: 1rem;
-	line-height: 1.5;
 }
 
 /* Deadline bar */
@@ -820,8 +871,8 @@ img {
 }
 
 @media (max-width: 768px) {
-	.sdws-donate__sections {
-		grid-template-columns: 1fr;
+	.sdws-donate__award-box {
+		flex: 1 1 160px;
 	}
 
 	.sdws-donate__banner-img {

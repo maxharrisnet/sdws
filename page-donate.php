@@ -58,36 +58,59 @@ $cta_copy = 'Donate online via PayPal — please indicate the award you are cont
 
       <div class="sdws-donate__sections">
 
-        <div class="sdws-donate__award-group">
+        <!-- Named awards: two boxes side by side under centered title -->
+        <div class="sdws-donate__award-section">
           <h2 class="sdws-donate__section-title">Present an award in your name</h2>
-          <ul class="sdws-donate-list">
-            <li><strong>$1,000</strong> — Silver Star Award named for the donor</li>
-            <li><strong>$500</strong> — Award named for the donor</li>
-          </ul>
+          <div class="sdws-donate__award-row">
+            <div class="sdws-donate__award-box">
+              <span class="sdws-donate__award-amount">$1,000</span>
+              <span class="sdws-donate__award-name">Silver Star Award</span>
+              <span class="sdws-donate__award-meta">Named for the donor</span>
+            </div>
+            <div class="sdws-donate__award-box">
+              <span class="sdws-donate__award-amount">$500</span>
+              <span class="sdws-donate__award-name">Award</span>
+              <span class="sdws-donate__award-meta">Named for the donor</span>
+            </div>
+          </div>
         </div>
 
-        <div class="sdws-donate__award-group">
+        <!-- Group awards: four boxes under centered title -->
+        <div class="sdws-donate__award-section">
           <h2 class="sdws-donate__section-title">Contribute to an existing group award</h2>
           <p class="sdws-donate__section-note">Donate any amount to one of the following:</p>
-          <ul class="sdws-donate-list">
-            <li>Board of Directors Award</li>
-            <li>Past Presidents Award</li>
-            <li>Signature Members Award</li>
-            <li>TuesPM Mentor Art Group Award</li>
-          </ul>
+          <div class="sdws-donate__award-row">
+            <div class="sdws-donate__award-box">
+              <span class="sdws-donate__award-name">Board of Directors Award</span>
+            </div>
+            <div class="sdws-donate__award-box">
+              <span class="sdws-donate__award-name">Past Presidents Award</span>
+            </div>
+            <div class="sdws-donate__award-box">
+              <span class="sdws-donate__award-name">Signature Members Award</span>
+            </div>
+            <div class="sdws-donate__award-box">
+              <span class="sdws-donate__award-name">TuesPM Mentor Art Group Award</span>
+            </div>
+          </div>
         </div>
 
+        <!-- Create new group: left as-is -->
         <div class="sdws-donate__award-group">
           <h2 class="sdws-donate__section-title">Create a new group award</h2>
           <p class="sdws-donate__section-body">Each group member donates smaller amounts that total at least $500. A great way to give together.</p>
         </div>
 
-        <div class="sdws-donate__award-group">
+        <!-- Individual: Watermedia box centered -->
+        <div class="sdws-donate__award-section">
           <h2 class="sdws-donate__section-title">Not part of a group?</h2>
           <p class="sdws-donate__section-note">Contribute individually to:</p>
-          <ul class="sdws-donate-list">
-            <li>Watermedia Enthusiasts Award — any amount welcome</li>
-          </ul>
+          <div class="sdws-donate__award-row">
+            <div class="sdws-donate__award-box sdws-donate__award-box--wide">
+              <span class="sdws-donate__award-name">Watermedia Enthusiasts Award</span>
+              <span class="sdws-donate__award-meta">Any amount welcome</span>
+            </div>
+          </div>
         </div>
 
       </div><!-- .sdws-donate__sections -->
