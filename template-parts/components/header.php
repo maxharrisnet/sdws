@@ -130,7 +130,7 @@ $cta_style      = esc_attr($nav['cta_style'] ?: 'primary');
   </header>
 
   <!-- Mobile menu overlay -->
-  <div id="sdws-mobile-menu" class="sdws-mobile-menu" aria-hidden="true">
+  <nav id="sdws-mobile-menu" class="sdws-mobile-menu" aria-hidden="true" aria-label="Mobile navigation">
     <div class="sdws-mobile-menu__header">
       <span class="sdws-mobile-menu__title">SDWS</span>
       <button class="sdws-menu-close" aria-label="Close menu">
@@ -147,7 +147,7 @@ $cta_style      = esc_attr($nav['cta_style'] ?: 'primary');
       'depth'          => 2,
     ));
     ?>
-  </div>
+  </nav>
 
 </div><!-- .site-header-shell -->
 
@@ -157,6 +157,16 @@ $cta_style      = esc_attr($nav['cta_style'] ?: 'primary');
     var menu = document.getElementById('sdws-mobile-menu');
     var close = document.querySelector('.sdws-menu-close');
 
+    function closeMenu() {
+      menu.style.display = 'none';
+      menu.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (toggle) {
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.focus();
+      }
+    }
+
     if (toggle && menu) {
       toggle.addEventListener('click', function() {
         var open = toggle.getAttribute('aria-expanded') === 'true';
@@ -164,17 +174,19 @@ $cta_style      = esc_attr($nav['cta_style'] ?: 'primary');
         menu.setAttribute('aria-hidden', String(open));
         menu.style.display = open ? 'none' : 'block';
         document.body.style.overflow = open ? '' : 'hidden';
+        if (!open && close) close.focus();
       });
     }
 
     if (close && menu) {
-      close.addEventListener('click', function() {
-        menu.style.display = 'none';
-        menu.setAttribute('aria-hidden', 'true');
-        if (toggle) toggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
+      close.addEventListener('click', closeMenu);
     }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && menu && menu.getAttribute('aria-hidden') === 'false') {
+        closeMenu();
+      }
+    });
 
     // Dropdown keyboard / click toggle
     document.querySelectorAll('.sdws-dropdown__toggle').forEach(function(btn) {

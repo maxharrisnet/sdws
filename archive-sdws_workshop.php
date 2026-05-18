@@ -9,7 +9,8 @@
 get_header();
 
 $gf        = function_exists('get_field');
-$ws_intro  = $gf ? (get_field('workshops_intro', 'option') ?: 'SDWS workshops are led by nationally recognized instructors and open to all skill levels. Members receive discounted rates on all sessions.') : 'SDWS workshops are led by nationally recognized instructors and open to all skill levels. Members receive discounted rates on all sessions.';
+$ws_title  = $gf ? (get_field('workshops_hero_title', 'option') ?: 'Workshops') : 'Workshops';
+$ws_intro  = $gf ? get_field('workshops_intro', 'option') : '';
 $email_reg = $gf ? (get_field('workshops_email_registrar', 'option') ?: 'registrar@sdws.org') : 'registrar@sdws.org';
 $email_dir = $gf ? (get_field('workshops_email_director',  'option') ?: 'workshops@sdws.org') : 'workshops@sdws.org';
 ?>
@@ -18,9 +19,10 @@ $email_dir = $gf ? (get_field('workshops_email_director',  'option') ?: 'worksho
 
   <section class="sdws-section sdws-section--bordered-bottom">
     <div class="sdws-container">
-      <h1 class="sdws-page-title">Workshops</h1>
-      <p class="sdws-page-intro">Please contact our workshops registrar at registrar@sdws.org if you need assistance or the Workshop Director, Stephanie Van de Wetering, at workshops@sdws.org with any questions.
-      </p>
+      <h1 class="sdws-page-title"><?php echo esc_html($ws_title); ?></h1>
+      <?php if ($ws_intro) : ?>
+        <div class="sdws-page-intro"><?php echo wp_kses_post($ws_intro); ?></div>
+      <?php endif; ?>
     </div>
   </section>
 
