@@ -11,7 +11,7 @@ get_header();
 <main id="primary" class="site-main">
   <section class="section section--md">
     <div class="container">
-      <header class="section__header" style="text-align:center;margin-bottom:var(--space-xl);">
+      <header class="section__header section__header--centered">
         <p class="eyebrow"><?php esc_html_e('Search Results', 'starter-coat'); ?></p>
         <h1><?php printf(esc_html__('Results for: %s', 'starter-coat'), '<span>' . get_search_query() . '</span>'); ?></h1>
       </header>

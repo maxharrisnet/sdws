@@ -49,7 +49,7 @@ if ('' !== trim($custom_embed_html)) {
   $map_markup = wp_kses($custom_embed_html, $allowed_tags);
 } elseif ('' !== $address) {
   $map_src = 'https://www.google.com/maps?q=' . rawurlencode($address) . '&output=embed';
-  $map_markup = '<iframe src="' . esc_url($map_src) . '" width="100%" height="100%" style="border:0;" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="' . esc_attr__('Google Map', 'starter-coat') . '"></iframe>';
+  $map_markup = '<iframe src="' . esc_url($map_src) . '" width="100%" height="100%" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="' . esc_attr__('Google Map', 'starter-coat') . '"></iframe>';
 }
 
 if ('' === $map_markup) {

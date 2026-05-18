@@ -633,6 +633,24 @@ img {
 	opacity: 0.5;
 }
 
+/* === Layout utility modifiers ========================================== */
+
+/* Centered section header (search results page, etc.) */
+.section__header--centered {
+	text-align: center;
+	margin-bottom: var(--space-xl);
+}
+
+/* Centered container variant (no-results, empty states) */
+.container--centered {
+	text-align: center;
+}
+
+/* Google Maps embed iframe — no default browser border */
+.c-map-embed__map iframe {
+	border: 0;
+}
+
 /* === 404 page ========================================================== */
 
 .sdws-error-404 {
@@ -994,12 +1012,351 @@ img {
 
 /* === Navigation overrides ============================================== */
 
+/* Sticky shell that wraps the banner + header */
+.site-header-shell {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+}
+
 .site-header {
 	border-bottom: var(--border);
 	background-color: #fff;
-	position: sticky;
-	top: 0;
-	z-index: 1000;
+	/* sticky / z-index handled by .site-header-shell */
+}
+
+/* Header inner flex row */
+.sdws-header__inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 70px;
+	gap: 1.5rem;
+}
+
+/* Logo link */
+.sdws-header__logo-link {
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+}
+
+/* Logo image (max-width set inline via PHP; the rest is here) */
+.sdws-header__logo-img {
+	height: auto;
+	max-height: 50px;
+	display: block;
+}
+
+/* Fallback raw <img> logo */
+.sdws-header__logo-img-fallback {
+	max-height: 50px;
+	width: auto;
+	display: block;
+}
+
+/* Site name text (when logo_mode === 'site_name') */
+.sdws-header__site-name {
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: #000;
+	line-height: 1.2;
+}
+
+/* Divider + text title beside logo image */
+.sdws-header__site-title {
+	font-family: var(--font-display);
+	font-size: 1.125rem;
+	font-weight: 400;
+	letter-spacing: 0.06em;
+	color: #000;
+	line-height: 1.2;
+	margin-left: 0.875rem;
+	padding-left: 0.875rem;
+	white-space: nowrap;
+}
+
+/* Desktop nav wrapper */
+.sdws-header__nav {
+	display: flex;
+	align-items: center;
+	gap: 0;
+}
+
+/* Desktop nav UL */
+.sdws-header__nav-list {
+	display: flex;
+	align-items: center;
+	gap: 0.125rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* Nav CTA button */
+.sdws-header__cta {
+	flex-shrink: 0;
+	padding: 0.5rem 1.25rem;
+	font-size: 0.875rem;
+	font-weight: 600;
+	text-decoration: none;
+	color: #fff;
+	background: #000;
+	border: 2px solid #000;
+	white-space: nowrap;
+}
+
+.sdws-header__cta:hover {
+	background: #222;
+	color: #fff;
+}
+
+/* Hamburger toggle */
+.sdws-menu-toggle {
+	display: none;
+	flex-direction: column;
+	gap: 5px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0.5rem;
+}
+
+.sdws-menu-toggle__bar {
+	display: block;
+	width: 24px;
+	height: 2px;
+	background: #000;
+}
+
+/* === Top banner ========================================================= */
+
+.sdws-top-banner {
+	text-align: center;
+	padding: 0.5rem 1rem;
+	font-size: 0.875rem;
+	font-weight: 500;
+}
+
+.sdws-top-banner--dark {
+	background: #000;
+	color: #fff;
+}
+
+.sdws-top-banner--light {
+	background: var(--color-off-white, #f8f6f2);
+	color: #000;
+	border-bottom: 1px solid #000;
+}
+
+.sdws-top-banner--brand {
+	background: var(--color-primary, #3a9aaa);
+	color: #fff;
+}
+
+.sdws-top-banner__link {
+	color: inherit;
+	text-decoration: underline;
+}
+
+/* === Mobile menu overlay ================================================ */
+
+.sdws-mobile-menu {
+	display: none;
+	position: fixed;
+	inset: 0;
+	background: #fff;
+	z-index: 500;
+	overflow-y: auto;
+	padding: 2rem;
+}
+
+.sdws-mobile-menu__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 3rem;
+	border-bottom: 1px solid #000;
+	padding-bottom: 1.5rem;
+}
+
+.sdws-mobile-menu__title {
+	font-size: 1.25rem;
+	font-weight: 700;
+}
+
+.sdws-menu-close {
+	background: none;
+	border: none;
+	cursor: pointer;
+	font-size: 1.5rem;
+	line-height: 1;
+	padding: 0.25rem;
+}
+
+/* Mobile nav UL */
+.sdws-mobile-nav-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+}
+
+/* === Responsive nav visibility ========================================= */
+
+@media (min-width: 769px) {
+	.sdws-menu-toggle {
+		display: none !important;
+	}
+
+	.sdws-header__nav {
+		display: flex !important;
+	}
+}
+
+@media (max-width: 768px) {
+	.sdws-header__nav {
+		display: none !important;
+	}
+
+	.sdws-menu-toggle {
+		display: flex !important;
+	}
+
+	.sdws-header__site-title {
+		display: none;
+	}
+}
+
+/* === Dropdown =========================================================== */
+
+/* Reveal on hover / keyboard focus */
+.sdws-dropdown:hover .sdws-dropdown__menu,
+.sdws-dropdown:focus-within .sdws-dropdown__menu {
+	display: block !important;
+}
+
+/* Remove border from last dropdown item */
+.sdws-dropdown__menu li:last-child a {
+	border-bottom: none;
+}
+
+/* Dropdown parent <li> */
+.sdws-dropdown {
+	position: relative;
+}
+
+/* Dropdown submenu */
+.sdws-dropdown__menu {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background: #fff;
+	border: 1px solid #000;
+	min-width: 220px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	z-index: 200;
+}
+
+/* Top-level nav link */
+.sdws-nav__link {
+	padding: 0.5rem 0.875rem;
+	font-size: 1rem;
+	font-weight: 400;
+	letter-spacing: 0.02em;
+	color: #000;
+	text-decoration: none;
+	display: block;
+}
+
+/* Dropdown toggle <button> */
+.sdws-dropdown__toggle {
+	padding: 0.5rem 0.875rem;
+	font-size: 1rem;
+	font-weight: 400;
+	letter-spacing: 0.02em;
+	color: #000;
+	background: none;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 0.375rem;
+	font-family: var(--font-body);
+}
+
+/* Current-page indicator on nav link or toggle */
+.sdws-nav__link--current,
+.sdws-dropdown__toggle--current {
+	border-bottom: 2px solid #3a9aaa;
+}
+
+/* Dropdown child link */
+.sdws-nav__link--child {
+	padding: 0.75rem 1rem;
+	font-size: 1rem;
+	color: #000;
+	text-decoration: none;
+	display: block;
+	border-bottom: 1px solid #000;
+}
+
+/* Active nav link via aria-current */
+.sdws-header__nav a[aria-current="page"] {
+	border-bottom: 2px solid #3a9aaa;
+}
+
+/* Custom-logo sizing */
+.sdws-header__logo-link .custom-logo {
+	max-height: 50px;
+	width: auto;
+	display: block;
+}
+
+/* === Mobile nav walker ================================================== */
+
+.sdws-mobile-nav__item {
+	border-bottom: 1px solid #000;
+}
+
+.sdws-mobile-nav__sub-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+/* Parent label (non-clickable group heading) */
+.sdws-mobile-nav__label {
+	display: block;
+	padding: 0.6rem 0;
+	font-size: 0.75rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: #000;
+	opacity: 0.45;
+}
+
+/* Top-level link */
+.sdws-mobile-nav__link {
+	display: block;
+	padding: 1rem 0;
+	font-size: 1.5rem;
+	font-weight: 600;
+	color: #000;
+	text-decoration: none;
+}
+
+/* Child (depth > 0) link */
+.sdws-mobile-nav__link--child {
+	padding: 0.75rem 1.25rem;
+	font-size: 1.25rem;
 }
 
 /* === Footer ============================================================ */
@@ -1173,6 +1530,83 @@ img {
 	.sdws-footer__grid {
 		grid-template-columns: 1fr;
 	}
+}
+
+/* === Format section header (workshops / archive) ======================== */
+
+/* Wrapper above the card grid: caps width, adds spacing + bottom rule */
+.sdws-format-header {
+	max-width: 680px;
+	margin-bottom: 2.5rem;
+	padding-bottom: 1.5rem;
+	border-bottom: var(--border);
+}
+
+/* Compact wrapper variant (no max-width cap, used in archive) */
+.sdws-format-header--full {
+	max-width: none;
+}
+
+/* h2 inside the format header — zero bottom margin when no description */
+.sdws-format-header .sdws-section-heading {
+	margin-bottom: 0;
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
+/* When a description follows, restore spacing below the heading */
+.sdws-format-header--has-description .sdws-section-heading {
+	margin-bottom: 0.75rem;
+}
+
+/* Description paragraph inside a format header */
+.sdws-format-description {
+	font-size: 1rem;
+	line-height: 1.7;
+	color: #000;
+	margin: 0;
+}
+
+/* "Coming soon" placeholder inside an empty format section */
+.sdws-workshops-empty {
+	color: #000;
+	opacity: 0.5;
+}
+
+/* === Calendar page ====================================================== */
+
+/* Page header section — white bg + bottom border, tighter vertical padding */
+.sdws-section--calendar-header {
+	background: #fff;
+	border-bottom: var(--border);
+	padding-top: 3rem;
+	padding-bottom: 2.5rem;
+}
+
+/* Calendar embed section — white bg, no vertical padding */
+.sdws-section--calendar-embed {
+	background: #fff;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+/* Fallback container when TEC plugin is not active */
+.sdws-calendar-fallback {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+}
+
+/* Fallback notice text */
+.sdws-calendar-fallback__notice {
+	color: #000;
+	opacity: 0.5;
+	font-size: 1rem;
+}
+
+/* Install link inside the fallback notice */
+.sdws-calendar-fallback__link {
+	color: #000;
+	font-weight: 500;
 }
 
 /* === Tribe Events Calendar embed iframe ================================ */

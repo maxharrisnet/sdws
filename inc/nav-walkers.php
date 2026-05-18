@@ -20,10 +20,7 @@ class SDWS_Primary_Nav_Walker extends Walker_Nav_Menu {
 
 	public function start_lvl( &$output, $depth = 0, $args = null ) {
 		if ( 0 === $depth ) {
-			$output .= '<ul class="sdws-dropdown__menu" role="menu"'
-				. ' style="display:none; position:absolute; top:100%; left:0;'
-				. ' background:#fff; border:1px solid #000; min-width:220px;'
-				. ' list-style:none; margin:0; padding:0; z-index:200;">';
+			$output .= '<ul class="sdws-dropdown__menu" role="menu">';
 		} else {
 			$output .= '<ul class="sub-menu">';
 		}
@@ -41,21 +38,17 @@ class SDWS_Primary_Nav_Walker extends Walker_Nav_Menu {
 			|| in_array( 'current-menu-ancestor', $classes, true )
 			|| in_array( 'current-menu-parent', $classes, true );
 
-		$li_style = ( $has_children && 0 === $depth ) ? ' style="position:relative;"' : '';
 		if ( $has_children && 0 === $depth ) {
 			$classes[] = 'sdws-dropdown';
 		}
-		$output .= '<li id="menu-item-' . absint( $item->ID ) . '" class="' . esc_attr( implode( ' ', $classes ) ) . '"' . $li_style . '>';
+		$output .= '<li id="menu-item-' . absint( $item->ID ) . '" class="' . esc_attr( implode( ' ', $classes ) ) . '">';
 
 		if ( $has_children && 0 === $depth ) {
-			$btn_style = 'padding:0.5rem 0.875rem; font-size:1rem; font-weight:400;'
-				. ' letter-spacing:0.02em; color:#000; background:none; border:none;'
-				. ' cursor:pointer; display:flex; align-items:center; gap:0.375rem;'
-				. ' font-family:var(--font-body);';
+			$btn_class = 'sdws-dropdown__toggle';
 			if ( $is_current ) {
-				$btn_style .= ' border-bottom:2px solid #3a9aaa;';
+				$btn_class .= ' sdws-dropdown__toggle--current';
 			}
-			$output .= '<button class="sdws-dropdown__toggle" aria-expanded="false" aria-haspopup="true" style="' . esc_attr( $btn_style ) . '">';
+			$output .= '<button class="' . esc_attr( $btn_class ) . '" aria-expanded="false" aria-haspopup="true">';
 			$output .= esc_html( $item->title );
 			$output .= '<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">'
 				. '<path d="M1 1l4 4 4-4" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>'
@@ -68,17 +61,16 @@ class SDWS_Primary_Nav_Walker extends Walker_Nav_Menu {
 			$aria   = $is_current ? ' aria-current="page"' : '';
 
 			if ( 0 === $depth ) {
-				$a_style = 'padding:0.5rem 0.875rem; font-size:1rem; font-weight:400;'
-					. ' letter-spacing:0.02em; color:#000; text-decoration:none; display:block;';
+				$a_class = 'sdws-nav__link';
 				if ( $is_current ) {
-					$a_style .= ' border-bottom:2px solid #3a9aaa;';
+					$a_class .= ' sdws-nav__link--current';
 				}
 			} else {
-				$a_style = 'padding:0.75rem 1rem; font-size:1rem; color:#000; text-decoration:none; display:block;';
+				$a_class = 'sdws-nav__link--child';
 			}
 
 			$output .= '<a href="' . esc_url( $item->url ) . '"' . $target . $rel . $title . $aria
-				. ' style="' . esc_attr( $a_style ) . '">';
+				. ' class="' . esc_attr( $a_class ) . '">';
 			$output .= esc_html( $item->title );
 			$output .= '</a>';
 		}
@@ -99,7 +91,7 @@ class SDWS_Mobile_Nav_Walker extends Walker_Nav_Menu {
 
 	public function start_lvl( &$output, $depth = 0, $args = null ) {
 		if ( 0 === $depth ) {
-			$output .= '<ul style="list-style:none; padding:0; margin:0;">';
+			$output .= '<ul class="sdws-mobile-nav__sub-list">';
 		}
 	}
 
@@ -114,20 +106,16 @@ class SDWS_Mobile_Nav_Walker extends Walker_Nav_Menu {
 		$classes      = empty( $item->classes ) ? array() : (array) $item->classes;
 		$has_children = in_array( 'menu-item-has-children', $classes, true );
 
-		$output .= '<li style="border-bottom:1px solid #000;">';
+		$output .= '<li class="sdws-mobile-nav__item">';
 
 		if ( $has_children && 0 === $depth ) {
-			$output .= '<span style="display:block; padding:0.6rem 0; font-size:0.75rem;'
-				. ' font-weight:600; text-transform:uppercase; letter-spacing:0.1em;'
-				. ' color:#000; opacity:0.45;">'
+			$output .= '<span class="sdws-mobile-nav__label">'
 				. esc_html( $item->title ) . '</span>';
 		} else {
-			$target  = ! empty( $item->target ) ? ' target="' . esc_attr( $item->target ) . '"' : '';
-			$padding = $depth > 0 ? '0.75rem 1.25rem' : '1rem 0';
-			$size    = $depth > 0 ? '1.25rem' : '1.5rem';
-			$output .= '<a href="' . esc_url( $item->url ) . '"' . $target
-				. ' style="display:block; padding:' . $padding . '; font-size:' . $size
-				. '; font-weight:600; color:#000; text-decoration:none;">'
+			$target    = ! empty( $item->target ) ? ' target="' . esc_attr( $item->target ) . '"' : '';
+			$link_class = $depth > 0 ? 'sdws-mobile-nav__link sdws-mobile-nav__link--child' : 'sdws-mobile-nav__link';
+			$output   .= '<a href="' . esc_url( $item->url ) . '"' . $target
+				. ' class="' . esc_attr( $link_class ) . '">'
 				. esc_html( $item->title ) . '</a>';
 		}
 	}

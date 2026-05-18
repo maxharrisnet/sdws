@@ -69,12 +69,12 @@ $email_dir = $gf ? (get_field('workshops_email_director',  'option') ?: 'worksho
 
       <section id="format-<?php echo esc_attr($format->slug); ?>" class="sdws-section">
         <div class="sdws-container">
-          <div style=" margin-bottom:2.5rem; padding-bottom:1.5rem;">
-            <h2 class="sdws-section-heading" style="margin-bottom:<?php echo $format->description ? '0.75rem' : '0'; ?>;">
+          <div class="sdws-format-header sdws-format-header--full<?php echo $format->description ? ' sdws-format-header--has-description' : ''; ?>">
+            <h2 class="sdws-section-heading">
               <?php echo esc_html($format->name); ?>
             </h2>
             <?php if ($format->description) : ?>
-              <p style="font-size:1rem; line-height:1.7; color:#000; margin:0;">
+              <p class="sdws-format-description">
                 <?php echo wp_kses_post($format->description); ?>
               </p>
             <?php endif; ?>
@@ -94,7 +94,7 @@ $email_dir = $gf ? (get_field('workshops_email_director',  'option') ?: 'worksho
 
     <section class="sdws-section">
       <div class="sdws-container">
-        <p style="color:#000; opacity:0.5;">Workshop listings coming soon.</p>
+        <p class="sdws-workshops-empty">Workshop listings coming soon.</p>
       </div>
     </section>
 
