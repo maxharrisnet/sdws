@@ -158,6 +158,28 @@ while (have_posts()) : the_post();
       </section>
     <?php endif; ?>
 
+    <?php
+    $page_cta = function_exists('starter_coat_get_page_cta_override') ? starter_coat_get_page_cta_override(get_the_ID()) : null;
+    if ($page_cta === null || empty($page_cta['enabled'])) :
+    ?>
+    <!-- Register CTA (default — overridden per-page via CTA fields) -->
+    <div id="register">
+      <?php get_template_part('template-parts/components/cta', null, array(
+        'cta' => array(
+          'title'                  => 'Enter This Exhibition',
+          'copy'                   => !$cta_btn_primary ? 'For registration information, email <a href="mailto:support@sdws.org">support@sdws.org</a>' : '',
+          'background'             => 'off-white',
+          'layout'                 => 'stacked',
+          'text_box_style'         => 'none',
+          'button_primary'         => $cta_btn_primary,
+          'button_primary_style'   => 'teal',
+          'button_secondary'       => $cta_btn_secondary,
+          'button_secondary_style' => 'outline',
+        ),
+      )); ?>
+    </div>
+    <?php endif; ?>
+
   </main>
 
 <?php

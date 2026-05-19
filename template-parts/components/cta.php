@@ -40,6 +40,8 @@ $text_box     = isset($cta['text_box_style']) ? sanitize_html_class((string) $ct
 $action_mode  = isset($cta['action_mode']) ? sanitize_html_class((string) $cta['action_mode']) : 'buttons';
 $form_shortcode = isset($cta['form_shortcode']) ? (string) $cta['form_shortcode'] : '';
 
+$legal_text = isset($cta['legal_text']) ? (string) $cta['legal_text'] : '';
+
 $button_primary         = isset($cta['button_primary']) && is_array($cta['button_primary']) ? $cta['button_primary'] : array();
 $button_secondary       = isset($cta['button_secondary']) && is_array($cta['button_secondary']) ? $cta['button_secondary'] : array();
 $button_primary_style   = isset($cta['button_primary_style']) ? sanitize_html_class((string) $cta['button_primary_style']) : 'primary';
@@ -114,5 +116,8 @@ if ('none' !== $background) {
         </div>
       <?php endif; ?>
     </div>
+    <?php if ($legal_text) : ?>
+      <p class="c-cta__legal"><?php echo wp_kses_post($legal_text); ?></p>
+    <?php endif; ?>
   </div>
 </section>

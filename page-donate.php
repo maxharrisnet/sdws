@@ -142,33 +142,27 @@ $s4_awards  = ($has_acf && get_field('donate_s4_awards')) ? get_field('donate_s4
     </div>
   </section>
 
-  <!-- How to donate CTA -->
-  <div id="donate-now">
+  <!-- How to donate CTA (default shown unless page-level CTA override is enabled) -->
   <?php
-  get_template_part('template-parts/components/cta', null, array(
-    'cta' => array(
-      'title'                  => 'How to Donate',
-      'copy'                   => $cta_copy,
-      'background'             => 'sand',
-      'layout'                 => 'stacked',
-      'text_box_style'         => 'none',
-      'button_primary'         => array('title' => 'Donate via PayPal', 'url' => $paypal_url, 'target' => '_blank'),
-      'button_primary_style'   => 'teal',
-      'button_secondary'       => array('title' => 'Download Donations Form', 'url' => $form_url, 'target' => '_blank'),
-      'button_secondary_style' => 'outline',
-    ),
-  ));
-  ?>
-  </div><!-- #donate-now -->
+  $page_cta = function_exists('starter_coat_get_page_cta_override') ? starter_coat_get_page_cta_override(get_the_ID()) : null;
+  $GLOBALS['sdws_cta_rendered'] = true; // prevent footer.php from double-rendering
 
-  <!-- Tax note -->
-  <section class="sdws-section sdws-donate__tax-section">
-    <div class="sdws-container">
-      <p class="sdws-donate-tax-note">
-        <?php echo nl2br(esc_html($tax_note)); ?>
-      </p>
-    </div>
-  </section>
+  $active_cta = ($page_cta !== null && !empty($page_cta['enabled'])) ? $page_cta : array(
+    'title'                  => 'How to Donate',
+    'copy'                   => $cta_copy,
+    'background'             => 'sand',
+    'layout'                 => 'stacked',
+    'text_box_style'         => 'none',
+    'button_primary'         => array('title' => 'Donate via PayPal', 'url' => $paypal_url, 'target' => '_blank'),
+    'button_primary_style'   => 'teal',
+    'button_secondary'       => array('title' => 'Download Donations Form', 'url' => $form_url, 'target' => '_blank'),
+    'button_secondary_style' => 'outline',
+  );
+  $active_cta['legal_text'] = nl2br(esc_html($tax_note));
+  ?>
+  <div id="donate-now">
+    <?php get_template_part('template-parts/components/cta', null, array('cta' => $active_cta)); ?>
+  </div><!-- #donate-now -->
 
 </main>
 

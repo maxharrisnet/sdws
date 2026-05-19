@@ -7,13 +7,18 @@
 
 :root {
 	--color-primary:   #2a7a88; /* darkened from #3a9aaa — 4.96:1 with white, passes WCAG AA */
-	--color-brand-700: #1f6573; /* hover/dark variant of --color-primary */
+	--color-brand-700: #1a5a68; /* hover/dark variant of --color-primary */
 
 	--transition-base: 0.15s ease;
 	--border-thick:    2px solid var(--color-black);
 
 	--font-size-ui:    0.9375rem; /* 15px — buttons, card body */
 	--font-size-label: 0.8125rem; /* 13px — eyebrows, meta labels */
+}
+
+/* Override Jill theme preset — its class-based vars have higher specificity than :root */
+.theme--jill.scheme--preset {
+	--color-brand-700: #1a5a68;
 }
 
 /* === Base ============================================================== */
@@ -924,6 +929,13 @@ img {
 
 .c-cta__copy p {
 	line-height: 1.85;
+}
+
+.c-cta__legal {
+	margin-top: var(--space-lg);
+	font-size: 0.875rem;
+	opacity: 0.65;
+	text-align: center;
 }
 
 /* === Pagination ======================================================== */
