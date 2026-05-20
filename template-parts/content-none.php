@@ -7,7 +7,7 @@
 ?>
 
 <section class="section section--lg no-results">
-  <div class="container container--narrow" style="text-align:center;">
+  <div class="container container--narrow container--centered">
     <h2><?php esc_html_e('Nothing Found', 'starter-coat'); ?></h2>
 
     <?php if (is_home() && current_user_can('publish_posts')) : ?>

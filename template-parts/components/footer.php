@@ -40,10 +40,9 @@ $copyright_text  = get_field('sc_footer_copyright_text', 'option')  ?: 'San Dieg
       <div class="sdws-footer__col">
         <h3 class="sdws-footer__col-heading">Quick Links</h3>
         <?php
-        $footer_menu_location = has_nav_menu('footer-col-1') ? 'footer-col-1' : (has_nav_menu('footer-main') ? 'footer-main' : '');
-        if ($footer_menu_location) :
+        if (has_nav_menu('footer-col-1')) :
           wp_nav_menu(array(
-            'theme_location' => $footer_menu_location,
+            'theme_location' => 'footer-col-1',
             'container'      => false,
             'walker'         => new SDWS_Footer_Nav_Walker(),
             'items_wrap'     => '<ul class="sdws-footer__links">%3$s</ul>',

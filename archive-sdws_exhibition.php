@@ -7,16 +7,20 @@
  */
 
 get_header();
+
+$gf        = function_exists('get_field');
+$ex_title  = $gf ? (get_field('exhibitions_hero_title', 'option') ?: 'Exhibition Schedule') : 'Exhibition Schedule';
+$ex_intro  = $gf ? get_field('exhibitions_hero_intro', 'option') : '';
 ?>
 
 <main id="primary" class="site-main">
 
   <section class="sdws-section sdws-section--bordered-bottom">
     <div class="sdws-container">
-      <h1 class="sdws-page-title">Exhibition Schedule</h1>
-      <p class="sdws-page-intro">
-        <?php esc_html_e( 'SDWS exhibitions celebrate the watercolor medium with juried member shows, international exhibitions, and plein air events throughout the year.', 'starter-coat' ); ?>
-      </p>
+      <h1 class="sdws-page-title"><?php echo esc_html($ex_title); ?></h1>
+      <?php if ($ex_intro) : ?>
+        <div class="sdws-page-intro"><?php echo wp_kses_post($ex_intro); ?></div>
+      <?php endif; ?>
     </div>
   </section>
 

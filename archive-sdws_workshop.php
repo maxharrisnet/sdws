@@ -9,7 +9,8 @@
 get_header();
 
 $gf        = function_exists('get_field');
-$ws_intro  = $gf ? (get_field('workshops_intro', 'option') ?: 'SDWS workshops are led by nationally recognized instructors and open to all skill levels. Members receive discounted rates on all sessions.') : 'SDWS workshops are led by nationally recognized instructors and open to all skill levels. Members receive discounted rates on all sessions.';
+$ws_title  = $gf ? (get_field('workshops_hero_title', 'option') ?: 'Workshops') : 'Workshops';
+$ws_intro  = $gf ? get_field('workshops_intro', 'option') : '';
 $email_reg = $gf ? (get_field('workshops_email_registrar', 'option') ?: 'registrar@sdws.org') : 'registrar@sdws.org';
 $email_dir = $gf ? (get_field('workshops_email_director',  'option') ?: 'workshops@sdws.org') : 'workshops@sdws.org';
 ?>
@@ -18,9 +19,10 @@ $email_dir = $gf ? (get_field('workshops_email_director',  'option') ?: 'worksho
 
   <section class="sdws-section sdws-section--bordered-bottom">
     <div class="sdws-container">
-      <h1 class="sdws-page-title">Workshops</h1>
-      <p class="sdws-page-intro">Please contact our workshops registrar at registrar@sdws.org if you need assistance or the Workshop Director, Stephanie Van de Wetering, at workshops@sdws.org with any questions.
-      </p>
+      <h1 class="sdws-page-title"><?php echo esc_html($ws_title); ?></h1>
+      <?php if ($ws_intro) : ?>
+        <div class="sdws-page-intro"><?php echo wp_kses_post($ws_intro); ?></div>
+      <?php endif; ?>
     </div>
   </section>
 
@@ -69,12 +71,12 @@ $email_dir = $gf ? (get_field('workshops_email_director',  'option') ?: 'worksho
 
       <section id="format-<?php echo esc_attr($format->slug); ?>" class="sdws-section">
         <div class="sdws-container">
-          <div style=" margin-bottom:2.5rem; padding-bottom:1.5rem;">
-            <h2 class="sdws-section-heading" style="margin-bottom:<?php echo $format->description ? '0.75rem' : '0'; ?>;">
+          <div class="sdws-format-header sdws-format-header--full<?php echo $format->description ? ' sdws-format-header--has-description' : ''; ?>">
+            <h2 class="sdws-section-heading">
               <?php echo esc_html($format->name); ?>
             </h2>
             <?php if ($format->description) : ?>
-              <p style="font-size:1rem; line-height:1.7; color:#000; margin:0;">
+              <p class="sdws-format-description">
                 <?php echo wp_kses_post($format->description); ?>
               </p>
             <?php endif; ?>
@@ -94,7 +96,7 @@ $email_dir = $gf ? (get_field('workshops_email_director',  'option') ?: 'worksho
 
     <section class="sdws-section">
       <div class="sdws-container">
-        <p style="color:#000; opacity:0.5;">Workshop listings coming soon.</p>
+        <p class="sdws-workshops-empty">Workshop listings coming soon.</p>
       </div>
     </section>
 
@@ -107,11 +109,8 @@ $email_dir = $gf ? (get_field('workshops_email_director',  'option') ?: 'worksho
 
   get_template_part('template-parts/components/cta', null, array(
     'cta' => array(
-      'title'          => 'Questions About Workshops?',
-      'copy'           => $contact_copy,
-      'background'     => 'off-white',
-      'layout'         => 'stacked',
-      'text_box_style' => 'none',
+      'title' => 'Questions About Workshops?',
+      'copy'  => $contact_copy,
     ),
   ));
   ?>

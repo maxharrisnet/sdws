@@ -138,23 +138,23 @@ while (have_posts()) : the_post();
       </section>
     <?php endif; ?>
 
-    <!-- Registration CTA -->
-    <div id="register">
-      <?php
+    <?php
+    $page_cta = function_exists('starter_coat_get_page_cta_override') ? starter_coat_get_page_cta_override(get_the_ID()) : null;
+    if ($page_cta === null || empty($page_cta['enabled'])) :
       $mailto = 'mailto:' . $reg_email . '?subject=' . rawurlencode('Workshop Registration: ' . get_the_title());
-      get_template_part('template-parts/components/cta', null, array(
+    ?>
+    <!-- Registration CTA (default — overridden per-page via CTA fields) -->
+    <div id="register">
+      <?php get_template_part('template-parts/components/cta', null, array(
         'cta' => array(
           'title'               => 'Register for This Workshop',
           'copy'                => 'Questions? Email <a href="mailto:' . esc_attr($reg_email) . '">' . esc_html($reg_email) . '</a>',
-          'background'          => 'off-white',
-          'layout'              => 'stacked',
-          'text_box_style'      => 'none',
           'button_primary'      => array('title' => 'Register by Email', 'url' => $mailto),
           'button_primary_style'=> 'teal',
         ),
-      ));
-      ?>
+      )); ?>
     </div>
+    <?php endif; ?>
 
   </main>
 

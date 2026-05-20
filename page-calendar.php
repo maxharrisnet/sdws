@@ -8,22 +8,26 @@
  */
 
 get_header();
+
+$gf        = function_exists('get_field');
+$cal_title = $gf ? (get_field('calendar_hero_title', 'option') ?: 'Calendar') : 'Calendar';
+$cal_intro = $gf ? get_field('calendar_hero_intro', 'option') : '';
 ?>
 
 <main id="primary" class="site-main">
 
   <!-- Page header -->
-  <section class="sdws-section" style="background:#fff; border-bottom: var(--border); padding-bottom:2.5rem; padding-top:3rem;">
+  <section class="sdws-section sdws-section--calendar-header">
     <div class="sdws-container">
-      <h1 style="font-size:clamp(2.5rem,5vw,4rem); margin:0 0 1rem; color:#000;">Calendar</h1>
-      <p style="font-size:1.125rem; max-width:620px; line-height:1.7; margin:0; color:#000;">
-        Stay up to date with SDWS exhibitions, receptions, workshops, and community events.
-      </p>
+      <h1 class="sdws-page-title"><?php echo esc_html($cal_title); ?></h1>
+      <?php if ($cal_intro) : ?>
+        <div class="sdws-page-intro"><?php echo wp_kses_post($cal_intro); ?></div>
+      <?php endif; ?>
     </div>
   </section>
 
   <!-- Calendar embed -->
-  <section class="sdws-section sdws-calendar-section" style="background:#fff; padding-top:0; padding-bottom:0;">
+  <section class="sdws-section sdws-section--calendar-embed">
     <?php if (function_exists('tribe_get_events')) : ?>
       <iframe
         id="sdws-calendar-iframe"
@@ -31,7 +35,7 @@ get_header();
         src="<?php echo esc_url(get_field('calendar_embed_url', 'option')); ?>"
         frameborder="0"
         title="SDWS Events Calendar"
-        style="display:block; width:100%;"></iframe>
+        ></iframe>
 
       <?php
       $google_fonts_url = 'https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap';
@@ -429,10 +433,10 @@ CSS;
         }());
       </script>
     <?php else : ?>
-      <div class="sdws-container" style="padding-top:3rem; padding-bottom:3rem;">
-        <p style="color:#000; opacity:0.5; font-size:1rem;">
+      <div class="sdws-container sdws-calendar-fallback">
+        <p class="sdws-calendar-fallback__notice">
           The Events Calendar plugin is not active. Please install and activate it to display the calendar.
-          <br><a href="<?php echo esc_url(admin_url('plugin-install.php?s=the-events-calendar&tab=search&type=term')); ?>" style="color:#000; font-weight:500;">Install The Events Calendar →</a>
+          <br><a href="<?php echo esc_url(admin_url('plugin-install.php?s=the-events-calendar&tab=search&type=term')); ?>" class="sdws-calendar-fallback__link">Install The Events Calendar →</a>
         </p>
       </div>
     <?php endif; ?>

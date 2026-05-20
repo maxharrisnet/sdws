@@ -21,19 +21,19 @@ $cta_style      = esc_attr($nav['cta_style'] ?: 'primary');
 <div class="site-header-shell">
 
   <?php if ($show_banner) :
-    $banner_map = array(
-      'dark'  => 'background:#000; color:#fff;',
-      'light' => 'background:var(--color-off-white,#f8f6f2); color:#000; border-bottom:1px solid #000;',
-      'brand' => 'background:var(--color-primary,#3a9aaa); color:#fff;',
+    $banner_style_map = array(
+      'dark'  => 'dark',
+      'light' => 'light',
+      'brand' => 'brand',
     );
-    $banner_css = isset($banner_map[$nav['banner_style']]) ? $banner_map[$nav['banner_style']] : $banner_map['dark'];
+    $banner_modifier = isset($banner_style_map[$nav['banner_style']]) ? $banner_style_map[$nav['banner_style']] : 'dark';
     $banner_lnk = ! empty($nav['banner_link']['url']) ? $nav['banner_link'] : null;
   ?>
-    <div class="sdws-top-banner" style="<?php echo esc_attr($banner_css); ?> text-align:center; padding:0.5rem 1rem; font-size:0.875rem; font-weight:500;">
+    <div class="sdws-top-banner sdws-top-banner--<?php echo esc_attr($banner_modifier); ?>">
       <?php if ($banner_lnk) : ?>
         <a href="<?php echo esc_url($banner_lnk['url']); ?>"
           <?php echo ! empty($banner_lnk['target']) ? 'target="' . esc_attr($banner_lnk['target']) . '"' : ''; ?>
-          style="color:inherit; text-decoration:underline;">
+          class="sdws-top-banner__link">
           <?php echo esc_html($nav['banner_text']); ?>
         </a>
       <?php else : ?>
@@ -43,13 +43,12 @@ $cta_style      = esc_attr($nav['cta_style'] ?: 'primary');
   <?php endif; ?>
 
   <header id="masthead" class="site-header header" role="banner">
-    <div class="sdws-container" style="display:flex; align-items:center; justify-content:space-between; height:70px; gap:1.5rem;">
+    <div class="sdws-container sdws-header__inner">
 
       <!-- Logo -->
       <?php if (! empty($nav['show_logo'])) : ?>
         <a href="<?php echo esc_url(home_url('/')); ?>" rel="home" class="sdws-header__logo-link"
-          aria-label="<?php echo esc_attr(get_bloginfo('name')); ?> — Home"
-          style="flex-shrink:0; display:flex; align-items:center; text-decoration:none;">
+          aria-label="<?php echo esc_attr(get_bloginfo('name')); ?> — Home">
           <?php
           $logo_mode     = $nav['logo_mode'] ?: 'custom_logo';
           $rendered_logo = false;
@@ -63,7 +62,9 @@ $cta_style      = esc_attr($nav['cta_style'] ?: 'primary');
                 'alt'      => esc_attr(get_bloginfo('name')) . ' logo',
                 'loading'  => 'eager',
                 'decoding' => 'async',
-                'style'    => 'max-width:' . $logo_max_width . 'px; height:auto; max-height:50px; display:block;',
+                'class'    => 'sdws-header__logo-img',
+                // max-width is a dynamic PHP value — must stay inline
+                'style'    => 'max-width:' . $logo_max_width . 'px',
               )
             );
             $rendered_logo = true;
@@ -71,7 +72,7 @@ $cta_style      = esc_attr($nav['cta_style'] ?: 'primary');
             the_custom_logo();
             $rendered_logo = true;
           elseif ('site_name' === $logo_mode) : ?>
-            <span style="font-size:1.25rem; font-weight:700; color:#000; line-height:1.2;">
+            <span class="sdws-header__site-name">
               <?php bloginfo('name'); ?>
             </span>
             <?php $rendered_logo = true;
@@ -82,10 +83,10 @@ $cta_style      = esc_attr($nav['cta_style'] ?: 'primary');
               <img src="<?php echo esc_url(STARTER_COAT_URI . '/assets/images/sdws-logo.jpg'); ?>"
                 alt="<?php echo esc_attr(get_bloginfo('name')); ?> logo"
                 height="50"
-                style="max-height:50px; width:auto; display:block;"
+                class="sdws-header__logo-img-fallback"
                 loading="eager" decoding="async">
             <?php else : ?>
-              <span style="font-size:1.25rem; font-weight:700; color:#000; line-height:1.2;">
+              <span class="sdws-header__site-name">
                 San Diego<br>Watercolor Society
               </span>
           <?php endif;
@@ -97,14 +98,13 @@ $cta_style      = esc_attr($nav['cta_style'] ?: 'primary');
       <?php endif; ?>
 
       <!-- Desktop navigation -->
-      <nav id="site-navigation" class="main-navigation sdws-header__nav" aria-label="Primary Menu"
-        style="display:flex; align-items:center; gap:0;">
+      <nav id="site-navigation" class="main-navigation sdws-header__nav" aria-label="Primary Menu">
         <?php
         wp_nav_menu(array(
           'theme_location' => 'menu-1',
           'container'      => false,
           'walker'         => new SDWS_Primary_Nav_Walker(),
-          'items_wrap'     => '<ul id="%1$s" class="%2$s" style="display:flex; align-items:center; gap:0.125rem; list-style:none; margin:0; padding:0;">%3$s</ul>',
+          'items_wrap'     => '<ul id="%1$s" class="%2$s sdws-header__nav-list">%3$s</ul>',
           'fallback_cb'    => false,
         ));
         ?>
@@ -114,31 +114,27 @@ $cta_style      = esc_attr($nav['cta_style'] ?: 'primary');
       <?php if ($show_cta) : ?>
         <a href="<?php echo esc_url($cta_link['url']); ?>"
           <?php echo ! empty($cta_link['target']) ? 'target="' . esc_attr($cta_link['target']) . '"' : ''; ?>
-          style="flex-shrink:0; padding:0.5rem 1.25rem; font-size:0.875rem; font-weight:600;
-                text-decoration:none; color:#fff; background:#000; border:2px solid #000; white-space:nowrap;">
+          class="sdws-header__cta">
           <?php echo esc_html($cta_link['title']); ?>
         </a>
       <?php endif; ?>
 
       <!-- Mobile hamburger -->
-      <button class="sdws-menu-toggle" aria-controls="sdws-mobile-menu" aria-expanded="false" aria-label="Open menu"
-        style="display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:0.5rem;">
-        <span style="display:block; width:24px; height:2px; background:#000;"></span>
-        <span style="display:block; width:24px; height:2px; background:#000;"></span>
-        <span style="display:block; width:24px; height:2px; background:#000;"></span>
+      <button class="sdws-menu-toggle" aria-controls="sdws-mobile-menu" aria-expanded="false" aria-label="Open menu">
+        <span class="sdws-menu-toggle__bar"></span>
+        <span class="sdws-menu-toggle__bar"></span>
+        <span class="sdws-menu-toggle__bar"></span>
       </button>
 
     </div><!-- .sdws-container -->
   </header>
 
   <!-- Mobile menu overlay -->
-  <div id="sdws-mobile-menu" class="sdws-mobile-menu" aria-hidden="true"
-    style="display:none; position:fixed; inset:0; background:#fff; z-index:500; overflow-y:auto; padding:2rem;">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:3rem; border-bottom:1px solid #000; padding-bottom:1.5rem;">
-      <span style="font-size:1.25rem; font-weight:700;">SDWS</span>
-      <button class="sdws-menu-close" aria-label="Close menu"
-        style="background:none; border:none; cursor:pointer; font-size:1.5rem; line-height:1; padding:0.25rem;">
-        ×
+  <nav id="sdws-mobile-menu" class="sdws-mobile-menu" aria-hidden="true" aria-label="Mobile navigation">
+    <div class="sdws-mobile-menu__header">
+      <span class="sdws-mobile-menu__title">SDWS</span>
+      <button class="sdws-menu-close" aria-label="Close menu">
+        &times;
       </button>
     </div>
     <?php
@@ -146,97 +142,30 @@ $cta_style      = esc_attr($nav['cta_style'] ?: 'primary');
       'theme_location' => 'menu-1',
       'container'      => false,
       'walker'         => new SDWS_Mobile_Nav_Walker(),
-      'items_wrap'     => '<ul class="%2$s" style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0;">%3$s</ul>',
+      'items_wrap'     => '<ul class="%2$s sdws-mobile-nav-list">%3$s</ul>',
       'fallback_cb'    => false,
       'depth'          => 2,
     ));
     ?>
-  </div>
+  </nav>
 
 </div><!-- .site-header-shell -->
-
-<style>
-  /* Sticky header — overflow hidden prevents child content bursting layout width */
-  .site-header-shell {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-
-  .site-header {
-    background: #fff;
-    border-bottom: 1px solid #f0f0f0;
-  }
-
-  /* Site title lockup */
-  .sdws-header__site-title {
-    font-family: var(--font-display);
-    font-size: 1.125rem;
-    font-weight: 400;
-    letter-spacing: 0.06em;
-    color: #000;
-    line-height: 1.2;
-    margin-left: 0.875rem;
-    padding-left: 0.875rem;
-    white-space: nowrap;
-    /* No divider by default — added via class below */
-  }
-
-  /* Desktop nav — hide hamburger */
-  @media (min-width: 769px) {
-    .sdws-menu-toggle {
-      display: none !important;
-    }
-
-    .sdws-header__nav {
-      display: flex !important;
-    }
-  }
-
-  /* Mobile — hide desktop nav, show hamburger; hide site title */
-  @media (max-width: 768px) {
-    .sdws-header__nav {
-      display: none !important;
-    }
-
-    .sdws-menu-toggle {
-      display: flex !important;
-    }
-
-    .sdws-header__site-title {
-      display: none;
-    }
-  }
-
-  /* Dropdown hover */
-  .sdws-dropdown:hover .sdws-dropdown__menu,
-  .sdws-dropdown:focus-within .sdws-dropdown__menu {
-    display: block !important;
-  }
-
-  /* Remove border from last dropdown item */
-  .sdws-dropdown__menu li:last-child a {
-    border-bottom: none;
-  }
-
-  /* Active nav link underline */
-  .sdws-header__nav a[aria-current="page"] {
-    border-bottom: 2px solid #3a9aaa;
-  }
-
-  /* Custom-logo sizing */
-  .sdws-header__logo-link .custom-logo {
-    max-height: 50px;
-    width: auto;
-    display: block;
-  }
-</style>
 
 <script>
   (function() {
     var toggle = document.querySelector('.sdws-menu-toggle');
     var menu = document.getElementById('sdws-mobile-menu');
     var close = document.querySelector('.sdws-menu-close');
+
+    function closeMenu() {
+      menu.style.display = 'none';
+      menu.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (toggle) {
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.focus();
+      }
+    }
 
     if (toggle && menu) {
       toggle.addEventListener('click', function() {
@@ -245,17 +174,19 @@ $cta_style      = esc_attr($nav['cta_style'] ?: 'primary');
         menu.setAttribute('aria-hidden', String(open));
         menu.style.display = open ? 'none' : 'block';
         document.body.style.overflow = open ? '' : 'hidden';
+        if (!open && close) close.focus();
       });
     }
 
     if (close && menu) {
-      close.addEventListener('click', function() {
-        menu.style.display = 'none';
-        menu.setAttribute('aria-hidden', 'true');
-        if (toggle) toggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
+      close.addEventListener('click', closeMenu);
     }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && menu && menu.getAttribute('aria-hidden') === 'false') {
+        closeMenu();
+      }
+    });
 
     // Dropdown keyboard / click toggle
     document.querySelectorAll('.sdws-dropdown__toggle').forEach(function(btn) {

@@ -27,6 +27,27 @@ if (empty(trim(strip_tags($intro)))) {
 
 $cta_copy = 'Donate online via PayPal — please indicate the award you are contributing to in the &ldquo;Award Name&rdquo; box during checkout.'
   . ' Or <a href="' . esc_url($form_url) . '" target="_blank" rel="noopener noreferrer">download the Donations Form</a> and mail a check.';
+
+$s1_heading = $has_acf ? (get_field('donate_s1_heading') ?: 'Present an award in your name') : 'Present an award in your name';
+$s1_awards  = ($has_acf && get_field('donate_s1_awards')) ? get_field('donate_s1_awards') : array(
+  array('amount' => '$1,000', 'name' => 'Silver Star Award', 'meta' => 'Named for the donor'),
+  array('amount' => '$500',   'name' => 'Award',             'meta' => 'Named for the donor'),
+);
+$s2_heading = $has_acf ? (get_field('donate_s2_heading') ?: 'Contribute to an existing group award') : 'Contribute to an existing group award';
+$s2_note    = $has_acf ? (get_field('donate_s2_note') ?: 'Donate any amount to one of the following:') : 'Donate any amount to one of the following:';
+$s2_awards  = ($has_acf && get_field('donate_s2_awards')) ? get_field('donate_s2_awards') : array(
+  array('name' => 'Board of Directors Award'),
+  array('name' => 'Past Presidents Award'),
+  array('name' => 'Signature Members Award'),
+  array('name' => 'TuesPM Mentor Art Group Award'),
+);
+$s3_heading = $has_acf ? (get_field('donate_s3_heading') ?: 'Create a new group award') : 'Create a new group award';
+$s3_body    = $has_acf ? (get_field('donate_s3_body') ?: 'Each group member donates smaller amounts that total at least $500. A great way to give together.') : 'Each group member donates smaller amounts that total at least $500. A great way to give together.';
+$s4_heading = $has_acf ? (get_field('donate_s4_heading') ?: 'Not part of a group?') : 'Not part of a group?';
+$s4_note    = $has_acf ? (get_field('donate_s4_note') ?: 'Contribute individually to:') : 'Contribute individually to:';
+$s4_awards  = ($has_acf && get_field('donate_s4_awards')) ? get_field('donate_s4_awards') : array(
+  array('name' => 'Watermedia Enthusiasts Award', 'meta' => 'Any amount welcome'),
+);
 ?>
 
 <main id="primary" class="site-main">
@@ -59,58 +80,56 @@ $cta_copy = 'Donate online via PayPal — please indicate the award you are cont
 
       <div class="sdws-donate__sections">
 
-        <!-- Named awards: two boxes side by side under centered title -->
+        <!-- Section 1: Donor-named awards -->
         <div class="sdws-donate__award-section">
-          <h2 class="sdws-donate__section-title">Present an award in your name</h2>
+          <h2 class="sdws-donate__section-title"><?php echo esc_html($s1_heading); ?></h2>
           <div class="sdws-donate__award-row">
-            <div class="sdws-donate__award-box">
-              <span class="sdws-donate__award-amount">$1,000</span>
-              <span class="sdws-donate__award-name">Silver Star Award</span>
-              <span class="sdws-donate__award-meta">Named for the donor</span>
-            </div>
-            <div class="sdws-donate__award-box">
-              <span class="sdws-donate__award-amount">$500</span>
-              <span class="sdws-donate__award-name">Award</span>
-              <span class="sdws-donate__award-meta">Named for the donor</span>
-            </div>
+            <?php foreach ($s1_awards as $award) : ?>
+              <div class="sdws-donate__award-box">
+                <?php if (! empty($award['amount'])) : ?>
+                  <span class="sdws-donate__award-amount"><?php echo esc_html($award['amount']); ?></span>
+                <?php endif; ?>
+                <span class="sdws-donate__award-name"><?php echo esc_html($award['name']); ?></span>
+                <?php if (! empty($award['meta'])) : ?>
+                  <span class="sdws-donate__award-meta"><?php echo esc_html($award['meta']); ?></span>
+                <?php endif; ?>
+              </div>
+            <?php endforeach; ?>
           </div>
         </div>
 
-        <!-- Group awards: four boxes under centered title -->
+        <!-- Section 2: Existing group awards -->
         <div class="sdws-donate__award-section">
-          <h2 class="sdws-donate__section-title">Contribute to an existing group award</h2>
-          <p class="sdws-donate__section-note">Donate any amount to one of the following:</p>
+          <h2 class="sdws-donate__section-title"><?php echo esc_html($s2_heading); ?></h2>
+          <p class="sdws-donate__section-note"><?php echo esc_html($s2_note); ?></p>
           <div class="sdws-donate__award-row">
-            <div class="sdws-donate__award-box">
-              <span class="sdws-donate__award-name">Board of Directors Award</span>
-            </div>
-            <div class="sdws-donate__award-box">
-              <span class="sdws-donate__award-name">Past Presidents Award</span>
-            </div>
-            <div class="sdws-donate__award-box">
-              <span class="sdws-donate__award-name">Signature Members Award</span>
-            </div>
-            <div class="sdws-donate__award-box">
-              <span class="sdws-donate__award-name">TuesPM Mentor Art Group Award</span>
-            </div>
+            <?php foreach ($s2_awards as $award) : ?>
+              <div class="sdws-donate__award-box">
+                <span class="sdws-donate__award-name"><?php echo esc_html($award['name']); ?></span>
+              </div>
+            <?php endforeach; ?>
           </div>
         </div>
 
-        <!-- Create new group: left as-is -->
+        <!-- Section 3: Create a group award -->
         <div class="sdws-donate__award-group">
-          <h2 class="sdws-donate__section-title">Create a new group award</h2>
-          <p class="sdws-donate__section-body">Each group member donates smaller amounts that total at least $500. A great way to give together.</p>
+          <h2 class="sdws-donate__section-title"><?php echo esc_html($s3_heading); ?></h2>
+          <p class="sdws-donate__section-body"><?php echo esc_html($s3_body); ?></p>
         </div>
 
-        <!-- Individual: Watermedia box centered -->
+        <!-- Section 4: Individual / open awards -->
         <div class="sdws-donate__award-section">
-          <h2 class="sdws-donate__section-title">Not part of a group?</h2>
-          <p class="sdws-donate__section-note">Contribute individually to:</p>
+          <h2 class="sdws-donate__section-title"><?php echo esc_html($s4_heading); ?></h2>
+          <p class="sdws-donate__section-note"><?php echo esc_html($s4_note); ?></p>
           <div class="sdws-donate__award-row">
-            <div class="sdws-donate__award-box sdws-donate__award-box--wide">
-              <span class="sdws-donate__award-name">Watermedia Enthusiasts Award</span>
-              <span class="sdws-donate__award-meta">Any amount welcome</span>
-            </div>
+            <?php foreach ($s4_awards as $award) : ?>
+              <div class="sdws-donate__award-box sdws-donate__award-box--wide">
+                <span class="sdws-donate__award-name"><?php echo esc_html($award['name']); ?></span>
+                <?php if (! empty($award['meta'])) : ?>
+                  <span class="sdws-donate__award-meta"><?php echo esc_html($award['meta']); ?></span>
+                <?php endif; ?>
+              </div>
+            <?php endforeach; ?>
           </div>
         </div>
 
@@ -123,33 +142,27 @@ $cta_copy = 'Donate online via PayPal — please indicate the award you are cont
     </div>
   </section>
 
-  <!-- How to donate CTA -->
-  <div id="donate-now">
+  <!-- How to donate CTA (default shown unless page-level CTA override is enabled) -->
   <?php
-  get_template_part('template-parts/components/cta', null, array(
-    'cta' => array(
-      'title'                  => 'How to Donate',
-      'copy'                   => $cta_copy,
-      'background'             => 'sand',
-      'layout'                 => 'stacked',
-      'text_box_style'         => 'none',
-      'button_primary'         => array('title' => 'Donate via PayPal', 'url' => $paypal_url, 'target' => '_blank'),
-      'button_primary_style'   => 'teal',
-      'button_secondary'       => array('title' => 'Download Donations Form', 'url' => $form_url, 'target' => '_blank'),
-      'button_secondary_style' => 'outline',
-    ),
-  ));
-  ?>
-  </div><!-- #donate-now -->
+  $page_cta = function_exists('starter_coat_get_page_cta_override') ? starter_coat_get_page_cta_override(get_the_ID()) : null;
+  $GLOBALS['sdws_cta_rendered'] = true; // prevent footer.php from double-rendering
 
-  <!-- Tax note -->
-  <section class="sdws-section sdws-donate__tax-section">
-    <div class="sdws-container">
-      <p class="sdws-donate-tax-note">
-        <?php echo nl2br(esc_html($tax_note)); ?>
-      </p>
-    </div>
-  </section>
+  $active_cta = ($page_cta !== null && !empty($page_cta['enabled'])) ? $page_cta : array(
+    'title'                  => 'How to Donate',
+    'copy'                   => $cta_copy,
+    'background'             => 'sand',
+    'layout'                 => 'stacked',
+    'text_box_style'         => 'none',
+    'button_primary'         => array('title' => 'Donate via PayPal', 'url' => $paypal_url, 'target' => '_blank'),
+    'button_primary_style'   => 'teal',
+    'button_secondary'       => array('title' => 'Download Donations Form', 'url' => $form_url, 'target' => '_blank'),
+    'button_secondary_style' => 'outline',
+  );
+  $active_cta['legal_text'] = nl2br(esc_html($tax_note));
+  ?>
+  <div id="donate-now">
+    <?php get_template_part('template-parts/components/cta', null, array('cta' => $active_cta)); ?>
+  </div><!-- #donate-now -->
 
 </main>
 

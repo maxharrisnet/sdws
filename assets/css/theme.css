@@ -922,7 +922,6 @@ form {
 .header__menu .current-menu-ancestor > a {
 	background: #111111;
 	color: #ffffff;
-	outline: none;
 }
 
 .header__menu .menu-item-has-children > a {
@@ -933,8 +932,8 @@ form {
 	border: 0;
 	background: transparent;
 	color: #111111;
-	width: 2rem;
-	height: 2rem;
+	width: 2.75rem;
+	height: 2.75rem;
 	border-radius: 999px;
 	display: inline-flex;
 	align-items: center;
@@ -1011,7 +1010,6 @@ form {
 .header--item-text .header__menu .current-menu-ancestor > a {
 	background: transparent;
 	color: var(--color-heading);
-	outline: none;
 }
 
 .header--item-text .header__menu a:hover::after,

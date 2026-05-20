@@ -356,8 +356,8 @@ function starter_coat_get_page_cta_override($post_id)
     'layout'                 => (string) call_user_func('get_field', 'sc_page_cta_layout', $post_id),
     'split_ratio'            => (string) call_user_func('get_field', 'sc_page_cta_split_ratio', $post_id),
     'width'                  => (string) call_user_func('get_field', 'sc_page_cta_width', $post_id),
-    'background'             => (string) call_user_func('get_field', 'sc_page_cta_background', $post_id),
-    'text_box_style'         => (string) call_user_func('get_field', 'sc_page_cta_text_box_style', $post_id),
+    'background'             => (string) call_user_func('get_field', 'sc_page_cta_background', $post_id) ?: 'off-white',
+    'text_box_style'         => (string) call_user_func('get_field', 'sc_page_cta_text_box_style', $post_id) ?: 'none',
   );
 }
 

@@ -114,7 +114,7 @@ while (have_posts()) : the_post();
     <?php if ($key_dates) : ?>
       <section class="sdws-section sdws-section--off-white sdws-section--bordered-bottom">
         <div class="sdws-container">
-          <h2 class="sdws-section-heading">Key Dates</h2>
+          <h2 class="sdws-section-heading sdws-section-heading--no-rule">Key Dates</h2>
           <table class="sdws-dates-table">
             <tbody>
               <?php foreach ($key_dates as $label => $value) : ?>
@@ -144,7 +144,7 @@ while (have_posts()) : the_post();
                 'alt'      => $juror_image['alt'] ?: $juror,
               )); ?>
             <?php endif; ?>
-            <div>
+            <div class="sdws-juror__content">
               <h3 class="sdws-juror__name"><?php echo esc_html($juror); ?></h3>
               <?php if ($juror_role) : ?>
                 <p class="sdws-juror__role"><?php echo esc_html($juror_role); ?></p>
@@ -158,24 +158,24 @@ while (have_posts()) : the_post();
       </section>
     <?php endif; ?>
 
-    <!-- Register CTA -->
+    <?php
+    $page_cta = function_exists('starter_coat_get_page_cta_override') ? starter_coat_get_page_cta_override(get_the_ID()) : null;
+    if ($page_cta === null || empty($page_cta['enabled'])) :
+    ?>
+    <!-- Register CTA (default — overridden per-page via CTA fields) -->
     <div id="register">
-      <?php
-      get_template_part('template-parts/components/cta', null, array(
+      <?php get_template_part('template-parts/components/cta', null, array(
         'cta' => array(
           'title'                  => 'Enter This Exhibition',
           'copy'                   => !$cta_btn_primary ? 'For registration information, email <a href="mailto:support@sdws.org">support@sdws.org</a>' : '',
-          'background'             => 'off-white',
-          'layout'                 => 'stacked',
-          'text_box_style'         => 'none',
           'button_primary'         => $cta_btn_primary,
           'button_primary_style'   => 'teal',
           'button_secondary'       => $cta_btn_secondary,
           'button_secondary_style' => 'outline',
         ),
-      ));
-      ?>
+      )); ?>
     </div>
+    <?php endif; ?>
 
   </main>
 
