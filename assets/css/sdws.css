@@ -1049,16 +1049,18 @@ img {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: var(--color-black);
-	color: var(--color-white);
+	background: #000;
+	color: #fff;
 	border: none;
 	cursor: pointer;
+	-webkit-appearance: none;
+	appearance: none;
 	transition: background-color var(--transition-base);
 }
 
 .back-to-top svg {
 	display: block;
-	stroke: var(--color-white);
+	stroke: #fff;
 }
 
 .back-to-top:hover {
@@ -1252,6 +1254,9 @@ img {
 	font-size: 1.5rem;
 	line-height: 1;
 	padding: var(--space-2xs);
+	color: #000;
+	-webkit-appearance: none;
+	appearance: none;
 }
 
 /* Mobile nav UL */
