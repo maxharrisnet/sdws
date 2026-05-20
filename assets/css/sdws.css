@@ -2522,6 +2522,189 @@ body.single-tribe_events #tribe-events-header {
 	opacity: 0.85;
 }
 
+/* === Plan Your Visit page ============================================== */
+
+.sdws-visit__header-intro {
+	font-size: 1.125rem;
+	max-width: 640px;
+	line-height: 1.7;
+	margin: 1rem 0 0;
+	color: var(--color-white);
+}
+
+/* --- Split: photo left / info right ----------------------------------- */
+
+.sdws-visit__split {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	min-height: 560px;
+}
+
+.sdws-visit__photo-col {
+	overflow: hidden;
+	position: relative;
+}
+
+.sdws-visit__photo {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center top;
+	display: block;
+}
+
+.sdws-visit__detail-col {
+	background-color: var(--color-off-white);
+	display: flex;
+	align-items: center;
+}
+
+.sdws-visit__detail-inner {
+	padding: 4rem 3.5rem;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 2.5rem;
+}
+
+.sdws-visit__detail-block {
+	border-top: var(--border);
+	padding-top: 1.5rem;
+}
+
+.sdws-visit__detail-block:first-child {
+	border-top: none;
+	padding-top: 0;
+}
+
+.sdws-visit__label {
+	font-size: var(--font-size-label);
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	font-weight: 600;
+	margin: 0 0 1rem;
+}
+
+.sdws-visit__hours {
+	margin: 0 0 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.625rem;
+}
+
+.sdws-visit__hours-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 1.5rem;
+}
+
+.sdws-visit__hours-day {
+	font-weight: 500;
+}
+
+.sdws-visit__hours-time {
+	font-weight: 400;
+	text-align: right;
+	white-space: nowrap;
+}
+
+.sdws-visit__hours-row--closed .sdws-visit__hours-time,
+.sdws-visit__hours-row--closed .sdws-visit__hours-day {
+	opacity: 0.45;
+}
+
+.sdws-visit__caveat {
+	font-size: 0.875rem;
+	line-height: 1.6;
+	opacity: 0.65;
+	margin: 0;
+}
+
+.sdws-visit__caveat a {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.sdws-visit__admission-free {
+	font-size: 1.375rem;
+	font-weight: 700;
+	margin: 0;
+}
+
+.sdws-visit__address {
+	font-style: normal;
+	line-height: 1.75;
+	margin: 0 0 0.75rem;
+}
+
+.sdws-visit__directions-link {
+	display: inline-block;
+	font-size: var(--font-size-ui);
+	font-weight: 500;
+	letter-spacing: 0.04em;
+	color: var(--color-black);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+.sdws-visit__directions-link:hover {
+	color: var(--color-primary);
+}
+
+.sdws-visit__phone-link {
+	font-size: var(--font-size-ui);
+	color: var(--color-black);
+	text-decoration: none;
+}
+
+.sdws-visit__phone-link:hover {
+	text-decoration: underline;
+}
+
+/* Map wrapper — flush, no extra padding */
+.sdws-visit__map-wrap {
+	line-height: 0; /* remove inline-block gap */
+}
+
+.sdws-visit__map-wrap .c-map-embed {
+	margin: 0;
+}
+
+.sdws-visit__map-wrap .c-map-embed__map {
+	border-radius: 0;
+	box-shadow: none;
+	height: var(--sc-map-height, 440px);
+}
+
+/* --- Responsive -------------------------------------------------------- */
+
+@media (max-width: 1023px) {
+	.sdws-visit__split {
+		grid-template-columns: 1fr;
+	}
+
+	.sdws-visit__photo-col {
+		min-height: 360px;
+		max-height: 480px;
+	}
+
+	.sdws-visit__detail-inner {
+		padding: 3rem 2rem;
+		gap: 2rem;
+	}
+}
+
+@media (max-width: 599px) {
+	.sdws-visit__photo-col {
+		min-height: 280px;
+	}
+
+	.sdws-visit__detail-inner {
+		padding: 2.5rem 1.5rem;
+	}
+}
+
 /* === Motion preferences ================================================ */
 
 @media (prefers-reduced-motion: reduce) {

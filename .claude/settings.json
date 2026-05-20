@@ -41,7 +41,9 @@
       "Bash(sed -n 1819,1823p '/Users/max/Local Sites/san-diego-watercolor-society/app/public/wp-content/themes/starter-coat/assets/css/sdws.css')",
       "Bash(sed -n 2408,2412p '/Users/max/Local Sites/san-diego-watercolor-society/app/public/wp-content/themes/starter-coat/assets/css/sdws.css')",
       "Bash(perl -pi -e 's/\\(transition:[^;]*\\)\\\\b0\\\\.15s;/$1var\\(--transition-base\\);/g' '/Users/max/Local Sites/san-diego-watercolor-society/app/public/wp-content/themes/starter-coat/assets/css/sdws.css')",
-      "Bash(perl -pi -e 's/\\(transition:[^;]*\\)\\\\b0\\\\.2s;/$1var\\(--transition-base\\);/g' '/Users/max/Local Sites/san-diego-watercolor-society/app/public/wp-content/themes/starter-coat/assets/css/sdws.css')"
+      "Bash(perl -pi -e 's/\\(transition:[^;]*\\)\\\\b0\\\\.2s;/$1var\\(--transition-base\\);/g' '/Users/max/Local Sites/san-diego-watercolor-society/app/public/wp-content/themes/starter-coat/assets/css/sdws.css')",
+      "Read(//Users/max/.claude/skills/ui-ux-pro-max/**)",
+      "Bash(python3 scripts/search.py \"art gallery museum visit hours location editorial minimal\" --design-system -p \"SDWS Plan Your Visit\" -f markdown)"
     ]
   }
 }
