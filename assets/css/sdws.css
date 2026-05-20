@@ -14,6 +14,8 @@
 
 	--font-size-ui:    0.9375rem; /* 15px — buttons, card body */
 	--font-size-label: 0.8125rem; /* 13px — eyebrows, meta labels */
+
+	--max-width-prose: 720px; /* readable line length for body text and intros */
 }
 
 /* Override Jill theme preset — its class-based vars have higher specificity than :root */
@@ -540,7 +542,7 @@ img {
 
 .sdws-hero__sub {
 	font-size: 1.125rem;
-	max-width: 600px;
+	max-width: var(--max-width-prose);
 	margin: 0 0 2.5rem;
 	line-height: 1.7;
 }
@@ -725,7 +727,7 @@ img {
 /* Intro paragraph beneath a page title */
 .sdws-page-intro {
 	font-size: var(--font-size-lg);
-	max-width: 680px;
+	max-width: var(--max-width-prose);
 	line-height: 1.7;
 	margin: 0;
 }
@@ -736,6 +738,12 @@ img {
 	margin: 0 0 2rem;
 	padding-bottom: var(--space-md);
 	border-bottom: var(--border);
+}
+
+.sdws-section-heading--no-rule {
+	border-bottom: none;
+	padding-bottom: 0;
+	margin-bottom: var(--space-md);
 }
 
 /* === Button modifiers ================================================== */
@@ -926,7 +934,7 @@ img {
 }
 
 .sdws-cta__body {
-  max-width: 640px;
+  max-width: var(--max-width-prose);
   margin-inline: auto;
 }
 
@@ -1587,7 +1595,7 @@ img {
 
 /* Wrapper above the card grid: caps width, adds spacing + bottom rule */
 .sdws-format-header {
-	max-width: 680px;
+	max-width: var(--max-width-prose);
 	margin-bottom: 2.5rem;
 	padding-bottom: var(--space-lg);
 	border-bottom: var(--border);
@@ -1615,6 +1623,7 @@ img {
 	font-size: var(--font-size-md);
 	line-height: 1.7;
 	color: var(--color-black);
+	max-width: var(--max-width-prose);
 	margin: 0;
 }
 
@@ -2058,7 +2067,7 @@ iframe[data-tec-events-ece-iframe='true'] {
 }
 
 .sdws-juror--with-image {
-	grid-template-columns: 200px 1fr;
+	grid-template-columns: 300px 1fr;
 }
 
 @media (max-width: 600px) {
@@ -2071,6 +2080,10 @@ iframe[data-tec-events-ece-iframe='true'] {
 	width: 100%;
 	display: block;
 	object-fit: cover;
+}
+
+.sdws-juror__content {
+	max-width: var(--max-width-prose);
 }
 
 .sdws-juror__name {
@@ -2552,7 +2565,7 @@ body.single-tribe_events #tribe-events-header {
 
 .sdws-visit__header-intro {
 	font-size: 1.125rem;
-	max-width: 640px;
+	max-width: var(--max-width-prose);
 	line-height: 1.7;
 	margin: 1rem 0 0;
 	color: var(--color-white);

@@ -114,7 +114,7 @@ while (have_posts()) : the_post();
     <?php if ($key_dates) : ?>
       <section class="sdws-section sdws-section--off-white sdws-section--bordered-bottom">
         <div class="sdws-container">
-          <h2 class="sdws-section-heading">Key Dates</h2>
+          <h2 class="sdws-section-heading sdws-section-heading--no-rule">Key Dates</h2>
           <table class="sdws-dates-table">
             <tbody>
               <?php foreach ($key_dates as $label => $value) : ?>
@@ -144,7 +144,7 @@ while (have_posts()) : the_post();
                 'alt'      => $juror_image['alt'] ?: $juror,
               )); ?>
             <?php endif; ?>
-            <div>
+            <div class="sdws-juror__content">
               <h3 class="sdws-juror__name"><?php echo esc_html($juror); ?></h3>
               <?php if ($juror_role) : ?>
                 <p class="sdws-juror__role"><?php echo esc_html($juror_role); ?></p>
