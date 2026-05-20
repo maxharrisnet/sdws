@@ -1,4 +1,7 @@
 <?php
+/*
+ * Template Name: Plan Your Visit
+ */
 
 /**
  * Plan Your Visit page template — San Diego Watercolor Society
@@ -13,28 +16,39 @@ $has_acf = function_exists('get_field');
 
 $contact = function_exists('starter_coat_get_contact_info') ? starter_coat_get_contact_info() : array();
 $address = ! empty($contact['address']) ? $contact['address'] : "2825 Dewey Road, Suite 105\nSan Diego, CA 92106";
-$phone   = ! empty($contact['phone'])   ? $contact['phone']   : '';
 
-$building_img_id  = $has_acf ? absint(get_field('visit_building_image_id', 'option')) : 0;
+$eyebrow    = $has_acf ? (get_field('visit_eyebrow')    ?: 'Gallery') : 'Gallery';
+$hero_intro = $has_acf ? (get_field('visit_hero_intro') ?: '') : '';
+
+$building_img_id  = $has_acf ? absint(get_field('visit_building_image')) : 0;
 $building_img_url = get_template_directory_uri() . '/assets/images/pages/sdws-bldg.jpg';
 
-$hero_intro     = $has_acf ? get_field('visit_hero_intro') : '';
-$detail_content = $has_acf ? get_field('visit_detail_content') : '';
+$info_cards = $has_acf ? (get_field('visit_info_cards') ?: array()) : array();
 
-$default_hero_intro = 'The San Diego Watercolor Society hosts rotating gallery exhibitions and receptions — a combination of solo shows featuring nationally and internationally recognized artists, and juried art exhibitions.';
+$default_cards = array(
+  array(
+    'card_heading' => 'Gallery Hours',
+    'card_content' => '<p>Tuesday – Saturday: 11am – 3pm<br>Sunday &amp; Monday: Closed</p><p>The gallery closes between exhibitions. Check the calendar for current show dates.</p>',
+  ),
+  array(
+    'card_heading' => 'Admission',
+    'card_content' => '<p>Free admission. All are welcome.</p>',
+  ),
+  array(
+    'card_heading' => 'Location &amp; Parking',
+    'card_content' => '<p>2825 Dewey Road, Suite 105, Building 202<br>San Diego, CA 92106</p><p>Free parking is available in the NTC Liberty Station lot.</p>',
+  ),
+  array(
+    'card_heading' => 'Contact',
+    'card_content' => '<p><a href="mailto:support@sdws.org">support@sdws.org</a></p>',
+  ),
+);
 
-$default_detail_content = '<h2>Gallery Hours</h2>'
-  . '<p><strong>Thursday – Sunday:</strong> 11:00 AM – 3:00 PM<br>'
-  . '<strong>Monday – Wednesday:</strong> Closed</p>'
-  . '<p><em>Please check the <a href="' . esc_url(get_permalink(get_page_by_path('calendar'))) . '">calendar</a> for exceptions due to holidays and special events.</em></p>'
-  . '<h2>Admission</h2>'
-  . '<p>Free to the public</p>'
-  . ( $address ? '<h2>Location</h2><p>' . nl2br(esc_html($address)) . '</p>'
-      . '<p><a href="https://maps.google.com/?q=' . rawurlencode(str_replace("\n", ' ', $address)) . '" target="_blank" rel="noopener noreferrer">Get Directions &rarr;</a></p>' : '' )
-  . ( $phone   ? '<h2>Contact</h2><p><a href="tel:' . esc_attr(preg_replace('/[^0-9+]/', '', $phone)) . '">' . esc_html($phone) . '</a></p>' : '' );
+if (empty($info_cards)) {
+  $info_cards = $default_cards;
+}
 
 $map_address = str_replace("\n", ' ', $address);
-
 ?>
 
 <main id="primary" class="site-main">
@@ -42,11 +56,13 @@ $map_address = str_replace("\n", ' ', $address);
   <!-- Page header -->
   <section class="sdws-section sdws-section--teal">
     <div class="sdws-container">
-      <p class="sdws-eyebrow">Gallery</p>
-      <h1 class="sdws-page-title">Plan Your Visit</h1>
-      <p class="sdws-visit__header-intro">
-        <?php echo esc_html($hero_intro ?: $default_hero_intro); ?>
-      </p>
+      <p class="sdws-eyebrow"><?php echo esc_html($eyebrow); ?></p>
+      <h1 class="sdws-page-title"><?php the_title(); ?></h1>
+      <?php if ($hero_intro) : ?>
+        <p class="sdws-visit__header-intro">
+          <?php echo esc_html($hero_intro); ?>
+        </p>
+      <?php endif; ?>
     </div>
   </section>
 
@@ -56,15 +72,13 @@ $map_address = str_replace("\n", ' ', $address);
     <!-- Building photo -->
     <div class="sdws-visit__photo-col">
       <?php if ($building_img_id) : ?>
-        <?php
-        echo wp_get_attachment_image($building_img_id, 'sc-card-header-featured', false, array(
-          'class'   => 'sdws-visit__photo',
-          'loading' => 'lazy',
+        <?php echo wp_get_attachment_image($building_img_id, 'sc-card-header-featured', false, array(
+          'class'    => 'sdws-visit__photo',
+          'loading'  => 'lazy',
           'decoding' => 'async',
-          'alt'     => 'San Diego Watercolor Society gallery building at Liberty Station',
-          'sizes'   => '(min-width: 1024px) 55vw, 100vw',
-        ));
-        ?>
+          'alt'      => 'San Diego Watercolor Society gallery building at Liberty Station',
+          'sizes'    => '(min-width: 1024px) 55vw, 100vw',
+        )); ?>
       <?php else : ?>
         <img
           src="<?php echo esc_url($building_img_url); ?>"
@@ -78,10 +92,25 @@ $map_address = str_replace("\n", ' ', $address);
       <?php endif; ?>
     </div>
 
-    <!-- Info panel -->
+    <!-- Info cards -->
     <div class="sdws-visit__detail-col">
       <div class="sdws-visit__detail-inner">
-        <?php echo wp_kses_post($detail_content ?: $default_detail_content); ?>
+        <?php foreach ($info_cards as $card) :
+          $heading = ! empty($card['card_heading']) ? $card['card_heading'] : '';
+          $content = ! empty($card['card_content']) ? $card['card_content'] : '';
+          if (! $heading && ! $content) continue;
+        ?>
+          <div class="sdws-visit__info-card">
+            <?php if ($heading) : ?>
+              <h2 class="sdws-visit__info-card-heading"><?php echo esc_html($heading); ?></h2>
+            <?php endif; ?>
+            <?php if ($content) : ?>
+              <div class="sdws-visit__info-card-body">
+                <?php echo wp_kses_post($content); ?>
+              </div>
+            <?php endif; ?>
+          </div>
+        <?php endforeach; ?>
       </div>
     </div><!-- .sdws-visit__detail-col -->
 

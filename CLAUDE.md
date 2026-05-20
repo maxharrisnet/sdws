@@ -335,22 +335,30 @@ Before writing new markup for any UI pattern, check `template-parts/` for an exi
 | Grid layouts | `.sdws-grid-2`, `.sdws-grid-3` |
 
 ### CTAs must use the shared CTA component
-The donate page, workshop contact block, exhibition pages, and any other call-to-action must all render through `template-parts/components/cta.php`. Pass data via the `$args['cta']` array. Do **not** write one-off CTA markup in page templates — that's how inconsistency creeps in.
+The CTA component renders a full-width sand/tan section, centered text, no borders. There is **one style** — no layout, background, or box options. Do **not** write one-off CTA markup in page templates.
+
+Accepted fields — everything else is ignored:
+
+| Field | Type | Notes |
+|-------|------|-------|
+| `title` | string | Section heading |
+| `copy` | string | Body text; HTML allowed via `wp_kses_post` |
+| `eyebrow` | string | Small uppercase label above the title |
+| `button_primary` | array | `['title' => '...', 'url' => '...', 'target' => '_blank']` |
+| `button_primary_style` | string | `teal` (default), `primary`, `outline` |
+| `button_secondary` | array | Same structure as primary |
+| `button_secondary_style` | string | `outline` (default) |
 
 ```php
 get_template_part('template-parts/components/cta', null, array(
   'cta' => array(
-    'title'               => 'Donate to SDWS',
-    'copy'                => 'Your gift sustains a vibrant watercolor arts community.',
-    'background'          => 'teal',   // or 'none', 'sand', 'aqua', 'off-white'
-    'layout'              => 'stacked',
-    'button_primary'      => array('title' => 'Donate via PayPal', 'url' => $paypal_url, 'target' => '_blank'),
-    'button_primary_style'=> 'primary',
+    'title'               => 'Register for This Workshop',
+    'copy'                => 'Questions? Email <a href="mailto:registrar@sdws.org">registrar@sdws.org</a>',
+    'button_primary'      => array('title' => 'Register by Email', 'url' => $mailto),
+    'button_primary_style'=> 'teal',
   ),
 ));
 ```
-
-If the component lacks a needed variant, add a CSS modifier class to `sdws.css` — don't patch it with an inline style.
 
 ---
 

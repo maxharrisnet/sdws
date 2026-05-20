@@ -109,11 +109,8 @@ $email_dir = $gf ? (get_field('workshops_email_director',  'option') ?: 'worksho
 
   get_template_part('template-parts/components/cta', null, array(
     'cta' => array(
-      'title'          => 'Questions About Workshops?',
-      'copy'           => $contact_copy,
-      'background'     => 'off-white',
-      'layout'         => 'stacked',
-      'text_box_style' => 'none',
+      'title' => 'Questions About Workshops?',
+      'copy'  => $contact_copy,
     ),
   ));
   ?>

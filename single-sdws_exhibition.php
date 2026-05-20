@@ -168,9 +168,6 @@ while (have_posts()) : the_post();
         'cta' => array(
           'title'                  => 'Enter This Exhibition',
           'copy'                   => !$cta_btn_primary ? 'For registration information, email <a href="mailto:support@sdws.org">support@sdws.org</a>' : '',
-          'background'             => 'off-white',
-          'layout'                 => 'stacked',
-          'text_box_style'         => 'none',
           'button_primary'         => $cta_btn_primary,
           'button_primary_style'   => 'teal',
           'button_secondary'       => $cta_btn_secondary,

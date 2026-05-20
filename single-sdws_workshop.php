@@ -149,9 +149,6 @@ while (have_posts()) : the_post();
         'cta' => array(
           'title'               => 'Register for This Workshop',
           'copy'                => 'Questions? Email <a href="mailto:' . esc_attr($reg_email) . '">' . esc_html($reg_email) . '</a>',
-          'background'          => 'off-white',
-          'layout'              => 'stacked',
-          'text_box_style'      => 'none',
           'button_primary'      => array('title' => 'Register by Email', 'url' => $mailto),
           'button_primary_style'=> 'teal',
         ),
