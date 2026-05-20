@@ -18,6 +18,21 @@ $phone   = ! empty($contact['phone'])   ? $contact['phone']   : '';
 $building_img_id  = $has_acf ? absint(get_field('visit_building_image_id', 'option')) : 0;
 $building_img_url = get_template_directory_uri() . '/assets/images/pages/sdws-bldg.jpg';
 
+$hero_intro     = $has_acf ? get_field('visit_hero_intro') : '';
+$detail_content = $has_acf ? get_field('visit_detail_content') : '';
+
+$default_hero_intro = 'The San Diego Watercolor Society hosts rotating gallery exhibitions and receptions — a combination of solo shows featuring nationally and internationally recognized artists, and juried art exhibitions.';
+
+$default_detail_content = '<h2>Gallery Hours</h2>'
+  . '<p><strong>Thursday – Sunday:</strong> 11:00 AM – 3:00 PM<br>'
+  . '<strong>Monday – Wednesday:</strong> Closed</p>'
+  . '<p><em>Please check the <a href="' . esc_url(get_permalink(get_page_by_path('calendar'))) . '">calendar</a> for exceptions due to holidays and special events.</em></p>'
+  . '<h2>Admission</h2>'
+  . '<p>Free to the public</p>'
+  . ( $address ? '<h2>Location</h2><p>' . nl2br(esc_html($address)) . '</p>'
+      . '<p><a href="https://maps.google.com/?q=' . rawurlencode(str_replace("\n", ' ', $address)) . '" target="_blank" rel="noopener noreferrer">Get Directions &rarr;</a></p>' : '' )
+  . ( $phone   ? '<h2>Contact</h2><p><a href="tel:' . esc_attr(preg_replace('/[^0-9+]/', '', $phone)) . '">' . esc_html($phone) . '</a></p>' : '' );
+
 $map_address = str_replace("\n", ' ', $address);
 
 ?>
@@ -30,7 +45,7 @@ $map_address = str_replace("\n", ' ', $address);
       <p class="sdws-eyebrow">Gallery</p>
       <h1 class="sdws-page-title">Plan Your Visit</h1>
       <p class="sdws-visit__header-intro">
-        The San Diego Watercolor Society hosts rotating gallery exhibitions and receptions — a combination of solo shows featuring nationally and internationally recognized artists, and juried art exhibitions.
+        <?php echo esc_html($hero_intro ?: $default_hero_intro); ?>
       </p>
     </div>
   </section>
@@ -65,57 +80,9 @@ $map_address = str_replace("\n", ' ', $address);
 
     <!-- Info panel -->
     <div class="sdws-visit__detail-col">
-
       <div class="sdws-visit__detail-inner">
-
-        <div class="sdws-visit__detail-block">
-          <h2 class="sdws-visit__label">Gallery Hours</h2>
-          <dl class="sdws-visit__hours">
-            <div class="sdws-visit__hours-row">
-              <dt class="sdws-visit__hours-day">Thursday &ndash; Sunday</dt>
-              <dd class="sdws-visit__hours-time">11:00 AM &ndash; 3:00 PM</dd>
-            </div>
-            <div class="sdws-visit__hours-row sdws-visit__hours-row--closed">
-              <dt class="sdws-visit__hours-day">Monday &ndash; Wednesday</dt>
-              <dd class="sdws-visit__hours-time">Closed</dd>
-            </div>
-          </dl>
-          <p class="sdws-visit__caveat">
-            Please check the <a href="<?php echo esc_url(get_permalink(get_page_by_path('calendar'))); ?>">calendar</a> for exceptions due to holidays and special events.
-          </p>
-        </div>
-
-        <div class="sdws-visit__detail-block">
-          <h2 class="sdws-visit__label">Admission</h2>
-          <p class="sdws-visit__admission-free">Free to the public</p>
-        </div>
-
-        <?php if ($address) : ?>
-          <div class="sdws-visit__detail-block">
-            <h2 class="sdws-visit__label">Location</h2>
-            <address class="sdws-visit__address">
-              <?php echo wp_kses_post(nl2br(esc_html($address))); ?>
-            </address>
-            <a
-              href="https://maps.google.com/?q=<?php echo rawurlencode($map_address); ?>"
-              class="sdws-visit__directions-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Get Directions &rarr;</a>
-          </div>
-        <?php endif; ?>
-
-        <?php if ($phone) : ?>
-          <div class="sdws-visit__detail-block">
-            <h2 class="sdws-visit__label">Contact</h2>
-            <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $phone)); ?>" class="sdws-visit__phone-link">
-              <?php echo esc_html($phone); ?>
-            </a>
-          </div>
-        <?php endif; ?>
-
-      </div><!-- .sdws-visit__detail-inner -->
-
+        <?php echo wp_kses_post($detail_content ?: $default_detail_content); ?>
+      </div>
     </div><!-- .sdws-visit__detail-col -->
 
   </div><!-- .sdws-visit__split -->
