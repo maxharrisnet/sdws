@@ -1,19 +1,22 @@
 <?php
+/*
+ * Template Name: Donate - Exhibition
+ */
 
 /**
- * Donate page template — San Diego Watercolor Society
- * Slug: donate
- * Content editable at: WP Admin > Pages > Donate
+ * Exhibition donations page template — San Diego Watercolor Society
+ * Content editable at: WP Admin → Pages → [page] → Page Attributes → Template: Donate - Exhibition
  *
  * @package Starter_Coat
  */
 
 get_header();
 
-$has_acf    = function_exists('get_field');
-$headline   = $has_acf ? (get_field('donate_headline')   ?: 'Support the 46th International Exhibition') : 'Support the 46th International Exhibition';
-$intro      = $has_acf ? (get_field('donate_intro')      ?: '') : '';
-$deadline   = $has_acf ? (get_field('donate_deadline')   ?: 'July 24, 2026') : 'July 24, 2026';
+$has_acf     = function_exists('get_field');
+$headline    = $has_acf ? (get_field('donate_headline')   ?: 'Support the 46th International Exhibition') : 'Support the 46th International Exhibition';
+$intro       = $has_acf ? (get_field('donate_intro')      ?: '') : '';
+$scroll_note = $has_acf ? (get_field('donate_scroll_note') ?: 'Please scroll down to view the various ways you can donate to the International Exhibition and then please indicate on the PayPal form which fund you would like to donate to.') : 'Please scroll down to view the various ways you can donate to the International Exhibition and then please indicate on the PayPal form which fund you would like to donate to.';
+$deadline    = $has_acf ? (get_field('donate_deadline')   ?: 'July 24, 2026') : 'July 24, 2026';
 $paypal_url = $has_acf ? (get_field('donate_paypal_url') ?: 'https://www.paypal.com/ncp/payment/KSDUHVURSRZSJ') : 'https://www.paypal.com/ncp/payment/KSDUHVURSRZSJ';
 $form_url   = $has_acf ? (get_field('donate_form_url')   ?: 'https://sdws.dreamhosters.com/wp-content/uploads/2026/05/SDWS-IShow-2026-Donation-Form.pdf') : 'https://sdws.dreamhosters.com/wp-content/uploads/2026/05/SDWS-IShow-2026-Donation-Form.pdf';
 $tax_note   = $has_acf ? (get_field('donate_tax_note')   ?: "SDWS is a 501(c)(3) nonprofit. Tax ID: 95-3153264.\nAll donations are tax-deductible to the extent allowed by law.") : "SDWS is a 501(c)(3) nonprofit. Tax ID: 95-3153264.\nAll donations are tax-deductible to the extent allowed by law.";
@@ -60,7 +63,10 @@ $s4_awards  = ($has_acf && get_field('donate_s4_awards')) ? get_field('donate_s4
         <div class="sdws-donate__intro sdws-prose">
           <?php echo wp_kses_post($intro); ?>
         </div>
-        <a href="#donate-now" class="sdws-btn sdws-btn--teal">Donate Now</a>
+        <?php if ($scroll_note) : ?>
+          <p class="sdws-donate__scroll-note"><?php echo esc_html($scroll_note); ?></p>
+        <?php endif; ?>
+        <a href="#donation-options" class="sdws-btn sdws-btn--teal">Donate Now</a>
       </div>
     </div>
   </section>
@@ -75,7 +81,7 @@ $s4_awards  = ($has_acf && get_field('donate_s4_awards')) ? get_field('donate_s4
   </div>
 
   <!-- Award sections -->
-  <section class="sdws-section">
+  <section id="donation-options" class="sdws-section">
     <div class="sdws-container">
 
       <div class="sdws-donate__sections">
@@ -160,9 +166,7 @@ $s4_awards  = ($has_acf && get_field('donate_s4_awards')) ? get_field('donate_s4
   );
   $active_cta['legal_text'] = nl2br(esc_html($tax_note));
   ?>
-  <div id="donate-now">
-    <?php get_template_part('template-parts/components/cta', null, array('cta' => $active_cta)); ?>
-  </div><!-- #donate-now -->
+  <?php get_template_part('template-parts/components/cta', null, array('cta' => $active_cta)); ?>
 
 </main>
 

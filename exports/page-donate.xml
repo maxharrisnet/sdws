@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- WordPress WXR export — Donate page seed content.
+     Import via WP Admin → Tools → Import → WordPress.
+     NOTE: If a page with slug "donate" already exists, WordPress will import this
+     as "donate-2". Either delete the existing page first, or copy the meta values
+     to your existing page using WP Admin → Pages → Donate → Custom Fields. -->
+<rss version="2.0"
+	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:wp="http://wordpress.org/export/1.2/"
+>
+<channel>
+	<title>San Diego Watercolor Society</title>
+	<link>http://sdwatercolor.local</link>
+	<description>Just another WordPress site</description>
+	<pubDate>Wed, 21 May 2026 00:00:00 +0000</pubDate>
+	<language>en-US</language>
+	<wp:wxr_version>1.2</wp:wxr_version>
+	<wp:base_site_url>http://sdwatercolor.local</wp:base_site_url>
+	<wp:base_blog_url>http://sdwatercolor.local</wp:base_blog_url>
+
+	<wp:author>
+		<wp:author_id>1</wp:author_id>
+		<wp:author_login><![CDATA[admin]]></wp:author_login>
+		<wp:author_email><![CDATA[admin@example.com]]></wp:author_email>
+		<wp:author_display_name><![CDATA[admin]]></wp:author_display_name>
+		<wp:author_first_name><![CDATA[]]></wp:author_first_name>
+		<wp:author_last_name><![CDATA[]]></wp:author_last_name>
+	</wp:author>
+
+	<item>
+		<title>Donate</title>
+		<link>http://sdwatercolor.local/donate/</link>
+		<pubDate>Wed, 21 May 2026 00:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://sdwatercolor.local/?page_id=9902</guid>
+		<description></description>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>9902</wp:post_id>
+		<wp:post_date><![CDATA[2026-05-21 00:00:00]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-05-21 00:00:00]]></wp:post_date_gmt>
+		<wp:post_modified><![CDATA[2026-05-21 00:00:00]]></wp:post_modified>
+		<wp:post_modified_gmt><![CDATA[2026-05-21 00:00:00]]></wp:post_modified_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[donate]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type><![CDATA[page]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+
+		<!-- ── Page template ──────────────────────────────────────── -->
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_wp_page_template]]></wp:meta_key>
+			<wp:meta_value><![CDATA[page-donate.php]]></wp:meta_value>
+		</wp:postmeta>
+
+		<!-- ── Headline ───────────────────────────────────────────── -->
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_headline]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Support the 46th International Exhibition]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_headline]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_donate_headline]]></wp:meta_value>
+		</wp:postmeta>
+
+		<!-- ── Intro (wysiwyg) ────────────────────────────────────── -->
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_intro]]></wp:meta_key>
+			<wp:meta_value><![CDATA[<p>SDWS volunteers have been busy preparing for the San Diego Watercolor Society&#8217;s 46th International Exhibition to be held during the month of October 2026. Ana Laura Salazar, SDWS will be selecting 105 paintings from some of the best watermedia artists in the world. Typically, we receive 600&#8211;800 entries from 20+ countries and 30+ states.</p>
+<p>100% of the artist awards for the International Exhibition are funded through donations. Please consider donating to this year&#8217;s show to help recognize the exceptional artists whose paintings will be exhibited. Everyone who contributes to an award will be acknowledged in the exhibition catalog. There are various ways to donate, and any amount will be very much appreciated.</p>]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_intro]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_donate_intro]]></wp:meta_value>
+		</wp:postmeta>
+
+		<!-- ── Scroll instruction ─────────────────────────────────── -->
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_scroll_note]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Please scroll down to view the various ways you can donate to the International Exhibition and then please indicate on the PayPal form which fund you would like to donate to.]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_scroll_note]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_donate_scroll_note]]></wp:meta_value>
+		</wp:postmeta>
+
+		<!-- ── Deadline ───────────────────────────────────────────── -->
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_deadline]]></wp:meta_key>
+			<wp:meta_value><![CDATA[July 24, 2026]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_deadline]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_donate_deadline]]></wp:meta_value>
+		</wp:postmeta>
+
+		<!-- ── PayPal URL ─────────────────────────────────────────── -->
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_paypal_url]]></wp:meta_key>
+			<wp:meta_value><![CDATA[https://www.paypal.com/ncp/payment/KSDUHVURSRZSJ]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_paypal_url]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_donate_paypal_url]]></wp:meta_value>
+		</wp:postmeta>
+
+		<!-- ── Printable form URL ─────────────────────────────────── -->
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_form_url]]></wp:meta_key>
+			<wp:meta_value><![CDATA[https://sdws.dreamhosters.com/wp-content/uploads/2026/05/SDWS-IShow-2026-Donation-Form.pdf]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_form_url]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_donate_form_url]]></wp:meta_value>
+		</wp:postmeta>
+
+		<!-- ── Tax / legal note ───────────────────────────────────── -->
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_tax_note]]></wp:meta_key>
+			<wp:meta_value><![CDATA[SDWS is a 501(c)(3) nonprofit. Tax ID: 95-3153264.
+All donations are tax-deductible to the extent allowed by law.]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_tax_note]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_donate_tax_note]]></wp:meta_value>
+		</wp:postmeta>
+
+		<!-- ── Section 1: Donor-named awards ─────────────────────── -->
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_s1_heading]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Present an award in your name]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_s1_heading]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_donate_s1_heading]]></wp:meta_value>
+		</wp:postmeta>
+
+		<!-- s1_awards repeater: 2 rows -->
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_s1_awards]]></wp:meta_key>
+			<wp:meta_value><![CDATA[2]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_s1_awards]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_donate_s1_awards]]></wp:meta_value>
+		</wp:postmeta>
+
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_s1_awards_0_amount]]></wp:meta_key>
+			<wp:meta_value><![CDATA[$1,000]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_s1_awards_0_amount]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_s1_amount]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_s1_awards_0_name]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Silver Star Award]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_s1_awards_0_name]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_s1_name]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_s1_awards_0_meta]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Named for the donor]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_s1_awards_0_meta]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_s1_meta]]></wp:meta_value>
+		</wp:postmeta>
+
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_s1_awards_1_amount]]></wp:meta_key>
+			<wp:meta_value><![CDATA[$500]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_s1_awards_1_amount]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_s1_amount]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_s1_awards_1_name]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Award]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_s1_awards_1_name]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_s1_name]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_s1_awards_1_meta]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Named for the donor]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_s1_awards_1_meta]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_s1_meta]]></wp:meta_value>
+		</wp:postmeta>
+
+		<!-- ── Section 2: Existing group awards ──────────────────── -->
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_s2_heading]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Contribute to an existing group award]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_s2_heading]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_donate_s2_heading]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_s2_note]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Donate any amount to one of the following:]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_s2_note]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_donate_s2_note]]></wp:meta_value>
+		</wp:postmeta>
+
+		<!-- s2_awards repeater: 4 rows -->
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_s2_awards]]></wp:meta_key>
+			<wp:meta_value><![CDATA[4]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_s2_awards]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_donate_s2_awards]]></wp:meta_value>
+		</wp:postmeta>
+
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_s2_awards_0_name]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Board of Directors Award]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_s2_awards_0_name]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_s2_name]]></wp:meta_value>
+		</wp:postmeta>
+
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_s2_awards_1_name]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Past Presidents Award]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_s2_awards_1_name]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_s2_name]]></wp:meta_value>
+		</wp:postmeta>
+
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_s2_awards_2_name]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Signature Members Award]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_s2_awards_2_name]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_s2_name]]></wp:meta_value>
+		</wp:postmeta>
+
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_s2_awards_3_name]]></wp:meta_key>
+			<wp:meta_value><![CDATA[TuesPM Mentor Art Group Award]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_s2_awards_3_name]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_s2_name]]></wp:meta_value>
+		</wp:postmeta>
+
+		<!-- ── Section 3: Create a group award ───────────────────── -->
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_s3_heading]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Create a new group award]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_s3_heading]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_donate_s3_heading]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_s3_body]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Each group member donates smaller amounts that total at least $500. A great way to give together.]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_s3_body]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_donate_s3_body]]></wp:meta_value>
+		</wp:postmeta>
+
+		<!-- ── Section 4: Individual / open awards ───────────────── -->
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_s4_heading]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Not part of a group?]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_s4_heading]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_donate_s4_heading]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_s4_note]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Contribute individually to:]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_s4_note]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_donate_s4_note]]></wp:meta_value>
+		</wp:postmeta>
+
+		<!-- s4_awards repeater: 1 row -->
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_s4_awards]]></wp:meta_key>
+			<wp:meta_value><![CDATA[1]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_s4_awards]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_donate_s4_awards]]></wp:meta_value>
+		</wp:postmeta>
+
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_s4_awards_0_name]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Watermedia Enthusiasts Award]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_s4_awards_0_name]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_s4_name]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[donate_s4_awards_0_meta]]></wp:meta_key>
+			<wp:meta_value><![CDATA[Any amount welcome]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_donate_s4_awards_0_meta]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_sdws_s4_meta]]></wp:meta_value>
+		</wp:postmeta>
+
+	</item>
+
+</channel>
+</rss>
