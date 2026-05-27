@@ -140,7 +140,7 @@ while (have_posts()) : the_post();
 
     <?php
     $page_cta = function_exists('starter_coat_get_page_cta_override') ? starter_coat_get_page_cta_override(get_the_ID()) : null;
-    if ($page_cta === null || empty($page_cta['enabled'])) :
+    if ($page_cta === null) :
       $mailto = 'mailto:' . $reg_email . '?subject=' . rawurlencode('Workshop Registration: ' . get_the_title());
     ?>
     <!-- Registration CTA (default — overridden per-page via CTA fields) -->

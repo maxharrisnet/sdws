@@ -25,7 +25,9 @@ while (have_posts()) : the_post();
   $delivery_date   = $gf ? get_field('exhibition_delivery_date')     : get_post_meta(get_the_ID(), 'exhibition_delivery_date', true);
   $reception       = $gf ? get_field('exhibition_reception_date')    : get_post_meta(get_the_ID(), 'exhibition_reception_date', true);
   $notes           = $gf ? get_field('exhibition_notes')             : get_post_meta(get_the_ID(), 'exhibition_notes', true);
-  $buttons         = $gf ? (get_field('exhibition_buttons') ?: array()) : array();
+  $buttons           = $gf ? (get_field('exhibition_buttons') ?: array()) : array();
+  // Hide "Register / Enter" automatically once the entry deadline has passed.
+  $show_register_btn = !$entry_close || strtotime($entry_close) >= strtotime('today');
 
   if (!function_exists('sdws_fmt_date')) {
     function sdws_fmt_date($date_str) {
@@ -81,7 +83,9 @@ while (have_posts()) : the_post();
           <p class="sdws-exhibition-awards"><?php echo esc_html($awards_text); ?></p>
         <?php endif; ?>
         <div class="sdws-exhibition-hero__actions">
-          <a href="#register" class="sdws-btn sdws-btn--white">Register / Enter</a>
+          <?php if ($show_register_btn) : ?>
+            <a href="#register" class="sdws-btn sdws-btn--white">Register / Enter</a>
+          <?php endif; ?>
           <?php foreach ($buttons as $btn) :
             if (empty($btn['url']) || empty($btn['label'])) continue; ?>
             <a href="<?php echo esc_url($btn['url']); ?>" target="_blank" rel="noopener" class="sdws-btn sdws-btn--white sdws-btn--white-outline">
@@ -160,7 +164,7 @@ while (have_posts()) : the_post();
 
     <?php
     $page_cta = function_exists('starter_coat_get_page_cta_override') ? starter_coat_get_page_cta_override(get_the_ID()) : null;
-    if ($page_cta === null || empty($page_cta['enabled'])) :
+    if ($page_cta === null) :
     ?>
     <!-- Register CTA (default — overridden per-page via CTA fields) -->
     <div id="register">

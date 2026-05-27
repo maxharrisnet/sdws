@@ -58,7 +58,7 @@ get_header();
 
   <!-- CTA -->
   <?php
-  $GLOBALS['sdws_in_page_cta'] = true;
+  $GLOBALS['sdws_cta_rendered'] = true;
   $page_cta = starter_coat_get_page_cta_override(get_the_ID());
   if ($page_cta !== null && ! empty($page_cta['enabled'])) {
     get_template_part('template-parts/components/cta', null, array('cta' => $page_cta));

@@ -49,7 +49,15 @@
       "Bash(wp --path=\"/Users/max/Local Sites/san-diego-watercolor-society/app/public\" --url=\"http://san-diego-watercolor-society.local\" post list --post_type=page --fields=ID,post_title,post_name,post_status --format=table)",
       "Bash(php -l \"/Users/max/Local Sites/san-diego-watercolor-society/app/public/wp-content/plugins/starter-coat-core/inc/acf/sdws-donate-fields.php\")",
       "Bash(php -l \"/Users/max/Local Sites/san-diego-watercolor-society/app/public/wp-content/plugins/starter-coat-core/starter-coat-core.php\")",
-      "Bash(xargs ls)"
+      "Bash(xargs ls)",
+      "Bash(wp eval ' *)",
+      "Bash(node /Users/max/.claude/skills/wp-wpcli-and-ops/scripts/wpcli_inspect.mjs --path=\"/Users/max/Local Sites/san-diego-watercolor-society/app/public\")",
+      "Bash(find \"/Users/max/Library/Application Support/Local\" -name \"*.sock\" 2>/dev/null | head -5; find \"/Users/max/Library/Application Support/Local\" -name \"conf\" -type d 2>/dev/null | head -3)",
+      "Read(//Users/max/Library/Application Support/Local/**)",
+      "Bash(wp '--path=/Users/max/Local Sites/san-diego-watercolor-society/app/public' --require=/dev/stdin eval ' *)",
+      "Bash(php -d 'mysql.default_socket=/Users/max/Library/Application Support/Local/run/gIF-P-K2g/mysql/mysqld.sock' -d 'mysqli.default_socket=/Users/max/Library/Application Support/Local/run/gIF-P-K2g/mysql/mysqld.sock' -d 'pdo_mysql.default_socket=/Users/max/Library/Application Support/Local/run/gIF-P-K2g/mysql/mysqld.sock' /opt/homebrew/Cellar/wp-cli/2.12.0/bin/wp '--path=/Users/max/Local Sites/san-diego-watercolor-society/app/public' core version)",
+      "Bash(php -d 'mysql.default_socket=/Users/max/Library/Application Support/Local/run/gIF-P-K2g/mysql/mysqld.sock' -d 'mysqli.default_socket=/Users/max/Library/Application Support/Local/run/gIF-P-K2g/mysql/mysqld.sock' -d 'pdo_mysql.default_socket=/Users/max/Library/Application Support/Local/run/gIF-P-K2g/mysql/mysqld.sock' /opt/homebrew/Cellar/wp-cli/2.12.0/bin/wp '--path=/Users/max/Local Sites/san-diego-watercolor-society/app/public' eval ' *)",
+      "Bash(php -d 'mysql.default_socket=/Users/max/Library/Application Support/Local/run/gIF-P-K2g/mysql/mysqld.sock' -d 'mysqli.default_socket=/Users/max/Library/Application Support/Local/run/gIF-P-K2g/mysql/mysqld.sock' -d 'pdo_mysql.default_socket=/Users/max/Library/Application Support/Local/run/gIF-P-K2g/mysql/mysqld.sock' /opt/homebrew/Cellar/wp-cli/2.12.0/bin/wp '--path=/Users/max/Local Sites/san-diego-watercolor-society/app/public' eval 'update_field\\(\"exhibition_show_register_button\", 0, 39\\); echo \"Register button hidden on post 39\\\\n\";')"
     ]
   }
 }
