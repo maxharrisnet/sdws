@@ -404,6 +404,8 @@
 
 		var currentIndex = 0;
 		var currentGroup = [];
+		var lastFocused  = null;
+		var focusable    = [closeBtn, prevBtn, nextBtn];
 
 		function getGroup(trigger) {
 			var name = trigger.getAttribute('data-lightbox') || 'default';
@@ -418,21 +420,26 @@
 			imgEl.alt = item.alt;
 			prevBtn.disabled = currentIndex <= 0;
 			nextBtn.disabled = currentIndex >= currentGroup.length - 1;
+			overlay.setAttribute('aria-label', item.alt ? item.alt : 'Image viewer');
 		}
 
 		function open(group, index) {
+			lastFocused  = document.activeElement;
 			currentGroup = group;
 			currentIndex = index;
 			show();
 			overlay.classList.add('is-open');
 			document.body.classList.add('lightbox-is-open');
-			overlay.focus();
+			closeBtn.focus();
 		}
 
 		function close() {
 			overlay.classList.remove('is-open');
 			document.body.classList.remove('lightbox-is-open');
 			window.setTimeout(function () { imgEl.src = ''; }, 300);
+			if (lastFocused) {
+				lastFocused.focus();
+			}
 		}
 
 		function goTo(index) {
@@ -469,9 +476,25 @@
 			if (!overlay.classList.contains('is-open')) {
 				return;
 			}
-			if (event.key === 'Escape')      { close(); }
-			if (event.key === 'ArrowLeft')   { goTo(currentIndex - 1); }
-			if (event.key === 'ArrowRight')  { goTo(currentIndex + 1); }
+			if (event.key === 'Escape') {
+				close();
+				return;
+			}
+			if (event.key === 'ArrowLeft')  { goTo(currentIndex - 1); return; }
+			if (event.key === 'ArrowRight') { goTo(currentIndex + 1); return; }
+
+			if (event.key === 'Tab') {
+				var active  = document.activeElement;
+				var enabled = focusable.filter(function (el) { return !el.disabled; });
+				if (!enabled.length) { event.preventDefault(); return; }
+				var first = enabled[0];
+				var last  = enabled[enabled.length - 1];
+				if (event.shiftKey) {
+					if (active === first) { event.preventDefault(); last.focus(); }
+				} else {
+					if (active === last)  { event.preventDefault(); first.focus(); }
+				}
+			}
 		});
 	}
 
