@@ -391,11 +391,22 @@
 		var closeBtn = makeBtn('sdws-lightbox__close', 'Close', '✕');
 		var prevBtn  = makeBtn('sdws-lightbox__prev', 'Previous image', '‹');
 		var nextBtn  = makeBtn('sdws-lightbox__next', 'Next image', '›');
-		var frame    = document.createElement('div');
+
+		var frame       = document.createElement('div');
 		frame.className = 'sdws-lightbox__frame';
+
+		var imgWrapper       = document.createElement('div');
+		imgWrapper.className = 'sdws-lightbox__img-wrap';
+
 		var imgEl    = document.createElement('img');
 		imgEl.className = 'sdws-lightbox__img';
-		frame.appendChild(imgEl);
+		imgWrapper.appendChild(imgEl);
+
+		var panel       = document.createElement('div');
+		panel.className = 'sdws-lightbox__panel';
+
+		frame.appendChild(imgWrapper);
+		frame.appendChild(panel);
 		overlay.appendChild(closeBtn);
 		overlay.appendChild(prevBtn);
 		overlay.appendChild(nextBtn);
@@ -414,6 +425,109 @@
 			});
 		}
 
+		function buildPanel(item) {
+			panel.replaceChildren();
+			panel.hidden = true;
+
+			if (!item.paintingTitle) {
+				return;
+			}
+
+			panel.hidden = false;
+
+			var titleEl = document.createElement('h2');
+			titleEl.className = 'sdws-lightbox__painting-title';
+			titleEl.textContent = item.paintingTitle;
+			panel.appendChild(titleEl);
+
+			if (item.paintingArtist) {
+				var artistEl = document.createElement('p');
+				artistEl.className = 'sdws-lightbox__painting-artist';
+				artistEl.textContent = item.paintingArtist;
+				panel.appendChild(artistEl);
+			}
+
+			var metaEl = document.createElement('ul');
+			metaEl.className = 'sdws-lightbox__painting-meta';
+			var hasMeta = false;
+			if (item.paintingDimensions) {
+				var li = document.createElement('li');
+				li.textContent = item.paintingDimensions;
+				metaEl.appendChild(li);
+				hasMeta = true;
+			}
+			if (item.paintingMedium) {
+				var li2 = document.createElement('li');
+				li2.textContent = item.paintingMedium;
+				metaEl.appendChild(li2);
+				hasMeta = true;
+			}
+			if (hasMeta) {
+				panel.appendChild(metaEl);
+			}
+
+			if (item.paintingDescription) {
+				var descEl = document.createElement('p');
+				descEl.className = 'sdws-lightbox__painting-desc';
+				descEl.textContent = item.paintingDescription;
+				panel.appendChild(descEl);
+			}
+
+			var price = parseFloat(item.paintingPrice);
+			if (item.paintingPaypalEmail && price > 0) {
+				var priceEl = document.createElement('p');
+				priceEl.className = 'sdws-painting-price';
+				priceEl.textContent = '$' + price.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+				panel.appendChild(priceEl);
+
+				var itemName = item.paintingTitle + (item.paintingArtist ? ' by ' + item.paintingArtist : '');
+				var form = document.createElement('form');
+				form.action  = 'https://www.paypal.com/cgi-bin/webscr';
+				form.method  = 'post';
+				form.target  = '_blank';
+				form.className = 'sdws-paypal-form';
+
+				var fields = {
+					cmd: '_xclick',
+					business: item.paintingPaypalEmail,
+					item_name: itemName,
+					amount: price.toFixed(2),
+					currency_code: 'USD',
+					no_shipping: '1',
+				};
+				Object.keys(fields).forEach(function (name) {
+					var input = document.createElement('input');
+					input.type  = 'hidden';
+					input.name  = name;
+					input.value = fields[name];
+					form.appendChild(input);
+				});
+
+				var buyBtn = document.createElement('button');
+				buyBtn.type = 'submit';
+				buyBtn.className = 'sdws-btn sdws-btn--teal';
+				buyBtn.textContent = 'Buy Now — $' + price.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+				form.appendChild(buyBtn);
+				panel.appendChild(form);
+				focusable = [closeBtn, prevBtn, nextBtn, buyBtn];
+			} else if (!price || !item.paintingPaypalEmail) {
+				var noPriceEl = document.createElement('p');
+				noPriceEl.className = 'sdws-painting-no-price';
+				noPriceEl.textContent = item.paintingPaypalEmail ? 'Contact for pricing' : 'Contact to purchase';
+				panel.appendChild(noPriceEl);
+				focusable = [closeBtn, prevBtn, nextBtn];
+			}
+
+			if (item.paintingUrl) {
+				var viewLink = document.createElement('a');
+				viewLink.href = item.paintingUrl;
+				viewLink.className = 'sdws-lightbox__painting-link';
+				viewLink.textContent = 'View full details';
+				focusable = focusable.concat([viewLink]);
+				panel.appendChild(viewLink);
+			}
+		}
+
 		function show() {
 			var item = currentGroup[currentIndex];
 			imgEl.src = item.src;
@@ -421,6 +535,8 @@
 			prevBtn.disabled = currentIndex <= 0;
 			nextBtn.disabled = currentIndex >= currentGroup.length - 1;
 			overlay.setAttribute('aria-label', item.alt ? item.alt : 'Image viewer');
+			buildPanel(item);
+			frame.classList.toggle('sdws-lightbox__frame--has-panel', !panel.hidden);
 		}
 
 		function open(group, index) {
@@ -437,6 +553,7 @@
 			overlay.classList.remove('is-open');
 			document.body.classList.remove('lightbox-is-open');
 			window.setTimeout(function () { imgEl.src = ''; }, 300);
+			focusable = [closeBtn, prevBtn, nextBtn];
 			if (lastFocused) {
 				lastFocused.focus();
 			}
@@ -454,8 +571,16 @@
 				var index     = group.indexOf(trigger);
 				var groupData = group.map(function (t) {
 					return {
-						src: t.getAttribute('href') || '',
-						alt: t.getAttribute('data-lightbox-alt') || '',
+						src:                    t.getAttribute('href') || '',
+						alt:                    t.getAttribute('data-lightbox-alt') || '',
+						paintingTitle:          t.getAttribute('data-painting-title') || '',
+						paintingArtist:         t.getAttribute('data-painting-artist') || '',
+						paintingDimensions:     t.getAttribute('data-painting-dimensions') || '',
+						paintingMedium:         t.getAttribute('data-painting-medium') || '',
+						paintingPrice:          t.getAttribute('data-painting-price') || '',
+						paintingDescription:    t.getAttribute('data-painting-description') || '',
+						paintingPaypalEmail:    t.getAttribute('data-painting-paypal-email') || '',
+						paintingUrl:            t.getAttribute('data-painting-url') || '',
 					};
 				});
 				open(groupData, index);

@@ -26,9 +26,14 @@ $gallery_visible  = ($gallery_visible_raw === null) ? true : (bool) $gallery_vis
 $gallery_label    = $gf ? get_field('home_gallery_label')    : '';
 $gallery_caption  = $gf ? get_field('home_gallery_caption')  : '';
 $gallery_page_url = $gf ? get_field('home_gallery_page_url') : '';
-$_gallery_page    = get_page_by_path('gallery');
-$_gallery_page_id = $_gallery_page ? (int) $_gallery_page->ID : 0;
-$gallery_images   = ($gf && $_gallery_page_id) ? (get_field('gallery_images', $_gallery_page_id) ?: array()) : array();
+
+$home_paintings = new WP_Query(array(
+  'post_type'      => 'sdws_painting',
+  'posts_per_page' => 12,
+  'orderby'        => 'menu_order',
+  'order'          => 'ASC',
+  'post_status'    => 'publish',
+));
 
 // ── Map section fields ───────────────────────────────────────
 $map_label         = $gf ? (get_field('home_map_label')         ?: 'Visit the Gallery') : 'Visit the Gallery';
@@ -79,7 +84,7 @@ $ishow_cta_url  = $gf ? (get_field('home_ishow_cta_url')   ?: home_url('/interna
 
 
   <!-- ================== GALLERY GRID ================== -->
-  <?php if ($gallery_visible && !empty($gallery_images)) : ?>
+  <?php if ($gallery_visible && $home_paintings->have_posts()) : ?>
   <section class="sdws-gallery-section sdws-section--bordered-bottom">
     <?php if ($gallery_label || $gallery_caption || $gallery_page_url) : ?>
       <div class="sdws-container sdws-gallery-section__header">
@@ -101,38 +106,51 @@ $ishow_cta_url  = $gf ? (get_field('home_ishow_cta_url')   ?: home_url('/interna
     <div class="sdws-gallery-grid">
       <?php
       $gi = 0;
-      $display_images = array_slice($gallery_images, 0, 12);
-
-      if (!empty($display_images)) :
-        foreach ($display_images as $img_id) :
-          $img_id   = (int) $img_id;
-          $full_src = wp_get_attachment_image_src($img_id, 'large');
-          $full_url = $full_src ? $full_src[0] : '';
-          $alt      = get_post_meta($img_id, '_wp_attachment_image_alt', true) ?: '';
+      while ($home_paintings->have_posts()) : $home_paintings->the_post();
+        $p_id    = get_the_ID();
+        $p_title = get_the_title();
+        $p_url   = get_permalink($p_id);
       ?>
-          <div class="sdws-gallery-grid__item" data-gallery-index="<?php echo $gi++; ?>">
-            <a class="sdws-gallery-grid__link" href="<?php echo esc_url($full_url); ?>"
-               data-lightbox="gallery"
-               data-lightbox-alt="<?php echo esc_attr($alt); ?>">
-              <?php echo wp_get_attachment_image($img_id, 'sc-profile-square-lg', false, array(
-                'class'    => 'sdws-img-crop sdws-img-square',
-                'alt'      => $alt,
-                'loading'  => 'lazy',
-                'decoding' => 'async',
-                'sizes'    => '(min-width: 1200px) 17vw, (min-width: 768px) 25vw, 50vw',
-              )); ?>
-            </a>
-          </div>
+        <div class="sdws-gallery-grid__item" data-gallery-index="<?php echo (int) $gi; ?>">
+          <a class="sdws-gallery-grid__link sdws-painting-card" href="<?php echo esc_url($p_url); ?>"
+             aria-label="<?php echo esc_attr(sprintf('View painting: %s', $p_title)); ?>">
+            <div class="sdws-painting-card__thumb">
+              <?php if (has_post_thumbnail($p_id)) :
+                echo get_the_post_thumbnail($p_id, 'sc-profile-square-lg', array(
+                  'class'    => 'sdws-img-crop sdws-img-square',
+                  'alt'      => '',
+                  'loading'  => 'lazy',
+                  'decoding' => 'async',
+                  'sizes'    => '(min-width: 1200px) 17vw, (min-width: 768px) 25vw, 50vw',
+                ));
+              else : ?>
+                <div class="sdws-painting-card__placeholder sdws-img-square"></div>
+              <?php endif; ?>
+              <div class="sdws-painting-overlay" aria-hidden="true">
+                <span class="sdws-painting-overlay__title"><?php echo esc_html($p_title); ?></span>
+                <span class="sdws-painting-overlay__icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
       <?php
-        endforeach;
-      else :
-        for ($i = 0; $i < 12; $i++) :
+        $gi++;
+      endwhile;
+      wp_reset_postdata();
       ?>
-          <div class="sdws-gallery-grid__item sdws-gallery-grid__item--placeholder" data-gallery-index="<?php echo $i; ?>"></div>
-      <?php
-        endfor;
-      endif;
-      ?>
+    </div>
+  </section>
+  <?php elseif ($gallery_visible) : ?>
+  <section class="sdws-gallery-section sdws-section--bordered-bottom">
+    <div class="sdws-gallery-grid">
+      <?php for ($i = 0; $i < 12; $i++) : ?>
+        <div class="sdws-gallery-grid__item sdws-gallery-grid__item--placeholder" data-gallery-index="<?php echo $i; ?>"></div>
+      <?php endfor; ?>
     </div>
   </section>
   <?php endif; ?>
