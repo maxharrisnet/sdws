@@ -26,8 +26,12 @@ while (have_posts()) : the_post();
   $reception       = $gf ? get_field('exhibition_reception_date')    : get_post_meta(get_the_ID(), 'exhibition_reception_date', true);
   $notes           = $gf ? get_field('exhibition_notes')             : get_post_meta(get_the_ID(), 'exhibition_notes', true);
   $buttons           = $gf ? (get_field('exhibition_buttons') ?: array()) : array();
-  // Hide "Register / Enter" automatically once the entry deadline has passed.
-  $show_register_btn = !$entry_close || strtotime($entry_close) >= strtotime('today');
+  // Show "Register / Enter" only between Online Entry Opens and Entry Deadline dates.
+  // wp_date() uses the timezone set in WP Admin → Settings → General.
+  $today_ts          = strtotime(wp_date('Y-m-d'));
+  $entries_started   = !$entry_open  || strtotime($entry_open)  <= $today_ts;
+  $entries_open      = !$entry_close || strtotime($entry_close) >= $today_ts;
+  $show_register_btn = $entries_started && $entries_open;
 
   if (!function_exists('sdws_fmt_date')) {
     function sdws_fmt_date($date_str) {
