@@ -14,15 +14,15 @@
 
 get_header();
 
-$front_page_id = (int) get_option('page_on_front');
-$has_acf       = function_exists('get_field');
+$has_acf = function_exists('get_field');
 
+$front_page_id   = (int) get_option('page_on_front');
 $gallery_label   = $has_acf && $front_page_id ? (get_field('home_gallery_label',   $front_page_id) ?: 'Member Gallery') : 'Member Gallery';
 $gallery_caption = $has_acf && $front_page_id ? (get_field('home_gallery_caption', $front_page_id) ?: '') : '';
-$gallery_images  = $has_acf && $front_page_id ? (get_field('home_gallery_images',  $front_page_id) ?: array()) : array();
 
-$content_above = $has_acf ? (get_field('gallery_content_above') ?: '') : '';
-$content_below = $has_acf ? (get_field('gallery_content_below') ?: '') : '';
+$gallery_images  = $has_acf ? (get_field('gallery_images')         ?: array()) : array();
+$content_above   = $has_acf ? (get_field('gallery_content_above')  ?: '') : '';
+$content_below   = $has_acf ? (get_field('gallery_content_below')  ?: '') : '';
 ?>
 
 <main id="primary" class="site-main">

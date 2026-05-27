@@ -25,8 +25,10 @@ $gallery_visible_raw = $gf ? get_field('home_gallery_visible') : null;
 $gallery_visible  = ($gallery_visible_raw === null) ? true : (bool) $gallery_visible_raw;
 $gallery_label    = $gf ? get_field('home_gallery_label')    : '';
 $gallery_caption  = $gf ? get_field('home_gallery_caption')  : '';
-$gallery_images   = $gf ? (get_field('home_gallery_images')  ?: array()) : array();
 $gallery_page_url = $gf ? get_field('home_gallery_page_url') : '';
+$_gallery_page    = get_page_by_path('gallery');
+$_gallery_page_id = $_gallery_page ? (int) $_gallery_page->ID : 0;
+$gallery_images   = ($gf && $_gallery_page_id) ? (get_field('gallery_images', $_gallery_page_id) ?: array()) : array();
 
 // ── Map section fields ───────────────────────────────────────
 $map_label         = $gf ? (get_field('home_map_label')         ?: 'Visit the Gallery') : 'Visit the Gallery';
