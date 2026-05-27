@@ -14,8 +14,9 @@ get_header();
 
   <!-- Page header -->
   <?php
-  $ex_title = get_field('exhibitions_hero_title', 'option');
-  $ex_intro = get_field('exhibitions_hero_intro', 'option');
+  $gf       = function_exists('get_field');
+  $ex_title = $gf ? get_field('exhibitions_hero_title', 'option') : '';
+  $ex_intro = $gf ? get_field('exhibitions_hero_intro', 'option') : '';
   ?>
   <section class="sdws-section sdws-section--bordered-bottom">
     <div class="sdws-container">

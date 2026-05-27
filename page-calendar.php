@@ -32,7 +32,7 @@ $cal_intro = $gf ? get_field('calendar_hero_intro', 'option') : '';
       <iframe
         id="sdws-calendar-iframe"
         data-tec-events-ece-iframe="true"
-        src="<?php echo esc_url(get_field('calendar_embed_url', 'option')); ?>"
+        src="<?php echo esc_url($gf ? get_field('calendar_embed_url', 'option') : ''); ?>"
         frameborder="0"
         title="SDWS Events Calendar"
         ></iframe>

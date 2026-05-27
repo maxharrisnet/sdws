@@ -16,13 +16,11 @@ get_header();
 
 $has_acf = function_exists('get_field');
 
-$front_page_id   = (int) get_option('page_on_front');
-$gallery_label   = $has_acf && $front_page_id ? (get_field('home_gallery_label',   $front_page_id) ?: 'Member Gallery') : 'Member Gallery';
-$gallery_caption = $has_acf && $front_page_id ? (get_field('home_gallery_caption', $front_page_id) ?: '') : '';
-
-$gallery_images  = $has_acf ? (get_field('gallery_images')         ?: array()) : array();
-$content_above   = $has_acf ? (get_field('gallery_content_above')  ?: '') : '';
-$content_below   = $has_acf ? (get_field('gallery_content_below')  ?: '') : '';
+$gallery_images = $has_acf ? (get_field('gallery_images')        ?: array()) : array();
+$content_above  = $has_acf ? (get_field('gallery_content_above') ?: '') : '';
+$content_below  = $has_acf ? (get_field('gallery_content_below') ?: '') : '';
+$page_title     = $has_acf ? (get_field('gallery_page_title')    ?: 'Gallery') : 'Gallery';
+$page_caption   = $has_acf ? (get_field('gallery_page_caption')  ?: 'Works by SDWS members') : 'Works by SDWS members';
 ?>
 
 <main id="primary" class="site-main">
@@ -37,9 +35,9 @@ $content_below   = $has_acf ? (get_field('gallery_content_below')  ?: '') : '';
           </li>
         </ol>
       </nav>
-      <h1 class="sdws-page-title"><?php echo esc_html($gallery_label); ?></h1>
-      <?php if ($gallery_caption) : ?>
-        <p class="sdws-gallery-page__caption"><?php echo esc_html($gallery_caption); ?></p>
+      <h1 class="sdws-page-title"><?php echo esc_html($page_title); ?></h1>
+      <?php if ($page_caption) : ?>
+        <p class="sdws-gallery-page__caption"><?php echo esc_html($page_caption); ?></p>
       <?php endif; ?>
     </div>
   </section>
