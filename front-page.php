@@ -21,9 +21,12 @@ $hero_cta2_text   = $gf ? (get_field('home_hero_cta2_text')  ?: 'Learn About the
 $hero_cta2_url    = $gf ? (get_field('home_hero_cta2_url')   ?: home_url('/international/')) : home_url('/international/');
 
 // ── Gallery strip fields ─────────────────────────────────────────────────────
-$gallery_label     = $gf ? (get_field('home_gallery_label')     ?: 'June Member Show') : 'June Member Show';
-$gallery_caption   = $gf ? (get_field('home_gallery_caption')   ?: '90+ works on display') : '90+ works on display';
-$gallery_shortcode = $gf ? (get_field('home_gallery_shortcode') ?: '') : '';
+$gallery_visible_raw = $gf ? get_field('home_gallery_visible') : null;
+$gallery_visible  = ($gallery_visible_raw === null) ? true : (bool) $gallery_visible_raw;
+$gallery_label    = $gf ? get_field('home_gallery_label')    : '';
+$gallery_caption  = $gf ? get_field('home_gallery_caption')  : '';
+$gallery_images   = $gf ? (get_field('home_gallery_images')  ?: array()) : array();
+$gallery_page_url = $gf ? get_field('home_gallery_page_url') : '';
 
 // ── Map section fields ───────────────────────────────────────
 $map_label         = $gf ? (get_field('home_map_label')         ?: 'Visit the Gallery') : 'Visit the Gallery';
@@ -73,63 +76,64 @@ $ishow_cta_url  = $gf ? (get_field('home_ishow_cta_url')   ?: home_url('/interna
   </section>
 
 
-  <!-- ================== GALLERY STRIP ================== -->
-  <!-- <section style="border-bottom: var(--border); overflow:hidden;">
-    <div style="padding:2rem 2rem 0; max-width:var(--max-width); margin:0 auto; display:flex; justify-content:space-between; align-items:baseline;">
-      <p style="font-size:0.8125rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:500; margin:0;">
-        <?php echo esc_html($gallery_label); ?>
-      </p>
-      <?php if ($gallery_caption) : ?>
-        <p style="font-size:0.875rem; margin:0; color:#000;"><?php echo esc_html($gallery_caption); ?></p>
-      <?php endif; ?>
-    </div>
-    <div class="sdws-gallery-strip" style="margin-top:1.5rem;">
-      <?php if ($gallery_shortcode) : ?>
-        <div class="sdws-gallery-shortcode">
-          <?php echo do_shortcode($gallery_shortcode); ?>
-        </div>
-      <?php else : ?>
-        <?php
-        $gallery_query = new WP_Query(array(
-          'post_type'      => 'sdws_exhibition',
-          'posts_per_page' => 8,
-          'tax_query'      => array(array(
-            'taxonomy' => 'exhibition_type',
-            'field'    => 'slug',
-            'terms'    => 'member-show',
-          )),
-        ));
+  <!-- ================== GALLERY GRID ================== -->
+  <?php if ($gallery_visible && !empty($gallery_images)) : ?>
+  <section class="sdws-gallery-section sdws-section--bordered-bottom">
+    <?php if ($gallery_label || $gallery_caption || $gallery_page_url) : ?>
+      <div class="sdws-container sdws-gallery-section__header">
+        <?php if ($gallery_label || $gallery_caption) : ?>
+          <div class="sdws-gallery-section__meta">
+            <?php if ($gallery_label) : ?>
+              <p class="sdws-gallery-section__label"><?php echo esc_html($gallery_label); ?></p>
+            <?php endif; ?>
+            <?php if ($gallery_caption) : ?>
+              <p class="sdws-gallery-section__caption"><?php echo esc_html($gallery_caption); ?></p>
+            <?php endif; ?>
+          </div>
+        <?php endif; ?>
+        <?php if ($gallery_page_url) : ?>
+          <a href="<?php echo esc_url($gallery_page_url); ?>" class="sdws-gallery-section__view-all">View Gallery</a>
+        <?php endif; ?>
+      </div>
+    <?php endif; ?>
+    <div class="sdws-gallery-grid">
+      <?php
+      $gi = 0;
+      $display_images = array_slice($gallery_images, 0, 12);
 
-        if ($gallery_query->have_posts()) :
-          while ($gallery_query->have_posts()) : $gallery_query->the_post();
-            if (has_post_thumbnail()) :
-        ?>
-              <div class="sdws-gallery-strip__item">
-                <?php the_post_thumbnail('sc-card-header', array(
-                  'class'    => 'sdws-img-crop sdws-img-4-3',
-                  'alt'      => get_the_title(),
-                  'loading'  => 'lazy',
-                  'decoding' => 'async',
-                  'sizes'    => '(min-width: 1200px) 320px, (min-width: 768px) 30vw, 50vw',
-                )); ?>
-              </div>
-            <?php
-            endif;
-          endwhile;
-          wp_reset_postdata();
-        else :
-          for ($i = 1; $i <= 6; $i++) :
-            ?>
-            <div class="sdws-gallery-strip__item" style="background:var(--color-sand); display:flex; align-items:center; justify-content:center; min-height:210px;">
-              <span style="font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; opacity:0.4;">Artwork <?php echo $i; ?></span>
-            </div>
-        <?php
-          endfor;
-        endif;
-        ?>
-      <?php endif; ?>
+      if (!empty($display_images)) :
+        foreach ($display_images as $img_id) :
+          $img_id   = (int) $img_id;
+          $full_src = wp_get_attachment_image_src($img_id, 'large');
+          $full_url = $full_src ? $full_src[0] : '';
+          $alt      = get_post_meta($img_id, '_wp_attachment_image_alt', true) ?: '';
+      ?>
+          <div class="sdws-gallery-grid__item" data-gallery-index="<?php echo $gi++; ?>">
+            <a class="sdws-gallery-grid__link" href="<?php echo esc_url($full_url); ?>"
+               data-lightbox="gallery"
+               data-lightbox-alt="<?php echo esc_attr($alt); ?>">
+              <?php echo wp_get_attachment_image($img_id, 'sc-profile-square-lg', false, array(
+                'class'    => 'sdws-img-crop sdws-img-square',
+                'alt'      => $alt,
+                'loading'  => 'lazy',
+                'decoding' => 'async',
+                'sizes'    => '(min-width: 1200px) 17vw, (min-width: 768px) 25vw, 50vw',
+              )); ?>
+            </a>
+          </div>
+      <?php
+        endforeach;
+      else :
+        for ($i = 0; $i < 12; $i++) :
+      ?>
+          <div class="sdws-gallery-grid__item sdws-gallery-grid__item--placeholder" data-gallery-index="<?php echo $i; ?>"></div>
+      <?php
+        endfor;
+      endif;
+      ?>
     </div>
-  </section> -->
+  </section>
+  <?php endif; ?>
 
   <!-- ================ I-SHOW PROMO BLOCK ================ -->
   <?php if ($ishow_visible) : ?>

@@ -57,7 +57,10 @@
       "Bash(wp '--path=/Users/max/Local Sites/san-diego-watercolor-society/app/public' --require=/dev/stdin eval ' *)",
       "Bash(php -d 'mysql.default_socket=/Users/max/Library/Application Support/Local/run/gIF-P-K2g/mysql/mysqld.sock' -d 'mysqli.default_socket=/Users/max/Library/Application Support/Local/run/gIF-P-K2g/mysql/mysqld.sock' -d 'pdo_mysql.default_socket=/Users/max/Library/Application Support/Local/run/gIF-P-K2g/mysql/mysqld.sock' /opt/homebrew/Cellar/wp-cli/2.12.0/bin/wp '--path=/Users/max/Local Sites/san-diego-watercolor-society/app/public' core version)",
       "Bash(php -d 'mysql.default_socket=/Users/max/Library/Application Support/Local/run/gIF-P-K2g/mysql/mysqld.sock' -d 'mysqli.default_socket=/Users/max/Library/Application Support/Local/run/gIF-P-K2g/mysql/mysqld.sock' -d 'pdo_mysql.default_socket=/Users/max/Library/Application Support/Local/run/gIF-P-K2g/mysql/mysqld.sock' /opt/homebrew/Cellar/wp-cli/2.12.0/bin/wp '--path=/Users/max/Local Sites/san-diego-watercolor-society/app/public' eval ' *)",
-      "Bash(php -d 'mysql.default_socket=/Users/max/Library/Application Support/Local/run/gIF-P-K2g/mysql/mysqld.sock' -d 'mysqli.default_socket=/Users/max/Library/Application Support/Local/run/gIF-P-K2g/mysql/mysqld.sock' -d 'pdo_mysql.default_socket=/Users/max/Library/Application Support/Local/run/gIF-P-K2g/mysql/mysqld.sock' /opt/homebrew/Cellar/wp-cli/2.12.0/bin/wp '--path=/Users/max/Local Sites/san-diego-watercolor-society/app/public' eval 'update_field\\(\"exhibition_show_register_button\", 0, 39\\); echo \"Register button hidden on post 39\\\\n\";')"
+      "Bash(php -d 'mysql.default_socket=/Users/max/Library/Application Support/Local/run/gIF-P-K2g/mysql/mysqld.sock' -d 'mysqli.default_socket=/Users/max/Library/Application Support/Local/run/gIF-P-K2g/mysql/mysqld.sock' -d 'pdo_mysql.default_socket=/Users/max/Library/Application Support/Local/run/gIF-P-K2g/mysql/mysqld.sock' /opt/homebrew/Cellar/wp-cli/2.12.0/bin/wp '--path=/Users/max/Local Sites/san-diego-watercolor-society/app/public' eval 'update_field\\(\"exhibition_show_register_button\", 0, 39\\); echo \"Register button hidden on post 39\\\\n\";')",
+      "Bash(npm run *)",
+      "Bash(php -d 'mysql.default_socket=/Users/max/Library/Application Support/Local/run/gIF-P-K2g/mysql/mysqld.sock' -r ' *)",
+      "Bash(php -i)"
     ]
   }
 }

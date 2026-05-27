@@ -445,30 +445,229 @@ img {
 	opacity: 0.5;
 }
 
-/* === Gallery strip ===================================================== */
+/* === Gallery grid ====================================================== */
 
-.sdws-gallery-strip {
+.sdws-gallery-section {
+	padding-top: 2rem;
+}
+
+.sdws-gallery-section__header {
 	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1.5rem;
+}
+
+.sdws-gallery-section__meta {
+	display: flex;
+	align-items: baseline;
+	gap: 1rem;
+}
+
+.sdws-gallery-section__label {
+	font-size: 0.8125rem;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	font-weight: 500;
+	margin: 0;
+}
+
+.sdws-gallery-section__caption {
+	font-size: 0.875rem;
+	margin: 0;
+}
+
+.sdws-gallery-section__view-all {
+	font-size: 0.8125rem;
+	letter-spacing: 0.05em;
+	text-decoration: underline;
+	white-space: nowrap;
+	color: inherit;
+}
+
+.sdws-gallery-grid {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
 	gap: 0;
-	overflow-x: auto;
-	scrollbar-width: none;
 }
 
-.sdws-gallery-strip::-webkit-scrollbar {
-	display: none;
+.sdws-gallery-grid__item {
+	aspect-ratio: 1 / 1;
+	overflow: hidden;
+	opacity: 0;
+	transition: opacity 0.6s ease;
 }
 
-.sdws-gallery-strip__item {
-	flex: 0 0 auto;
-	width: 280px;
-	aspect-ratio: 4 / 3;
+.sdws-gallery-grid__item.is-visible {
+	opacity: 1;
 }
 
-.sdws-gallery-strip__item img {
+.sdws-gallery-grid__item img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 	display: block;
+}
+
+.sdws-gallery-grid__item--placeholder {
+	background: var(--color-block-1);
+}
+
+.sdws-gallery-grid__link {
+	display: block;
+	width: 100%;
+	height: 100%;
+	cursor: zoom-in;
+}
+
+.sdws-gallery-grid__link img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.4s ease;
+}
+
+.sdws-gallery-grid__link:hover img {
+	transform: scale(1.04);
+}
+
+@media (max-width: 1024px) {
+	.sdws-gallery-grid {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+@media (max-width: 600px) {
+	.sdws-gallery-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+/* === Gallery page ======================================================= */
+
+.sdws-gallery-page__caption {
+	font-size: 1.125rem;
+	margin-top: 0.5rem;
+	opacity: 0.85;
+}
+
+.sdws-gallery-page-section {
+	padding: 0;
+}
+
+.sdws-gallery-page-grid {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	gap: 0;
+}
+
+.sdws-gallery-page-grid .sdws-gallery-grid__item {
+	opacity: 1;
+}
+
+@media (max-width: 1280px) {
+	.sdws-gallery-page-grid {
+		grid-template-columns: repeat(6, 1fr);
+	}
+}
+
+@media (max-width: 900px) {
+	.sdws-gallery-page-grid {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+@media (max-width: 480px) {
+	.sdws-gallery-page-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+/* === Lightbox =========================================================== */
+
+.sdws-lightbox {
+	position: fixed;
+	inset: 0;
+	z-index: 9000;
+	background: rgba(0, 0, 0, 0.92);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.25s ease;
+}
+
+.sdws-lightbox.is-open {
+	opacity: 1;
+	pointer-events: all;
+}
+
+body.lightbox-is-open {
+	overflow: hidden;
+}
+
+.sdws-lightbox__frame {
+	max-width: 90vw;
+	max-height: 90vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.sdws-lightbox__img {
+	display: block;
+	max-width: 90vw;
+	max-height: 90vh;
+	object-fit: contain;
+}
+
+.sdws-lightbox__close,
+.sdws-lightbox__prev,
+.sdws-lightbox__next {
+	position: fixed;
+	background: transparent;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	line-height: 1;
+	padding: 0.5rem;
+	z-index: 9001;
+}
+
+.sdws-lightbox__close {
+	top: 1.25rem;
+	right: 1.5rem;
+	font-size: 1.5rem;
+}
+
+.sdws-lightbox__prev,
+.sdws-lightbox__next {
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 3rem;
+	opacity: 0.7;
+	transition: opacity 0.15s;
+}
+
+.sdws-lightbox__prev:hover,
+.sdws-lightbox__next:hover {
+	opacity: 1;
+}
+
+.sdws-lightbox__prev:disabled,
+.sdws-lightbox__next:disabled {
+	opacity: 0.15;
+	cursor: default;
+}
+
+.sdws-lightbox__prev {
+	left: 1rem;
+}
+
+.sdws-lightbox__next {
+	right: 1rem;
 }
 
 /* === Format nav (workshops jump links) ================================= */

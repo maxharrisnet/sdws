@@ -326,6 +326,157 @@
 
 	initCarousels();
 
+	function initGalleryFade() {
+		const grid = document.querySelector('.sdws-gallery-grid');
+		if (!grid) {
+			return;
+		}
+
+		const items = Array.from(grid.querySelectorAll('[data-gallery-index]'));
+		if (!items.length) {
+			return;
+		}
+
+		function revealItems() {
+			items.forEach(function (item) {
+				const idx = parseInt(item.getAttribute('data-gallery-index') || '0', 10);
+				window.setTimeout(function () {
+					item.classList.add('is-visible');
+				}, idx * 80);
+			});
+		}
+
+		if (!('IntersectionObserver' in window)) {
+			revealItems();
+			return;
+		}
+
+		const observer = new IntersectionObserver(
+			function (entries) {
+				if (entries[0].isIntersecting) {
+					revealItems();
+					observer.disconnect();
+				}
+			},
+			{ threshold: 0.1 }
+		);
+
+		observer.observe(grid);
+	}
+
+	initGalleryFade();
+
+	function initLightbox() {
+		var triggers = Array.from(document.querySelectorAll('[data-lightbox]'));
+		if (!triggers.length) {
+			return;
+		}
+
+		function makeBtn(cls, label, text) {
+			var btn = document.createElement('button');
+			btn.type = 'button';
+			btn.className = cls;
+			btn.setAttribute('aria-label', label);
+			btn.textContent = text;
+			return btn;
+		}
+
+		var overlay  = document.createElement('div');
+		overlay.className = 'sdws-lightbox';
+		overlay.setAttribute('role', 'dialog');
+		overlay.setAttribute('aria-modal', 'true');
+		overlay.setAttribute('aria-label', 'Image viewer');
+		overlay.setAttribute('tabindex', '-1');
+
+		var closeBtn = makeBtn('sdws-lightbox__close', 'Close', '✕');
+		var prevBtn  = makeBtn('sdws-lightbox__prev', 'Previous image', '‹');
+		var nextBtn  = makeBtn('sdws-lightbox__next', 'Next image', '›');
+		var frame    = document.createElement('div');
+		frame.className = 'sdws-lightbox__frame';
+		var imgEl    = document.createElement('img');
+		imgEl.className = 'sdws-lightbox__img';
+		frame.appendChild(imgEl);
+		overlay.appendChild(closeBtn);
+		overlay.appendChild(prevBtn);
+		overlay.appendChild(nextBtn);
+		overlay.appendChild(frame);
+		document.body.appendChild(overlay);
+
+		var currentIndex = 0;
+		var currentGroup = [];
+
+		function getGroup(trigger) {
+			var name = trigger.getAttribute('data-lightbox') || 'default';
+			return triggers.filter(function (t) {
+				return (t.getAttribute('data-lightbox') || 'default') === name;
+			});
+		}
+
+		function show() {
+			var item = currentGroup[currentIndex];
+			imgEl.src = item.src;
+			imgEl.alt = item.alt;
+			prevBtn.disabled = currentIndex <= 0;
+			nextBtn.disabled = currentIndex >= currentGroup.length - 1;
+		}
+
+		function open(group, index) {
+			currentGroup = group;
+			currentIndex = index;
+			show();
+			overlay.classList.add('is-open');
+			document.body.classList.add('lightbox-is-open');
+			overlay.focus();
+		}
+
+		function close() {
+			overlay.classList.remove('is-open');
+			document.body.classList.remove('lightbox-is-open');
+			window.setTimeout(function () { imgEl.src = ''; }, 300);
+		}
+
+		function goTo(index) {
+			currentIndex = Math.max(0, Math.min(currentGroup.length - 1, index));
+			show();
+		}
+
+		triggers.forEach(function (trigger) {
+			trigger.addEventListener('click', function (event) {
+				event.preventDefault();
+				var group     = getGroup(trigger);
+				var index     = group.indexOf(trigger);
+				var groupData = group.map(function (t) {
+					return {
+						src: t.getAttribute('href') || '',
+						alt: t.getAttribute('data-lightbox-alt') || '',
+					};
+				});
+				open(groupData, index);
+			});
+		});
+
+		closeBtn.addEventListener('click', close);
+		prevBtn.addEventListener('click', function () { goTo(currentIndex - 1); });
+		nextBtn.addEventListener('click', function () { goTo(currentIndex + 1); });
+
+		overlay.addEventListener('click', function (event) {
+			if (event.target === overlay || event.target === frame) {
+				close();
+			}
+		});
+
+		document.addEventListener('keydown', function (event) {
+			if (!overlay.classList.contains('is-open')) {
+				return;
+			}
+			if (event.key === 'Escape')      { close(); }
+			if (event.key === 'ArrowLeft')   { goTo(currentIndex - 1); }
+			if (event.key === 'ArrowRight')  { goTo(currentIndex + 1); }
+		});
+	}
+
+	initLightbox();
+
 	function initStatCounters() {
 		const counters = Array.from(document.querySelectorAll('[data-count-up]'));
 		if (!counters.length) {
