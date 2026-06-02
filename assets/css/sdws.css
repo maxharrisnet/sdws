@@ -823,6 +823,27 @@ body.lightbox-is-open {
 	font-style: italic;
 }
 
+.sdws-painting-overlay__price--sold {
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.sdws-painting-card__sold-badge {
+	position: absolute;
+	top: 0.5rem;
+	left: 0.5rem;
+	background: var(--color-black);
+	color: var(--color-white);
+	font-size: 0.65rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	padding: 0.25em 0.6em;
+	z-index: 2;
+	pointer-events: none;
+}
+
 .sdws-painting-overlay__icon {
 	position: absolute;
 	top: 0.5rem;
@@ -847,7 +868,27 @@ body.lightbox-is-open {
 	margin: 0;
 }
 
-.sdws-paypal-form {
+.sdws-paypal-btn-wrap {
+	margin: 0;
+	max-width: 320px;
+}
+
+.sdws-painting-sold-badge {
+	display: inline-block;
+	background: var(--color-black);
+	color: var(--color-white);
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	padding: 0.4em 0.9em;
+	margin: 0;
+}
+
+.sdws-paypal-success {
+	font-size: 0.95rem;
+	color: #2a7a4a;
+	font-weight: 600;
 	margin: 0;
 }
 

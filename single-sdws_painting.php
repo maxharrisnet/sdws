@@ -16,7 +16,8 @@ while (have_posts()) : the_post();
   $medium       = $gf ? get_field('painting_medium')      : get_post_meta(get_the_ID(), 'painting_medium', true);
   $price        = $gf ? get_field('painting_price')       : get_post_meta(get_the_ID(), 'painting_price', true);
   $description  = $gf ? get_field('painting_description') : get_post_meta(get_the_ID(), 'painting_description', true);
-  $paypal_email = $gf ? get_field('sdws_paypal_email', 'option') : '';
+  $paypal_client_id = $gf ? get_field('sdws_paypal_client_id', 'option') : '';
+  $sold             = $gf ? (bool) get_field('painting_sold') : false;
 
   $gallery_url  = home_url('/gallery/');
 ?>
@@ -80,10 +81,11 @@ while (have_posts()) : the_post();
             <?php endif; ?>
 
             <?php get_template_part('template-parts/components/paypal-buy-btn', null, array(
-              'price'        => $price,
-              'title'        => get_the_title(),
-              'artist'       => $artist,
-              'paypal_email' => $paypal_email,
+              'price'           => $price,
+              'title'           => get_the_title(),
+              'artist'          => $artist,
+              'paypal_client_id' => $paypal_client_id,
+              'sold'            => $sold,
             )); ?>
 
             <a href="<?php echo esc_url($gallery_url); ?>" class="sdws-painting-single__back">

@@ -20,7 +20,7 @@ $content_above  = $has_acf ? (get_field('gallery_content_above') ?: '') : '';
 $content_below  = $has_acf ? (get_field('gallery_content_below') ?: '') : '';
 $page_title     = $has_acf ? (get_field('gallery_page_title')    ?: 'Gallery') : 'Gallery';
 $page_caption   = $has_acf ? (get_field('gallery_page_caption')  ?: 'Works by SDWS members') : 'Works by SDWS members';
-$paypal_email   = $has_acf ? (get_field('sdws_paypal_email', 'option') ?: '') : '';
+$paypal_client_id = $has_acf ? (get_field('sdws_paypal_client_id', 'option') ?: '') : '';
 
 $paintings = new WP_Query(array(
   'post_type'      => 'sdws_painting',
@@ -76,10 +76,11 @@ $paintings = new WP_Query(array(
             $medium        = $has_acf ? (get_field('painting_medium',      $painting_id) ?: '') : '';
             $price         = $has_acf ? (get_field('painting_price',       $painting_id) ?: 0)  : 0;
             $description   = $has_acf ? (get_field('painting_description', $painting_id) ?: '') : '';
+            $sold          = $has_acf ? (bool) get_field('painting_sold',  $painting_id) : false;
             $painting_url  = get_permalink($painting_id);
             $full_src      = get_the_post_thumbnail_url($painting_id, 'large');
             $full_url      = $full_src ?: '';
-            $price_display = $price ? '$' . number_format(floatval($price), 0, '.', ',') : '';
+            $price_display = $sold ? 'SOLD' : ($price ? '$' . number_format(floatval($price), 0, '.', ',') : '');
           ?>
             <div class="sdws-gallery-grid__item" data-gallery-index="<?php echo (int) $gi; ?>" role="listitem">
               <a class="sdws-gallery-grid__link sdws-painting-card"
@@ -92,7 +93,8 @@ $paintings = new WP_Query(array(
                  data-painting-medium="<?php echo esc_attr($medium); ?>"
                  data-painting-price="<?php echo esc_attr($price); ?>"
                  data-painting-description="<?php echo esc_attr($description); ?>"
-                 data-painting-paypal-email="<?php echo esc_attr($paypal_email); ?>"
+                 data-painting-paypal-client-id="<?php echo esc_attr($paypal_client_id); ?>"
+                 data-painting-sold="<?php echo $sold ? '1' : '0'; ?>"
                  data-painting-url="<?php echo esc_url($painting_url); ?>"
                  aria-label="<?php echo esc_attr(sprintf('View %s', $painting_title)); ?>">
 
@@ -109,9 +111,15 @@ $paintings = new WP_Query(array(
                     <div class="sdws-painting-card__placeholder sdws-img-square"></div>
                   <?php endif; ?>
 
+                  <?php if ($sold) : ?>
+                    <div class="sdws-painting-card__sold-badge" aria-label="Sold">SOLD</div>
+                  <?php endif; ?>
+
                   <div class="sdws-painting-overlay" aria-hidden="true">
                     <span class="sdws-painting-overlay__title"><?php echo esc_html($painting_title); ?></span>
-                    <?php if ($price_display) : ?>
+                    <?php if ($sold) : ?>
+                      <span class="sdws-painting-overlay__price sdws-painting-overlay__price--sold">SOLD</span>
+                    <?php elseif ($price_display) : ?>
                       <span class="sdws-painting-overlay__price"><?php echo esc_html($price_display); ?></span>
                     <?php else : ?>
                       <span class="sdws-painting-overlay__price sdws-painting-overlay__price--contact">Contact for pricing</span>

@@ -474,46 +474,62 @@
 			}
 
 			var price = parseFloat(item.paintingPrice);
-			if (item.paintingPaypalEmail && price > 0) {
+			if (item.paintingSold) {
+				var soldEl = document.createElement('p');
+				soldEl.className = 'sdws-painting-sold-badge';
+				soldEl.textContent = 'SOLD';
+				panel.appendChild(soldEl);
+				focusable = [closeBtn, prevBtn, nextBtn];
+			} else if (item.paintingPaypalClientId && price > 0) {
 				var priceEl = document.createElement('p');
 				priceEl.className = 'sdws-painting-price';
 				priceEl.textContent = '$' + price.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
 				panel.appendChild(priceEl);
 
+				var btnWrapId = 'sdws-lb-paypal-' + Date.now();
+				var btnWrap = document.createElement('div');
+				btnWrap.id = btnWrapId;
+				btnWrap.className = 'sdws-paypal-btn-wrap';
+				panel.appendChild(btnWrap);
+
 				var itemName = item.paintingTitle + (item.paintingArtist ? ' by ' + item.paintingArtist : '');
-				var form = document.createElement('form');
-				form.action  = 'https://www.paypal.com/cgi-bin/webscr';
-				form.method  = 'post';
-				form.target  = '_blank';
-				form.className = 'sdws-paypal-form';
+				var capturePrice = price.toFixed(2);
 
-				var fields = {
-					cmd: '_xclick',
-					business: item.paintingPaypalEmail,
-					item_name: itemName,
-					amount: price.toFixed(2),
-					currency_code: 'USD',
-					no_shipping: '1',
-				};
-				Object.keys(fields).forEach(function (name) {
-					var input = document.createElement('input');
-					input.type  = 'hidden';
-					input.name  = name;
-					input.value = fields[name];
-					form.appendChild(input);
-				});
+				(function (containerId, name, amount) {
+					function tryRender() {
+						if (typeof paypal === 'undefined' || !paypal.Buttons) {
+							setTimeout(tryRender, 100);
+							return;
+						}
+						paypal.Buttons({
+							style: { layout: 'horizontal', color: 'blue', shape: 'rect', label: 'buynow', tagline: false },
+							createOrder: function (data, actions) {
+								return actions.order.create({
+									purchase_units: [{ description: name, amount: { value: amount, currency_code: 'USD' } }],
+								});
+							},
+							onApprove: function (data, actions) {
+								return actions.order.capture().then(function () {
+									var wrap = document.getElementById(containerId);
+									if (wrap) {
+										var msg = document.createElement('p');
+										msg.className = 'sdws-paypal-success';
+										msg.textContent = "Thank you! Your payment was received. We'll be in touch shortly.";
+										wrap.textContent = '';
+										wrap.appendChild(msg);
+									}
+								});
+							},
+						}).render('#' + containerId);
+					}
+					tryRender();
+				}(btnWrapId, itemName, capturePrice));
 
-				var buyBtn = document.createElement('button');
-				buyBtn.type = 'submit';
-				buyBtn.className = 'sdws-btn sdws-btn--teal';
-				buyBtn.textContent = 'Buy Now — $' + price.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
-				form.appendChild(buyBtn);
-				panel.appendChild(form);
-				focusable = [closeBtn, prevBtn, nextBtn, buyBtn];
-			} else if (!price || !item.paintingPaypalEmail) {
+				focusable = [closeBtn, prevBtn, nextBtn];
+			} else {
 				var noPriceEl = document.createElement('p');
 				noPriceEl.className = 'sdws-painting-no-price';
-				noPriceEl.textContent = item.paintingPaypalEmail ? 'Contact for pricing' : 'Contact to purchase';
+				noPriceEl.textContent = item.paintingPaypalClientId ? 'Contact for pricing' : 'Contact to purchase';
 				panel.appendChild(noPriceEl);
 				focusable = [closeBtn, prevBtn, nextBtn];
 			}
@@ -579,7 +595,8 @@
 						paintingMedium:         t.getAttribute('data-painting-medium') || '',
 						paintingPrice:          t.getAttribute('data-painting-price') || '',
 						paintingDescription:    t.getAttribute('data-painting-description') || '',
-						paintingPaypalEmail:    t.getAttribute('data-painting-paypal-email') || '',
+						paintingPaypalClientId: t.getAttribute('data-painting-paypal-client-id') || '',
+						paintingSold:           t.getAttribute('data-painting-sold') === '1',
 						paintingUrl:            t.getAttribute('data-painting-url') || '',
 					};
 				});

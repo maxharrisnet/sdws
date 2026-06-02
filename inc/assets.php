@@ -96,6 +96,31 @@ function starter_coat_enqueue_google_fonts()
 add_action('wp_enqueue_scripts', 'starter_coat_enqueue_google_fonts');
 
 /**
+ * Enqueue PayPal JS SDK on single painting pages.
+ */
+function sdws_enqueue_paypal_sdk() {
+  $is_painting_page = is_singular('sdws_painting') || (is_page() && get_page_template_slug() === 'page-gallery.php');
+  if (! $is_painting_page) {
+    return;
+  }
+
+  $client_id = function_exists('get_field') ? get_field('sdws_paypal_client_id', 'option') : '';
+
+  if (! $client_id) {
+    return;
+  }
+
+  $sdk_url = add_query_arg(array(
+    'client-id' => rawurlencode($client_id),
+    'currency'  => 'USD',
+    'intent'    => 'capture',
+  ), 'https://www.paypal.com/sdk/js');
+
+  wp_enqueue_script('paypal-sdk', $sdk_url, array(), null, true);
+}
+add_action('wp_enqueue_scripts', 'sdws_enqueue_paypal_sdk');
+
+/**
  * Add preconnect hints for Google Fonts.
  */
 function starter_coat_google_fonts_preconnect()
